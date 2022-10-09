@@ -1,0 +1,3 @@
+interface RegisterRequestModel {
+    nickname: string
+}
