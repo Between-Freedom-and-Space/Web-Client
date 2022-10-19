@@ -5,6 +5,7 @@ All configuration data and properties are in `.env` [file](./.env.test).
 
 
 ## Features:
+* React.ts, Redux
 
 ## Git Flow:
 
