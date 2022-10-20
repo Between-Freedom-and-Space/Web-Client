@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2513b5c4-d3fd-47f9-9483-18c3536d9a32" name="Default Changelist" comment="added valid Dockerfile">
+    <list default="true" id="2513b5c4-d3fd-47f9-9483-18c3536d9a32" name="Default Changelist" comment="updated README.md">
+      <change afterPath="$PROJECT_DIR$/src/common/components/fail-status-page/fail-status-page.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/components/fail-status-page/fail-status-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/components/fail-status-page/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/global.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/api/auth-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/api/auth-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/components/sign-in/sign-in.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/components/sign-in/sign-in.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/components/sign-up/sign-up.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/components/sign-up/sign-up.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apps/auth/domain/model/register-request.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apps/auth/domain/model/register-request.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/helpers/data-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/helpers/data-helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entry/entry.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/entry/entry.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -26,6 +37,11 @@
     <option name="NEW_BASE" value="origin/main" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -75,7 +91,7 @@
       <recent name="$PROJECT_DIR$/" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Dockerfile">
+  <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Tests (Web-Client)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <working-directory value="$PROJECT_DIR$" />
@@ -84,14 +100,6 @@
       <method v="2" />
     </configuration>
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
-      <method v="2" />
-    </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="Angular CLI Server" type="js.build_tools.npm">
@@ -116,8 +124,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="npm.watch" />
         <item itemvalue="npm.watch" />
       </list>
     </recent_temporary>
@@ -135,6 +141,7 @@
       <workItem from="1665258593673" duration="1460000" />
       <workItem from="1665340648560" duration="946000" />
       <workItem from="1665342302667" duration="2183000" />
+      <workItem from="1666211060148" duration="7043000" />
     </task>
     <task id="LOCAL-00001" summary="init base structure">
       <created>1664903276493</created>
@@ -157,21 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665344468870</updated>
     </task>
-    <task id="LOCAL-00004" summary="added k8s deployments">
-      <created>1666441665008</created>
+    <task id="LOCAL-00004" summary="updated README.md">
+      <created>1666211105402</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1666441665008</updated>
+      <updated>1666211105402</updated>
     </task>
-    <task id="LOCAL-00005" summary="added valid Dockerfile">
-      <created>1666442823256</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1666442823256</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,8 +194,7 @@
     <MESSAGE value="init base structure" />
     <MESSAGE value="moved to react.ts" />
     <MESSAGE value="added structure" />
-    <MESSAGE value="added k8s deployments" />
-    <MESSAGE value="added valid Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="added valid Dockerfile" />
+    <MESSAGE value="updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated README.md" />
   </component>
 </project>
