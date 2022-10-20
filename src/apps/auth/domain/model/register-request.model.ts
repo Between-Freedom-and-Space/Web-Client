@@ -1,3 +1,3 @@
-interface RegisterRequestModel {
+export interface RegisterRequestModel {
     nickname: string
 }

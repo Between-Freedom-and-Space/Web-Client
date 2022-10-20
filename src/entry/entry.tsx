@@ -1,11 +1,11 @@
 import React from 'react';
-import './app.css';
+import FailStatusPage from '../common/components/fail-status-page/fail-status-page';
+import { FailType } from '../common/components/fail-status-page/types';
+import './entry.css';
 
 function Entry() {
   return (
-    <div className="App">
-      <h1>Between Freedom and Space</h1>
-    </div>
+      <FailStatusPage failType={FailType.ServiceUnavalible}/>
   );
 }
 
