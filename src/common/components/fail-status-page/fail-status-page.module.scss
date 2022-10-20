@@ -7,19 +7,20 @@
   height: 100vh;
 }
 
-.statusCode {
-  color: #3F22A8;
+.statusCode,
+.statusName {
   font-size: 70px;
+  line-height: 70px;
   font-style: normal;
   font-weight: 700;
 }
 
+.statusCode {
+  color: #3F22A8;
+}
+
 .statusName {
   color: #000000;
-  font-size: 70px;
-  font-style: normal;
-  font-weight: 700;
-  margin-top: -15px;
 }
 
 .statusDescription {
