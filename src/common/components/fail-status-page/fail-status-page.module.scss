@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.statusCode {
+  color: #3F22A8;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.statusName {
+  color: #000000;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: -15px;
+}
+
+.statusDescription {
+  color: #898C95;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 20px;
+}
