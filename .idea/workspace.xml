@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2513b5c4-d3fd-47f9-9483-18c3536d9a32" name="Default Changelist" comment="added k8s deployments">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+    <list default="true" id="2513b5c4-d3fd-47f9-9483-18c3536d9a32" name="Default Changelist" comment="added valid Dockerfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666441665008</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added valid Dockerfile">
+      <created>1666442823256</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666442823256</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +195,7 @@
     <MESSAGE value="moved to react.ts" />
     <MESSAGE value="added structure" />
     <MESSAGE value="added k8s deployments" />
-    <option name="LAST_COMMIT_MESSAGE" value="added k8s deployments" />
+    <MESSAGE value="added valid Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="added valid Dockerfile" />
   </component>
 </project>
