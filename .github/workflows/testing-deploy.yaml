@@ -1,4 +1,4 @@
-name: Deploy Web-Backend-Facade to testing stage
+name: Deploy Web-Client to testing stage
 
 on:
   workflow_dispatch:
