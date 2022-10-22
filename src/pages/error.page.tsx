@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Page from '../apps/page/page';
-import Header from '../common/components/header/header';
 
 import {Link} from 'react-router-dom';
 
