@@ -65,7 +65,7 @@ jobs:
           sed -i 's|$REGISTRY_ID|crpp4a802h6om9om40b4|g' ./k8s/deployment.testing.yaml
           sed -i 's|$REPOSITORY_NAME|web-client|g' ./k8s/deployment.testing.yaml
           sed -i 's|$IMAGE_TAG|${{ github.event.inputs.release-version }}|g' ./k8s/deployment.testing.yaml
-          sed -i "s|{{MONO_BACKEND_URL}}|$ENV_BACKEND_URL|g" ./k8s/deployment.testing.yaml
+          sed -i "s|{{BACKEND_URL}}|$ENV_BACKEND_URL|g" ./k8s/deployment.testing.yaml
           sed -i "s|{{STAGE}}|$ENV_STAGE|g" ./k8s/deployment.testing.yaml
 
       - name: Deploy to k8s
