@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "lint": "react-scripts lint",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "env": "cp .env.test .env"
   },
   "eslintConfig": {
     "extends": [
