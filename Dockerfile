@@ -6,10 +6,11 @@ WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 
-RUN npm run env
 RUN npm install
 # Copy app files
 COPY . .
+
+RUN npm run env
 # Expose port
 EXPOSE 3000
 # Start the app
