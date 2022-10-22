@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2513b5c4-d3fd-47f9-9483-18c3536d9a32" name="Default Changelist" comment="added fail status page component realisation">
-      <change afterPath="$PROJECT_DIR$/k8s/deployment.production.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k8s/deployment.testing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
+    <list default="true" id="2513b5c4-d3fd-47f9-9483-18c3536d9a32" name="Default Changelist" comment="added k8s deployments">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
       <recent name="$PROJECT_DIR$/" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server">
+  <component name="RunManager" selected="Docker.Dockerfile">
     <configuration name="Tests (Web-Client)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <working-directory value="$PROJECT_DIR$" />
@@ -86,6 +85,14 @@
       <method v="2" />
     </configuration>
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="Angular CLI Server" type="js.build_tools.npm">
@@ -110,6 +117,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="npm.watch" />
         <item itemvalue="npm.watch" />
       </list>
@@ -150,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665344468870</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added k8s deployments">
+      <created>1666441665008</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666441665008</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +188,7 @@
     <MESSAGE value="init base structure" />
     <MESSAGE value="moved to react.ts" />
     <MESSAGE value="added structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="added structure" />
+    <MESSAGE value="added k8s deployments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added k8s deployments" />
   </component>
 </project>
