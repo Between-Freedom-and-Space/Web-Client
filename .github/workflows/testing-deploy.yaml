@@ -1,1 +1,76 @@
+name: Deploy Web-Backend-Facade to testing stage
 
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Deploy Implementer'
+        default: 'World'
+        required: true
+      release-version:
+        description: 'Release version number'
+        required: true
+      ticket:
+        description: 'Release ticket number in tracker'
+        default: 'Without ticket'
+        required: false
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send greeting
+        run: echo "Hello ${{ github.event.inputs.name }}"
+      - name: Show deploy ticket
+        run: echo "Deploy ticket ${{ github.event.inputs.name }}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    environment: testing
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to Yandex Cloud Container Registry
+        id: login-cr
+        uses: yc-actions/yc-cr-login@v1
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+
+      - name: Build docker image
+        env:
+          CR_REGISTRY: crpp4a802h6om9om40b4
+          CR_REPOSITORY: web-client
+          IMAGE_TAG: ${{ github.event.inputs.release-version }}
+        run: docker build . --file Dockerfile --tag cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
+
+      - name: Push docker image to Yandex.Cloud registry
+        env:
+          CR_REGISTRY: crpp4a802h6om9om40b4
+          CR_REPOSITORY: web-client
+          IMAGE_TAG: ${{ github.event.inputs.release-version }}
+        run: docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
+
+      - name: Wait untill Yandex.Cloud process new docker image
+        uses: jakejarvis/wait-action@v0.1.1
+        with:
+          time: '30s'
+
+      - name: Substitute the real value of variables
+        env:
+          ENV_BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          ENV_STAGE: TESTING
+        run: |
+          sed -i 's|$REGISTRY_ID|crpp4a802h6om9om40b4|g' ./k8s/deployment.testing.yaml
+          sed -i 's|$REPOSITORY_NAME|web-client|g' ./k8s/deployment.testing.yaml
+          sed -i 's|$IMAGE_TAG|${{ github.event.inputs.release-version }}|g' ./k8s/deployment.testing.yaml
+          sed -i "s|{{MONO_BACKEND_URL}}|$ENV_BACKEND_URL|g" ./k8s/deployment.testing.yaml
+          sed -i "s|{{STAGE}}|$ENV_STAGE|g" ./k8s/deployment.testing.yaml
+
+      - name: Deploy to k8s
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.TESTING_K8S_CONFIG }}
+        with:
+          args: apply -f ./k8s/deployment.testing.yaml
