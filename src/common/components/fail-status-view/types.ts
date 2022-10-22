@@ -8,7 +8,3 @@ export enum FailType {
     BadGateway = 502,
     ServiceUnavalible = 503
 }
-
-export interface FailStatusPageProps {
-    readonly failType: FailType
-}

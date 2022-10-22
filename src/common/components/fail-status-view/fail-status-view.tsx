@@ -1,9 +1,15 @@
 import React from 'react';
-import {FailStatusPageProps, FailType} from "./types";
-import styles from './fail-status-view.module.scss';
-import allFails from './assets/available-fails.json'
 
-function FailStatusView(props: FailStatusPageProps) {
+import {FailType} from "./types";
+import allFails from './assets/available-fails.json';
+
+import styles from './fail-status-view.module.scss';
+
+type Props = {
+    failType: FailType
+}
+
+function FailStatusView(props: Props) {
     const failType = FailType[props.failType] || FailType[FailType.BadRequest]
     const targetFail = (allFails as any)[failType]
     return (

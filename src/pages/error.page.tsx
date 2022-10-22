@@ -6,15 +6,15 @@ import FailStatusView from "../common/components/fail-status-view/fail-status-vi
 import {FailType} from "../common/components/fail-status-view/types";
 
 function ErrorPage() {
-  if (process.env.NODE_ENV !== 'development') {
-    return <FailStatusView failType={FailType.ServiceUnavalible}/>
-  }
+    if (process.env.NODE_ENV !== 'development') {
+        return <FailStatusView failType={FailType.ServiceUnavalible}/>
+    }
 
-  return (
-    <Page>
-      <FailStatusView failType={FailType.ServiceUnavalible}/>
-    </Page>
-  );
+    return (
+        <Page>
+            <FailStatusView failType={FailType.ServiceUnavalible}/>
+        </Page>
+    );
 }
 
 export default ErrorPage;
