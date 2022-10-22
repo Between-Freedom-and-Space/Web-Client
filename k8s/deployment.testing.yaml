@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-client-deployment
+  labels:
+    app: web-client
+    owner: Ferum-bot
+    tier: frontend
+    stage: testing
+    infrastructure: js
+  namespace: default
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: web-client-application
+      stage: testing
+  template:
+    metadata:
+      labels:
+        app: web-client-application
+        stage: testing
+    spec:
+      containers:
+        - name: web-client-container
+          image: cr.yandex/$REGISTRY_ID/$REPOSITORY_NAME:$IMAGE_TAG
+          ports:
+            - containerPort: 3000
+              hostPort: 3000
+          env:
+            - name: STAGE
+              value: {{STAGE}}
+            - name: BACKEND_URL
+              value: {{BACKEND_URL}}
