@@ -4,39 +4,39 @@
     "name": "Bad Request",
     "description": "Your client has issued a malformed or illegal request. Thats all we know."
   },
-  "": {
+  "Unauthorized": {
     "code": 401,
     "name": "Unauthorized",
     "description": "Access to denied due to invalid credentials."
   },
-{
-  "code": 403,
-  "name": "Forbidden",
-  "description": "You don’t have a permission to access on this server."
-},
-{
-"code": 404,
-"name": "Not Found",
-"description": "The page you are looking for might have been removed, had its name changed, or temporarily unavaliable."
-},
-{
-"code": 500,
-"name": "Internal Server Error",
-"description": "The server encountered an internal error or miscognification and was unable to complete your request."
-},
-{
-"code": 501,
-"name": "Not Implemented",
-"description": "The sever either does not recognize the request method, ot it lacks the ability to fulfill the request."
-},
-{
-"code": 502,
-"name": "Bad Gateway",
-"description": "The web server reported a bad gateway error."
-},
-{
-"code": 503,
-"name": "Service Unavalible",
-"description": "The service is temproraily unavaliable. Please check back shortly."
-}
+  "Forbidden": {
+    "code": 403,
+    "name": "Forbidden",
+    "description": "You don’t have a permission to access on this server."
+  },
+  "NotFound": {
+    "code": 404,
+    "name": "Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or temporarily unavaliable."
+  },
+  "InternalServerError": {
+    "code": 500,
+    "name": "Internal Server Error",
+    "description": "The server encountered an internal error or miscognification and was unable to complete your request."
+  },
+  "NotImplemented": {
+    "code": 501,
+    "name": "Not Implemented",
+    "description": "The sever either does not recognize the request method, ot it lacks the ability to fulfill the request."
+  },
+  "BadGateway": {
+    "code": 502,
+    "name": "Bad Gateway",
+    "description": "The web server reported a bad gateway error."
+  },
+  "ServiceUnavalible": {
+    "code": 503,
+    "name": "Service Unavalible",
+    "description": "The service is temproraily unavaliable. Please check back shortly."
+  }
 }
