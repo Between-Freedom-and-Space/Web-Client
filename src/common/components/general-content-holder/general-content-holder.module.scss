@@ -1,3 +1,7 @@
-.generalContainer {
+.generalContainer[data-fill='full'] {
   min-height: 80vh;
+}
+
+.generalContainer[data-fill='available'] {
+  height: 85vh;
 }
