@@ -1,25 +1,50 @@
 .footerContainer {
   background: #F6F9FA;
   border: 1px solid #D1D7DD;
-  height: 10vh;
+  height: 15vh;
+  max-height: 15vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .companyContainer {
-
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 30vw;
 }
 
 .companyIcon {
-
+  height: 25px;
+  width: 25px;
+  margin: 5px;
 }
 
 .companyName {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
 
+  color: #898C95;
 }
 
 .linksContainer {
-
+  display: flex;
+  width: 40vw;
+  height: 60%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin: auto 0;
 }
 
 .linkName {
-
+  color: #898C95;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  padding-top: 5px;
+  text-decoration: none;
 }

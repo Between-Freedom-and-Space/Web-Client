@@ -1,36 +1,25 @@
 import React from 'react';
 
+import avaliableLinks from "./assets/available-links.json";
+import icon from "./assets/favicon.ico";
+import { FooterLink } from './types';
+
 import styles from './footer.module.scss';
 
-type Props = {
-    staticPages: Array<{
-        name: string
-        link: string
-    }>
-}
-
-function Footer(props?: Props) {
-    if (props == undefined || props == null) {
-        props = {
-            staticPages: Array.from([
-                {
-                    name: "test1",
-                    link: "link1"
-                }
-            ])
-        }
-    }
-    const links = props!.staticPages.map((page) => {
-        return <div></div>
+function Footer() {
+    const companyName = `©${new Date().getFullYear()}, Between Freedom and Space, Inc`
+    const links = avaliableLinks.links as FooterLink[]
+    const footerLinks = links.map((link) => {
+        return <a className={styles.linkName} href={link.value}>{link.alias}</a>
     })
+
     return (
         <footer className={styles.footerContainer}>
             <div className={styles.companyContainer}>
-
+                <img className={styles.companyIcon} src={icon}/>
+                <p className={styles.companyName}>{companyName}</p>
             </div>
-            <div className={styles.linksContainer}>
-                {links}
-            </div>
+            <div className={styles.linksContainer}>{footerLinks}</div>
         </footer>
     );
 }
