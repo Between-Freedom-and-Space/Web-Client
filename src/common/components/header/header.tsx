@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from './header.module.scss';
+
 function Header() {
     return (
-        <header>
+        <header className={styles.headerContainer}>
             <h1>Between Freedom and Space</h1>
         </header>
     );

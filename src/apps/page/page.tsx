@@ -15,7 +15,7 @@ function Page({children}: Props) {
             <GeneralContentHolder>
                 {children}
             </GeneralContentHolder>
-            <Footer/>
+            <Footer staticPages={Array.from([])}/>
         </div>
     );
 }
