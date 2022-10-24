@@ -1,10 +1,12 @@
 import React, {ReactNode} from "react";
 
+import styles from './general-content-holder.module.scss';
+
 type Props = { children?: ReactNode }
 
 function GeneralContentHolder({children}: Props) {
     return (
-        <main>
+        <main className={styles.generalContainer}>
             {children}
         </main>
     );
