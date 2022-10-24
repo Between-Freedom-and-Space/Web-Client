@@ -16,7 +16,7 @@ function Footer() {
     return (
         <footer className={styles.footerContainer}>
             <div className={styles.companyContainer}>
-                <img className={styles.companyIcon} src={icon}/>
+                <img className={styles.companyIcon} src={icon} alt="Company Icon"/>
                 <p className={styles.companyName}>{companyName}</p>
             </div>
             <div className={styles.linksContainer}>{footerLinks}</div>
