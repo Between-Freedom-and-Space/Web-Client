@@ -1,9 +1,14 @@
 import React, {ReactNode} from 'react';
 
 import {HeaderMode} from "./types";
-import icon from "./assets/favicon.ico";
+import CompanyLogo from "./company-logo/company-logo";
+
+import Button from "../ui-kit/button/button";
+import {ButtonType} from "../ui-kit/button/types";
+import HeaderProfileControls from "./profile-controls/header-profile-controls";
 
 import styles from './header.module.scss';
+import SearchInput from "../ui-kit/inputs/search/search-input";
 
 type Props = {
     mode: HeaderMode
@@ -18,30 +23,20 @@ function Header({mode}: Props) {
     );
 }
 
-export default Header;
-
 function buildHeaderContent(mode: HeaderMode): ReactNode {
-    const companyName = "Between Freedom and Space"
+    const logo = <CompanyLogo />
+    const search = <SearchInput />
+    const signUp = <Button type={ButtonType.PRIMARY} text="Sign Up" onClick={() => {}} />
+    const profileControls = <HeaderProfileControls />
 
     switch (mode) {
         case HeaderMode.ONLY_LOGO:
-            return (
-                <div className={styles.logoContainer}>
-                    <img className={styles.companyIcon} src={icon} alt="Company Icon"/>
-                    <div className={styles.companyName}>{companyName}</div>
-                </div>
-            );
+            return logo;
         case HeaderMode.AUTHORIZED:
-            return (
-                <div>
-
-                </div>
-            );
+            return [logo, search, signUp];
         case HeaderMode.NOT_AUTHORIZED:
-            return (
-                <div>
-
-                </div>
-            );
+            return [logo, search, profileControls]
     }
 }
+
+export default Header;
