@@ -1,17 +1,14 @@
 import React, {ReactNode} from "react";
 
-import { PageMode } from "../../../apps/page/types";
-
 import styles from './general-content-holder.module.scss';
 
 type Props = {
     children?: ReactNode
-    mode: PageMode
 }
 
-function GeneralContentHolder({ children, mode }: Props) {
+function GeneralContentHolder({children}: Props) {
     return (
-        <main className={styles.generalContainer} data-fill={mode}>
+        <main className={styles.generalContainer}>
             {children}
         </main>
     );

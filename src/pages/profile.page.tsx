@@ -3,13 +3,12 @@ import React from 'react'
 import Page from '../apps/page/page';
 
 import {useParams} from 'react-router-dom';
-import { PageMode } from '../apps/page/types';
 
 function ProfilePage() {
     const {uid} = useParams()
 
     return (
-        <Page mode={PageMode.FILL_FULL}>
+        <Page>
             <div> Profile id {uid} </div>
         </Page>
     );
