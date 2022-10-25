@@ -37,6 +37,6 @@
   "ServiceUnavalible": {
     "code": 503,
     "name": "Service Unavalible",
-    "description": "The service is temproraily unavaliable. Please check back shortly."
+    "description": "The service is temporarily unavaliable. Please check back shortly."
   }
 }
