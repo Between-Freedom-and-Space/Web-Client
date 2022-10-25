@@ -1,5 +1,4 @@
 import {ButtonCustomConfiguration, ButtonType} from "./types";
-import {ReactNode} from "react";
 
 type Props = {
     type: ButtonType
