@@ -1,3 +1,45 @@
 .headerContainer {
-  height: 10vh;
+  height: 7vh;
+  background: #25292E;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20vw;
+  margin-left: 15px;
+}
+
+.tabsContainer {
+
+}
+
+.searchContainer {
+
+}
+
+.signUpContainer {
+
+}
+
+.profileContainer {
+
+}
+
+.companyIcon {
+  height: 45px;
+  width: 45px;
+}
+
+.companyName {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 10px;
+
+  color: #C8CACC;
 }
