@@ -1,0 +1,21 @@
+.companyContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20vw;
+  margin-left: 15px;
+}
+
+.companyIcon {
+  height: 45px;
+  width: 45px;
+}
+
+.companyName {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 10px;
+
+  color: #C8CACC;
+}
