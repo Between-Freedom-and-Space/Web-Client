@@ -5,7 +5,8 @@ import Footer from '../../common/components/footer/footer';
 import GeneralContentHolder from '../../common/components/general-content-holder/general-content-holder';
 
 import styles from './page.module.css';
-import { PageMode } from './types';
+import {PageMode} from './types';
+import {HeaderMode} from "../../common/components/header/types";
 
 type Props = {
     children?: ReactNode
@@ -15,11 +16,7 @@ type Props = {
 function Page({children, mode}: Props) {
     return (
         <div className={styles.pageContainer}>
-            {
-                window.localStorage.getItem("MODE") === "development"
-                    ? <Header />
-                    : null
-            }
+            <Header mode={HeaderMode.ONLY_LOGO}/>
             <GeneralContentHolder mode={mode}>
                 {children}
             </GeneralContentHolder>
