@@ -37,7 +37,7 @@ All configuration data and properties are in `.env` [file](./.env.test).
 ### Release to testing stage:
 * At any moment you can deploy application to testing stage
 * Open GitHub actions and chose `Deploy Web-Client to testing stage`
-* Click `Run workflow`, input all required data and waite approve
+* Click `Run workflow`, input all required data and wait approve
 * Wait release flow end
 
 ### Release to production stage:
