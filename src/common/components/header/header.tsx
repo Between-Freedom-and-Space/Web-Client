@@ -36,6 +36,8 @@ function buildHeaderContent(mode: HeaderMode): ReactNode {
             return [logo, search, signUp];
         case HeaderMode.NOT_AUTHORIZED:
             return [logo, search, profileControls]
+        default:
+            return logo;
     }
 }
 

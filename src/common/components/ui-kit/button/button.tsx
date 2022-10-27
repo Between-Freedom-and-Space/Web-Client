@@ -8,9 +8,11 @@ type Props = {
 }
 
 function Button(props: Props) {
-    return <button>
+    return (
+        <button>
 
-    </button>
+        </button>
+    )
 }
 
 export default Button;
