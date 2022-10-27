@@ -1,7 +1,9 @@
 function PlainInput() {
-    return <div>
+    return (
+        <div>
 
-    </div>
+        </div>
+    )
 }
 
 export default PlainInput;
