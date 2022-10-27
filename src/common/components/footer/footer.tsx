@@ -1,14 +1,15 @@
 import React from 'react';
 
-import avaliableLinks from "./assets/available-links.json";
+import availableLinks from "./assets/available-links.json";
+import config from "../../assets/config.json";
 import icon from "./assets/favicon.ico";
 import { FooterLink } from './types';
 
 import styles from './footer.module.scss';
 
 function Footer() {
-    const companyName = `©${new Date().getFullYear()}, Between Freedom and Space, Inc`
-    const links = avaliableLinks.links as FooterLink[]
+    const companyName = `©${new Date().getFullYear()}, ${config.companyName}, Inc`
+    const links = availableLinks.links as FooterLink[]
     const footerLinks = links.map((link) => {
         return <a className={styles.linkName} href={link.value}>{link.alias}</a>
     })

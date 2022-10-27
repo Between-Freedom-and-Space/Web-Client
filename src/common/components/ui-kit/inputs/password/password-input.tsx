@@ -1,7 +1,9 @@
 function PasswordInput() {
-    return <div>
+    return (
+        <div>
 
-    </div>
+        </div>
+    )
 }
 
 export default PasswordInput;
