@@ -1,5 +1,4 @@
-import classnames from 'classnames';
-import React, { ReactNode } from 'react'
+import React from 'react'
 import Page from "../../apps/page/page";
 import Button from '../../common/components/ui-kit/button/button';
 import { ButtonType } from '../../common/components/ui-kit/button/types';
