@@ -25,6 +25,21 @@ function HomePage() {
                         Danger Button
                     </Button>
                 </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.SECONDARY}>
+                        Follow
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.PRIMARY}>
+                        Follow
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.PRIMARY}>
+                        Sign Up
+                    </Button>
+                </div>
             </div>
         </Page>
     )
