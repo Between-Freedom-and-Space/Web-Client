@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import './entry.css';
 
-import HomePage from '../pages/home.page';
-import ProfilePage from '../pages/profile.page';
-import ErrorPage from '../pages/error.page';
+import HomePage from '../pages/home/home.page';
+import ProfilePage from '../pages/profile/profile.page';
+import ErrorPage from '../pages/error/error.page';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 function Entry() {
@@ -30,6 +30,7 @@ function Entry() {
         <BrowserRouter>
             <Routes>
                 <Route index path='/' element={<ErrorPage/>}/>
+                <Route path='/buttons' element={<HomePage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
