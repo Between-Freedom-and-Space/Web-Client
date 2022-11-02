@@ -9,8 +9,8 @@ function ProfilePage () {
 
   return (
         <Page>
-            <div> Profile id {uid} </div>
-        </Page>
+          <div> Profile id {uid} </div>
+      </Page>
   )
 }
 

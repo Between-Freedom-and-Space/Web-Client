@@ -12,9 +12,14 @@ interface Props {
 
 function Button (props: Props) {
   return (
-        <button className={styles.button} onClick={props.onClick} onDoubleClick={props.onDoubleClick} data-type={props.type}>
-            {props.children}
-        </button>
+        <button
+          className={styles.button}
+          onClick={props.onClick}
+          onDoubleClick={props.onDoubleClick}
+          data-type={props.type}
+        >
+          {props.children}
+      </button>
   )
 }
 
