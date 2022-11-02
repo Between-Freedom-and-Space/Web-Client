@@ -1,17 +1,17 @@
-import React, {ReactNode} from "react";
+import React, { ReactNode } from 'react'
 
-import styles from './general-content-holder.module.scss';
+import styles from './general-content-holder.module.scss'
 
-type Props = {
-    children?: ReactNode
+interface Props {
+  children?: ReactNode
 }
 
-function GeneralContentHolder({children}: Props) {
-    return (
+function GeneralContentHolder ({ children }: Props) {
+  return (
         <main className={styles.generalContainer}>
             {children}
         </main>
-    );
+  )
 }
 
-export default GeneralContentHolder;
+export default GeneralContentHolder

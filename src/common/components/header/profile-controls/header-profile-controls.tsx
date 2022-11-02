@@ -1,7 +1,7 @@
-function HeaderProfileControls() {
-    return <div>
+function HeaderProfileControls () {
+  return <div>
 
     </div>
 }
 
-export default HeaderProfileControls;
+export default HeaderProfileControls
