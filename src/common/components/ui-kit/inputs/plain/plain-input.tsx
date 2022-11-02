@@ -1,9 +1,9 @@
-function PlainInput() {
-    return (
+function PlainInput () {
+  return (
         <div>
 
         </div>
-    )
+  )
 }
 
-export default PlainInput;
+export default PlainInput

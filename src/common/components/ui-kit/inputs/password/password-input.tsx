@@ -1,9 +1,9 @@
-function PasswordInput() {
-    return (
+function PasswordInput () {
+  return (
         <div>
 
         </div>
-    )
+  )
 }
 
-export default PasswordInput;
+export default PasswordInput
