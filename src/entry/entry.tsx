@@ -16,24 +16,24 @@ function Entry () {
   if (window.localStorage.getItem('MODE') === 'development') {
     return (
             <BrowserRouter>
-                <Routes>
+            <Routes>
                     <Route index path='/' element={<HomePage/>}/>
                     <Route path='/profile/:uid' element={<ProfilePage/>}/>
                     <Route path='/404' element={<ErrorPage/>}/>
                     <Route path='*' element={<Navigate to='/404'/>}/>
                 </Routes>
-            </BrowserRouter>
+        </BrowserRouter>
     )
   }
 
   return (
         <BrowserRouter>
-            <Routes>
+          <Routes>
                 <Route index path='/' element={<ErrorPage/>}/>
                 <Route path='/buttons' element={<HomePage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
-        </BrowserRouter>
+      </BrowserRouter>
   )
 }
 

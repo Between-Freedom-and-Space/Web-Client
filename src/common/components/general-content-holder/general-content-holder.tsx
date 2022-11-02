@@ -9,8 +9,8 @@ interface Props {
 function GeneralContentHolder ({ children }: Props) {
   return (
         <main className={styles.generalContainer}>
-            {children}
-        </main>
+          {children}
+      </main>
   )
 }
 

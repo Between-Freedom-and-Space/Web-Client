@@ -1,3 +1,3 @@
 export interface RegisterRequestModel {
-    nickname: string
+  nickname: string
 }

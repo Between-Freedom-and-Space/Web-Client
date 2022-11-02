@@ -18,8 +18,8 @@ function Header ({ mode }: Props) {
   const headerContent = buildHeaderContent(mode)
   return (
         <header className={styles.headerContainer}>
-            {headerContent}
-        </header>
+          {headerContent}
+      </header>
   )
 }
 

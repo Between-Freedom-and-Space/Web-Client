@@ -1,8 +1,10 @@
+import React from 'react'
+
 function PasswordInput () {
   return (
         <div>
 
-        </div>
+      </div>
   )
 }
 
