@@ -1,11 +1,11 @@
 import React from 'react'
 
 function SearchInput () {
-  return (
+    return (
         <div>
 
-      </div>
-  )
+        </div>
+    )
 }
 
 export default SearchInput

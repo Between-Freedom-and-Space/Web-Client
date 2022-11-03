@@ -6,11 +6,11 @@ import FailStatusView from '../../common/components/fail-status-view/fail-status
 import { FailType } from '../../common/components/fail-status-view/types'
 
 function ErrorPage () {
-  return (
+    return (
         <Page>
-          <FailStatusView failType={FailType.ServiceUnavalible}/>
-      </Page>
-  )
+            <FailStatusView failType={FailType.ServiceUnavalible}/>
+        </Page>
+    )
 }
 
 export default ErrorPage

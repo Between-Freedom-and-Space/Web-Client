@@ -12,15 +12,15 @@ interface Props {
 }
 
 function Page ({ children }: Props) {
-  return (
+    return (
         <div className={styles.pageContainer}>
-          <Header mode={HeaderMode.ONLY_LOGO}/>
-          <GeneralContentHolder>
+            <Header mode={HeaderMode.ONLY_LOGO}/>
+            <GeneralContentHolder>
                 {children}
             </GeneralContentHolder>
-          <Footer/>
-      </div>
-  )
+            <Footer/>
+        </div>
+    )
 }
 
 export default Page

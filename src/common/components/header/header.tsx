@@ -15,30 +15,30 @@ interface Props {
 }
 
 function Header ({ mode }: Props) {
-  const headerContent = buildHeaderContent(mode)
-  return (
+    const headerContent = buildHeaderContent(mode)
+    return (
         <header className={styles.headerContainer}>
-          {headerContent}
-      </header>
-  )
+            {headerContent}
+        </header>
+    )
 }
 
 function buildHeaderContent (mode: HeaderMode): ReactNode {
-  const logo = <CompanyLogo />
-  const search = <SearchInput />
-  const signUp = <Button type={ButtonType.PRIMARY}>Sign Up</Button>
-  const profileControls = <HeaderProfileControls />
+    const logo = <CompanyLogo />
+    const search = <SearchInput />
+    const signUp = <Button type={ButtonType.PRIMARY}>Sign Up</Button>
+    const profileControls = <HeaderProfileControls />
 
-  switch (mode) {
+    switch (mode) {
     case HeaderMode.ONLY_LOGO:
-      return logo
+        return logo
     case HeaderMode.AUTHORIZED:
-      return [logo, search, signUp]
+        return [logo, search, signUp]
     case HeaderMode.NOT_AUTHORIZED:
-      return [logo, search, profileControls]
+        return [logo, search, profileControls]
     default:
-      return logo
-  }
+        return logo
+    }
 }
 
 export default Header

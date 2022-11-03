@@ -1,11 +1,11 @@
 import React from 'react'
 
 function PasswordInput () {
-  return (
+    return (
         <div>
 
-      </div>
-  )
+        </div>
+    )
 }
 
 export default PasswordInput
