@@ -1,14 +1,17 @@
 .button[data-type='primary'] {
-  background: #6831FF;
-  border: 1px solid #3F22A8;
-  border-radius: 6px;
+  padding: 5px 15px;
+
   color: #FFFFFF;
   font-style: normal;
   text-align: center;
   font-weight: 700;
+
+  background: #6831FF;
+  border: 1px solid #3F22A8;
+  border-radius: 6px;
+
   cursor: pointer;
   transition: 0.25s;
-  padding: 5px 15px;
 
   &:hover {
     border-color: black;
@@ -21,16 +24,19 @@
 }
 
 .button[data-type='secondary'] {
-  background: #F6F9FA;
-  border: 1px solid #D1D8DD;
-  border-radius: 6px;
+  padding: 7px;
+
   color: #5A6069;
   font-style: normal;
   text-align: center;
   font-weight: 700;
+
+  background: #F6F9FA;
+  border: 1px solid #D1D8DD;
+  border-radius: 6px;
+
   cursor: pointer;
   transition: 0.25s;
-  padding: 7px;
 
   &:hover {
     color: #5A6069;
@@ -43,16 +49,19 @@
 }
 
 .button[data-type='danger'] {
-  background: #AB2424;
-  border: 2px solid #790404;
-  border-radius: 6px;
+  padding: 7px;
+
   color: white;
   font-style: normal;
   text-align: center;
   font-weight: 500;
+
+  background: #AB2424;
+  border: 2px solid #790404;
+  border-radius: 6px;
+
   cursor: pointer;
   transition: 0.25s;
-  padding: 7px;
 
   &:hover {
     border-color: black;
