@@ -1,5 +1,5 @@
 export class SignInUsecase {
-  public getValue () {
-    return ''
-  }
+    public getValue () {
+        return ''
+    }
 }

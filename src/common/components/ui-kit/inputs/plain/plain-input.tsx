@@ -1,11 +1,11 @@
 import React from 'react'
 
 function PlainInput () {
-  return (
+    return (
         <div>
 
-      </div>
-  )
+        </div>
+    )
 }
 
 export default PlainInput

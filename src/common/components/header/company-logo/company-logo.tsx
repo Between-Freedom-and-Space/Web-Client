@@ -7,12 +7,12 @@ import styles from './company-logo.module.scss'
 import { Link } from 'react-router-dom'
 
 function CompanyLogo () {
-  return (
+    return (
         <Link to='/' className={styles.companyContainer}>
-          <img className={styles.companyIcon} src={icon} alt="Company Icon"/>
-          <div className={styles.companyName}>{config.companyName}</div>
-      </Link>
-  )
+            <img className={styles.companyIcon} src={icon} alt="Company Icon"/>
+            <div className={styles.companyName}>{config.companyName}</div>
+        </Link>
+    )
 }
 
 export default CompanyLogo

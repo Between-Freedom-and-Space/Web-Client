@@ -7,11 +7,11 @@ interface Props {
 }
 
 function GeneralContentHolder ({ children }: Props) {
-  return (
+    return (
         <main className={styles.generalContainer}>
-          {children}
-      </main>
-  )
+            {children}
+        </main>
+    )
 }
 
 export default GeneralContentHolder

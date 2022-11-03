@@ -6,42 +6,42 @@ import { ButtonType } from '../../common/components/ui-kit/button/types'
 import styles from './home-page.module.scss'
 
 function HomePage () {
-  return (
+    return (
         <Page>
-          <div className={styles.container}>
+            <div className={styles.container}>
                 <div className={styles.buttonWrapper}>
-                  <Button type={ButtonType.PRIMARY}>
+                    <Button type={ButtonType.PRIMARY}>
                         Primary Button
                     </Button>
-              </div>
+                </div>
                 <div className={styles.buttonWrapper}>
-                  <Button type={ButtonType.SECONDARY}>
+                    <Button type={ButtonType.SECONDARY}>
                         Secondary Button
                     </Button>
-              </div>
+                </div>
                 <div className={styles.buttonWrapper}>
-                  <Button type={ButtonType.DANGER}>
+                    <Button type={ButtonType.DANGER}>
                         Danger Button
                     </Button>
-              </div>
+                </div>
                 <div className={styles.buttonWrapper}>
-                  <Button type={ButtonType.SECONDARY}>
+                    <Button type={ButtonType.SECONDARY}>
                         Follow
                     </Button>
-              </div>
+                </div>
                 <div className={styles.buttonWrapper}>
-                  <Button type={ButtonType.PRIMARY}>
+                    <Button type={ButtonType.PRIMARY}>
                         Follow
                     </Button>
-              </div>
+                </div>
                 <div className={styles.buttonWrapper}>
-                  <Button type={ButtonType.PRIMARY}>
+                    <Button type={ButtonType.PRIMARY}>
                         Sign Up
                     </Button>
-              </div>
+                </div>
             </div>
-      </Page>
-  )
+        </Page>
+    )
 }
 
 export default HomePage
