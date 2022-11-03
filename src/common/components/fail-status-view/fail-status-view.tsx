@@ -10,7 +10,10 @@ interface Props {
 }
 
 function FailStatusView (props: Props) {
-    const failType = FailType[FailType.BadRequest]
+    let failType = FailType[FailType.BadRequest]
+    if (FailType[props.failType]) {
+        failType = FailType[props.failType]
+    }
     const targetFail = (allFails as any)[failType]
     return (
         <div className={styles.container}>
