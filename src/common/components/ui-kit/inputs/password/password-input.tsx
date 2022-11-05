@@ -21,14 +21,14 @@ function PasswordInput ({
     currentState,
 }: Props) {
     return (
-        <div className={styles.container} data-state='is-valid'>
+        <div className={styles.container} data-state={currentState}>
             <input className={styles.input}
                 type='password'
                 placeholder={hintText}
                 onChange={event => onInputChangeHandler(event, controller)}
                 onKeyUp={event => onInputKeyUpHandler(event, controller)}
                 value={text}
-                data-state='is-valid'
+                data-state={currentState}
             />
             {/*<img className={styles.cancelIcon} src={cancelIcon} alt="Cancel Icon"/>*/}
         </div>
