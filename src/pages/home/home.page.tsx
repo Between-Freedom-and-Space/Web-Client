@@ -5,6 +5,8 @@ import { ButtonType } from '../../common/components/ui-kit/button/types'
 
 import styles from './home-page.module.scss'
 import PlainInput from "../../common/components/ui-kit/inputs/plain/plain-input";
+import PasswordInput from '../../common/components/ui-kit/inputs/password/password-input'
+import { PasswordInputState } from '../../common/components/ui-kit/inputs/password/types'
 
 function HomePage () {
     return (
@@ -42,6 +44,9 @@ function HomePage () {
                 </div>
                 <div className={styles.buttonWrapper}>
                     <PlainInput hintText={"Hello World"}/>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <PasswordInput hintText={"Hello World"} currentState={PasswordInputState.INPUT_IS_INVALID}/>
                 </div>
             </div>
         </Page>
