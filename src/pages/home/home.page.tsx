@@ -4,6 +4,7 @@ import Button from '../../common/components/ui-kit/button/button'
 import { ButtonType } from '../../common/components/ui-kit/button/types'
 
 import styles from './home-page.module.scss'
+import PlainInput from "../../common/components/ui-kit/inputs/plain/plain-input";
 
 function HomePage () {
     return (
@@ -38,6 +39,9 @@ function HomePage () {
                     <Button type={ButtonType.PRIMARY}>
                         Sign Up
                     </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <PlainInput hintText={"Hello World"}/>
                 </div>
             </div>
         </Page>
