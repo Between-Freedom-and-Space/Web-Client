@@ -1,3 +1,18 @@
 .input {
+  padding: 8px;
 
+  border: 1px solid #545659;
+  border-radius: 7px;
+
+  color: #C8CACC;
+  font-style: normal;
+  font-weight: 700;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    border: 1px solid #6831FF;
+    border-radius: 7px;
+  }
 }

@@ -7,15 +7,16 @@ import styles from "./plain-input.module.scss"
 
 interface Props {
     hintText?: string
-    initialText?: string
+    text?: string
     controller?: InputController
 }
 
-function PlainInput ({hintText, controller}: Props) {
+function PlainInput ({hintText, controller, text}: Props) {
     return (
         <input
             className={styles.input}
             placeholder={hintText}
+            value={text}
             onChange={(event) => onInputChangeHandler(event, controller)}
             onKeyUp={(event) => onInputKeyUpHandler(event, controller)}
         />
