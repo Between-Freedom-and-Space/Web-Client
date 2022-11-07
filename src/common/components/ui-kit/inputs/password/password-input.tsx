@@ -1,6 +1,5 @@
 import React from 'react'
 
-import cancelIcon from './assets/password_input_cancel.svg';
 import { PasswordInputState } from './types';
 import { onInputChangeHandler, onInputKeyUpHandler } from '../helpers';
 import { InputController } from '../types'
@@ -30,7 +29,6 @@ function PasswordInput ({
                 value={text}
                 data-state={currentState}
             />
-            {/*<img className={styles.cancelIcon} src={cancelIcon} alt="Cancel Icon"/>*/}
         </div>
     )
 }
