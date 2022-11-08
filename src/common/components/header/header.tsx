@@ -25,7 +25,7 @@ function Header ({ mode }: Props) {
 
 function buildHeaderContent (mode: HeaderMode): ReactNode {
     const logo = <CompanyLogo />
-    const search = <SearchInput />
+    const search = <SearchInput hintText="Search or jump to..."/>
     const signUp = <Button type={ButtonType.PRIMARY}>Sign Up</Button>
     const profileControls = <HeaderProfileControls />
 

@@ -12,13 +12,15 @@ interface Props {
 
 function SearchInput ({ text, hintText, controller } : Props) {
     return (
-        <input
-            className={styles.input}
-            placeholder={hintText}
-            value={text}
-            onChange={event => onInputChangeHandler(event, controller)}
-            onKeyUp={event => onInputKeyUpHandler(event, controller)}
-        />
+        <div className={styles.container}>
+            <input
+                className={styles.input}
+                placeholder={hintText}
+                value={text}
+                onChange={event => onInputChangeHandler(event, controller)}
+                onKeyUp={event => onInputKeyUpHandler(event, controller)}
+            />
+        </div>
     )
 }
 
