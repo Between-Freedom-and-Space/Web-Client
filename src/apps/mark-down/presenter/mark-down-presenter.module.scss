@@ -1,0 +1,10 @@
+.presenter {
+  background: white;
+  color: black;
+  border: white;
+  white-space: pre-wrap;
+
+  &.[data-with-border] {
+
+  }
+}

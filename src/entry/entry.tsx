@@ -18,7 +18,7 @@ function Entry () {
             <BrowserRouter>
                 <Routes>
                     <Route index path='/' element={<HomePage/>}/>
-                    <Route path='/profile/:uid' element={<ProfilePage/>}/>
+                    <Route path='/profile' element={<ProfilePage/>}/>
                     <Route path='/404' element={<ErrorPage/>}/>
                     <Route path='*' element={<Navigate to='/404'/>}/>
                 </Routes>
@@ -31,6 +31,7 @@ function Entry () {
             <Routes>
                 <Route index path='/' element={<ErrorPage/>}/>
                 <Route path='/buttons' element={<HomePage/>}/>
+                <Route path='/profile' element={<ProfilePage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
