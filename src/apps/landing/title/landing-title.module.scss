@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 100%;
+  margin: 0;
+
+  text-align: center;
+  letter-spacing: -0.025em;
+
+  &[data-title-part='first'] {
+    color: #3F22A8;
+  }
+
+  &[data-title-part='second'] {
+    color: #000000;
+  }
+}
+
+.descriptionContainer {
+  margin: 15px 20% 0;
+}
+
+.description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23.2349px;
+  line-height: 118%;
+
+  text-align: center;
+  letter-spacing: -0.025em;
+
+  color: #898C95;
+}
