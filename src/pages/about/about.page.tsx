@@ -1,11 +1,11 @@
 import React from 'react'
-import LandingTitle from '../../apps/landing/title/landing-title'
+import Landing from '../../apps/landing/landing'
 import Page from '../../apps/page/page'
 
 function AboutPage() {
     return (
         <Page>
-            <LandingTitle/>
+            <Landing/>
         </Page>
     )
 }
