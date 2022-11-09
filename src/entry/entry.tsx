@@ -6,6 +6,7 @@ import ProfilePage from '../pages/profile/profile.page'
 import ErrorPage from '../pages/error/error.page'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import EditorPage from '../pages/editor/editor.page'
+import AboutPage from '../pages/about/about.page'
 
 function Entry () {
     useEffect(() => {
@@ -18,11 +19,12 @@ function Entry () {
         return (
             <BrowserRouter>
                 <Routes>
-                    <Route index path='/' element={<HomePage/>}/>
+                    <Route index path='/' element={<AboutPage/>}/>
+                    <Route path='/home' element={<HomePage/>}/>
                     <Route path='/profile' element={<ProfilePage/>}/>
-                    <Route path='/404' element={<ErrorPage/>}/>
                     <Route path='/editor' element={<EditorPage/>}/>
-                    <Route path='*' element={<Navigate to='/404'/>}/>
+                    <Route path='/error' element={<ErrorPage/>}/>
+                    <Route path='*' element={<Navigate to='/'/>}/>
                 </Routes>
             </BrowserRouter>
         )
@@ -31,10 +33,11 @@ function Entry () {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index path='/' element={<ErrorPage/>}/>
-                <Route path='/buttons' element={<HomePage/>}/>
+                <Route index path='/' element={<AboutPage/>}/>
+                <Route path='/home' element={<HomePage/>}/>
                 <Route path='/profile' element={<ProfilePage/>}/>
                 <Route path='/editor' element={<EditorPage/>}/>
+                <Route path='/error' element={<ErrorPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
