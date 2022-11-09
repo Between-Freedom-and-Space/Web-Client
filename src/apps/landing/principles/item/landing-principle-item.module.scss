@@ -1,0 +1,50 @@
+.container {
+
+}
+
+.titleContainer {
+
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 118%;
+
+  letter-spacing: -0.025em;
+
+  color: #596069;
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: #6831FF;
+  }
+}
+
+.titleIcon {
+
+  &:focus,
+  &:active,
+  &:hover {
+
+  }
+}
+
+.description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 118%;
+
+  letter-spacing: -0.025em;
+
+  color: #596069;
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: #6831FF;
+  }
+}
