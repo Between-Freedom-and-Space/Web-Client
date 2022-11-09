@@ -14,10 +14,13 @@ interface Props {
 }
 
 function MarkDownEditor({ value, height, controller }: Props) {
-    const [state, setState] = useLocalStorage('mark-down', '')
+    const [state, setState] = useLocalStorage('mark-down', value)
 
     const markdownOnChangeHandler = (value?: string) => {
         setState(value)
+        if (value) {
+            controller?.onInputChange(value)
+        }
     }
 
     return (
