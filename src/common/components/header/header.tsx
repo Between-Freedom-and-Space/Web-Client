@@ -25,27 +25,27 @@ function Header ({ mode }: Props) {
 
 function buildHeaderContent (mode: HeaderMode): ReactNode {
     switch (mode) {
-        case HeaderMode.AUTHORIZED:
-            return (
-                <div className={styles.authorizedElementsContainer}>
-                    <SearchInput/>
-                   <HeaderProfileControls/>
-                 </div>
-            )
-         case HeaderMode.NOT_AUTHORIZED:
-            return (
-                <div className={styles.notAuthorizedElementsContainer}>
-                    <div className={styles.searchInputWrapper}>
-                        <SearchInput hintText='Search or jump to...'/>
-                    </div>
-                    <div className={styles.signUpButtonWrapper}>
-                        <Button type={ButtonType.PRIMARY} widthType={WidthType.MAX_PERCENT}>Sign up</Button>
-                    </div>
+    case HeaderMode.AUTHORIZED:
+        return (
+            <div className={styles.authorizedElementsContainer}>
+                <SearchInput/>
+                <HeaderProfileControls/>
+            </div>
+        )
+    case HeaderMode.NOT_AUTHORIZED:
+        return (
+            <div className={styles.notAuthorizedElementsContainer}>
+                <div className={styles.searchInputWrapper}>
+                    <SearchInput hintText='Search or jump to...'/>
                 </div>
-            )
-        case HeaderMode.ONLY_LOGO:
-        default:
-            return (<br/>)
+                <div className={styles.signUpButtonWrapper}>
+                    <Button type={ButtonType.PRIMARY} widthType={WidthType.MAX_PERCENT}>Sign up</Button>
+                </div>
+            </div>
+        )
+    case HeaderMode.ONLY_LOGO:
+    default:
+        return (<br/>)
     }
 }
 
