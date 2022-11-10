@@ -1,10 +1,10 @@
 export enum ButtonType {
-    PRIMARY = "primary",
-    SECONDARY = "secondary",
-    DANGER = "danger",
-    CUSTOM = "custom"
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  DANGER = 'danger',
 }
 
-export interface ButtonCustomConfiguration {
-
+export enum WidthType {
+  DEFAULT = 'default',
+  MAX_PERCENT = '100%'
 }

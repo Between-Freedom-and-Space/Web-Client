@@ -1,0 +1,27 @@
+.globalContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 100%;
+
+  text-align: center;
+  letter-spacing: -0.025em;
+
+  color: #3F22A8;
+}
+
+.principleItemsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 15px;
+
+  margin-top: 15px;
+  margin-left: 10%;
+  margin-right: 10%;
+}

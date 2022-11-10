@@ -1,16 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import {FailType} from "./types";
-import allFails from './assets/available-fails.json';
+import { FailType } from './types'
+import allFails from './assets/available-fails.json'
 
-import styles from './fail-status-view.module.scss';
+import styles from './fail-status-view.module.scss'
 
-type Props = {
-    failType: FailType
+interface Props {
+  failType: FailType
 }
 
-function FailStatusView(props: Props) {
-    const failType = FailType[props.failType] || FailType[FailType.BadRequest]
+function FailStatusView (props: Props) {
+    let failType = FailType[FailType.BadRequest]
+    if (FailType[props.failType]) {
+        failType = FailType[props.failType]
+    }
     const targetFail = (allFails as any)[failType]
     return (
         <div className={styles.container}>
@@ -21,4 +24,4 @@ function FailStatusView(props: Props) {
     )
 }
 
-export default FailStatusView;
+export default FailStatusView

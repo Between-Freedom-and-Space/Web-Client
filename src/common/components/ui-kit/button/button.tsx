@@ -1,18 +1,28 @@
-import {ButtonCustomConfiguration, ButtonType} from "./types";
+import React, {ReactNode} from 'react'
+import {ButtonType, WidthType} from './types'
 
-type Props = {
+import styles from './button.module.scss'
+
+interface Props {
     type: ButtonType
-    text: string
-    onClick: (event: Event) => void
-    config?: ButtonCustomConfiguration
+    widthType?: WidthType
+    children?: ReactNode
+    onClick?: () => void
+    onDoubleClick?: () => void
 }
 
-function Button(props: Props) {
+function Button (props: Props) {
     return (
-        <button>
-
+        <button
+            className={styles.button}
+            onClick={props.onClick}
+            onDoubleClick={props.onDoubleClick}
+            data-type={props.type}
+            data-width-type={props.widthType || WidthType.DEFAULT}
+        >
+            {props.children}
         </button>
     )
 }
 
-export default Button;
+export default Button

@@ -1,12 +1,14 @@
-import React, {useEffect} from 'react';
-import './entry.css';
+import React, { useEffect } from 'react'
+import './entry.css'
 
-import HomePage from '../pages/home.page';
-import ProfilePage from '../pages/profile.page';
-import ErrorPage from '../pages/error.page';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import HomePage from '../pages/home/home.page'
+import ProfilePage from '../pages/profile/profile.page'
+import ErrorPage from '../pages/error/error.page'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import EditorPage from '../pages/editor/editor.page'
+import AboutPage from '../pages/about/about.page'
 
-function Entry() {
+function Entry () {
     useEffect(() => {
         if (window.location.host === 'localhost:3000') {
             window.localStorage.setItem('MODE', 'development')
@@ -17,23 +19,29 @@ function Entry() {
         return (
             <BrowserRouter>
                 <Routes>
-                    <Route index path='/' element={<HomePage/>}/>
-                    <Route path='/profile/:uid' element={<ProfilePage/>}/>
-                    <Route path='/404' element={<ErrorPage/>}/>
-                    <Route path='*' element={<Navigate to='/404'/>}/>
+                    <Route index path='/' element={<AboutPage/>}/>
+                    <Route path='/home' element={<HomePage/>}/>
+                    <Route path='/profile' element={<ProfilePage/>}/>
+                    <Route path='/editor' element={<EditorPage/>}/>
+                    <Route path='/error' element={<ErrorPage/>}/>
+                    <Route path='*' element={<Navigate to='/'/>}/>
                 </Routes>
             </BrowserRouter>
-        );
+        )
     }
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route index path='/' element={<ErrorPage/>}/>
+                <Route index path='/' element={<AboutPage/>}/>
+                <Route path='/home' element={<HomePage/>}/>
+                <Route path='/profile' element={<ProfilePage/>}/>
+                <Route path='/editor' element={<EditorPage/>}/>
+                <Route path='/error' element={<ErrorPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
-    );
+    )
 }
 
-export default Entry;
+export default Entry

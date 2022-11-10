@@ -1,3 +1,3 @@
-export function dataHelper() {
-
+export function dataHelper () {
+    return "Some help"
 }

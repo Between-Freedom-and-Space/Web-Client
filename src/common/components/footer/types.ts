@@ -1,4 +1,4 @@
 export interface FooterLink {
-    readonly alias: string
-    readonly value: string
+  readonly alias: string
+  readonly value: string
 }
