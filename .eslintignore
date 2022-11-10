@@ -1,2 +1,3 @@
 src/index.css
 src/common/hooks/useLocalStorage.ts
+src/apps/landing/principles/item/util/helpers.ts
