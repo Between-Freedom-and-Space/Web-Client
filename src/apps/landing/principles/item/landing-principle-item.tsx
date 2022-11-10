@@ -12,13 +12,13 @@ interface Props {
 
 function LandingPrincipleItem({ title, description }: Props) {
     const iconRef = useRef<HTMLImageElement>(null)
-    const onImageHover = (event: React.MouseEvent<HTMLDivElement>) => {
+    const onImageHover = () => {
         if (iconRef.current) {
             iconRef.current.src = arrowActive
             iconRef.current.setAttribute('data-icon-state', 'active')
         }
     }
-    const onImageUnHover = (event: React.MouseEvent<HTMLDivElement>) => {
+    const onImageUnHover = () => {
         if (iconRef.current) {
             iconRef.current.src = arrow
             iconRef.current.setAttribute('data-icon-state', 'default')
