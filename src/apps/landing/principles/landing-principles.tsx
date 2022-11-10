@@ -5,6 +5,8 @@ import config from "../assets/config.json"
 import styles from "./landing-principles.module.scss"
 
 function LandingPrinciples() {
+    const title = config.principles_title
+
     const firstItemTitle = config.first_principle_title
     const firstItemDescription = config.first_principle_description
 
@@ -18,11 +20,14 @@ function LandingPrinciples() {
     const fourthItemDescription = config.fours_principle_description
 
     return (
-        <div className={styles.container}>
-            <LandingPrincipleItem title={firstItemTitle} description={firstItemDescription}/>
-            <LandingPrincipleItem title={secondItemTitle} description={secondItemDescription}/>
-            <LandingPrincipleItem title={thirdItemTitle} description={thirdItemDescription}/>
-            <LandingPrincipleItem title={fourthItemTitle} description={fourthItemDescription}/>
+        <div className={styles.globalContainer}>
+            <p className={styles.title}>{title}</p>
+            <div className={styles.principleItemsContainer}>
+                <LandingPrincipleItem title={firstItemTitle} description={firstItemDescription}/>
+                <LandingPrincipleItem title={secondItemTitle} description={secondItemDescription}/>
+                <LandingPrincipleItem title={thirdItemTitle} description={thirdItemDescription}/>
+                <LandingPrincipleItem title={fourthItemTitle} description={fourthItemDescription}/>
+            </div>
         </div>
     )
 }

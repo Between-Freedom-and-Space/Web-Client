@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vw;
+  height: max-content;
   align-items: center;
 }
 
 .titleContainer {
-
+  margin-top: 10%;
 }
 
 .linksContainer {
-
+  margin-top: 15px;
 }
 
 .principlesContainer {
-
+  margin-bottom: 10%;
 }

@@ -1,9 +1,18 @@
 .container {
+  display: flex;
+  flex-direction: column;
 
+  &:focus div,
+  &:active div,
+  &:hover div {
+    color: #6831FF;
+  }
 }
 
 .titleContainer {
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .title {
@@ -15,24 +24,24 @@
   letter-spacing: -0.025em;
 
   color: #596069;
-
-  &:focus,
-  &:active,
-  &:hover {
-    color: #6831FF;
-  }
 }
 
 .titleIcon {
+  margin-left: 20px;
 
-  &:focus,
-  &:active,
-  &:hover {
-
+  &[data-icon-state='default'] {
+    height: 25px;
+    width: 15px;
+  }
+  &[data-icon-state='active'] {
+    height: 40px;
+    width: 25px;
   }
 }
 
 .description {
+  margin-top: 15px;
+
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -41,10 +50,11 @@
   letter-spacing: -0.025em;
 
   color: #596069;
+}
 
-  &:focus,
-  &:active,
-  &:hover {
-    color: #6831FF;
-  }
+.bottomLine {
+  margin-top: 45px;
+  height: 1px;
+
+  border-top: 1px solid #C8CACC;
 }
