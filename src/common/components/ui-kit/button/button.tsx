@@ -1,13 +1,14 @@
-import React, { ReactNode } from 'react'
-import { ButtonType } from './types'
+import React, {ReactNode} from 'react'
+import {ButtonType, WidthType} from './types'
 
 import styles from './button.module.scss'
 
 interface Props {
-  type: ButtonType
-  children?: ReactNode
-  onClick?: () => void
-  onDoubleClick?: () => void
+    type: ButtonType
+    widthType?: WidthType
+    children?: ReactNode
+    onClick?: () => void
+    onDoubleClick?: () => void
 }
 
 function Button (props: Props) {
@@ -17,6 +18,7 @@ function Button (props: Props) {
             onClick={props.onClick}
             onDoubleClick={props.onDoubleClick}
             data-type={props.type}
+            data-width-type={props.widthType || WidthType.DEFAULT}
         >
             {props.children}
         </button>
