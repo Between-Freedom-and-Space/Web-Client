@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import arrow from "./assets/arrow.svg"
 import arrowActive from "./assets/arrow-active.svg"
 
 import styles from "./landing-principle-item.module.scss"
-import {findImageElementInsideLandingLinkItem} from "./util/helpers";
 
 interface Props {
     title: string
@@ -12,15 +11,18 @@ interface Props {
 }
 
 function LandingPrincipleItem({ title, description }: Props) {
+    const iconRef = useRef<HTMLImageElement>(null)
     const onImageHover = (event: React.MouseEvent<HTMLDivElement>) => {
-        const icon = findImageElementInsideLandingLinkItem(event.currentTarget)
-        icon.src = arrowActive
-        icon.setAttribute('data-icon-state', 'active')
+        if (iconRef.current) {
+            iconRef.current.src = arrowActive
+            iconRef.current.setAttribute('data-icon-state', 'active')
+        }
     }
     const onImageUnHover = (event: React.MouseEvent<HTMLDivElement>) => {
-        const icon = findImageElementInsideLandingLinkItem(event.currentTarget)
-        icon.src = arrow
-        icon.setAttribute('data-icon-state', 'default')
+        if (iconRef.current) {
+            iconRef.current.src = arrow
+            iconRef.current.setAttribute('data-icon-state', 'default')
+        }
     }
 
     return (
@@ -34,6 +36,7 @@ function LandingPrincipleItem({ title, description }: Props) {
                 <img
                     src={arrow} alt='Arrow'
                     className={styles.titleIcon}
+                    ref={iconRef}
                     data-icon-state='default'
                 />
             </div>

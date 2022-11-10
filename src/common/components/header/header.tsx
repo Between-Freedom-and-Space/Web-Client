@@ -45,7 +45,7 @@ function buildHeaderContent (mode: HeaderMode): ReactNode {
         )
     case HeaderMode.ONLY_LOGO:
     default:
-        return (<br/>)
+        return null
     }
 }
 

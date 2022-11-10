@@ -28,11 +28,9 @@
 
 .titleIcon {
   margin-left: 20px;
+  height: 25px;
+  width: 15px;
 
-  &[data-icon-state='default'] {
-    height: 25px;
-    width: 15px;
-  }
   &[data-icon-state='active'] {
     height: 40px;
     width: 25px;
