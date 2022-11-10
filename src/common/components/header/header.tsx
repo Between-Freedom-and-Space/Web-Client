@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react'
+import React, {ReactNode} from 'react'
 
-import { HeaderMode } from './types'
+import {HeaderMode} from './types'
 import CompanyLogo from './company-logo/company-logo'
 
 import Button from '../ui-kit/button/button'
-import { ButtonType } from '../ui-kit/button/types'
+import {ButtonType, WidthType} from '../ui-kit/button/types'
 import HeaderProfileControls from './profile-controls/header-profile-controls'
 
 import styles from './header.module.scss'
@@ -15,29 +15,37 @@ interface Props {
 }
 
 function Header ({ mode }: Props) {
-    const headerContent = buildHeaderContent(mode)
     return (
         <header className={styles.headerContainer}>
-            {headerContent}
+            <CompanyLogo/>
+            {buildHeaderContent(mode)}
         </header>
     )
 }
 
 function buildHeaderContent (mode: HeaderMode): ReactNode {
-    const logo = <CompanyLogo />
-    const search = <SearchInput hintText="Search or jump to..."/>
-    const signUp = <Button type={ButtonType.PRIMARY}>Sign Up</Button>
-    const profileControls = <HeaderProfileControls />
-
     switch (mode) {
-    case HeaderMode.ONLY_LOGO:
-        return logo
-    case HeaderMode.AUTHORIZED:
-        return [logo, search, signUp]
-    case HeaderMode.NOT_AUTHORIZED:
-        return [logo, search, profileControls]
-    default:
-        return logo
+        case HeaderMode.AUTHORIZED:
+            return (
+                <div className={styles.authorizedElementsContainer}>
+                    <SearchInput/>
+                   <HeaderProfileControls/>
+                 </div>
+            )
+         case HeaderMode.NOT_AUTHORIZED:
+            return (
+                <div className={styles.notAuthorizedElementsContainer}>
+                    <div className={styles.searchInputWrapper}>
+                        <SearchInput hintText='Search or jump to...'/>
+                    </div>
+                    <div className={styles.signUpButtonWrapper}>
+                        <Button type={ButtonType.PRIMARY} widthType={WidthType.MAX_PERCENT}>Sign up</Button>
+                    </div>
+                </div>
+            )
+        case HeaderMode.ONLY_LOGO:
+        default:
+            return (<br/>)
     }
 }
 

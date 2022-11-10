@@ -4,4 +4,28 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+}
+
+.authorizedElementsContainer {
+
+}
+
+.notAuthorizedElementsContainer {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  justify-items: center;
+  justify-content: end;
+
+  margin-right: 20px;
+}
+
+.searchInputWrapper {
+  width: 50%;
+  margin-right: 10px;
+}
+
+.signUpButtonWrapper {
+  width: 40%;
 }
