@@ -21,11 +21,11 @@ function LandingLinks() {
             <div className={styles.linksIconContainer}>
                 <img
                     className={styles.linkIcon} src={githubIcon}
-                    alt='GitHub icon' onClick={openLink(githubLink)}
+                    alt='GitHub icon' onClick={() => openLink(githubLink)}
                 />
                 <img
                     className={styles.linkIcon} src={twitterIcon}
-                    alt='Twitter icon' onClick={openLink(twitterLink)}
+                    alt='Twitter icon' onClick={() => openLink(twitterLink)}
                 />
             </div>
         </div>
