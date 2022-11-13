@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Button from '../../../../common/components/ui-kit/button/button'
-import { ButtonType, WidthType } from '../../../../common/components/ui-kit/button/types'
+import { ButtonType, SizeType } from '../../../../common/components/ui-kit/button/types'
 import PasswordInput from '../../../../common/components/ui-kit/inputs/password/password-input'
 import { PasswordInputState } from '../../../../common/components/ui-kit/inputs/password/types'
 import PlainInput from '../../../../common/components/ui-kit/inputs/plain/plain-input'
@@ -27,12 +27,12 @@ function SignIn() {
             </div>
             <div className={styles.buttonsContainer}>
                 <div className={styles.buttonWrapper} data-button-pos='first'>
-                    <Button type={ButtonType.SECONDARY} widthType={WidthType.MAX_PERCENT}>
+                    <Button type={ButtonType.SECONDARY} widthType={SizeType.MAX_PERCENT}>
                         {config.cancel_button_title}
                     </Button>
                 </div>
                 <div className={styles.buttonWrapper} data-button-pos='second'>
-                    <Button type={ButtonType.PRIMARY} widthType={WidthType.MAX_PERCENT}>
+                    <Button type={ButtonType.PRIMARY} widthType={SizeType.MAX_PERCENT}>
                         {config.sign_in_button_title}
                     </Button>
                 </div>

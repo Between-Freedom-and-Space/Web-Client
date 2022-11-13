@@ -4,7 +4,7 @@ import {HeaderMode} from './types'
 import CompanyLogo from './company-logo/company-logo'
 
 import Button from '../ui-kit/button/button'
-import {ButtonType, WidthType} from '../ui-kit/button/types'
+import {ButtonType, SizeType} from '../ui-kit/button/types'
 import HeaderProfileControls from './profile-controls/header-profile-controls'
 
 import styles from './header.module.scss'
@@ -39,7 +39,7 @@ function buildHeaderContent (mode: HeaderMode): ReactNode {
                     <SearchInput hintText='Search or jump to...'/>
                 </div>
                 <div className={styles.signUpButtonWrapper}>
-                    <Button type={ButtonType.PRIMARY} widthType={WidthType.MAX_PERCENT}>Sign up</Button>
+                    <Button type={ButtonType.PRIMARY} widthType={SizeType.MAX_PERCENT}>Sign up</Button>
                 </div>
             </div>
         )
