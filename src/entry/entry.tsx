@@ -7,6 +7,7 @@ import ErrorPage from '../pages/error/error.page'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import EditorPage from '../pages/editor/editor.page'
 import AboutPage from '../pages/about/about.page'
+import AuthenticatePage from '../pages/authenticate/authenticate.page'
 
 function Entry () {
     useEffect(() => {
@@ -24,6 +25,7 @@ function Entry () {
                     <Route path='/profile' element={<ProfilePage/>}/>
                     <Route path='/editor' element={<EditorPage/>}/>
                     <Route path='/error' element={<ErrorPage/>}/>
+                    <Route path='/authenticate' element={<AuthenticatePage/>}/>
                     <Route path='*' element={<Navigate to='/'/>}/>
                 </Routes>
             </BrowserRouter>
@@ -38,6 +40,7 @@ function Entry () {
                 <Route path='/profile' element={<ProfilePage/>}/>
                 <Route path='/editor' element={<EditorPage/>}/>
                 <Route path='/error' element={<ErrorPage/>}/>
+                <Route path='/authenticate' element={<AuthenticatePage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
