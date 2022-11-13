@@ -1,4 +1,5 @@
 import React, {ReactNode} from 'react'
+import { useNavigate } from "react-router-dom";
 
 import {HeaderMode} from './types'
 import CompanyLogo from './company-logo/company-logo'
@@ -24,6 +25,11 @@ function Header ({ mode }: Props) {
 }
 
 function buildHeaderContent (mode: HeaderMode): ReactNode {
+    const navigate = useNavigate()
+    const signInClickListener = () => {
+        navigate("/authenticate")
+    }
+
     switch (mode) {
     case HeaderMode.AUTHORIZED:
         return (
@@ -39,7 +45,11 @@ function buildHeaderContent (mode: HeaderMode): ReactNode {
                     <SearchInput hintText='Search or jump to...'/>
                 </div>
                 <div className={styles.signUpButtonWrapper}>
-                    <Button type={ButtonType.PRIMARY} widthType={SizeType.MAX_PERCENT}>Sign up</Button>
+                    <Button
+                        type={ButtonType.PRIMARY}
+                        widthType={SizeType.MAX_PERCENT}
+                        onClick={signInClickListener}
+                    >Sign in</Button>
                 </div>
             </div>
         )
