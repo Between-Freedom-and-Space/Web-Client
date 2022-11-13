@@ -4,7 +4,7 @@ export enum ButtonType {
   DANGER = 'danger',
 }
 
-export enum WidthType {
+export enum SizeType {
   DEFAULT = 'default',
   MAX_PERCENT = '100%'
 }

@@ -1,0 +1,36 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+.itemContainer {
+  width: 100%;
+  margin-top: 35px;
+}
+
+.passwordInputsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.passwordInputWrapper {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.sendVerificationCodeButtonWrapper {
+  width: 100%;
+  height: 35px;
+
+  margin-top: 15px;
+}
+
+.signUpButtonWrapper {
+  width: 100%;
+  height: 45px;
+  margin-top: 35px;
+}
