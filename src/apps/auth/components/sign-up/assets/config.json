@@ -1,0 +1,48 @@
+{
+  "nickname": {
+    "title": "1. Create your nickname",
+    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
+    "input_hint": "Nickname"
+  },
+  "name": {
+    "title": "2. Enter your name",
+    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
+    "input_hint": "Name"
+  },
+  "profile_description": {
+    "title": "3. Enter your profile description",
+    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
+    "input_hint": "Profile description"
+  },
+  "location": {
+    "title": "4. Enter your location",
+    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
+    "input_hint": "Description"
+  },
+  "email": {
+    "title": "5. Enter your email",
+    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
+    "input_hint": "Email"
+  },
+  "password": {
+    "title": "6. Create password",
+    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
+    "input_hint": [
+      "Password",
+      "Repeat Password"
+    ]
+  },
+  "verification_code": {
+    "title": "7. Enter the verification code",
+    "description": "You will receive a verification code by email, enter it in this field",
+    "input_hint": "Code"
+  },
+  "buttons": {
+    "send_verification_code": {
+      "title": "Send verification code"
+    },
+    "sign_up": {
+      "title": "Sign Up"
+    }
+  }
+}

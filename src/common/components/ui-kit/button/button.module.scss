@@ -16,6 +16,9 @@
   &[data-width-type='100%'] {
     width: 100%;
   }
+  &[data-height-type='100%'] {
+    height: 100%;
+  }
 
   &:hover {
     border-color: black;
@@ -45,6 +48,9 @@
   &[data-width-type='100%'] {
     width: 100%;
   }
+  &[data-height-type='100%'] {
+    height: 100%;
+  }
 
   &:hover {
     color: #5A6069;
@@ -73,6 +79,9 @@
 
   &[data-width-type='100%'] {
     width: 100%;
+  }
+  &[data-height-type='100%'] {
+    height: 100%;
   }
 
   &:hover {
