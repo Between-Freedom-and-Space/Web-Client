@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: row;
+
+  height: 50px;
+  width: 100%;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 118%;
+
+  text-align: center;
+  place-content: center;
+  letter-spacing: -0.025em;
+
+  color: #5A6069;
+
+  border: 1px solid #898C95;
+
+  &:hover {
+    border: 1px solid #6831FF;
+  }
+
+  &[data-tab-active='true'] {
+    background: #F6F8FA;;
+  }
+  &[data-tab-pos='left'] {
+    border-radius: 8px 0 0 8px;
+  }
+  &[data-tab-pos='right'] {
+    border-radius: 0 8px 8px 0;
+  }
+}

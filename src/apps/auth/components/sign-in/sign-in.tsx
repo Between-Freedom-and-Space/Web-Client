@@ -27,12 +27,12 @@ function SignIn() {
             </div>
             <div className={styles.buttonsContainer}>
                 <div className={styles.buttonWrapper} data-button-pos='first'>
-                    <Button type={ButtonType.SECONDARY} widthType={SizeType.MAX_PERCENT}>
+                    <Button type={ButtonType.SECONDARY} widthType={SizeType.MAX_PERCENT} heightType={SizeType.MAX_PERCENT}>
                         {config.cancel_button_title}
                     </Button>
                 </div>
                 <div className={styles.buttonWrapper} data-button-pos='second'>
-                    <Button type={ButtonType.PRIMARY} widthType={SizeType.MAX_PERCENT}>
+                    <Button type={ButtonType.PRIMARY} widthType={SizeType.MAX_PERCENT} heightType={SizeType.MAX_PERCENT}>
                         {config.sign_in_button_title}
                     </Button>
                 </div>

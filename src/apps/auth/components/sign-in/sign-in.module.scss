@@ -13,7 +13,7 @@
   flex-direction: row;
   align-items: center;
 
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .passwordInputWrapper {
@@ -37,6 +37,7 @@
 
 .buttonWrapper {
   width: 100%;
+  height: 40px;
 
   &[data-button-pos='first'] {
     margin-right: 5px;
