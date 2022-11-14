@@ -1,5 +1,5 @@
 import { injectable } from "inversify";
-import { RequestInterceptor } from "../../../../common/api/types";
+import {RequestInterceptor} from "../../../../common/api/interceptor";
 
 @injectable()
 export class AuthTokenInterceptor implements RequestInterceptor {

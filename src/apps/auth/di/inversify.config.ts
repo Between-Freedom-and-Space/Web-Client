@@ -9,28 +9,48 @@ import { AuthenticateInputsValidator } from "../domain/validators/authenticate-i
 import TYPES from "./types";
 import {TokenRepository} from "../repository/token.repository";
 import {LocalStorageTokenRepository} from "../repository/impl/local-storage.token.repository";
+import {PasswordEncryptor} from "../../../common/helpers/security/password-encryptor";
+import {KeccakPasswordEncryptor} from "../../../common/helpers/security/impl/keccak.password-encryptor";
+import {RequestInterceptor, ResponseInterceptor} from "../../../common/api/interceptor";
+import {AuthTokenInterceptor} from "../api/axios/interceptors";
+import {ResponseAdapterInterceptor} from "../../../common/api/impl/response-adapter.interceptor";
 
 const authDependenciesContainer = new Container({
     defaultScope: 'Singleton'
 })
 
 authDependenciesContainer
+    .bind<AxiosInstance>(TYPES.AuthAxiosInstance)
+    .toConstantValue(authAxios)
+
+authDependenciesContainer
     .bind<AuthenticateApi>(TYPES.AuthenticateApi)
     .to(AuthenticateApiImpl)
+
 authDependenciesContainer
     .bind<TokenRepository>(TYPES.TokenRepository)
     .to(LocalStorageTokenRepository)
+
 authDependenciesContainer
-    .bind<AxiosInstance>(TYPES.AuthAxiosInstance)
-    .toConstantValue(authAxios)
+    .bind<PasswordEncryptor>(TYPES.PasswordEncryptor)
+    .to(KeccakPasswordEncryptor)
+
 authDependenciesContainer
-    .bind<SignUpUseCase>(SignUpUseCase)
+    .bind<RequestInterceptor>(TYPES.AuthTokenInterceptor)
+    .to(AuthTokenInterceptor)
+authDependenciesContainer
+    .bind<ResponseInterceptor>(TYPES.ResponseAdapterInterceptor)
+    .to(ResponseAdapterInterceptor)
+
+authDependenciesContainer
+    .bind<AuthenticateInputsValidator>(AuthenticateInputsValidator)
     .toSelf()
+
 authDependenciesContainer
     .bind<SignInUseCase>(SignInUseCase)
     .toSelf()
 authDependenciesContainer
-    .bind<AuthenticateInputsValidator>(AuthenticateInputsValidator)
+    .bind<SignUpUseCase>(SignUpUseCase)
     .toSelf()
 
 export default authDependenciesContainer

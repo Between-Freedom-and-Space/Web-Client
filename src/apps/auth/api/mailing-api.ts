@@ -1,8 +1,9 @@
 import { SendEmailVerificationCodeRequest, VerifiyCodeResponse, VerifyEmailVerificationCodeRequest } from "./mailing-api.types";
+import {Response} from "../../../common/api/types";
 
 export interface MailingApi {
 
-    sendEmailVerificationCode(data: SendEmailVerificationCodeRequest): void
+    sendEmailVerificationCode(data: SendEmailVerificationCodeRequest): Response<void>
 
-    verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): VerifiyCodeResponse
+    verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Response<VerifiyCodeResponse>
 }

@@ -1,13 +1,11 @@
-export interface RequestInterceptor {
-
-    beforeRequest(request: any): any
-
-    onRequestFails(request: any): any
+export interface Error {
+    readonly errorId: number
+    readonly message: string
 }
 
-export interface ResponseInterceptor {
-    
-    onSuccess(response: any): any
-    
-    onFail(response: any): any
+export interface Response <T> {
+    readonly statusCode: number
+    readonly statusMessage: string
+    readonly content?: T
+    readonly error?: Error
 }
