@@ -4,7 +4,7 @@ import {
     RefreshAccessTokenResponse, RegisterUserRequest, 
     RegisterUserResponse, VerifyTokenRequest, 
     VerifyTokenResponse 
-} from "./types";
+} from "./auth-api.types";
 
 export interface AuthenticateApi {
 
