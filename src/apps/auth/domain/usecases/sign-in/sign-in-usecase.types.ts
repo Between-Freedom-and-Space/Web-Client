@@ -11,6 +11,6 @@ export interface SignInResultSuccess {
 }
 
 export interface SignInResultFailure {
-    readonly code: number
+    readonly code?: number
     readonly reason: string
 }
