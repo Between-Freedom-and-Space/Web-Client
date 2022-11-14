@@ -5,18 +5,19 @@ import {
     RegisterUserResponse, VerifyTokenRequest, 
     VerifyTokenResponse 
 } from "./auth-api.types";
+import {Response} from "../../../common/api/types";
 
 export interface AuthenticateApi {
 
-    registerUser(data: RegisterUserRequest): RegisterUserResponse
+    registerUser(data: RegisterUserRequest): Response<RegisterUserResponse>
     
-    authenticateUser(data: AuthenticateUserRequest): AuthenticateUserResponse
+    authenticateUser(data: AuthenticateUserRequest): Response<AuthenticateUserResponse>
     
-    deleteUser(data: DeleteUserRequest): void
+    deleteUser(data: DeleteUserRequest): Response<void>
 
-    verifyAccessToken(data: VerifyTokenRequest): VerifyTokenResponse
+    verifyAccessToken(data: VerifyTokenRequest): Response<VerifyTokenResponse>
 
-    verifyRefreshToken(data: VerifyTokenRequest): VerifyTokenResponse
+    verifyRefreshToken(data: VerifyTokenRequest): Response<VerifyTokenResponse>
 
-    refreshAccessToken(data: RefreshAccessTokenRequest): RefreshAccessTokenResponse
+    refreshAccessToken(data: RefreshAccessTokenRequest): Response<RefreshAccessTokenResponse>
 }

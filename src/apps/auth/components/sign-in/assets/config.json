@@ -1,6 +1,6 @@
 {
   "sign_in_button_title": "Sign in",
   "cancel_button_title": "Cancel",
-  "login_input_hint": "Your nickname or email",
+  "login_input_hint": "Your nickname",
   "password_input_hint": "Your password"
 }
