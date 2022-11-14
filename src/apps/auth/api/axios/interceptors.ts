@@ -1,5 +1,7 @@
+import { injectable } from "inversify";
 import { RequestInterceptor } from "../../../../common/api/types";
 
+@injectable()
 export class AuthTokenInterceptor implements RequestInterceptor {
     
     beforeRequest(request: any) {
