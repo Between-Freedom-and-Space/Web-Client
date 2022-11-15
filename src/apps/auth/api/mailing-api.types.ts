@@ -9,6 +9,8 @@ export interface VerifyEmailVerificationCodeRequest {
     readonly securityVariable: string
 }
 
-export interface VerifiyCodeResponse {
-    readonly result: string
+export interface VerifyCodeResponse {
+    readonly result: VerifyCodeResult
 }
+
+export type VerifyCodeResult = 'Invalid Code' | 'Not Found' | 'Validated'
