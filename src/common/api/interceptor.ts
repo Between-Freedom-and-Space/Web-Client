@@ -1,13 +1,18 @@
-export interface RequestInterceptor {
+import {AxiosRequestConfig, AxiosResponse} from "axios";
 
-    beforeRequest(request: any): any
+export type PromisableRequestConfig <T> = AxiosRequestConfig<T> | Promise<AxiosRequestConfig<T>>
+export type PromisableResponse <T> = AxiosResponse<T> | Promise<AxiosResponse<T>>
 
-    onRequestFails(request: any): any
+export interface RequestInterceptor <R> {
+
+    beforeRequest(config: AxiosRequestConfig<R>): PromisableRequestConfig<R>
+
+    onRequestFails(error: any): any
 }
 
-export interface ResponseInterceptor  {
+export interface ResponseInterceptor <R> {
 
-    onSuccess(response: any): any
+    onSuccess(response: AxiosResponse<R>): PromisableResponse<R>
 
     onFail(response: any): any
 }

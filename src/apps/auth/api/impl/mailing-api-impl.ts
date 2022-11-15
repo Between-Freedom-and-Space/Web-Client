@@ -11,11 +11,14 @@ export class MailingApiImpl implements MailingApi {
     @inject(TYPES.AuthAxiosInstance)
     private axios: AxiosInstance | undefined
 
-    sendEmailVerificationCode(data: SendEmailVerificationCodeRequest): Response<void> {
-        throw new Error('Not implemented yet')
+    public async sendEmailVerificationCode(data: SendEmailVerificationCodeRequest): Promise<Response<void>> {
+        const result = await this.axios?.post('/mailing/email/verificationCode/send', {
+            email: data.email,
+            security_variable: data.securityVariable
+        })
     }
 
-    verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Response<VerifyCodeResponse> {
+    public async verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Promise<Response<VerifyCodeResponse>> {
         throw new Error('Not implemented yet')
     }
 

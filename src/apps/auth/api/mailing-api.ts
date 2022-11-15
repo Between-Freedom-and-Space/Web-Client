@@ -3,7 +3,7 @@ import {Response} from "../../../common/api/types";
 
 export interface MailingApi {
 
-    sendEmailVerificationCode(data: SendEmailVerificationCodeRequest): Response<void>
+    sendEmailVerificationCode(data: SendEmailVerificationCodeRequest): Promise<Response<void>>
 
-    verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Response<VerifyCodeResponse>
+    verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Promise<Response<VerifyCodeResponse>>
 }
