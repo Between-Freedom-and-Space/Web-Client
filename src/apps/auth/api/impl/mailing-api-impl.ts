@@ -1,5 +1,5 @@
 import {MailingApi} from "../mailing-api";
-import { SendEmailVerificationCodeRequest, VerifiyCodeResponse, VerifyEmailVerificationCodeRequest } from "../mailing-api.types";
+import { SendEmailVerificationCodeRequest, VerifyCodeResponse, VerifyEmailVerificationCodeRequest } from "../mailing-api.types";
 import {inject, injectable} from "inversify";
 import {AxiosInstance} from "axios";
 import TYPES from "../../di/types";
@@ -15,7 +15,7 @@ export class MailingApiImpl implements MailingApi {
         throw new Error('Not implemented yet')
     }
 
-    verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Response<VerifiyCodeResponse> {
+    verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Response<VerifyCodeResponse> {
         throw new Error('Not implemented yet')
     }
 
