@@ -16,6 +16,7 @@ export class MailingApiImpl implements MailingApi {
             email: data.email,
             security_variable: data.securityVariable
         })
+        throw new Error('Not implemented yet')
     }
 
     public async verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Promise<Response<VerifyCodeResponse>> {

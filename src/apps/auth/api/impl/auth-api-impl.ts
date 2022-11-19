@@ -17,27 +17,27 @@ export class AuthenticateApiImpl implements AuthenticateApi {
     @inject(TYPES.AuthAxiosInstance)
     private axios: AxiosInstance | undefined
 
-    public registerUser(data: RegisterUserRequest): Response<RegisterUserResponse> {
+    public registerUser(data: RegisterUserRequest): Promise<Response<RegisterUserResponse>>{
         throw new Error("Method not implemented.");
     }
     
-    public authenticateUser(data: AuthenticateUserRequest): Response<AuthenticateUserResponse> {
+    public authenticateUser(data: AuthenticateUserRequest): Promise<Response<AuthenticateUserResponse>> {
         throw new Error("Method not implemented.");
     }
     
-    public deleteUser(data: DeleteUserRequest): Response<void> {
+    public deleteUser(data: DeleteUserRequest): Promise<Response<void>> {
         throw new Error("Method not implemented.");
     }
     
-    public verifyAccessToken(data: VerifyTokenRequest): Response<VerifyTokenResponse> {
+    public verifyAccessToken(data: VerifyTokenRequest): Promise<Response<VerifyTokenResponse>> {
         throw new Error("Method not implemented.");
     }
     
-    public verifyRefreshToken(data: VerifyTokenRequest): Response<VerifyTokenResponse> {
+    public verifyRefreshToken(data: VerifyTokenRequest): Promise<Response<VerifyTokenResponse>> {
         throw new Error("Method not implemented.");
     }
     
-    public refreshAccessToken(data: RefreshAccessTokenRequest): Response<RefreshAccessTokenResponse> {
+    public refreshAccessToken(data: RefreshAccessTokenRequest): Promise<Response<RefreshAccessTokenResponse>> {
         throw new Error("Method not implemented.");
     }
     

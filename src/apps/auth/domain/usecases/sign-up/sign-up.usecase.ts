@@ -35,7 +35,7 @@ export class SignUpUseCase {
     @inject(AuthenticateInputsValidator)
     private validator: AuthenticateInputsValidator | undefined
 
-    public sendEmailVerificationCode({email}: SendEmailVerificationCodeData): SendEmailVerificationCodeResult {
+    public async sendEmailVerificationCode({email}: SendEmailVerificationCodeData): Promise<SendEmailVerificationCodeResult> {
         const emailValidationResult = this.validator!.validateEmail(email)
         if (emailValidationResult.type !== ValidationResultType.SUCCESS) {
             return {
@@ -45,7 +45,7 @@ export class SignUpUseCase {
         }
 
         const securityVariable = this.securityVariableGenerator!.generate()
-        const {error} = this.mailingApi!.sendEmailVerificationCode({
+        const {error} = await this.mailingApi!.sendEmailVerificationCode({
             email, securityVariable
         })
 
@@ -59,7 +59,7 @@ export class SignUpUseCase {
        return { type: 'success' }
     }
 
-    public performSignUp(data: PerformSignUpData): SignUpResult {
+    public async performSignUp(data: PerformSignUpData): Promise<SignUpResult> {
         const nicknameValidation = this.validator!.validateNickname(data.nickname)
         const nameValidation = this.validator!.validateName(data.name)
         const descriptionValidation = this.validator!.validateProfileDescription(data.description)
@@ -91,7 +91,7 @@ export class SignUpUseCase {
         }
 
         const securityVariable = this.securityVariableRepository!.get() || this.securityVariableGenerator!.generate()
-        const emailCodeVerification = this.mailingApi!.verifyEmailVerificationCode({
+        const emailCodeVerification = await this.mailingApi!.verifyEmailVerificationCode({
             verificationCode: data.verificationCode,
             targetEmail: data.email,
             securityVariable,
@@ -107,7 +107,7 @@ export class SignUpUseCase {
             return this.failWith('Invalid email verification code')
         }
 
-        const signUpResult = this.authApi!.registerUser({
+        const signUpResult = await this.authApi!.registerUser({
             mail: data.email,
             nickname: data.nickname,
             passwordEncrypted: this.passwordEncryptor!.encryptPassword(data.password),
