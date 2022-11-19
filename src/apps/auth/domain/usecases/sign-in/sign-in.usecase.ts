@@ -22,7 +22,7 @@ export class SignInUseCase {
     @inject(TYPES.PasswordEncryptor)
     private passwordEncryptor: PasswordEncryptor | undefined
 
-    public performSignIn({nickname, password}: PerformSignInData): SignInResult {
+    public async performSignIn({nickname, password}: PerformSignInData): Promise<SignInResult> {
         const nicknameValidationResult = this.validator!.validateNickname(nickname)
         const passwordValidationResult = this.validator!.validatePassword(password)
         if (nicknameValidationResult.type === ValidationResultType.FAILURE) {
@@ -32,7 +32,7 @@ export class SignInUseCase {
             return this.failWith(passwordValidationResult.message)
         }
 
-        const { content, error } = this.authApi!.authenticateUser({
+        const { content, error } = await this.authApi!.authenticateUser({
             nickname, passwordEncoded: this.passwordEncryptor!.encryptPassword(password)
         })
 

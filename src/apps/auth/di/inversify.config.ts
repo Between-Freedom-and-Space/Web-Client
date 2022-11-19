@@ -11,9 +11,8 @@ import {TokenRepository} from "../repository/token.repository";
 import {LocalStorageTokenRepository} from "../repository/impl/local-storage.token.repository";
 import {PasswordEncryptor} from "../../../common/helpers/security/password-encryptor";
 import {KeccakPasswordEncryptor} from "../../../common/helpers/security/impl/keccak.password-encryptor";
-import {RequestInterceptor, ResponseInterceptor} from "../../../common/api/interceptor";
+import {RequestInterceptor} from "../../../common/api/interceptor";
 import {AuthTokenInterceptor} from "../api/axios/interceptors";
-import {ResponseAdapterInterceptor} from "../../../common/api/impl/response-adapter.interceptor";
 import {SecurityVariableRepository} from "../repository/security-variable.repository";
 import {LocalStorageSecurityVariableRepository} from "../repository/impl/local-storage.security-variable.repository";
 import {SecurityVariableGenerator} from "../domain/services/security-variable.generator";
@@ -43,11 +42,8 @@ authDependenciesContainer
     .to(KeccakPasswordEncryptor)
 
 authDependenciesContainer
-    .bind<RequestInterceptor>(TYPES.AuthTokenInterceptor)
+    .bind<RequestInterceptor<any>>(TYPES.AuthTokenInterceptor)
     .to(AuthTokenInterceptor)
-authDependenciesContainer
-    .bind<ResponseInterceptor>(TYPES.ResponseAdapterInterceptor)
-    .to(ResponseAdapterInterceptor)
 
 authDependenciesContainer
     .bind<AuthenticateInputsValidator>(AuthenticateInputsValidator)
