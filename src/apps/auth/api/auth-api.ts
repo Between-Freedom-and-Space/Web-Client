@@ -9,15 +9,15 @@ import {Response} from "../../../common/api/types";
 
 export interface AuthenticateApi {
 
-    registerUser(data: RegisterUserRequest): Response<RegisterUserResponse>
+    registerUser(data: RegisterUserRequest): Promise<Response<RegisterUserResponse>>
     
-    authenticateUser(data: AuthenticateUserRequest): Response<AuthenticateUserResponse>
+    authenticateUser(data: AuthenticateUserRequest): Promise<Response<AuthenticateUserResponse>>
     
-    deleteUser(data: DeleteUserRequest): Response<void>
+    deleteUser(data: DeleteUserRequest): Promise<Response<void>>
 
-    verifyAccessToken(data: VerifyTokenRequest): Response<VerifyTokenResponse>
+    verifyAccessToken(data: VerifyTokenRequest): Promise<Response<VerifyTokenResponse>>
 
-    verifyRefreshToken(data: VerifyTokenRequest): Response<VerifyTokenResponse>
+    verifyRefreshToken(data: VerifyTokenRequest): Promise<Response<VerifyTokenResponse>>
 
-    refreshAccessToken(data: RefreshAccessTokenRequest): Response<RefreshAccessTokenResponse>
+    refreshAccessToken(data: RefreshAccessTokenRequest): Promise<Response<RefreshAccessTokenResponse>>
 }
