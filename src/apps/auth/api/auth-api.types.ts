@@ -6,17 +6,12 @@ export interface RegisterUserRequest {
     readonly nameAlias: string
     readonly description: string
     readonly location: string
+    readonly securityVariable: string
 }
 
 export interface RegisterUserResponse {
-    readonly id: number
-    readonly nickname: string
-    readonly nameAlias: string
-    readonly description?: string
-    readonly location?: string
-    readonly iconId?: number
-    readonly createdDate: Date
-    readonly updatedDate: Date
+    readonly accessToken: string
+    readonly refreshToken: string
 }
 
 export interface AuthenticateUserRequest {
@@ -31,15 +26,6 @@ export interface AuthenticateUserResponse {
 
 export interface DeleteUserRequest {
     readonly accessToken: string
-}
-
-export interface VerifyTokenRequest {
-    readonly token: string
-}
-
-export interface VerifyTokenResponse {
-    readonly tokenType: string
-    readonly verifyResult: string
 }
 
 export interface RefreshAccessTokenRequest {

@@ -3,13 +3,13 @@ import { AuthenticateApi } from "../auth-api";
 import {
     RegisterUserRequest, RegisterUserResponse,
     AuthenticateUserRequest, AuthenticateUserResponse,
-    DeleteUserRequest, VerifyTokenRequest,
-    VerifyTokenResponse, RefreshAccessTokenRequest,
+    DeleteUserRequest, RefreshAccessTokenRequest,
     RefreshAccessTokenResponse
 } from "../auth-api.types";
 import {AxiosInstance} from "axios";
 import TYPES from "../../di/types";
 import {Response} from "../../../../common/api/types";
+import {parseResponse} from "../../../../common/helpers/api-helper";
 
 @injectable()
 export class AuthenticateApiImpl implements AuthenticateApi {
@@ -17,28 +17,49 @@ export class AuthenticateApiImpl implements AuthenticateApi {
     @inject(TYPES.AuthAxiosInstance)
     private axios: AxiosInstance | undefined
 
-    public registerUser(data: RegisterUserRequest): Promise<Response<RegisterUserResponse>>{
-        throw new Error("Method not implemented.");
+    public async registerUser(data: RegisterUserRequest): Promise<Response<RegisterUserResponse>>{
+        const response = await this.axios!.patch('/registration/register/user', {
+            email: data.mail,
+            nickname: data.nickname,
+            password_encrypted: data.passwordEncrypted,
+            name_alias: data.nameAlias,
+            profile_description: data.description,
+            location: data.location,
+            security_variable: data.securityVariable
+        })
+
+        return parseResponse(response.data, (content: any) => {
+            return {
+                accessToken: content['access_token'] as string,
+                refreshToken: content['refresh_token'] as string
+            }
+        })
     }
     
-    public authenticateUser(data: AuthenticateUserRequest): Promise<Response<AuthenticateUserResponse>> {
-        throw new Error("Method not implemented.");
+    public async authenticateUser(data: AuthenticateUserRequest): Promise<Response<AuthenticateUserResponse>> {
+        const response = await this.axios!.post('/authentication/authenticate', {
+            nickname: data.nickname,
+            password_encoded: data.passwordEncoded
+        })
+
+        return parseResponse(response.data, (content: any) => {
+            return {
+                accessToken: content['access_token'] as string,
+                refreshToken: content['refresh_token'] as string
+            }
+        })
     }
     
-    public deleteUser(data: DeleteUserRequest): Promise<Response<void>> {
-        throw new Error("Method not implemented.");
+    public async deleteUser(data: DeleteUserRequest): Promise<Response<void>> {
+        const response = await this.axios!.delete('/authentication/user/delete')
+
+        return parseResponse(response.data)
     }
     
-    public verifyAccessToken(data: VerifyTokenRequest): Promise<Response<VerifyTokenResponse>> {
-        throw new Error("Method not implemented.");
-    }
-    
-    public verifyRefreshToken(data: VerifyTokenRequest): Promise<Response<VerifyTokenResponse>> {
-        throw new Error("Method not implemented.");
-    }
-    
-    public refreshAccessToken(data: RefreshAccessTokenRequest): Promise<Response<RefreshAccessTokenResponse>> {
-        throw new Error("Method not implemented.");
+    public async refreshAccessToken(data: RefreshAccessTokenRequest): Promise<Response<RefreshAccessTokenResponse>> {
+        const response = await this.axios!.post('/authentication/refresh/access/token')
+
+        return parseResponse(response.data)
     }
     
 }

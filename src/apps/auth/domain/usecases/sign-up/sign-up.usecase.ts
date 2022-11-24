@@ -120,6 +120,9 @@ export class SignUpUseCase {
             return this.failWith(signUpResult.error.message)
         }
 
+        const { accessToken, refreshToken } = signUpResult.content!
+        this.tokenRepository!.saveTokens({accessToken, refreshToken})
+
         return this.successWith()
     }
 
