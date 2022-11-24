@@ -24,6 +24,8 @@ export class AuthTokenInterceptor implements RequestInterceptor<any> {
         return config
     }
 
-    onRequestFails(error: any): any { }
+    onRequestFails(error: any): any {
+        return Promise.resolve(error)
+    }
 
 }
