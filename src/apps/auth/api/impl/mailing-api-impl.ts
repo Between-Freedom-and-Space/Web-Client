@@ -13,22 +13,22 @@ export class MailingApiImpl implements MailingApi {
     private axios: AxiosInstance | undefined
 
     public async sendEmailVerificationCode(data: SendEmailVerificationCodeRequest): Promise<Response<void>> {
-        const result = await this.axios!.post('/registration/send/email/code', {
+        const response = await this.axios!.post('/registration/send/email/code', {
             email: data.email,
             security_variable: data.securityVariable
         })
 
-        return parseResponse(result)
+        return parseResponse(response.data)
     }
 
     public async verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Promise<Response<VerifyCodeResponse>> {
-        const result = await this.axios!.post('/registration/validate/email/code', {
+        const response = await this.axios!.post('/registration/validate/email/code', {
             target_email: data.targetEmail,
             verification_code: data.verificationCode,
             security_variable: data.securityVariable
         })
 
-        return parseResponse(result, (content: any) => {
+        return parseResponse(response.data, (content: any) => {
             const verifyResult = content['verify_result']
             if (verifyResult === 'Invalid Code') {
                 return {
