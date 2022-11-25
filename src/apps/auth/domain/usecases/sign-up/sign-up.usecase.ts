@@ -113,7 +113,8 @@ export class SignUpUseCase {
             passwordEncrypted: this.passwordEncryptor!.encryptPassword(data.password),
             nameAlias: data.name,
             description: data.description,
-            location: data.location
+            location: data.location,
+            securityVariable: securityVariable
         })
 
         if (signUpResult.error !== undefined) {
