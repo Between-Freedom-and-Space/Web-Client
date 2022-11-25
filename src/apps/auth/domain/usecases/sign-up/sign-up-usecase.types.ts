@@ -20,10 +20,10 @@ export interface PerformSignUpData {
     readonly verificationCode: string
 }
 
-export interface SignUpResult { }
+export type SignUpResult = SignUpSuccess | SignUpFailure
 
-export interface SignUpSuccess extends SignUpResult { }
+export interface SignUpSuccess { }
 
-export interface SignUpFailure extends SignUpResult {
+export interface SignUpFailure  {
     message: string
 }
