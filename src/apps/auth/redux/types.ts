@@ -1,6 +1,7 @@
 export interface SignInState {
-    readonly login: string
+    readonly nickname: string
     readonly password: string
+    readonly isLoggedIn: boolean
 }
 
 export interface SignUpState {
@@ -10,4 +11,10 @@ export interface SignUpState {
     readonly description: string
     readonly location: string
     readonly password: string
+    readonly isLoggedIn: boolean
+}
+
+export interface OnSignUpFieldValueChanged {
+    readonly field: keyof SignUpState
+    readonly value: SignUpState[keyof SignUpState]
 }
