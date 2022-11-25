@@ -9,6 +9,7 @@ import PlainInput from '../../../../common/components/ui-kit/inputs/plain/plain-
 import config from "./assets/config.json"
 
 import styles from "./sign-in.module.scss"
+import {useNavigate} from "react-router-dom";
 
 function SignIn() {
     const [passwordState, setPasswordState] = useState(PasswordInputState.INPUT_IN_PROGRESS)
@@ -16,6 +17,7 @@ function SignIn() {
     const [password, setPassword] = useState("")
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     return (
         <div className={styles.formContainer}>
@@ -27,12 +29,21 @@ function SignIn() {
             </div>
             <div className={styles.buttonsContainer}>
                 <div className={styles.buttonWrapper} data-button-pos='first'>
-                    <Button type={ButtonType.SECONDARY} widthType={SizeType.MAX_PERCENT} heightType={SizeType.MAX_PERCENT}>
+                    <Button
+                        type={ButtonType.SECONDARY}
+                        widthType={SizeType.MAX_PERCENT}
+                        heightType={SizeType.MAX_PERCENT}
+                        onClick={() => navigate(-1)}
+                    >
                         {config.cancel_button_title}
                     </Button>
                 </div>
                 <div className={styles.buttonWrapper} data-button-pos='second'>
-                    <Button type={ButtonType.PRIMARY} widthType={SizeType.MAX_PERCENT} heightType={SizeType.MAX_PERCENT}>
+                    <Button
+                        type={ButtonType.PRIMARY}
+                        widthType={SizeType.MAX_PERCENT}
+                        heightType={SizeType.MAX_PERCENT}
+                    >
                         {config.sign_in_button_title}
                     </Button>
                 </div>
