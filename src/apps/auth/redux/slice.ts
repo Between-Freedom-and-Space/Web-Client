@@ -1,12 +1,12 @@
 import {SignInState, SignUpState} from "./types";
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {
     OnSendVerificationCodeClicked,
     onSignInClicked,
     onSignInNicknameChanged,
     onSignInPasswordChanged,
     onSignUpClicked, OnSignUpFormFieldValueChanged
-} from "./reducers";
+} from "./reducer";
 
 const initialSignInState: SignInState = {
     nickname: '',
@@ -15,11 +15,14 @@ const initialSignInState: SignInState = {
 }
 const initialSignUpState: SignUpState = {
     nickname: '',
+    name: '',
     email: '',
     phoneNumber: '',
     password: '',
+    repeatedPassword: '',
     description: '',
     location: '',
+    verificationCode: '',
     isLoggedIn: false,
 }
 
@@ -37,13 +40,17 @@ export const authSignUpSlice = createSlice({
     name: 'auth-sign-up',
     initialState: initialSignUpState,
     reducers: {
-        signUp: onSignUpClicked,
+        signUp: createAsyncThunk(
+            'auth/sign-up/signUp',
+            onSignUpClicked
+        ),
         sendVerificationCode: OnSendVerificationCodeClicked,
         signUpFormChanged: OnSignUpFormFieldValueChanged,
+    },
+    extraReducers: (builder) => {
+
     }
 })
 
 export const signInActions = authSignInSlice.actions
 export const signUpActions = authSignUpSlice.actions
-
-export default {}
