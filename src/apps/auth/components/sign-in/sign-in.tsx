@@ -10,6 +10,7 @@ import config from "./assets/config.json"
 
 import styles from "./sign-in.module.scss"
 import {useNavigate} from "react-router-dom";
+import {signInActions} from "../../redux/slice";
 
 function SignIn() {
     const [passwordState, setPasswordState] = useState(PasswordInputState.INPUT_IN_PROGRESS)
@@ -43,6 +44,7 @@ function SignIn() {
                         type={ButtonType.PRIMARY}
                         widthType={SizeType.MAX_PERCENT}
                         heightType={SizeType.MAX_PERCENT}
+                        onClick={() => dispatch(signInActions.signIn)}
                     >
                         {config.sign_in_button_title}
                     </Button>

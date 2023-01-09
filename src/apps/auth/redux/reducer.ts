@@ -11,7 +11,7 @@ const signUpUseCase = container.get<SignUpUseCase>(SignUpUseCase)
 
 export async function onSignInClicked(state: SignInState): Promise<SignInState> {
     const signInResult = await signInUseCase.performSignIn(state)
-
+    
     return {
         ...state,
     }
