@@ -3,47 +3,22 @@ import {createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import authDependenciesContainer from "../di/inversify.config";
 import {SignInUseCase} from "../domain/usecases/sign-in/sign-in.usecase";
 import {SignUpUseCase} from "../domain/usecases/sign-up/sign-up.usecase";
+import {SignUpResult} from "../domain/usecases/sign-up/sign-up-usecase.types";
+import {SignInResult} from "../domain/usecases/sign-in/sign-in-usecase.types";
 
 const container = authDependenciesContainer
 
-const signInUseCase = container.get<SignInUseCase>(SignInUseCase)
-const signUpUseCase = container.get<SignUpUseCase>(SignUpUseCase)
-
-async function onSignInClicked(state: SignInState): Promise<SignInState> {
-    const signInResult = await signInUseCase.performSignIn(state)
-
-
-    return {
-        ...state,
-    }
-}
-
-function onSignInNicknameChanged(state: SignInState, action: PayloadAction<string>): SignInState {
+export function onSignInNicknameChanged(state: SignInState, action: PayloadAction<string>): SignInState {
     return {
         ...state,
         nickname: action.payload
     }
 }
 
-function onSignInPasswordChanged(state: SignInState, action: PayloadAction<string>): SignInState {
+export function onSignInPasswordChanged(state: SignInState, action: PayloadAction<string>): SignInState {
     return {
         ...state,
         password: action.payload
-    }
-}
-
-async function onSignUpClicked(state: SignUpState): Promise<SignUpState> {
-    const signUpResult = await signUpUseCase.performSignUp(state)
-
-    return {
-        ...state,
-    }
-}
-
-async function OnSendVerificationCodeClicked(state: SignUpState): Promise<SignUpState> {
-    const sendCodeResult = await signUpUseCase.sendEmailVerificationCode(state)
-    return {
-        ...state,
     }
 }
 
@@ -56,6 +31,27 @@ function OnSignUpFormFieldValueChanged(
     }
 }
 
-export const signInThunk = createAsyncThunk(
-    'signin/'
+export const signInThunk = createAsyncThunk<SignInResult, SignInState>(
+    'sign-in/sign-in-clicked',
+    async (state, config) => {
+        const useCase = container.get<SignInUseCase>(SignInUseCase)
+
+        return await useCase.performSignIn({...state})
+    }
+)
+
+export const signUpThunk = createAsyncThunk<SignUpResult, SignUpState>(
+    'sign-up/sign-up-clicked',
+    async (state, config) => {
+        const useCase = container.get<SignUpUseCase>(SignUpUseCase)
+
+        return await useCase.performSignUp({...state})
+    }
+)
+
+export const sendVerificationCodeThunk = createAsyncThunk(
+    'sign-up/send-verification-code-clicked',
+    async (state, {rejectWithValue}) => {
+        const useCase = container.get<SignUpUseCase>(SignUpUseCase)
+    }
 )
