@@ -1,17 +1,11 @@
-import {SignInState, SignUpState} from "./types";
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {
-    OnSendVerificationCodeClicked,
-    onSignInClicked,
-    onSignInNicknameChanged,
-    onSignInPasswordChanged,
-    onSignUpClicked, OnSignUpFormFieldValueChanged
-} from "./reducer";
+import {AuthState, SignInState, SignUpState} from "./types";
+import {createSlice} from "@reduxjs/toolkit";
+import {onSignInNicknameChanged, onSignInPasswordChanged, signInThunk, signUpThunk} from "./reducer";
 
 const initialSignInState: SignInState = {
     nickname: '',
     password: '',
-    isLoggedIn: false,
+    state: AuthState.NOT_AUTHENTICATED
 }
 const initialSignUpState: SignUpState = {
     nickname: '',
@@ -23,16 +17,27 @@ const initialSignUpState: SignUpState = {
     description: '',
     location: '',
     verificationCode: '',
-    isLoggedIn: false,
+    state: AuthState.NOT_AUTHENTICATED
 }
 
 export const authSignInSlice = createSlice({
     name: 'auth-sign-in',
     initialState: initialSignInState,
     reducers: {
-        signIn: onSignInClicked,
-        nicknameChanged: onSignInNicknameChanged,
-        passwordChanged: onSignInPasswordChanged,
+        passwordFieldChanged: onSignInPasswordChanged,
+        nicknameFieldChanged: onSignInNicknameChanged,
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(signInThunk.pending, (state, action) => {
+                state.state = AuthState.LOADING
+            })
+            .addCase(signInThunk.fulfilled, (state, action) => {
+
+            })
+            .addCase(signInThunk.rejected, (state, action) => {
+
+            })
     }
 })
 
@@ -40,15 +45,12 @@ export const authSignUpSlice = createSlice({
     name: 'auth-sign-up',
     initialState: initialSignUpState,
     reducers: {
-        signUp: createAsyncThunk(
-            'auth/sign-up/signUp',
-            onSignUpClicked
-        ),
-        sendVerificationCode: OnSendVerificationCodeClicked,
-        signUpFormChanged: OnSignUpFormFieldValueChanged,
+
     },
     extraReducers: (builder) => {
+        builder.addCase(signUpThunk.pending, (state, action) => {
 
+        })
     }
 })
 

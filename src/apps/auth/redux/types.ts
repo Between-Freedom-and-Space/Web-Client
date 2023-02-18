@@ -1,7 +1,7 @@
 export interface SignInState {
     readonly nickname: string
     readonly password: string
-    readonly isLoggedIn: boolean
+    readonly state: AuthState
 }
 
 export interface SignUpState {
@@ -14,10 +14,16 @@ export interface SignUpState {
     readonly password: string
     readonly repeatedPassword: string
     readonly verificationCode: string
-    readonly isLoggedIn: boolean
+    readonly state: AuthState
 }
 
 export interface OnSignUpFieldValueChanged {
     readonly field: keyof SignUpState
     readonly value: SignUpState[keyof SignUpState]
+}
+
+export enum AuthState {
+    NOT_AUTHENTICATED,
+    LOADING,
+    AUTHENTICATED
 }
