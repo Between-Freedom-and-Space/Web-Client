@@ -1,6 +1,12 @@
-import {AuthState, SignInState, SignUpState} from "./types";
+import {AuthState, SignInState, SignUpState, VerificationCodeState} from "./types";
 import {createSlice} from "@reduxjs/toolkit";
-import {onSignInNicknameChanged, onSignInPasswordChanged, signInThunk, signUpThunk} from "./reducer";
+import {
+    onSignInNicknameChanged,
+    onSignInPasswordChanged,
+    sendVerificationCodeThunk,
+    signInThunk,
+    signUpThunk
+} from "./reducer";
 
 const initialSignInState: SignInState = {
     nickname: '',
@@ -17,6 +23,7 @@ const initialSignUpState: SignUpState = {
     description: '',
     location: '',
     verificationCode: '',
+    verificationCodeState: VerificationCodeState.NOT_SEND,
     state: AuthState.NOT_AUTHENTICATED
 }
 
@@ -33,10 +40,10 @@ export const authSignInSlice = createSlice({
                 state.state = AuthState.LOADING
             })
             .addCase(signInThunk.fulfilled, (state, action) => {
-
+                state.state = AuthState.AUTHENTICATED
             })
             .addCase(signInThunk.rejected, (state, action) => {
-
+                state.state = AuthState.NOT_AUTHENTICATED
             })
     }
 })
@@ -49,6 +56,19 @@ export const authSignUpSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(signUpThunk.pending, (state, action) => {
+            state.state = AuthState.LOADING
+        })
+        builder.addCase(signUpThunk.rejected, (state, action) => {
+            state.state = AuthState.NOT_AUTHENTICATED
+        })
+        builder.addCase(signUpThunk.fulfilled, (state, action) => {
+
+        })
+
+        builder.addCase(sendVerificationCodeThunk.pending, (state, action) => {
+
+        })
+        builder.addCase(sendVerificationCodeThunk.fulfilled, (state, action) => {
 
         })
     }
