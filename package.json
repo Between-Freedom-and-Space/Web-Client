@@ -24,6 +24,7 @@
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-loader-spinner": "^5.3.4",
     "react-notifications-component": "^4.0.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.2",

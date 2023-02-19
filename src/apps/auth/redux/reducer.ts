@@ -3,7 +3,7 @@ import {createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import authDependenciesContainer from "../di/inversify.config";
 import {SignInUseCase} from "../domain/usecases/sign-in/sign-in.usecase";
 import {SignUpUseCase} from "../domain/usecases/sign-up/sign-up.usecase";
-import {SignUpResult} from "../domain/usecases/sign-up/sign-up-usecase.types";
+import {SendEmailVerificationCodeResult, SignUpResult} from "../domain/usecases/sign-up/sign-up-usecase.types";
 import {SignInResult} from "../domain/usecases/sign-in/sign-in-usecase.types";
 
 const container = authDependenciesContainer
@@ -31,9 +31,9 @@ function OnSignUpFormFieldValueChanged(
     }
 }
 
-export const signInThunk = createAsyncThunk<SignInResult, SignInState>(
+export const signInThunk = createAsyncThunk<SignInResult, SignInState, {rejectValue: string}>(
     'sign-in/sign-in-clicked',
-    async (state, config) => {
+    async (state) => {
         const useCase = container.get<SignInUseCase>(SignInUseCase)
 
         return await useCase.performSignIn({...state})
@@ -42,16 +42,18 @@ export const signInThunk = createAsyncThunk<SignInResult, SignInState>(
 
 export const signUpThunk = createAsyncThunk<SignUpResult, SignUpState>(
     'sign-up/sign-up-clicked',
-    async (state, config) => {
+    async (state) => {
         const useCase = container.get<SignUpUseCase>(SignUpUseCase)
 
         return await useCase.performSignUp({...state})
     }
 )
 
-export const sendVerificationCodeThunk = createAsyncThunk(
+export const sendVerificationCodeThunk = createAsyncThunk<SendEmailVerificationCodeResult, SignUpState>(
     'sign-up/send-verification-code-clicked',
-    async (state, {rejectWithValue}) => {
+    async (state) => {
         const useCase = container.get<SignUpUseCase>(SignUpUseCase)
+
+        return  await useCase.sendEmailVerificationCode({...state})
     }
 )
