@@ -14,6 +14,7 @@ export interface SignUpState {
     readonly password: string
     readonly repeatedPassword: string
     readonly verificationCode: string
+    readonly verificationCodeState: VerificationCodeState
     readonly state: AuthState
 }
 
@@ -26,4 +27,10 @@ export enum AuthState {
     NOT_AUTHENTICATED,
     LOADING,
     AUTHENTICATED
+}
+
+export enum VerificationCodeState {
+    NOT_SEND,
+    SENDING,
+    SEND
 }
