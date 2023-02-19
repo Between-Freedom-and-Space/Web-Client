@@ -2,13 +2,15 @@ import React from 'react'
 import PlainInput from '../../../../../common/components/ui-kit/inputs/plain/plain-input'
 
 import styles from "./sign-up-single-input-item.module.scss"
+import {InputController} from "../../../../../common/components/ui-kit/inputs/types";
 
 interface Props {
     title?: string,
     description?: string,
     inputText?: string,
     inputHint?: string,
-    withInput?: boolean
+    withInput?: boolean,
+    controller?: InputController,
 }
 
 function SignUpSingleInputItem({
@@ -16,6 +18,7 @@ function SignUpSingleInputItem({
     description,
     inputText,
     inputHint,
+    controller,
     withInput = true
 }: Props) {
     return (
@@ -27,10 +30,14 @@ function SignUpSingleInputItem({
     )
 }
 
-function Input(inputText?: string, inputHint?: string) {
+function Input(
+    inputText?: string,
+    inputHint?: string,
+    controller?: InputController,
+) {
     return (
         <div className={styles.input}>
-            <PlainInput text={inputText} hintText={inputHint}/>
+            <PlainInput text={inputText} hintText={inputHint} controller={controller}/>
         </div>
     )
 }

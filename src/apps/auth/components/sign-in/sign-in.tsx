@@ -13,8 +13,13 @@ import {InputController} from "../../../../common/components/ui-kit/inputs/types
 import {RootState, useAppDispatch, useAppSelector} from "../../../../config/redux.config";
 import {AuthState} from "../../redux/types";
 import CommonLoader from "../../../../common/components/ui-kit/loaders/common-loader";
+import {signInActions} from "../../redux/slice";
 
 function SignIn() {
+    const signInState = useAppSelector((state: RootState) => state.authSignIn)
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+
     const [passwordState, setPasswordState] = useState(PasswordInputState.INPUT_IN_PROGRESS)
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
@@ -22,19 +27,23 @@ function SignIn() {
     const loginController: InputController = {
         onInputChanged(newInput: string) {
             setLogin(newInput)
+            dispatch(signInActions.nicknameFieldChanged(login))
         },
-        onEnterPressed(currentInput: string) { }
+        onEnterPressed(currentInput: string) {
+            setLogin(currentInput)
+            dispatch(signInActions.nicknameFieldChanged(login))
+        }
     }
     const passwordController: InputController = {
         onInputChanged(newInput: string) {
             setPassword(newInput)
+            dispatch(signInActions.passwordFieldChanged(password))
         },
-        onEnterPressed(currentInput: string) { }
+        onEnterPressed(currentInput: string) {
+            setPassword(currentInput)
+            dispatch(signInActions.passwordFieldChanged(password))
+        }
     }
-
-    const signInState = useAppSelector((state: RootState) => state.authSignIn)
-    const dispatch = useAppDispatch()
-    const navigate = useNavigate()
 
     if (signInState.state === AuthState.LOADING) {
         return (

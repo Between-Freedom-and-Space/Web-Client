@@ -2,7 +2,7 @@ import {AuthState, SignInState, SignUpState, VerificationCodeState} from "./type
 import {createSlice} from "@reduxjs/toolkit";
 import {
     onSignInNicknameChanged,
-    onSignInPasswordChanged,
+    onSignInPasswordChanged, onSignUpFormFieldValueChanged,
     sendVerificationCodeThunk,
     signInThunk,
     signUpThunk
@@ -52,7 +52,7 @@ export const authSignUpSlice = createSlice({
     name: 'auth-sign-up',
     initialState: initialSignUpState,
     reducers: {
-
+        formFieldValueChanged: onSignUpFormFieldValueChanged,
     },
     extraReducers: (builder) => {
         builder.addCase(signUpThunk.pending, (state, action) => {
@@ -66,7 +66,10 @@ export const authSignUpSlice = createSlice({
         })
 
         builder.addCase(sendVerificationCodeThunk.pending, (state, action) => {
-
+            state.verificationCodeState = VerificationCodeState.SENDING
+        })
+        builder.addCase(sendVerificationCodeThunk.rejected, (state, action) => {
+            state.verificationCodeState = VerificationCodeState.NOT_SEND
         })
         builder.addCase(sendVerificationCodeThunk.fulfilled, (state, action) => {
 
