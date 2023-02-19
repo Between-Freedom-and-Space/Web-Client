@@ -33,7 +33,7 @@ function MarkDownEditor({ value, height, controller }: Props) {
                 autoFocus={true}
                 overflow={false}
                 value={state}
-                height={height || '50vh'}
+                style={{height: height || '50vh'}}
                 onChange={markdownOnChangeHandler}
             />
         </div>

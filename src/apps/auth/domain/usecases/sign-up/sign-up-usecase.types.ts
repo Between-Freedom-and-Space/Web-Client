@@ -26,4 +26,5 @@ export interface SignUpSuccess { }
 
 export interface SignUpFailure  {
     message: string
+    code?: number
 }

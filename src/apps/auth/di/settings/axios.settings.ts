@@ -1,5 +1,5 @@
 import authDependenciesContainer from "../inversify.config";
-import {AxiosInstance, AxiosRequestConfig} from "axios";
+import {AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig} from "axios";
 import TYPES from "../types";
 import {RequestInterceptor} from "../../../../common/api/interceptor";
 
@@ -9,8 +9,8 @@ const axiosInstance = container.get<AxiosInstance>(TYPES.AuthAxiosInstance)
 const authTokenInterceptor = container.get<RequestInterceptor<any>>(TYPES.AuthTokenInterceptor)
 
 axiosInstance.interceptors.request.use(
-    (config: AxiosRequestConfig): AxiosRequestConfig => {
-        return authTokenInterceptor.beforeRequest(config) as AxiosRequestConfig
+    (config: AxiosRequestConfig): InternalAxiosRequestConfig => {
+        return authTokenInterceptor.beforeRequest(config) as InternalAxiosRequestConfig
     },
     (error: any): any => {
         return authTokenInterceptor.onRequestFails(error)
