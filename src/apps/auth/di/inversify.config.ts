@@ -2,6 +2,7 @@ import { AxiosInstance } from "axios";
 import { Container } from "inversify";
 import { AuthenticateApi } from "../api/auth-api"
 import authAxios from "../api/axios/config";
+import "reflect-metadata";
 import { AuthenticateApiImpl } from "../api/impl/auth-api-impl";
 import { SignInUseCase } from "../domain/usecases/sign-in/sign-in.usecase";
 import { SignUpUseCase } from "../domain/usecases/sign-up/sign-up.usecase";
