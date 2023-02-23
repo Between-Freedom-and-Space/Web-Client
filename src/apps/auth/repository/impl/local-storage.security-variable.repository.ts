@@ -1,5 +1,7 @@
 import {SecurityVariableRepository} from "../security-variable.repository";
+import {injectable} from "inversify";
 
+@injectable()
 export class LocalStorageSecurityVariableRepository implements SecurityVariableRepository {
 
     private static readonly SECURITY_VARIABLE_KEY = 'security_variable_key'

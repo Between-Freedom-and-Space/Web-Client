@@ -25,7 +25,7 @@ function SignUpSingleInputItem({
         <div className={styles.container}>
             <div className={styles.title}>{title}</div>
             <div className={styles.description}>{description}</div>
-            {withInput ? Input(inputText, inputHint) : null}
+            {withInput ? Input(inputText, inputHint, controller) : null}
         </div>
     )
 }
