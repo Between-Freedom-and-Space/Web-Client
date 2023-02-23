@@ -1,3 +1,5 @@
 src/index.css
 src/common/hooks/useLocalStorage.ts
 src/apps/landing/principles/item/util/helpers.ts
+src/common/components/header/header.tsx
+src/apps/auth/domain/validators/authenticate-inputs.validator.ts

@@ -22,7 +22,9 @@ export interface PerformSignUpData {
 
 export type SignUpResult = SignUpSuccess | SignUpFailure
 
-export interface SignUpSuccess { }
+export interface SignUpSuccess {
+    data?: any
+}
 
 export interface SignUpFailure  {
     message: string
