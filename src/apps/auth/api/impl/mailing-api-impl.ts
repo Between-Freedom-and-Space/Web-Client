@@ -1,5 +1,9 @@
 import {MailingApi} from "../mailing-api";
-import { SendEmailVerificationCodeRequest, VerifyCodeResponse, VerifyEmailVerificationCodeRequest } from "../mailing-api.types";
+import {
+    SendEmailVerificationCodeRequest,
+    VerifyCodeResponse,
+    VerifyEmailVerificationCodeRequest
+} from "../mailing-api.types";
 import {inject, injectable} from "inversify";
 import {AxiosInstance} from "axios";
 import TYPES from "../../di/types";
@@ -21,7 +25,9 @@ export class MailingApiImpl implements MailingApi {
         return parseResponse(response.data)
     }
 
-    public async verifyEmailVerificationCode(data: VerifyEmailVerificationCodeRequest): Promise<Response<VerifyCodeResponse>> {
+    public async verifyEmailVerificationCode(
+        data: VerifyEmailVerificationCodeRequest
+    ): Promise<Response<VerifyCodeResponse>> {
         const response = await this.axios!.post('/registration/validate/email/code', {
             target_email: data.targetEmail,
             verification_code: data.verificationCode,

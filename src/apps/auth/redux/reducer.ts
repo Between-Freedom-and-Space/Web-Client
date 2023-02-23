@@ -4,7 +4,7 @@ import authDependenciesContainer from "../di/inversify.config";
 import {SignInUseCase} from "../domain/usecases/sign-in/sign-in.usecase";
 import {SignUpUseCase} from "../domain/usecases/sign-up/sign-up.usecase";
 import {SendEmailVerificationCodeResult, SignUpResult} from "../domain/usecases/sign-up/sign-up-usecase.types";
-import {SignInResult, SignInResultFailure} from "../domain/usecases/sign-in/sign-in-usecase.types";
+import {SignInResult} from "../domain/usecases/sign-in/sign-in-usecase.types";
 import {resultIsFailure as signInIsFailure} from "../domain/usecases/sign-in/sign-in-usecase.helpers";
 import {
     resultIsFailure as signUpIsFailure,
@@ -35,62 +35,62 @@ export function onSignUpFormFieldValueChanged(
     let resultState = {...state}
 
     switch (payload.field) {
-        case "description": {
-            resultState = {
-                ...resultState,
-                description: payload.value as string,
-            }
-            break
+    case "description": {
+        resultState = {
+            ...resultState,
+            description: payload.value as string,
         }
-        case "email": {
-            resultState = {
-                ...resultState,
-                email: payload.value as string,
-            }
-            break
+        break
+    }
+    case "email": {
+        resultState = {
+            ...resultState,
+            email: payload.value as string,
         }
-        case "location": {
-            resultState = {
-                ...resultState,
-                location: payload.value as string,
-            }
-            break
+        break
+    }
+    case "location": {
+        resultState = {
+            ...resultState,
+            location: payload.value as string,
         }
-        case "name": {
-            resultState = {
-                ...resultState,
-                name: payload.value as string,
-            }
-            break
+        break
+    }
+    case "name": {
+        resultState = {
+            ...resultState,
+            name: payload.value as string,
         }
-        case "repeatedPassword": {
-            resultState = {
-                ...resultState,
-                repeatedPassword: payload.value as string,
-            }
-            break
+        break
+    }
+    case "repeatedPassword": {
+        resultState = {
+            ...resultState,
+            repeatedPassword: payload.value as string,
         }
-        case "password": {
-            resultState = {
-                ...resultState,
-                password: payload.value as string,
-            }
-            break
+        break
+    }
+    case "password": {
+        resultState = {
+            ...resultState,
+            password: payload.value as string,
         }
-        case "nickname": {
-            resultState = {
-                ...resultState,
-                nickname: payload.value as string,
-            }
-            break
+        break
+    }
+    case "nickname": {
+        resultState = {
+            ...resultState,
+            nickname: payload.value as string,
         }
-        case "verificationCode": {
-            resultState = {
-                ...resultState,
-                verificationCode: payload.value as string,
-            }
-            break
+        break
+    }
+    case "verificationCode": {
+        resultState = {
+            ...resultState,
+            verificationCode: payload.value as string,
         }
+        break
+    }
     }
 
     return resultState
@@ -144,17 +144,21 @@ export const signUpThunk = createAsyncThunk<SignUpResult, SignUpState, {rejectVa
     }
 )
 
-export const sendVerificationCodeThunk = createAsyncThunk<SendEmailVerificationCodeResult, SignUpState, {rejectValue: string}>(
-    'sign-up/send-verification-code-clicked',
-    async (state, {rejectWithValue}) => {
-        const useCase = container.get<SignUpUseCase>(SignUpUseCase)
+export const sendVerificationCodeThunk = createAsyncThunk<
+    SendEmailVerificationCodeResult,
+    SignUpState,
+    {rejectValue: string}
+    >(
+        'sign-up/send-verification-code-clicked',
+        async (state, {rejectWithValue}) => {
+            const useCase = container.get<SignUpUseCase>(SignUpUseCase)
 
-        const result = await useCase.sendEmailVerificationCode({...state})
+            const result = await useCase.sendEmailVerificationCode({...state})
 
-        if (verificationCodeResultIsFailure(result)) {
-            return rejectWithValue(result.message!)
-        } else {
-            return result
+            if (verificationCodeResultIsFailure(result)) {
+                return rejectWithValue(result.message!)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )

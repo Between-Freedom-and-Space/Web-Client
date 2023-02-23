@@ -1,4 +1,4 @@
-import {NotificationData, NotificationId} from "./types";
+import {NotificationData} from "./types";
 import {Store} from "react-notifications-component";
 
 export function addNotification(data: NotificationData) {

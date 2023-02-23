@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import {InputController} from "../types";
 import {onInputChangeHandler, onInputKeyUpHandler} from "../helpers";

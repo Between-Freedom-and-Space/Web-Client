@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Button from '../../../../common/components/ui-kit/button/button'
 import {ButtonType, SizeType} from '../../../../common/components/ui-kit/button/types'
 import PasswordInput from '../../../../common/components/ui-kit/inputs/password/password-input'
@@ -20,8 +20,6 @@ function SignIn() {
     const signInState = useAppSelector((state: RootState) => state.authSignIn)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
-
-    const [passwordState, setPasswordState] = useState(PasswordInputState.INPUT_IN_PROGRESS)
 
     const loginController: InputController = {
         onInputChanged(newInput: string) {
@@ -74,7 +72,7 @@ function SignIn() {
             </div>
             <div className={styles.passwordInputWrapper}>
                 <PasswordInput
-                    currentState={passwordState}
+                    currentState={PasswordInputState.INPUT_IN_PROGRESS}
                     hintText={config.password_input_hint}
                     text={signInState.password}
                     controller={passwordController}
