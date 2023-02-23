@@ -12,7 +12,7 @@ import {TokenRepository} from "../repository/token.repository";
 import {LocalStorageTokenRepository} from "../repository/impl/local-storage.token.repository";
 import {PasswordEncryptor} from "../../../common/helpers/security/password-encryptor";
 import {KeccakPasswordEncryptor} from "../../../common/helpers/security/impl/keccak.password-encryptor";
-import {RequestInterceptor} from "../../../common/api/interceptor";
+import {RequestInterceptor, ResponseInterceptor} from "../../../common/api/interceptor";
 import {AuthTokenInterceptor} from "../api/axios/interceptors";
 import {SecurityVariableRepository} from "../repository/security-variable.repository";
 import {LocalStorageSecurityVariableRepository} from "../repository/impl/local-storage.security-variable.repository";
@@ -20,6 +20,7 @@ import {SecurityVariableGenerator} from "../domain/services/security-variable.ge
 import {UuidSecurityVariableGenerator} from "../domain/services/impl/uuid.security-variable.generator";
 import {MailingApi} from "../api/mailing-api";
 import {MailingApiImpl} from "../api/impl/mailing-api-impl";
+import {LoggingRequestInterceptor, LoggingResponseInterceptor} from "../../../common/api/logging-interceptor";
 
 const authDependenciesContainer = new Container({
     defaultScope: 'Singleton'
@@ -50,6 +51,12 @@ authDependenciesContainer
 authDependenciesContainer
     .bind<RequestInterceptor<any>>(TYPES.AuthTokenInterceptor)
     .to(AuthTokenInterceptor)
+authDependenciesContainer
+    .bind<RequestInterceptor<any>>(TYPES.LoggingRequestInterceptor)
+    .to(LoggingRequestInterceptor)
+authDependenciesContainer
+    .bind<ResponseInterceptor<any>>(TYPES.LoggingResponseInterceptor)
+    .to(LoggingResponseInterceptor)
 
 authDependenciesContainer
     .bind<AuthenticateInputsValidator>(AuthenticateInputsValidator)

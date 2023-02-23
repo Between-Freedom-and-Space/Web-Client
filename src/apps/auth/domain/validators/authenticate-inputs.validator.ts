@@ -111,6 +111,14 @@ export class AuthenticateInputsValidator {
         return this.successResult()
     }
 
+    public validateVerificationCode(code: string): ValidationResult {
+        if (code.trim().length === 0) {
+            return this.failureResult('Verification code not set')
+        } else {
+            return this.successResult()
+        }
+    }
+
     // noinspection JSMethodCanBeStatic
     private failureResult(message: string): ValidationResult {
         return {
