@@ -22,92 +22,67 @@ function SignUp() {
     const signUpState = useAppSelector(rootState => rootState.authSignUp)
     const navigate = useNavigate()
 
-    const [nickname, setNickname] = useState('')
-    const [name, setName] = useState('')
-    const [profileDescription, setProfileDescription] = useState('')
-    const [location, setLocation] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [repeatedPassword, setRepeatedPassword] = useState('')
-    const [verificationCode, setVerificationCode] = useState('')
-
     const nicknameController: InputController = {
         onInputChanged(newInput: string) {
-            setNickname(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'nickname', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setNickname(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'nickname', value: currentInput}))
         }
     }
     const nameController: InputController = {
         onInputChanged(newInput: string) {
-            setName(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'name', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setName(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'name', value: currentInput}))
         }
     }
     const profileDescriptionController: InputController = {
         onInputChanged(newInput: string) {
-            setProfileDescription(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'description', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setProfileDescription(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'description', value: currentInput}))
         }
     }
     const locationController: InputController = {
         onInputChanged(newInput: string) {
-            setLocation(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'location', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setLocation(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'location', value: currentInput}))
         }
     }
     const emailController: InputController = {
         onInputChanged(newInput: string) {
-            setEmail(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'email', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setEmail(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'email', value: currentInput}))
         }
     }
     const passwordController: InputController = {
         onInputChanged(newInput: string) {
-            setPassword(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'password', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setPassword(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'password', value: currentInput}))
         }
     }
     const repeatedPasswordController: InputController = {
         onInputChanged(newInput: string) {
-            setRepeatedPassword(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'repeatedPassword', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setRepeatedPassword(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'repeatedPassword', value: currentInput}))
         }
     }
     const verificationCodeController: InputController = {
         onInputChanged(newInput: string) {
-            setVerificationCode(newInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'verificationCode', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
-            setVerificationCode(currentInput)
             dispatch(signUpActions.formFieldValueChanged({field: 'verificationCode', value: currentInput}))
         }
     }
@@ -143,6 +118,7 @@ function SignUp() {
                     title={config.nickname.title}
                     description={config.nickname.description}
                     inputHint={config.nickname.input_hint}
+                    inputText={signUpState.nickname}
                     controller={nicknameController}
                 />
             </div>
@@ -152,6 +128,7 @@ function SignUp() {
                     title={config.name.title}
                     description={config.name.description}
                     inputHint={config.name.input_hint}
+                    inputText={signUpState.name}
                     controller={nameController}
                 />
             </div>
@@ -161,6 +138,7 @@ function SignUp() {
                     title={config.profile_description.title}
                     description={config.profile_description.description}
                     inputHint={config.profile_description.input_hint}
+                    inputText={signUpState.description}
                     controller={profileDescriptionController}
                 />
             </div>
@@ -170,6 +148,7 @@ function SignUp() {
                     title={config.location.title}
                     description={config.location.description}
                     inputHint={config.location.input_hint}
+                    inputText={signUpState.location}
                     controller={locationController}
                 />
             </div>
@@ -179,6 +158,7 @@ function SignUp() {
                     title={config.email.title}
                     description={config.email.description}
                     inputHint={config.email.input_hint}
+                    inputText={signUpState.email}
                     controller={emailController}
                 />
             </div>
@@ -194,6 +174,7 @@ function SignUp() {
                         <PasswordInput
                             currentState={PasswordInputState.INPUT_IN_PROGRESS}
                             hintText={config.password.input_hint[0]}
+                            text={signUpState.password}
                             controller={passwordController}
                         />
                     </div>
@@ -201,6 +182,7 @@ function SignUp() {
                         <PasswordInput
                             currentState={PasswordInputState.INPUT_IN_PROGRESS}
                             hintText={config.password.input_hint[1]}
+                            text={signUpState.repeatedPassword}
                             controller={repeatedPasswordController}
                         />
                     </div>
