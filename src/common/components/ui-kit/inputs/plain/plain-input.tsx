@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {InputController} from "../types";
 import {onInputChangeHandler, onInputKeyUpHandler} from "../helpers";
@@ -12,12 +12,17 @@ interface Props {
 }
 
 function PlainInput ({hintText, controller, text}: Props) {
+    const [input, setInput] = useState('')
+
     return (
         <input
             className={styles.input}
             placeholder={hintText}
-            value={text}
-            onChange={(event) => onInputChangeHandler(event, controller)}
+            value={text || input}
+            onChange={(event) => {
+                setInput(event.target.value)
+                onInputChangeHandler(event, controller)
+            }}
             onKeyUp={(event) => onInputKeyUpHandler(event, controller)}
         />
     )

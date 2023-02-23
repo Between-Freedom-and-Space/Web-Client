@@ -11,7 +11,7 @@ export class AuthTokenInterceptor implements RequestInterceptor<any> {
     @inject(TYPES.TokenRepository)
     private tokensRepository: TokenRepository | undefined
 
-    beforeRequest(config: AxiosRequestConfig<any>): PromisableRequestConfig<any> {
+    beforeRequest(config: AxiosRequestConfig): PromisableRequestConfig<any> {
         if (config.headers?.common?.has(TOKEN_HEADER_NAME)) {
             return config
         }
