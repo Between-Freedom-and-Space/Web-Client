@@ -12,17 +12,12 @@ interface Props {
 }
 
 function PlainInput ({hintText, controller, text}: Props) {
-    const [input, setInput] = useState('')
-
     return (
         <input
             className={styles.input}
             placeholder={hintText}
-            value={text || input}
-            onChange={(event) => {
-                setInput(event.target.value)
-                onInputChangeHandler(event, controller)
-            }}
+            value={text}
+            onChange={(event) => onInputChangeHandler(event, controller)}
             onKeyUp={(event) => onInputKeyUpHandler(event, controller)}
         />
     )
