@@ -2,7 +2,10 @@ import {inject, injectable} from "inversify";
 import {
     PerformSignUpData,
     SendEmailVerificationCodeData,
-    SendEmailVerificationCodeResult, SignUpFailure, SignUpResult, SignUpSuccess
+    SendEmailVerificationCodeResult,
+    SignUpFailure,
+    SignUpResult,
+    SignUpSuccess
 } from "./sign-up-usecase.types";
 import {AuthenticateApi} from "../../../api/auth-api";
 import TYPES from "../../../di/types";
@@ -67,6 +70,7 @@ export class SignUpUseCase {
         const emailValidation = this.validator!.validateEmail(data.email)
         const passwordValidation = this.validator!.validatePassword(data.password)
         const repeatedPasswordValidation = this.validator!.validatePasswordMatches(data.password, data.repeatedPassword)
+        const verificationCodeValidation = this.validator!.validateVerificationCode(data.verificationCode)
 
         if (nicknameValidation.type !== ValidationResultType.SUCCESS) {
             return this.failWith(nicknameValidation.message)
@@ -88,6 +92,9 @@ export class SignUpUseCase {
         }
         if (repeatedPasswordValidation.type !== ValidationResultType.SUCCESS) {
             return this.failWith(repeatedPasswordValidation.message)
+        }
+        if (verificationCodeValidation.type !== ValidationResultType.SUCCESS) {
+            return this.failWith(verificationCodeValidation.message)
         }
 
         const securityVariable = this.securityVariableRepository!.get() || this.securityVariableGenerator!.generate()
