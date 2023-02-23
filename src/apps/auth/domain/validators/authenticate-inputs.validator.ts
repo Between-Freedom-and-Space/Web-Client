@@ -24,7 +24,7 @@ export class AuthenticateInputsValidator {
 
     public validateNickname(nickname: string): ValidationResult {
         for (let i = 0; i < nickname.length; i++) {
-            if (nickname[i] in AuthenticateInputsValidator.FORBIDDEN_SYMBOLS) {
+            if (AuthenticateInputsValidator.FORBIDDEN_SYMBOLS.includes(nickname[i])) {
                 return this.failureResult("Nickname can't contains forbidden symbols")
             }
         }
@@ -40,7 +40,7 @@ export class AuthenticateInputsValidator {
     
     public validateName(name: string): ValidationResult {
         for (let i = 0; i < name.length; i++) {
-            if (name[i] in AuthenticateInputsValidator.FORBIDDEN_SYMBOLS) {
+            if (AuthenticateInputsValidator.FORBIDDEN_SYMBOLS.includes(name[i])) {
                 return this.failureResult("Name can't contains forbidden symbols")
             }
         }
@@ -85,7 +85,7 @@ export class AuthenticateInputsValidator {
     
     public validatePassword(password: string): ValidationResult {
         for (let i = 0; i < password.length; i++) {
-            if (password[i] in AuthenticateInputsValidator.FORBIDDEN_SYMBOLS) {
+            if (AuthenticateInputsValidator.FORBIDDEN_SYMBOLS.includes(password[i])) {
                 return this.failureResult('Password contains forbidden symbols')
             }
         }
