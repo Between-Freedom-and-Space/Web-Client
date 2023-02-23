@@ -3,8 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 import {
     onSignInNicknameChanged,
     onSignInPasswordChanged, onSignUpFormFieldValueChanged,
-    sendVerificationCodeThunk,
-    signInThunk,
+    sendVerificationCodeThunk, signInErrorMessageShown,
+    signInThunk, signUpErrorMessageShown,
     signUpThunk
 } from "./reducer";
 
@@ -33,6 +33,7 @@ export const authSignInSlice = createSlice({
     reducers: {
         passwordFieldChanged: onSignInPasswordChanged,
         nicknameFieldChanged: onSignInNicknameChanged,
+        errorShown: signInErrorMessageShown,
     },
     extraReducers: (builder) => {
         builder
@@ -44,6 +45,7 @@ export const authSignInSlice = createSlice({
             })
             .addCase(signInThunk.rejected, (state, action) => {
                 state.state = AuthState.NOT_AUTHENTICATED
+                state.errorMessage = action.payload
             })
     }
 })
@@ -53,26 +55,29 @@ export const authSignUpSlice = createSlice({
     initialState: initialSignUpState,
     reducers: {
         formFieldValueChanged: onSignUpFormFieldValueChanged,
+        errorShown: signUpErrorMessageShown,
     },
     extraReducers: (builder) => {
-        builder.addCase(signUpThunk.pending, (state, action) => {
+        builder.addCase(signUpThunk.pending, (state) => {
             state.state = AuthState.LOADING
         })
         builder.addCase(signUpThunk.rejected, (state, action) => {
             state.state = AuthState.NOT_AUTHENTICATED
+            state.errorMessage = action.payload
         })
-        builder.addCase(signUpThunk.fulfilled, (state, action) => {
-
+        builder.addCase(signUpThunk.fulfilled, (state) => {
+            state.state = AuthState.AUTHENTICATED
         })
 
-        builder.addCase(sendVerificationCodeThunk.pending, (state, action) => {
+        builder.addCase(sendVerificationCodeThunk.pending, (state) => {
             state.verificationCodeState = VerificationCodeState.SENDING
         })
         builder.addCase(sendVerificationCodeThunk.rejected, (state, action) => {
             state.verificationCodeState = VerificationCodeState.NOT_SEND
+            state.errorMessage = action.payload
         })
-        builder.addCase(sendVerificationCodeThunk.fulfilled, (state, action) => {
-
+        builder.addCase(sendVerificationCodeThunk.fulfilled, (state) => {
+            state.verificationCodeState = VerificationCodeState.SEND
         })
     }
 })
