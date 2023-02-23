@@ -14,6 +14,7 @@ import {RootState, useAppDispatch, useAppSelector} from "../../../../config/redu
 import {AuthState} from "../../redux/types";
 import CommonLoader from "../../../../common/components/ui-kit/loaders/common-loader";
 import {signInActions} from "../../redux/slice";
+import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 
 function SignIn() {
     const signInState = useAppSelector((state: RootState) => state.authSignIn)
@@ -54,6 +55,18 @@ function SignIn() {
     }
     if (signInState.state === AuthState.AUTHENTICATED) {
         navigate('/profile')
+    }
+
+    if (signInState.errorMessage) {
+        dispatch(notificationActions.addNotification(
+            {
+                id: "0",
+                title: "Error",
+                type: 'danger',
+                message: signInState.errorMessage,
+            }
+        ))
+        dispatch(signInActions.errorShown())
     }
 
     return (

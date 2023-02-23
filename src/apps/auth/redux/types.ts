@@ -2,6 +2,7 @@ export interface SignInState {
     readonly nickname: string
     readonly password: string
     readonly state: AuthState
+    readonly errorMessage?: string
 }
 
 export interface SignUpState {
@@ -16,6 +17,7 @@ export interface SignUpState {
     readonly verificationCode: string
     readonly verificationCodeState: VerificationCodeState
     readonly state: AuthState
+    readonly errorMessage?: string
 }
 
 export interface OnSignUpFieldValueChanged {

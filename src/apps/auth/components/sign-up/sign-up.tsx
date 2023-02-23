@@ -15,6 +15,7 @@ import {AuthState} from "../../redux/types";
 import CommonLoader from "../../../../common/components/ui-kit/loaders/common-loader";
 import {signUpActions} from "../../redux/slice";
 import {sendVerificationCodeThunk, signUpThunk} from "../../redux/reducer";
+import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 
 function SignUp() {
     const dispatch = useAppDispatch()
@@ -117,6 +118,21 @@ function SignUp() {
                 <CommonLoader visibility={true} />
             </div>
         )
+    }
+    if (signUpState.state === AuthState.AUTHENTICATED) {
+        navigate('/profile')
+    }
+
+    if (signUpState.errorMessage) {
+        dispatch(notificationActions.addNotification(
+            {
+                id: "0",
+                type: 'danger',
+                title: 'Error',
+                message: signUpState.errorMessage
+            }
+        ))
+        dispatch(signUpActions.errorShown())
     }
 
     return (
