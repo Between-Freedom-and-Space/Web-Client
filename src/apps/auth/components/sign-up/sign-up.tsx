@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import SignUpSingleInputItem from './simple-input-item/sign-up-single-input-item'
 import config from "./assets/config.json"

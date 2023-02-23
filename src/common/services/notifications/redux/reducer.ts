@@ -1,6 +1,6 @@
 import {NotificationState} from "./types";
 import {PayloadAction} from "@reduxjs/toolkit";
-import {NotificationData, NotificationId} from "../types";
+import {NotificationData} from "../types";
 import {addNotification as addNotificationHelper} from "../helper"
 
 export function addNotification(

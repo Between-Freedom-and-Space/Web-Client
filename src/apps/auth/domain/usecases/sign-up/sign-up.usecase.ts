@@ -38,7 +38,9 @@ export class SignUpUseCase {
     @inject(AuthenticateInputsValidator)
     private validator: AuthenticateInputsValidator | undefined
 
-    public async sendEmailVerificationCode({email}: SendEmailVerificationCodeData): Promise<SendEmailVerificationCodeResult> {
+    public async sendEmailVerificationCode(
+        {email}: SendEmailVerificationCodeData
+    ): Promise<SendEmailVerificationCodeResult> {
         const emailValidationResult = this.validator!.validateEmail(email)
         if (emailValidationResult.type !== ValidationResultType.SUCCESS) {
             return {
@@ -52,14 +54,14 @@ export class SignUpUseCase {
             email, securityVariable
         })
 
-       if (error !== undefined) {
-           return {
-               type: 'failure',
-               message: error?.message
-           }
-       }
+        if (error !== undefined) {
+            return {
+                type: 'failure',
+                message: error?.message
+            }
+        }
 
-       return { type: 'success' }
+        return { type: 'success' }
     }
 
     public async performSignUp(data: PerformSignUpData): Promise<SignUpResult> {

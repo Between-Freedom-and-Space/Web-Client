@@ -1,7 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { ReactNode } from 'react'
-import { useRef } from 'react'
 import SignIn from '../sign-in/sign-in'
 import SignUp from '../sign-up/sign-up'
 
@@ -27,8 +25,8 @@ function Authenticate({initState = AuthenticateTabsState.SIGN_IN_SELECTED}: Prop
             </div>
             {
                 tabState === AuthenticateTabsState.SIGN_IN_SELECTED
-                ? <SignIn />
-                : <SignUp />
+                    ? <SignIn />
+                    : <SignUp />
             }
         </div>
     )

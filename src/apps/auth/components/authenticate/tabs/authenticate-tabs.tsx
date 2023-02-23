@@ -18,14 +18,14 @@ function AuthenticateTabs({initState, onTabChanged}: Props) {
     const setCurrentState = (state: AuthenticateTabsState) => {
         const attribute = 'data-tab-active'
         switch (state) {
-            case AuthenticateTabsState.SIGN_IN_SELECTED:
-                signInTab.current?.setAttribute(attribute, 'true')
-                signUpTab.current?.removeAttribute(attribute)
-                break
-            case AuthenticateTabsState.SIGN_UP_SELECTED:
-                signUpTab.current?.setAttribute(attribute, 'true')
-                signInTab.current?.removeAttribute(attribute)
-                break
+        case AuthenticateTabsState.SIGN_IN_SELECTED:
+            signInTab.current?.setAttribute(attribute, 'true')
+            signUpTab.current?.removeAttribute(attribute)
+            break
+        case AuthenticateTabsState.SIGN_UP_SELECTED:
+            signUpTab.current?.setAttribute(attribute, 'true')
+            signInTab.current?.removeAttribute(attribute)
+            break
         }
     }
 

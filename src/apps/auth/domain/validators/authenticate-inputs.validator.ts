@@ -59,7 +59,9 @@ export class AuthenticateInputsValidator {
             return this.failureResult("Description can't be blank")
         }
         if (description.length > AuthenticateInputsValidator.MAX_DESCRIPTION_LENGTH) {
-            return this.failureResult(`Description length can't be more than ${AuthenticateInputsValidator.MAX_DESCRIPTION_LENGTH}`)
+            return this.failureResult(
+                `Description length can't be more than ${AuthenticateInputsValidator.MAX_DESCRIPTION_LENGTH}`
+            )
         }
 
         return this.successResult()
@@ -70,7 +72,9 @@ export class AuthenticateInputsValidator {
             return this.failureResult("Location can't be blank")
         }
         if (location.length > AuthenticateInputsValidator.MAX_LOCATION_LENGTH) {
-            return this.failureResult(`Location length can't be more than ${AuthenticateInputsValidator.MAX_LOCATION_LENGTH}`)
+            return this.failureResult(
+                `Location length can't be more than ${AuthenticateInputsValidator.MAX_LOCATION_LENGTH}`
+            )
         }
 
         return this.successResult()
