@@ -9,8 +9,8 @@ export function addNotification(
 ): NotificationState {
     const notification = data.payload
     addNotificationHelper(notification)
-    state.notifications.push(notification)
     return {
-        ...state
+        ...state,
+        notifications: [...state.notifications, notification]
     }
 }
