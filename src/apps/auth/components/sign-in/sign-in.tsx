@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Button from '../../../../common/components/ui-kit/button/button'
 import {ButtonType, SizeType} from '../../../../common/components/ui-kit/button/types'
 import PasswordInput from '../../../../common/components/ui-kit/inputs/password/password-input'
@@ -28,21 +28,21 @@ function SignIn() {
     const loginController: InputController = {
         onInputChanged(newInput: string) {
             setLogin(newInput)
-            dispatch(signInActions.nicknameFieldChanged(login))
+            dispatch(signInActions.nicknameFieldChanged(newInput))
         },
         onEnterPressed(currentInput: string) {
             setLogin(currentInput)
-            dispatch(signInActions.nicknameFieldChanged(login))
+            dispatch(signInActions.nicknameFieldChanged(currentInput))
         }
     }
     const passwordController: InputController = {
         onInputChanged(newInput: string) {
             setPassword(newInput)
-            dispatch(signInActions.passwordFieldChanged(password))
+            dispatch(signInActions.passwordFieldChanged(newInput))
         },
         onEnterPressed(currentInput: string) {
             setPassword(currentInput)
-            dispatch(signInActions.passwordFieldChanged(password))
+            dispatch(signInActions.passwordFieldChanged(currentInput))
         }
     }
 

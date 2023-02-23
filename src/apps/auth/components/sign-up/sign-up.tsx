@@ -132,7 +132,6 @@ function SignUp() {
                 message: signUpState.errorMessage
             }
         ))
-        dispatch(signUpActions.errorShown())
     }
 
     return (

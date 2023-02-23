@@ -37,10 +37,10 @@ export const authSignInSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(signInThunk.pending, (state, action) => {
+            .addCase(signInThunk.pending, (state) => {
                 state.state = AuthState.LOADING
             })
-            .addCase(signInThunk.fulfilled, (state, action) => {
+            .addCase(signInThunk.fulfilled, (state) => {
                 state.state = AuthState.AUTHENTICATED
             })
             .addCase(signInThunk.rejected, (state, action) => {
