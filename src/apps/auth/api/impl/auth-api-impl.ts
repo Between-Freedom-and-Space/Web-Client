@@ -61,5 +61,4 @@ export class AuthenticateApiImpl implements AuthenticateApi {
 
         return parseResponse(response.data)
     }
-    
 }
