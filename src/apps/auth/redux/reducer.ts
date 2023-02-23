@@ -96,6 +96,24 @@ export function onSignUpFormFieldValueChanged(
     return resultState
 }
 
+export function signInErrorMessageShown(
+    state: SignInState
+): SignInState {
+    return {
+        ...state,
+        errorMessage: undefined
+    }
+}
+
+export function signUpErrorMessageShown(
+    state: SignUpState
+): SignUpState {
+    return {
+        ...state,
+        errorMessage: undefined
+    }
+}
+
 export const signInThunk = createAsyncThunk<SignInResult, SignInState, {rejectValue: string}>(
     'sign-in/sign-in-clicked',
     async (state, {rejectWithValue}) => {
