@@ -1,32 +1,32 @@
 {
   "nickname": {
     "title": "1. Create your nickname",
-    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
-    "input_hint": "Nickname"
+    "description": "Come up with a nickname for 3-20 characters per line using latin characters and numbers.",
+    "input_hint": "Pewdiepie"
   },
   "name": {
     "title": "2. Enter your name",
-    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
-    "input_hint": "Name"
+    "description": "Come up with a name. Max name size 50 characters.",
+    "input_hint": "Bob"
   },
   "profile_description": {
     "title": "3. Enter your profile description",
-    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
-    "input_hint": "Profile description"
+    "description": "Write some words about you self or skip this field.",
+    "input_hint": "IT entrepreneur"
   },
   "location": {
     "title": "4. Enter your location",
-    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
-    "input_hint": "Description"
+    "description": "Where are you from?",
+    "input_hint": "USA, California"
   },
   "email": {
     "title": "5. Enter your email",
-    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
-    "input_hint": "Email"
+    "description": "Please, enter valid email. We will sent a verification code on it.",
+    "input_hint": "example@site.com"
   },
   "password": {
     "title": "6. Create password",
-    "description": "Come up with a nickname for 10-20 characters per line using latin characters and numbers",
+    "description": "Create your password. Please use only words and digits. Minimum length is 8 symbols.",
     "input_hint": [
       "Password",
       "Repeat Password"

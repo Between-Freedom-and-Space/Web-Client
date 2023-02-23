@@ -34,81 +34,81 @@ function SignUp() {
     const nicknameController: InputController = {
         onInputChanged(newInput: string) {
             setNickname(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'nickname', value: nickname}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'nickname', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setNickname(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'nickname', value: nickname}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'nickname', value: currentInput}))
         }
     }
     const nameController: InputController = {
         onInputChanged(newInput: string) {
             setName(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'name', value: name}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'name', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setName(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'name', value: name}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'name', value: currentInput}))
         }
     }
     const profileDescriptionController: InputController = {
         onInputChanged(newInput: string) {
             setProfileDescription(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'description', value: profileDescription}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'description', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setProfileDescription(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'description', value: profileDescription}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'description', value: currentInput}))
         }
     }
     const locationController: InputController = {
         onInputChanged(newInput: string) {
             setLocation(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'location', value: location}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'location', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setLocation(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'location', value: location}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'location', value: currentInput}))
         }
     }
     const emailController: InputController = {
         onInputChanged(newInput: string) {
             setEmail(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'email', value: email}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'email', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setEmail(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'email', value: email}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'email', value: currentInput}))
         }
     }
     const passwordController: InputController = {
         onInputChanged(newInput: string) {
             setPassword(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'password', value: password}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'password', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setPassword(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'password', value: password}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'password', value: currentInput}))
         }
     }
     const repeatedPasswordController: InputController = {
         onInputChanged(newInput: string) {
             setRepeatedPassword(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'repeatedPassword', value: repeatedPassword}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'repeatedPassword', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setRepeatedPassword(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'repeatedPassword', value: repeatedPassword}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'repeatedPassword', value: currentInput}))
         }
     }
     const verificationCodeController: InputController = {
         onInputChanged(newInput: string) {
             setVerificationCode(newInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'verificationCode', value: verificationCode}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'verificationCode', value: newInput}))
         },
         onEnterPressed(currentInput: string) {
             setVerificationCode(currentInput)
-            dispatch(signUpActions.formFieldValueChanged({field: 'verificationCode', value: verificationCode}))
+            dispatch(signUpActions.formFieldValueChanged({field: 'verificationCode', value: currentInput}))
         }
     }
 
@@ -132,6 +132,7 @@ function SignUp() {
                 message: signUpState.errorMessage
             }
         ))
+        dispatch(signUpActions.errorShown())
     }
 
     return (

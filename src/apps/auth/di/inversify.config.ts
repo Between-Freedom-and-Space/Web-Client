@@ -18,6 +18,8 @@ import {SecurityVariableRepository} from "../repository/security-variable.reposi
 import {LocalStorageSecurityVariableRepository} from "../repository/impl/local-storage.security-variable.repository";
 import {SecurityVariableGenerator} from "../domain/services/security-variable.generator";
 import {UuidSecurityVariableGenerator} from "../domain/services/impl/uuid.security-variable.generator";
+import {MailingApi} from "../api/mailing-api";
+import {MailingApiImpl} from "../api/impl/mailing-api-impl";
 
 const authDependenciesContainer = new Container({
     defaultScope: 'Singleton'
@@ -30,6 +32,9 @@ authDependenciesContainer
 authDependenciesContainer
     .bind<AuthenticateApi>(TYPES.AuthenticateApi)
     .to(AuthenticateApiImpl)
+authDependenciesContainer
+    .bind<MailingApi>(TYPES.MailingApi)
+    .to(MailingApiImpl)
 
 authDependenciesContainer
     .bind<TokenRepository>(TYPES.TokenRepository)
