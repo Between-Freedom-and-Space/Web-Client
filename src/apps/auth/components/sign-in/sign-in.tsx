@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Button from '../../../../common/components/ui-kit/button/button'
 import {ButtonType, SizeType} from '../../../../common/components/ui-kit/button/types'
 import PasswordInput from '../../../../common/components/ui-kit/inputs/password/password-input'
