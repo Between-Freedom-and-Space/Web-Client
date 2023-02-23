@@ -22,26 +22,20 @@ function SignIn() {
     const navigate = useNavigate()
 
     const [passwordState, setPasswordState] = useState(PasswordInputState.INPUT_IN_PROGRESS)
-    const [login, setLogin] = useState("")
-    const [password, setPassword] = useState("")
 
     const loginController: InputController = {
         onInputChanged(newInput: string) {
-            setLogin(newInput)
             dispatch(signInActions.nicknameFieldChanged(newInput))
         },
         onEnterPressed(currentInput: string) {
-            setLogin(currentInput)
             dispatch(signInActions.nicknameFieldChanged(currentInput))
         }
     }
     const passwordController: InputController = {
         onInputChanged(newInput: string) {
-            setPassword(newInput)
             dispatch(signInActions.passwordFieldChanged(newInput))
         },
         onEnterPressed(currentInput: string) {
-            setPassword(currentInput)
             dispatch(signInActions.passwordFieldChanged(currentInput))
         }
     }
@@ -74,6 +68,7 @@ function SignIn() {
             <div className={styles.loginInputWrapper}>
                 <PlainInput
                     hintText={config.login_input_hint}
+                    text={signInState.nickname}
                     controller={loginController}
                 />
             </div>
@@ -81,6 +76,7 @@ function SignIn() {
                 <PasswordInput
                     currentState={passwordState}
                     hintText={config.password_input_hint}
+                    text={signInState.password}
                     controller={passwordController}
                 />
             </div>
