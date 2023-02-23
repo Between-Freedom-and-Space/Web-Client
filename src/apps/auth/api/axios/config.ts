@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const {BACKEND_URL, TIMEOUT} = process.env
+const {REACT_APP_BACKEND_URL, REACT_APP_REQUEST_TIMEOUT} = process.env
 const authAxios = axios.create({
-    baseURL: BACKEND_URL,
-    timeout: Number.parseFloat(TIMEOUT || '5000'),
+    baseURL: REACT_APP_BACKEND_URL,
+    timeout: Number.parseFloat(REACT_APP_REQUEST_TIMEOUT || '5000'),
     validateStatus: () => true
 })
 

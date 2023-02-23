@@ -7,6 +7,8 @@ const TYPES = {
     PasswordEncryptor: Symbol.for("PasswordEncryptor"),
     ResponseAdapterInterceptor: Symbol.for("ResponseAdapterInterceptor"),
     AuthTokenInterceptor: Symbol.for("AuthTokenInterceptor"),
+    LoggingRequestInterceptor: Symbol.for("LoggingRequestInterceptor"),
+    LoggingResponseInterceptor: Symbol.for("LoggingResponseInterceptor"),
     SecurityVariableGenerator: Symbol.for("SecurityVariableGenerator")
 }
 
