@@ -1,0 +1,71 @@
+.commentTopContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconContainer {
+  display: flex;
+}
+
+.commentProfileIcon {
+  height: 30px;
+  width: 30px;
+  background-color: #D1D8DD;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.commentDataContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.commentNickname {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 120%;
+
+  color: #000000;
+}
+
+.commentText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 115%;
+
+  color: #000000;
+}
+
+.commentControlsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentLike {
+  background-image: url("../../../common/components/ui-kit/assets/like_icon.svg");
+}
+
+.commentDislike {
+  background-image: url("../../../common/components/ui-kit/assets/dislike_icon.svg");
+}
+
+.commentReactionsCount {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 120%;
+
+  color: #ACAFB5;
+}
+
+.commentReactionTitle {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 120%;
+
+  color: #ACAFB5;
+}
+
