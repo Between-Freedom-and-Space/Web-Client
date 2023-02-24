@@ -13,7 +13,7 @@ export class CommentsApiImpl implements CommentsApi {
     private axios: AxiosInstance | undefined
 
     async createComment(request: CreateCommentRequest): Promise<Response<Comment>> {
-        const response = await this.axios!!.patch('/comment/create', {
+        const response = await this.axios!.patch('/comment/create', {
             comment_text: request.commentText,
             post_id: request.postId,
         })
@@ -22,13 +22,13 @@ export class CommentsApiImpl implements CommentsApi {
     }
 
     async deleteComment(id: number): Promise<Response<undefined>> {
-        const response = await this.axios!!.delete(`/comment/${id}/delete`)
+        const response = await this.axios!.delete(`/comment/${id}/delete`)
 
         return parseResponse(response.data, _ => undefined)
     }
 
     async getAllComments(): Promise<Response<Array<Comment>>> {
-        const response = await this.axios!!.get('/comment/all')
+        const response = await this.axios!.get('/comment/all')
 
         return parseResponse(response.data, (content: Array<any>) => {
             return content.map(this.parseComment)
@@ -36,13 +36,13 @@ export class CommentsApiImpl implements CommentsApi {
     }
 
     async getCommentById(id: number): Promise<Response<Comment>> {
-        const response = await this.axios!!.get(`/comment/${id}`)
+        const response = await this.axios!.get(`/comment/${id}`)
 
         return parseResponse(response.data, this.parseComment)
     }
 
     async updateComment(request: UpdateCommentRequest): Promise<Response<Comment>> {
-        const response = await this.axios!!.put(`/comment/${request.id}/update`, {
+        const response = await this.axios!.put(`/comment/${request.id}/update`, {
             new_comment_text: request.newCommentText
         })
 
