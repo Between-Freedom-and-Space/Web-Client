@@ -10,3 +10,8 @@ export interface CommentController {
 
     onCommentTextClicked(): void
 }
+
+export enum ReactionState {
+    NOT_REACTED,
+    REACTED
+}

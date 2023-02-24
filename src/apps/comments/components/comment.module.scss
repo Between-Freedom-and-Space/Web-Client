@@ -10,8 +10,11 @@
 .commentProfileIcon {
   height: 30px;
   width: 30px;
+
   background-color: #D1D8DD;
   border-radius: 50%;
+
+  cursor: pointer;
   display: inline-block;
 }
 
@@ -29,6 +32,7 @@
   line-height: 120%;
 
   color: #000000;
+  cursor: pointer;
 }
 
 .commentText {
@@ -54,7 +58,7 @@
 }
 
 .commentLike {
-  height: 15px;
+  height: 17px;
   width: 15px;
 
   margin-right: 5px;
@@ -63,16 +67,36 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-image: url("../../../common/components/ui-kit/assets/like_active_icon.svg");
+  }
+  &[data-reaction-state='reacted'] {
+    background-image: url("../../../common/components/ui-kit/assets/like_active_icon.svg");
+  }
 }
 
 .commentDislike {
-  height: 15px;
+  height: 17px;
   width: 15px;
+
+  margin-right: 5px;
 
   background-image: url("../../../common/components/ui-kit/assets/dislike_icon.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-image: url("../../../common/components/ui-kit/assets/dislike_active_icon.svg");
+  }
+  &[data-reaction-state='reacted'] {
+    background-image: url("../../../common/components/ui-kit/assets/dislike_active_icon.svg");
+  }
 }
 
 .commentReactionsCount {
@@ -80,18 +104,64 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 120%;
+  cursor: pointer;
 
   color: #ACAFB5;
+
+  margin-right: 3px;
+
+  &[data-reaction-type='like'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #6831FF;
+    }
+
+    &:hover {
+      color: #6831FF;
+    }
+  }
+  &[data-reaction-type='dislike'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #AB2424;
+    }
+
+    &:hover {
+      color: #AB2424;
+    }
+  }
 }
 
 .commentReactionTitle {
-  margin-right: 10px;
+  margin-right: 15px;
 
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
   line-height: 120%;
+  cursor: pointer;
 
   color: #ACAFB5;
+
+  &[data-reaction-type='like'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #6831FF;
+    }
+
+    &:hover {
+      color: #6831FF;
+    }
+  }
+  &[data-reaction-type='dislike'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #AB2424;
+    }
+
+    &:hover {
+      color: #AB2424;
+    }
+  }
 }
 
