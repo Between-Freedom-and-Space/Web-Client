@@ -4,6 +4,7 @@ import {Response} from "../../../../common/api/types";
 import {inject, injectable} from "inversify";
 import {AxiosInstance} from "axios";
 import TYPES from "../../di/types";
+import {parseResponse} from "../../../../common/helpers/api-helper";
 
 @injectable()
 export class CommentsApiImpl implements CommentsApi {
@@ -12,32 +13,50 @@ export class CommentsApiImpl implements CommentsApi {
     private axios: AxiosInstance | undefined
 
     async createComment(request: CreateCommentRequest): Promise<Response<Comment>> {
-        const response = this.axios!!.patch('/comment/create', {
+        const response = await this.axios!!.patch('/comment/create', {
             comment_text: request.commentText,
             post_id: request.postId,
         })
-        throw 1;
+
+        return parseResponse(response.data, this.parseComment)
     }
 
     async deleteComment(id: number): Promise<Response<undefined>> {
-        const response = this.axios!!.delete(`/comment/${id}/delete`)
-        throw 1;
+        const response = await this.axios!!.delete(`/comment/${id}/delete`)
+
+        return parseResponse(response.data, _ => undefined)
     }
 
     async getAllComments(): Promise<Response<Array<Comment>>> {
-        const response = this.axios!!.get('/comment/get/all')
-        throw 1;
+        const response = await this.axios!!.get('/comment/all')
+
+        return parseResponse(response.data, (content: Array<any>) => {
+            return content.map(this.parseComment)
+        })
     }
 
     async getCommentById(id: number): Promise<Response<Comment>> {
-        const response = this.axios!!.get(`/comment/${id}/get`)
-        throw 1;
+        const response = await this.axios!!.get(`/comment/${id}`)
+
+        return parseResponse(response.data, this.parseComment)
     }
 
     async updateComment(request: UpdateCommentRequest): Promise<Response<Comment>> {
-        const response = this.axios!!.put(`/comment/${request.id}/update`, {
+        const response = await this.axios!!.put(`/comment/${request.id}/update`, {
             new_comment_text: request.newCommentText
         })
-        throw 1;
+
+        return parseResponse(response.data, this.parseComment)
+    }
+
+    // noinspection JSMethodCanBeStatic
+    private parseComment(content: any): Comment {
+        return {
+            id: content['id'],
+            authorId: content['author_id'],
+            text: content['text'],
+            createdDate: content['created_date'],
+            updatedDate: content['updated_date']
+        }
     }
 }
