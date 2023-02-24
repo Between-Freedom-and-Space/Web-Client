@@ -8,8 +8,8 @@ interface Props {
     iconUrl?: string // TODO() Add icon url support
     nickname: string
     commentText: string
-    likesCount: string
-    dislikesCount: string
+    likesCount: number
+    dislikesCount: number
     controller?: CommentController
 }
 
