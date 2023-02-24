@@ -13,6 +13,7 @@ export interface CreateCommentReactionRequest {
 }
 
 export interface UpdateCommentReactionRequest {
+    readonly id: number
     readonly newReaction: Reaction
 }
 
