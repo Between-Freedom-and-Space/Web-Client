@@ -1,0 +1,11 @@
+{
+  "likes": {
+    "title": "likes"
+  },
+  "dislikes": {
+    "title": "dislikes"
+  },
+  "comments": {
+    "title": "comments"
+  }
+}
