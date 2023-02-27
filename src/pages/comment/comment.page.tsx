@@ -5,6 +5,7 @@ import Page from "../../apps/page/page";
 import {HeaderMode} from "../../common/components/header/types";
 import {ContentDisplayMode} from "../../common/components/general-content-holder/types";
 import Comment from "../../apps/comments/components/comment";
+import {CommentReactionState} from "../../apps/comments/components/types";
 
 // Just example of comment
 function CommentPage() {
@@ -28,6 +29,7 @@ function CommentPage() {
                     likesCount={333}
                     dislikesCount={12}
                     lastModifiedDate={new Date()}
+                    reactionState={CommentReactionState.NOT_REACTED}
                 />
             </div>
         </Page>
