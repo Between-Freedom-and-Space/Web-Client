@@ -11,3 +11,7 @@ export function getLikeState(state: CommentReactionState): ReactionState {
 export function getDislikeState(state: CommentReactionState): ReactionState {
     return state === CommentReactionState.DISLIKED ? ReactionState.REACTED : ReactionState.NOT_REACTED
 }
+
+export function formatDate(date: Date): string {
+    return date.toLocaleString()
+}
