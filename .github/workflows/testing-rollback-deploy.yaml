@@ -1,0 +1,16 @@
+name: Rollback Web-Client deploy to previous version
+
+jobs:
+  rollout:
+    runs-on: ubuntu-latest
+    environment: testing
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Rollback deployment
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.TESTING_K8S_CONFIG }}
+        with:
+          arg: rollout undo deployment/web-client-application
