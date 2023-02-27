@@ -73,6 +73,9 @@
   &:hover {
     background-image: url("../../../common/components/ui-kit/assets/like_active_icon.svg");
   }
+  &:active {
+    transform: scale(0.96);
+  }
   &[data-reaction-state='reacted'] {
     background-image: url("../../../common/components/ui-kit/assets/like_active_icon.svg");
   }
@@ -93,6 +96,9 @@
 
   &:hover {
     background-image: url("../../../common/components/ui-kit/assets/dislike_active_icon.svg");
+  }
+  &:active {
+    transform: scale(0.96);
   }
   &[data-reaction-state='reacted'] {
     background-image: url("../../../common/components/ui-kit/assets/dislike_active_icon.svg");

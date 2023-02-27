@@ -6,6 +6,7 @@ import {HeaderMode} from "../../common/components/header/types";
 import {ContentDisplayMode} from "../../common/components/general-content-holder/types";
 import Comment from "../../apps/comments/components/comment";
 
+// Just example of comment
 function CommentPage() {
     return (
         <Page
