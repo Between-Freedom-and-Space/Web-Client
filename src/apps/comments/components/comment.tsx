@@ -2,17 +2,16 @@ import React, {useState} from "react";
 import styles from './comment.module.scss'
 import config from "./assets/config.json"
 
-import {CommentController, ReactionState} from "./types";
-import {getReactionStateValue} from "./helpers";
+import {CommentController, CommentReactionState, ReactionState} from "./types";
+import {getDislikeState, getLikeState, getReactionStateValue} from "./helpers";
 
 interface Props {
     iconUrl?: string // TODO() Add icon url support
     nickname: string
     commentText: string
     likesCount: number
-    likesState?: ReactionState
     dislikesCount: number
-    dislikesState?: ReactionState
+    reactionState?: CommentReactionState,
     controller?: CommentController
 }
 
@@ -20,9 +19,8 @@ function Comment({
     nickname,
     commentText,
     likesCount,
-    likesState = ReactionState.NOT_REACTED,
     dislikesCount,
-    dislikesState = ReactionState.NOT_REACTED,
+    reactionState = CommentReactionState.NOT_REACTED,
     controller,
 }: Props) {
     const onIconClickHandler = () => {
@@ -41,15 +39,20 @@ function Comment({
         controller?.onDislikeClicked()
     }
 
-    const [likeStateValue, setLikeState] = useState(getReactionStateValue(likesState))
-    const [dislikeStateValue, setDislikeState] = useState(getReactionStateValue(dislikesState))
+
+    const [likeStateValue, setLikeState] = useState(
+        getReactionStateValue(getLikeState(reactionState))
+    )
+    const [dislikeStateValue, setDislikeState] = useState(
+        getReactionStateValue(getDislikeState(reactionState))
+    )
 
     const handleLikeMouseEnter = () => {
         const value = getReactionStateValue(ReactionState.REACTED)
         setLikeState(value)
     }
     const handleLikeMouseLeave = () => {
-        const value = getReactionStateValue(likesState)
+        const value = getReactionStateValue(getLikeState(reactionState))
         setLikeState(value)
     }
     const handleDislikeMouseEnter = () => {
@@ -57,7 +60,7 @@ function Comment({
         setDislikeState(value)
     }
     const handleDislikeMouseLeave = () => {
-        const value = getReactionStateValue(dislikesState)
+        const value = getReactionStateValue(getDislikeState(reactionState))
         setDislikeState(value)
     }
 
