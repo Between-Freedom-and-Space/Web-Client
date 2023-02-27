@@ -6,16 +6,19 @@ import {CommentController, CommentReactionState, ReactionState} from "./types";
 import {getDislikeState, getLikeState, getReactionStateValue} from "./helpers";
 
 interface Props {
+    id: number,
     iconUrl?: string // TODO() Add icon url support
     nickname: string
     commentText: string
     likesCount: number
     dislikesCount: number
     reactionState?: CommentReactionState,
-    controller?: CommentController
+    controller?: CommentController,
+    lastModifiedDate: Date
 }
 
 function Comment({
+    id,
     nickname,
     commentText,
     likesCount,
@@ -65,7 +68,7 @@ function Comment({
     }
 
     return (
-        <div className={styles.commentTopContainer}>
+        <div className={styles.commentTopContainer} data-comment-id={id}>
             <div className={styles.iconContainer} onClick={onIconClickHandler}>
                 <span className={styles.commentProfileIcon}/>
             </div>

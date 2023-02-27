@@ -15,6 +15,7 @@ function CommentPage() {
         >
             <div className={styles.container}>
                 <Comment
+                    id={228}
                     nickname='Ferum-bot'
                     commentText={
                         "Hello world. This is first comment. " +
@@ -26,6 +27,7 @@ function CommentPage() {
                     }
                     likesCount={333}
                     dislikesCount={12}
+                    lastModifiedDate={new Date()}
                 />
             </div>
         </Page>
