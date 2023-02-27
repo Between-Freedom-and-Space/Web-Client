@@ -1,5 +1,8 @@
 name: Rollback Web-Client deploy to previous version
 
+on:
+  workflow_dispatch:
+
 jobs:
   rollout:
     runs-on: ubuntu-latest
