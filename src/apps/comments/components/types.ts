@@ -14,7 +14,8 @@ export interface CommentController {
 export enum CommentReactionState {
     NOT_REACTED,
     LIKED,
-    DISLIKED
+    DISLIKED,
+    HIDDEN
 }
 
 export enum ReactionState {
