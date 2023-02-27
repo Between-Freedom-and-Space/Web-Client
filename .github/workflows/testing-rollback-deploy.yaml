@@ -16,4 +16,4 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.TESTING_K8S_CONFIG }}
         with:
-          args: rollout undo deployment/web-client-application
+          args: rollout undo deployment/web-client-deployment
