@@ -1,9 +1,12 @@
+import {CommentController} from "../../../comments/components/types";
+
 export interface PostPreviewComment {
     readonly id: number
     readonly profileIconUrl?: string // TODO() support profile icon
     readonly nickname: string
     readonly commentText: string
-    readonly lastModifiedDate: Date
+    readonly lastModifiedDate: Date,
+    readonly controller?: CommentController
 }
 
 export interface PostPreviewController {
