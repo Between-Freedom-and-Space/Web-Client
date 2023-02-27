@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import EditorPage from '../pages/editor/editor.page'
 import AboutPage from '../pages/about/about.page'
 import AuthenticatePage from '../pages/authenticate/authenticate.page'
+import CommentPage from "../pages/comment/comment.page";
 
 function Entry () {
     useEffect(() => {
@@ -26,6 +27,7 @@ function Entry () {
                     <Route path='/editor' element={<EditorPage/>}/>
                     <Route path='/error' element={<ErrorPage/>}/>
                     <Route path='/authenticate' element={<AuthenticatePage/>}/>
+                    <Route path='/comment' element={<CommentPage/>}/>
                     <Route path='*' element={<Navigate to='/'/>}/>
                 </Routes>
             </BrowserRouter>
@@ -41,6 +43,7 @@ function Entry () {
                 <Route path='/editor' element={<EditorPage/>}/>
                 <Route path='/error' element={<ErrorPage/>}/>
                 <Route path='/authenticate' element={<AuthenticatePage/>}/>
+                <Route path='/comment' element={<CommentPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
