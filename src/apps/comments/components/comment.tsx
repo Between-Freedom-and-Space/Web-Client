@@ -3,7 +3,7 @@ import styles from './comment.module.scss'
 import config from "./assets/config.json"
 
 import {CommentController, CommentReactionState, ReactionState} from "./types";
-import {getDislikeState, getLikeState, getReactionStateValue} from "./helpers";
+import {formatDate, getDislikeState, getLikeState, getReactionStateValue} from "./helpers";
 
 interface Props {
     id: number,
@@ -25,6 +25,7 @@ function Comment({
     dislikesCount,
     reactionState = CommentReactionState.NOT_REACTED,
     controller,
+    lastModifiedDate,
 }: Props) {
     const onIconClickHandler = () => {
         controller?.onIconClicked()
@@ -42,7 +43,7 @@ function Comment({
         controller?.onDislikeClicked()
     }
 
-
+    const hiddenValue = reactionState === CommentReactionState.HIDDEN ? 'hidden' : 'visible'
     const [likeStateValue, setLikeState] = useState(
         getReactionStateValue(getLikeState(reactionState))
     )
@@ -73,15 +74,23 @@ function Comment({
                 <span className={styles.commentProfileIcon}/>
             </div>
             <div className={styles.commentDataContainer}>
-                <div
-                    className={styles.commentNickname}
-                    onClick={onNicknameClickHandler}
-                >{nickname}</div>
+                <div className={styles.commentNickNameContainer}>
+                    <div
+                        className={styles.commentNickname}
+                        onClick={onNicknameClickHandler}
+                    >{nickname}</div>
+                    <div className={styles.commentLastModifiedDate}>
+                        {formatDate(lastModifiedDate)}
+                    </div>
+                </div>
                 <div
                     className={styles.commentText}
                     onClick={onTextClickHandler}
                 >{commentText}</div>
-                <div className={styles.commentControlsContainer}>
+                <div
+                    className={styles.commentControlsContainer}
+                    data-reaction-visibility={hiddenValue}
+                >
 
                     <div
                         className={styles.commentLike}
@@ -90,6 +99,7 @@ function Comment({
                         onMouseLeave={handleLikeMouseLeave}
 
                         data-reaction-state={likeStateValue}
+                        data-reaction-visibility={hiddenValue}
                     />
                     <div
                         className={styles.commentReactionsCount}
@@ -98,6 +108,7 @@ function Comment({
 
                         data-reaction-type='like'
                         data-reaction-state={likeStateValue}
+                        data-reaction-visibility={hiddenValue}
                     >{likesCount}</div>
                     <div
                         className={styles.commentReactionTitle}
@@ -106,6 +117,7 @@ function Comment({
 
                         data-reaction-type='like'
                         data-reaction-state={likeStateValue}
+                        data-reaction-visibility={hiddenValue}
                     >{config.like.title}</div>
 
                     <div
@@ -115,6 +127,7 @@ function Comment({
                         onMouseLeave={handleDislikeMouseLeave}
 
                         data-reaction-state={dislikeStateValue}
+                        data-reaction-visibility={hiddenValue}
                     />
                     <div
                         className={styles.commentReactionsCount}
@@ -123,6 +136,7 @@ function Comment({
 
                         data-reaction-type='dislike'
                         data-reaction-state={dislikeStateValue}
+                        data-reaction-visibility={hiddenValue}
                     >{dislikesCount}</div>
                     <div
                         className={styles.commentReactionTitle}
@@ -131,6 +145,7 @@ function Comment({
 
                         data-reaction-type='dislike'
                         data-reaction-state={dislikeStateValue}
+                        data-reaction-visibility={hiddenValue}
                     >{config.dislike.title}</div>
                 </div>
             </div>
