@@ -1,4 +1,4 @@
 export interface PostsApi {
 
-    someRequest()
+    someRequest(): void
 }
