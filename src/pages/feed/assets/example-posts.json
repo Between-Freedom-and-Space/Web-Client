@@ -1,0 +1,128 @@
+{
+  "posts": [
+    {
+      "id": 0,
+      "authorProfileIconUrl": "https://google.com",
+      "authorNickname": "Ferum-bot",
+      "postText": "Generating random paragraphs can be an excellent way for writers to get their creative flow going at the beginning of the day. The writer has no idea what topic the random paragraph will be about when it appears. This forces the writer to use creativity to complete one of three common writing challenges. The writer can use the paragraph as the first one of a short story and build upon it. A second option is to use the random paragraph somewhere in a short story they create. The third option is to have the random paragraph be the ending paragraph in a short story. No matter which of these challenges is undertaken, the writer is forced to use creativity to incorporate the paragraph into their writing.",
+      "likesCount": 12,
+      "dislikesCount": 0,
+      "commentsCount": 2,
+      "reactionState": "NOT_REACTED",
+      "followingState": "USER_IS_NOT_FOLLOWING",
+      "comments": [
+        {
+          "id": 17,
+          "profileIconUrl": "https://google.com",
+          "nickname": "JUSSIAR",
+          "commentText": "What's going on here?????",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        },
+        {
+          "id": 18,
+          "profileIconUrl": "https://google.com",
+          "nickname": "Ferum-bot",
+          "commentText": "Сам не понимаю(((((",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        }
+      ]
+    },
+
+    {
+      "id": 1,
+      "authorProfileIconUrl": "https://google.com",
+      "authorNickname": "RandomRandom",
+      "postText": "Generating random paragraphs can be an excellent way for writers to get their creative flow going at the beginning of the day. The writer has no idea what topic the random paragraph will be about when it appears. This forces the writer to use creativity to complete one of three common writing challenges. The writer can use the paragraph as the first one of a short story and build upon it. A second option is to use the random paragraph somewhere in a short story they create. The third option is to have the random paragraph be the ending paragraph in a short story. No matter which of these challenges is undertaken, the writer is forced to use creativity to incorporate the paragraph into their writing.",
+      "likesCount": 12,
+      "dislikesCount": 0,
+      "commentsCount": 1,
+      "reactionState": "NOT_REACTED",
+      "followingState": "USER_IS_NOT_FOLLOWING",
+      "comments": [
+        {
+          "id": 17,
+          "profileIconUrl": "https://google.com",
+          "nickname": "JUSSIAR",
+          "commentText": "What's going on here?????",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        },
+        {
+          "id": 17,
+          "profileIconUrl": "https://google.com",
+          "nickname": "Ferum-bot",
+          "commentText": "Сам не понимаю(((((",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "authorProfileIconUrl": "https://google.com",
+      "authorNickname": "The-God",
+      "postText": "Another productive way to use this tool to begin a daily writing routine. One way is to generate a random paragraph with the intention to try to rewrite it while still keeping the original meaning. The purpose here is to just get the writing started so that when the writer goes onto their day's writing projects, words are already flowing from their fingers",
+      "likesCount": 123000,
+      "dislikesCount": 0,
+      "commentsCount": 8080,
+      "reactionState": "LIKED",
+      "followingState": "USER_IS_FOLLOWING",
+      "comments": [
+        {
+          "id": 2,
+          "profileIconUrl": "https://google.com",
+          "nickname": "Ferum-bot",
+          "commentText": "Класс класс класс класс класс класс класс класс класс класс класс",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        }
+      ]
+    },
+
+    {
+      "id": 3,
+      "authorProfileIconUrl": "https://google.com",
+      "authorNickname": "JUSSIAR",
+      "postText": "A random paragraph can also be an excellent way for a writer to tackle writers' block. Writing block can often happen due to being stuck with a current project that the writer is trying to complete. By inserting a completely random paragraph from which to begin, it can take down some of the issues that may have been causing the writers' block in the first place.",
+      "likesCount": 1212,
+      "dislikesCount": 23,
+      "commentsCount": 0,
+      "reactionState": "DISLIKED",
+      "followingState": "USER_IS_NOT_FOLLOWING",
+      "comments": []
+    },
+
+    {
+      "id": 4,
+      "authorProfileIconUrl": "https://google.com",
+      "authorNickname": "Ferum-bot",
+      "postText": "No! All of the paragraphs in the generator are written by humans, not computers. When first building this generator we thought about using computers to generate the paragraphs, but they weren't very good and many times didn't make any sense at all. We therefore took the time to create paragraphs specifically for this generator to make it the best that we could.",
+      "likesCount": 2,
+      "dislikesCount": 30,
+      "commentsCount": 121,
+      "reactionState": "NOT_REACTED",
+      "followingState": "USER_IS_FOLLOWING",
+      "comments": [
+        {
+          "id": 172,
+          "profileIconUrl": "https://google.com",
+          "nickname": "random_guy",
+          "commentText": "Hello world!",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        },
+        {
+          "id": 171,
+          "profileIconUrl": "https://google.com",
+          "nickname": "NotRandomGuy",
+          "commentText": "When first building this generator we thought about us?",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        },
+        {
+          "id": 173,
+          "profileIconUrl": "https://google.com",
+          "nickname": "Ferum-bot",
+          "commentText": "Press F to pay respects",
+          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
+        }
+      ]
+    }
+  ]
+}
