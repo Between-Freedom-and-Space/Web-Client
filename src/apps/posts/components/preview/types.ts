@@ -22,4 +22,6 @@ export interface PostPreviewController {
     onLikeClicked(): void
 
     onDislikeClicked(): void
+
+    onCommentClicked(): void
 }
