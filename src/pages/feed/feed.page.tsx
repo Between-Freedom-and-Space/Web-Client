@@ -6,6 +6,7 @@ import Page from "../../apps/page/page";
 import PostPreview from "../../apps/posts/components/preview/post-preview";
 import {PostFollowingState, PostReactionState} from "../../apps/posts/components/common/types";
 import {HeaderMode} from "../../common/components/header/types";
+import {BackgroundColor} from "../../common/components/general-content-holder/types";
 
 // Needed only for preview components functionality. Do not use in production!
 function FeedPage() {
@@ -49,7 +50,7 @@ function FeedPage() {
         )
     })
     return (
-        <Page headerMode={HeaderMode.NOT_AUTHORIZED}>
+        <Page headerMode={HeaderMode.NOT_AUTHORIZED} backgroundColor={BackgroundColor.LIGHT_GREY}>
             <div className={styles.container}>
                 {postPreviews}
             </div>

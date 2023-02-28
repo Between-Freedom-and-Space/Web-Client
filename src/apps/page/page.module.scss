@@ -1,0 +1,8 @@
+.pageContainer {
+    display: block;
+    margin: 0;
+
+    &[data-background-color='light-gray'] {
+      background-color: #F6F8FA;
+    }
+}
