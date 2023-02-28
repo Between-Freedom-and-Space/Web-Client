@@ -1,3 +1,7 @@
+$reaction-icon-margin-right: 3px;
+$reaction-icon-height: 17px;
+$reaction-icon-width: 15px;
+
 .topContainer {
   display: flex;
   flex-direction: row;
@@ -6,22 +10,138 @@
   border-bottom: 1px solid #D1D8DD;
 }
 
+//noinspection DuplicatedCode
 .postLike {
+  height: $reaction-icon-height;
+  width: $reaction-icon-width;
 
+  margin-right: $reaction-icon-margin-right;
+
+  background-image: url("../../../../../common/components/ui-kit/assets/like_icon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-image: url("../../../../../common/components/ui-kit/assets/like_active_icon.svg");
+  }
+  &:active {
+    transform: scale(0.96);
+  }
+  &[data-reaction-state='reacted'] {
+    background-image: url("../../../../../common/components/ui-kit/assets/like_active_icon.svg");
+  }
 }
 
+//noinspection DuplicatedCode
 .postDislike {
+  height: $reaction-icon-height;
+  width: $reaction-icon-width;
 
+  margin-right: $reaction-icon-margin-right;
+
+  background-image: url("../../../../../common/components/ui-kit/assets/dislike_icon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-image: url("../../../../../common/components/ui-kit/assets/dislike_active_icon.svg");
+  }
+  &:active {
+    transform: scale(0.96);
+  }
+  &[data-reaction-state='reacted'] {
+    background-image: url("../../../../../common/components/ui-kit/assets/dislike_active_icon.svg");
+  }
 }
 
+//noinspection DuplicatedCode
 .postComment {
+  height: $reaction-icon-height;
+  width: $reaction-icon-width;
 
+  margin-right: $reaction-icon-margin-right;
+
+  background-image: url("../../../../../common/components/ui-kit/assets/comment_icon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-image: url("../../../../../common/components/ui-kit/assets/comment_icon.svg");
+  }
+  &:active {
+    transform: scale(0.96);
+  }
 }
 
 .postReactionCount {
+  margin-right: 4px;
 
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 120%;
+
+  color: #5A6069;
+
+  &[data-reaction-type='like'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #6831FF;
+    }
+
+    &:hover {
+      color: #6831FF;
+    }
+  }
+  &[data-reaction-type='dislike'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #AB2424;
+    }
+
+    &:hover {
+      color: #AB2424;
+    }
+  }
 }
 
 .postReactionTitle {
+  margin-right: 10px;
 
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 120%;
+
+  color: #898C95;
+
+  &[data-reaction-type='like'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #6831FF;
+    }
+
+    &:hover {
+      color: #6831FF;
+    }
+  }
+  &[data-reaction-type='dislike'] {
+
+    &[data-reaction-state='reacted'] {
+      color: #AB2424;
+    }
+
+    &:hover {
+      color: #AB2424;
+    }
+  }
 }

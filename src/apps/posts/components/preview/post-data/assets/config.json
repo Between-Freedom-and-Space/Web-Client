@@ -1,0 +1,10 @@
+{
+  "follow-button": {
+    "user-is-following": {
+      "label": "Unfollow"
+    },
+    "user-is-not-following": {
+      "label": "Follow"
+    }
+  }
+}

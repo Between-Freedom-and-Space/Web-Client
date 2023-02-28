@@ -1,28 +1,61 @@
 .topContainer {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .postAuthorProfileIconContainer {
-
+  display: flex;
 }
 
 .postAuthorIcon {
+  height: 40px;
+  width: 40px;
 
+  background-color: #D1D8DD;
+  border-radius: 50%;
+
+  cursor: pointer;
+  display: inline-block;
+}
+
+.postDataContainer {
+  display: flex;
+  flex-direction: row;
+
+  margin-left: 5px;
 }
 
 .postAuthorNicknameContainer {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .postAuthorNickname {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 120%;
 
+  color: #000000;
+
+  cursor: pointer;
 }
 
-.postFollowAuthorButton {
-
+.postFollowAuthorButtonWrapper {
+  display: flex;
 }
 
 .postText {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 115%;
 
+  color: #000000;
+
+  cursor: pointer;
+
+  margin-top: 10px;
 }
 
