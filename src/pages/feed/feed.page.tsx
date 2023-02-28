@@ -5,6 +5,7 @@ import examplePosts from './assets/example-posts.json'
 import Page from "../../apps/page/page";
 import PostPreview from "../../apps/posts/components/preview/post-preview";
 import {PostFollowingState, PostReactionState} from "../../apps/posts/components/common/types";
+import {HeaderMode} from "../../common/components/header/types";
 
 // Needed only for preview components functionality. Do not use in production!
 function FeedPage() {
@@ -47,7 +48,7 @@ function FeedPage() {
         )
     })
     return (
-        <Page>
+        <Page headerMode={HeaderMode.NOT_AUTHORIZED}>
             <div className={styles.container}>
                 {postPreviews}
             </div>

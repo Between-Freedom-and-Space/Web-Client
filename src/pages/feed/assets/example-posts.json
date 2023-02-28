@@ -40,17 +40,10 @@
       "followingState": "USER_IS_NOT_FOLLOWING",
       "comments": [
         {
-          "id": 17,
+          "id": 18,
           "profileIconUrl": "https://google.com",
           "nickname": "JUSSIAR",
-          "commentText": "What's going on here?????",
-          "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
-        },
-        {
-          "id": 17,
-          "profileIconUrl": "https://google.com",
-          "nickname": "Ferum-bot",
-          "commentText": "Сам не понимаю(((((",
+          "commentText": "Удали плиз",
           "lastModifiedDate": "Tue Feb 28 2023 18:25:34 GMT+0300 (Moscow Standard Time)"
         }
       ]
