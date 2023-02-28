@@ -9,6 +9,7 @@ import EditorPage from '../pages/editor/editor.page'
 import AboutPage from '../pages/about/about.page'
 import AuthenticatePage from '../pages/authenticate/authenticate.page'
 import CommentPage from "../pages/comment/comment.page";
+import FeedPage from "../pages/feed/feed.page";
 
 function Entry () {
     useEffect(() => {
@@ -28,6 +29,7 @@ function Entry () {
                     <Route path='/error' element={<ErrorPage/>}/>
                     <Route path='/authenticate' element={<AuthenticatePage/>}/>
                     <Route path='/comment' element={<CommentPage/>}/>
+                    <Route path='/feed' element={<FeedPage/>}/>
                     <Route path='*' element={<Navigate to='/'/>}/>
                 </Routes>
             </BrowserRouter>
@@ -44,6 +46,7 @@ function Entry () {
                 <Route path='/error' element={<ErrorPage/>}/>
                 <Route path='/authenticate' element={<AuthenticatePage/>}/>
                 <Route path='/comment' element={<CommentPage/>}/>
+                <Route path='/feed' element={<FeedPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
