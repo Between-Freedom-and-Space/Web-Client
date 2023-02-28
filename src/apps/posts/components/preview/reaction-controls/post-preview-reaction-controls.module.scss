@@ -1,10 +1,16 @@
-$reaction-icon-margin-right: 3px;
+$reaction-icon-margin-right: 5px;
 $reaction-icon-height: 17px;
 $reaction-icon-width: 15px;
 
 .topContainer {
   display: flex;
   flex-direction: row;
+  justify-content: left;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+
+  padding: 5px 10px;
 
   border-top: 1px solid #D1D8DD;
   border-bottom: 1px solid #D1D8DD;
@@ -83,12 +89,14 @@ $reaction-icon-width: 15px;
 }
 
 .postReactionCount {
-  margin-right: 4px;
+  margin-right: 5px;
 
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 120%;
+
+  text-align: center;
 
   color: #5A6069;
 
@@ -115,12 +123,13 @@ $reaction-icon-width: 15px;
 }
 
 .postReactionTitle {
-  margin-right: 10px;
+  margin-right: 25px;
 
   font-style: normal;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 120%;
+  text-align: center;
 
   color: #898C95;
 
