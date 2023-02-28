@@ -39,7 +39,7 @@ function PostPreview(props: Props) {
                 reactionState={props.reactionState}
             />
             <PostPreviewComments
-               comments={props.comments}
+                comments={props.comments}
             />
         </div>
     )

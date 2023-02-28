@@ -28,6 +28,7 @@ function FeedPage() {
     const postPreviews = examplePosts.posts.map((examplePost) => {
         return (
             <PostPreview
+                key={examplePost.id}
                 id={examplePost.id}
                 authorNickname={examplePost.authorNickname}
                 postText={examplePost.postText}
