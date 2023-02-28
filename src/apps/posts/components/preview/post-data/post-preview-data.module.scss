@@ -1,6 +1,6 @@
 .topContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .postAuthorProfileIconContainer {
@@ -8,8 +8,8 @@
 }
 
 .postAuthorIcon {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
 
   background-color: #D1D8DD;
   border-radius: 50%;
@@ -20,15 +20,19 @@
 
 .postDataContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
-  margin-left: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .postAuthorNicknameContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
 }
 
 .postAuthorNickname {
@@ -57,5 +61,6 @@
   cursor: pointer;
 
   margin-top: 10px;
+  margin-bottom: 15px;
 }
 
