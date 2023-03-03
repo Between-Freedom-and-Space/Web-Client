@@ -10,6 +10,7 @@ import AboutPage from '../pages/about/about.page'
 import AuthenticatePage from '../pages/authenticate/authenticate.page'
 import CommentPage from "../pages/comment/comment.page";
 import FeedPage from "../pages/feed/feed.page";
+import RecoverPasswordPage from "../pages/recover-password/recover-password.page";
 
 function Entry () {
     useEffect(() => {
@@ -28,6 +29,7 @@ function Entry () {
                     <Route path='/editor' element={<EditorPage/>}/>
                     <Route path='/error' element={<ErrorPage/>}/>
                     <Route path='/authenticate' element={<AuthenticatePage/>}/>
+                    <Route path='/password-recover' element={<RecoverPasswordPage/>}/>
                     <Route path='/comment' element={<CommentPage/>}/>
                     <Route path='/feed' element={<FeedPage/>}/>
                     <Route path='*' element={<Navigate to='/'/>}/>
@@ -45,6 +47,7 @@ function Entry () {
                 <Route path='/editor' element={<EditorPage/>}/>
                 <Route path='/error' element={<ErrorPage/>}/>
                 <Route path='/authenticate' element={<AuthenticatePage/>}/>
+                <Route path='/password-recover' element={<RecoverPasswordPage/>}/>
                 <Route path='/comment' element={<CommentPage/>}/>
                 <Route path='/feed' element={<FeedPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
