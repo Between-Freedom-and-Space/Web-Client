@@ -1,4 +1,4 @@
-import {AuthState, SignInState, SignUpState, VerificationCodeState} from "./types";
+import {AuthState, RecoverPasswordState, SignInState, SignUpState, VerificationCodeState} from "./types";
 import {createSlice} from "@reduxjs/toolkit";
 import {
     onSignInNicknameChanged,
@@ -25,6 +25,12 @@ const initialSignUpState: SignUpState = {
     verificationCode: '',
     verificationCodeState: VerificationCodeState.NOT_SEND,
     state: AuthState.NOT_AUTHENTICATED
+}
+const initialRecoverPasswordState: RecoverPasswordState = {
+    email: '',
+    recoverCode: '',
+    newPassword: '',
+    newPasswordRepeated: '',
 }
 
 export const authSignInSlice = createSlice({
@@ -82,5 +88,14 @@ export const authSignUpSlice = createSlice({
     }
 })
 
+export const recoverPasswordSlice = createSlice({
+    name: 'auth-recover-password',
+    initialState: initialRecoverPasswordState,
+    reducers: {
+
+    }
+})
+
 export const signInActions = authSignInSlice.actions
 export const signUpActions = authSignUpSlice.actions
+export const recoverPasswordActions = recoverPasswordSlice.actions

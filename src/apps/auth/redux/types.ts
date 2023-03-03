@@ -20,6 +20,13 @@ export interface SignUpState {
     readonly errorMessage?: string
 }
 
+export interface RecoverPasswordState {
+    readonly email: string
+    readonly recoverCode: string
+    readonly newPassword: string
+    readonly newPasswordRepeated: string
+}
+
 export interface OnSignUpFieldValueChanged {
     readonly field: keyof SignUpState
     readonly value: SignUpState[keyof SignUpState]
