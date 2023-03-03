@@ -9,12 +9,13 @@ import {ContentDisplayMode} from "../../common/components/general-content-holder
 import PasswordRecoverEnterCode
     from "../../apps/auth/components/passwrod-recover/enter-code/password-recover-enter-code";
 import PasswordRecoverResult from "../../apps/auth/components/passwrod-recover/recover-result/password-recover-result";
+import PasswordRecoverChange from "../../apps/auth/components/passwrod-recover/password-change/password-recover-change";
 
 function RecoverPasswordPage() {
     return (
         <Page headerMode={HeaderMode.ONLY_LOGO} contentDisplayMode={ContentDisplayMode.FIXED_CONTENT}>
             <div className={styles.container}>
-                <PasswordRecoverResult />
+                <PasswordRecoverChange />
             </div>
         </Page>
     )
