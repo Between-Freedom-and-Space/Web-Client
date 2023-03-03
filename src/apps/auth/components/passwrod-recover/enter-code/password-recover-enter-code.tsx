@@ -29,7 +29,7 @@ function PasswordRecoverEnterCode({
     const sendCodeAgainButtonClickHandler = () => {
         controller?.onSendAgainClicked()
     }
-    const codeInputHandler: InputController = {
+    const codeInputController: InputController = {
         onInputChanged(newInput: string) {
             controller?.onCodeInputChanged(newInput)
         },
@@ -44,7 +44,7 @@ function PasswordRecoverEnterCode({
             <div className={styles.description}>{config.description}</div>
 
             <div className={styles.inputCodeWrapper}>
-                <PlainInput text={code} controller={codeInputHandler} hintText={config.input_hint}/>
+                <PlainInput text={code} controller={codeInputController} hintText={config.input_hint}/>
             </div>
 
             <div className={styles.controlsContainer}>

@@ -1,0 +1,7 @@
+{
+  "label": "Password recovery",
+  "description": "Come up with a new password using capital letters, numbers and symbols, and enter password in first input, then in the second input",
+  "new_password_hint": "Enter new password here",
+  "new_password_repeat_hint": "Repeat new password here",
+  "recover_button": "Recover"
+}
