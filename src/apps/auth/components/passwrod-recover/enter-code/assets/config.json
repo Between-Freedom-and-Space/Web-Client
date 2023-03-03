@@ -1,0 +1,7 @@
+{
+  "label": "Enter the code",
+  "description": "You have received a confirmation code by email or phone, enter it in this input",
+  "input_hint": "Type code here...",
+  "check_code": "Check the code",
+  "send_again_code": "Send again"
+}

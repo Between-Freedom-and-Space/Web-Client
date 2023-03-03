@@ -42,7 +42,12 @@ function PasswordRecoverEnterEmail({
                 <PlainInput hintText={config.input_hint} text={email} controller={inputController}/>
             </div>
             <div className={styles.sendButtonWrapper}>
-                <Button type={ButtonType.PRIMARY} onClick={sendButtonClickHandler} widthType={SizeType.MAX_PERCENT}>{config.button_title}</Button>
+                <Button
+                    type={ButtonType.PRIMARY}
+                    onClick={sendButtonClickHandler}
+                    widthType={SizeType.MAX_PERCENT}
+                    heightType={SizeType.MAX_PERCENT}
+                >{config.button_title}</Button>
             </div>
 
             <div className={styles.logInContainer}>
