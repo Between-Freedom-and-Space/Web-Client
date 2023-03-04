@@ -1,3 +1,5 @@
+import {PasswordRecoverChangeState} from "../components/passwrod-recover/password-change/types";
+
 export interface SignInState {
     readonly nickname: string
     readonly password: string
@@ -25,6 +27,10 @@ export interface RecoverPasswordState {
     readonly recoverCode: string
     readonly newPassword: string
     readonly newPasswordRepeated: string
+    readonly passwordChangeState: PasswordRecoverChangeState
+    readonly timeRemainedSeconds: number
+    readonly errorMessage?: string
+    readonly flowState: PasswordRecoverFlowState
 }
 
 export interface OnSignUpFieldValueChanged {
@@ -42,4 +48,11 @@ export enum VerificationCodeState {
     NOT_SEND,
     SENDING,
     SEND
+}
+
+export enum PasswordRecoverFlowState {
+    ENTERING_EMAIL,
+    ENTERING_VERIFICATION_CODE,
+    INPUT_NEW_PASSWORD,
+    RECOVER_FINISHED
 }

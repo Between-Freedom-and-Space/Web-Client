@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {authSignInSlice, authSignUpSlice} from "../apps/auth/redux/slice";
+import {authSignInSlice, authSignUpSlice, recoverPasswordSlice} from "../apps/auth/redux/slices";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {notificationsSlice} from "../common/services/notifications/redux/slice";
 
@@ -7,6 +7,7 @@ export const store = configureStore({
     reducer: combineReducers({
         authSignIn: authSignInSlice.reducer,
         authSignUp: authSignUpSlice.reducer,
+        recoverPassword: recoverPasswordSlice.reducer,
         notifications: notificationsSlice.reducer,
     })
 })

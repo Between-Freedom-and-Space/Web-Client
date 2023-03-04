@@ -1,6 +1,0 @@
-export enum PasswordRecoverFlowState {
-    ENTERING_EMAIL,
-    ENTERING_VERIFICATION_CODE,
-    INPUT_NEW_PASSWORD,
-    RECOVER_FINISHED
-}
