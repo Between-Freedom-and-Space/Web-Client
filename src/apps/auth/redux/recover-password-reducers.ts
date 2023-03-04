@@ -71,9 +71,9 @@ export function onRepeatedNewPasswordChanged(
     }
 }
 
-export const sendVerificationCodeThunk = createAsyncThunk<
+export const sendVerifiedCodeThunk = createAsyncThunk<
     SendVerificationCodeResult,
-    undefined,
+    void,
     {rejectValue: string, state: RootState}
     >(
     'recover-password/send-verification-code',
@@ -82,17 +82,19 @@ export const sendVerificationCodeThunk = createAsyncThunk<
         const state = getState().recoverPassword
 
         const result = await useCase.sendVerificationCode(state.email)
+
         if (result.type === 'failure') {
             return rejectWithValue(result.message!)
         } else {
+            console.log(result)
             return result
         }
     }
 )
 
-export const checkVerificationCodeThunk = createAsyncThunk<
+export const checkVerifiedCodeThunk = createAsyncThunk<
     CheckVerificationCodeResult,
-    undefined,
+    void,
     {rejectValue: string, state: RootState}
     >(
     'recover-password/check-verification-code',
