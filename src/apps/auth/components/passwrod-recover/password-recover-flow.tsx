@@ -14,9 +14,9 @@ import {PasswordRecoverChangeController} from "./password-change/types";
 import {recoverPasswordActions} from "../../redux/slices";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 import {
-    checkVerificationCodeThunk,
+    checkVerifiedCodeThunk,
     recoverPasswordThunk,
-    sendVerificationCodeThunk
+    sendVerifiedCodeThunk
 } from "../../redux/recover-password-reducers";
 
 function PasswordRecoverFlow() {
@@ -29,10 +29,10 @@ function PasswordRecoverFlow() {
             dispatch(recoverPasswordActions.emailChanged(newEmail))
         },
         onEnterPressed() {
-            dispatch(sendVerificationCodeThunk())
+            dispatch(sendVerifiedCodeThunk())
         },
         onSendButtonPressed() {
-            dispatch(sendVerificationCodeThunk())
+            dispatch(sendVerifiedCodeThunk())
         },
         onTryToLogInPressed() {
             navigate('/authenticate')
@@ -43,13 +43,13 @@ function PasswordRecoverFlow() {
             dispatch(recoverPasswordActions.verificationCodeChanged(newInput))
         },
         onEnterPressed() {
-            dispatch(checkVerificationCodeThunk())
+            dispatch(checkVerifiedCodeThunk())
         },
         onCheckCodeClicked() {
-            dispatch(checkVerificationCodeThunk())
+            dispatch(checkVerifiedCodeThunk())
         },
         onSendAgainClicked() {
-            dispatch(sendVerificationCodeThunk())
+            dispatch(sendVerifiedCodeThunk())
         },
     }
     const changePasswordController: PasswordRecoverChangeController = {
