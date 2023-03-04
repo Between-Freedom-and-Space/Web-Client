@@ -1,12 +1,29 @@
-import {AuthState, RecoverPasswordState, SignInState, SignUpState, VerificationCodeState} from "./types";
+import {
+    AuthState,
+    PasswordRecoverFlowState,
+    RecoverPasswordState,
+    SignInState,
+    SignUpState,
+    VerificationCodeState
+} from "./types";
 import {createSlice} from "@reduxjs/toolkit";
 import {
     onSignInNicknameChanged,
-    onSignInPasswordChanged, onSignUpFormFieldValueChanged,
-    sendVerificationCodeThunk, signInErrorMessageShown,
-    signInThunk, signUpErrorMessageShown,
+    onSignInPasswordChanged,
+    onSignUpFormFieldValueChanged,
+    sendVerificationCodeThunk,
+    signInErrorMessageShown,
+    signInThunk,
+    signUpErrorMessageShown,
     signUpThunk
-} from "./reducer";
+} from "./auth-reducers";
+import {PasswordRecoverChangeState} from "../components/passwrod-recover/password-change/types";
+import {
+    onNewPasswordChanged,
+    onRecoverEmailChanged,
+    onRepeatedNewPasswordChanged,
+    onVerificationCodeChanged
+} from "./recover-password-reducers";
 
 const initialSignInState: SignInState = {
     nickname: '',
@@ -31,6 +48,10 @@ const initialRecoverPasswordState: RecoverPasswordState = {
     recoverCode: '',
     newPassword: '',
     newPasswordRepeated: '',
+    passwordChangeState: PasswordRecoverChangeState.IN_PROGRESS,
+    timeRemainedSeconds: 0,
+    errorMessage: undefined,
+    flowState: PasswordRecoverFlowState.ENTERING_EMAIL,
 }
 
 export const authSignInSlice = createSlice({
@@ -92,6 +113,12 @@ export const recoverPasswordSlice = createSlice({
     name: 'auth-recover-password',
     initialState: initialRecoverPasswordState,
     reducers: {
+        emailChanged: onRecoverEmailChanged,
+        verificationCodeChanged: onVerificationCodeChanged,
+        newPasswordChanged: onNewPasswordChanged,
+        repeatedNewPasswordChanged: onRepeatedNewPasswordChanged,
+    },
+    extraReducers: (builder) => {
 
     }
 })

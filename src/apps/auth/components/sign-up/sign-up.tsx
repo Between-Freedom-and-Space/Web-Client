@@ -13,8 +13,8 @@ import {useNavigate} from "react-router-dom";
 import {InputController} from "../../../../common/components/ui-kit/inputs/types";
 import {AuthState} from "../../redux/types";
 import CommonLoader from "../../../../common/components/ui-kit/loaders/common-loader";
-import {signUpActions} from "../../redux/slice";
-import {sendVerificationCodeThunk, signUpThunk} from "../../redux/reducer";
+import {signUpActions} from "../../redux/slices";
+import {sendVerificationCodeThunk, signUpThunk} from "../../redux/auth-reducers";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 
 function SignUp() {
