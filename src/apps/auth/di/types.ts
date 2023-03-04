@@ -1,6 +1,7 @@
 const TYPES = {
     AuthenticateApi: Symbol.for("AuthenticateApi"),
     MailingApi: Symbol.for("MailingApi"),
+    RecoverPasswordApi: Symbol.for("RecoverPasswordApi"),
     AuthAxiosInstance: Symbol.for("AuthAxiosInstance"),
     TokenRepository: Symbol.for("TokenRepository"),
     SecurityVariableRepository: Symbol.for("SecurityVariableRepository"),
