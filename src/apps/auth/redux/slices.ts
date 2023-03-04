@@ -121,34 +121,35 @@ export const recoverPasswordSlice = createSlice({
         errorShown: onRecoverPasswordErrorShown,
     },
     extraReducers: (builder) => {
-        builder.addCase(sendVerificationCodeThunk.pending, () => {
-
+        builder.addCase(sendVerificationCodeThunk.pending, (state) => {
+             // TODO() Add loaders: BFS-39
         })
-        builder.addCase(sendVerificationCodeThunk.rejected, () => {
-
+        builder.addCase(sendVerificationCodeThunk.rejected, (state, action) => {
+            state.errorMessage = action.payload
+            console.info("asdasd")
         })
-        builder.addCase(sendVerificationCodeThunk.fulfilled, () => {
-
+        builder.addCase(sendVerificationCodeThunk.fulfilled, (state) => {
+            state.flowState = PasswordRecoverFlowState.ENTERING_VERIFICATION_CODE
         })
 
         builder.addCase(checkVerificationCodeThunk.pending, () => {
-
+             // TODO() Add loaders: BFS-39
         })
-        builder.addCase(checkVerificationCodeThunk.rejected, () => {
-
+        builder.addCase(checkVerificationCodeThunk.rejected, (state, action) => {
+            state.errorMessage = action.payload
         })
-        builder.addCase(checkVerificationCodeThunk.fulfilled, () => {
-
+        builder.addCase(checkVerificationCodeThunk.fulfilled, (state) => {
+            state.flowState = PasswordRecoverFlowState.INPUT_NEW_PASSWORD
         })
 
         builder.addCase(recoverPasswordThunk.pending, () => {
-
+             // TODO() Add loaders: BFS-39
         })
-        builder.addCase(recoverPasswordThunk.rejected, () => {
-
+        builder.addCase(recoverPasswordThunk.rejected, (state, action) => {
+            state.errorMessage = action.payload
         })
-        builder.addCase(recoverPasswordThunk.fulfilled, () => {
-
+        builder.addCase(recoverPasswordThunk.fulfilled, (state) => {
+            state.flowState = PasswordRecoverFlowState.RECOVER_FINISHED
         })
     }
 })

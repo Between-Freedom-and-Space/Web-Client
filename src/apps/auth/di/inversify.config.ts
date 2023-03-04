@@ -21,6 +21,9 @@ import {UuidSecurityVariableGenerator} from "../domain/services/impl/uuid.securi
 import {MailingApi} from "../api/mailing-api";
 import {MailingApiImpl} from "../api/impl/mailing-api-impl";
 import {LoggingRequestInterceptor, LoggingResponseInterceptor} from "../../../common/api/logging-interceptor";
+import {RecoverPasswordApi} from "../api/recover-password-api";
+import {RecoverPasswordApiImpl} from "../api/impl/recover-password-api-impl";
+import {RecoverPasswordUseCase} from "../domain/usecases/recover-password/recover-password.usecase";
 
 const authDependenciesContainer = new Container({
     defaultScope: 'Singleton'
@@ -36,6 +39,9 @@ authDependenciesContainer
 authDependenciesContainer
     .bind<MailingApi>(TYPES.MailingApi)
     .to(MailingApiImpl)
+authDependenciesContainer
+    .bind<RecoverPasswordApi>(TYPES.RecoverPasswordApi)
+    .to(RecoverPasswordApiImpl)
 
 authDependenciesContainer
     .bind<TokenRepository>(TYPES.TokenRepository)
@@ -71,6 +77,9 @@ authDependenciesContainer
     .toSelf()
 authDependenciesContainer
     .bind<SignUpUseCase>(SignUpUseCase)
+    .toSelf()
+authDependenciesContainer
+    .bind<RecoverPasswordUseCase>(RecoverPasswordUseCase)
     .toSelf()
 
 export default authDependenciesContainer

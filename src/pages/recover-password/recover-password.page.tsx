@@ -7,7 +7,7 @@ import PasswordRecoverFlow from "../../apps/auth/components/passwrod-recover/pas
 
 function RecoverPasswordPage() {
     return (
-        <Page headerMode={HeaderMode.ONLY_LOGO} contentDisplayMode={ContentDisplayMode.FIXED_CONTENT}>
+        <Page headerMode={HeaderMode.ONLY_LOGO} contentDisplayMode={ContentDisplayMode.FIT_CONTENT}>
             <PasswordRecoverFlow />
         </Page>
     )
