@@ -19,7 +19,8 @@ import {
 } from "./auth-reducers";
 import {PasswordRecoverChangeState} from "../components/passwrod-recover/password-change/types";
 import {
-    checkVerificationCodeThunk,
+    checkVerifiedCodeThunk,
+    sendVerifiedCodeThunk,
     onNewPasswordChanged,
     onRecoverEmailChanged, onRecoverPasswordErrorShown,
     onRepeatedNewPasswordChanged,
@@ -121,24 +122,23 @@ export const recoverPasswordSlice = createSlice({
         errorShown: onRecoverPasswordErrorShown,
     },
     extraReducers: (builder) => {
-        builder.addCase(sendVerificationCodeThunk.pending, (state) => {
+        builder.addCase(sendVerifiedCodeThunk.pending, (state) => {
              // TODO() Add loaders: BFS-39
         })
-        builder.addCase(sendVerificationCodeThunk.rejected, (state, action) => {
+        builder.addCase(sendVerifiedCodeThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
-            console.info("asdasd")
         })
-        builder.addCase(sendVerificationCodeThunk.fulfilled, (state) => {
+        builder.addCase(sendVerifiedCodeThunk.fulfilled, (state) => {
             state.flowState = PasswordRecoverFlowState.ENTERING_VERIFICATION_CODE
         })
 
-        builder.addCase(checkVerificationCodeThunk.pending, () => {
+        builder.addCase(checkVerifiedCodeThunk.pending, () => {
              // TODO() Add loaders: BFS-39
         })
-        builder.addCase(checkVerificationCodeThunk.rejected, (state, action) => {
+        builder.addCase(checkVerifiedCodeThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
         })
-        builder.addCase(checkVerificationCodeThunk.fulfilled, (state) => {
+        builder.addCase(checkVerifiedCodeThunk.fulfilled, (state) => {
             state.flowState = PasswordRecoverFlowState.INPUT_NEW_PASSWORD
         })
 
