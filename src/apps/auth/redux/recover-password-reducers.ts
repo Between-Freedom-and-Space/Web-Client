@@ -2,6 +2,11 @@ import {RecoverPasswordState} from "./types";
 import {createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import authDependenciesContainer from "../di/inversify.config";
 import {RecoverPasswordUseCase} from "../domain/usecases/recover-password/recover-password.usecase";
+import {
+    CheckVerificationCodeResult, RecoverPasswordFailure, RecoverPasswordResult,
+    SendVerificationCodeResult
+} from "../domain/usecases/recover-password/recover-password-usecase.types";
+import {RootState} from "../../../config/redux.config";
 
 const container = authDependenciesContainer
 
@@ -66,23 +71,63 @@ export function onRepeatedNewPasswordChanged(
     }
 }
 
-export const sendVerificationCodeThunk = createAsyncThunk(
+export const sendVerificationCodeThunk = createAsyncThunk<
+    SendVerificationCodeResult,
+    undefined,
+    {rejectValue: string, state: RootState}
+    >(
     'recover-password/send-verification-code',
-    async () => {
+    async (_, {rejectWithValue, getState}) => {
+        const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
+        const state = getState().recoverPassword
 
+        const result = await useCase.sendVerificationCode(state.email)
+        if (result.type === 'failure') {
+            return rejectWithValue(result.message!)
+        } else {
+            return result
+        }
     }
 )
 
-export const checkVerificationCodeThunk = createAsyncThunk(
+export const checkVerificationCodeThunk = createAsyncThunk<
+    CheckVerificationCodeResult,
+    undefined,
+    {rejectValue: string, state: RootState}
+    >(
     'recover-password/check-verification-code',
-    async () => {
+    async (_, {rejectWithValue, getState}) => {
+        const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
+        const state = getState().recoverPassword
 
+        const result = await useCase.checkVerificationCode(state.email, state.recoverCode)
+        if (result.type === 'rejected') {
+            return rejectWithValue(result.message!)
+        } else {
+            return result
+        }
     }
 )
 
-export const recoverPasswordThunk = createAsyncThunk(
+export const recoverPasswordThunk = createAsyncThunk<
+    RecoverPasswordResult,
+    void,
+    {rejectValue: string, state: RootState}
+    >(
     'recover-password/set-new-password',
-    async () => {
+    async (_, {rejectWithValue, getState}) => {
+        const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
+        const state = getState().recoverPassword
 
+        const result = await useCase.recoverPassword({
+            ...state,
+            verificationCode: state.recoverCode,
+            repeatedNewPassword: state.newPasswordRepeated
+        })
+        if (result.type === 'failure') {
+            return rejectWithValue((result as RecoverPasswordFailure).message)
+        } else {
+            return result
+        }
     }
 )
