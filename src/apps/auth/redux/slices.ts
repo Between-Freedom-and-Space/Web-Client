@@ -19,10 +19,11 @@ import {
 } from "./auth-reducers";
 import {PasswordRecoverChangeState} from "../components/passwrod-recover/password-change/types";
 import {
+    checkVerificationCodeThunk,
     onNewPasswordChanged,
-    onRecoverEmailChanged,
+    onRecoverEmailChanged, onRecoverPasswordErrorShown,
     onRepeatedNewPasswordChanged,
-    onVerificationCodeChanged
+    onVerificationCodeChanged, recoverPasswordThunk
 } from "./recover-password-reducers";
 
 const initialSignInState: SignInState = {
@@ -117,9 +118,38 @@ export const recoverPasswordSlice = createSlice({
         verificationCodeChanged: onVerificationCodeChanged,
         newPasswordChanged: onNewPasswordChanged,
         repeatedNewPasswordChanged: onRepeatedNewPasswordChanged,
+        errorShown: onRecoverPasswordErrorShown,
     },
     extraReducers: (builder) => {
+        builder.addCase(sendVerificationCodeThunk.pending, () => {
 
+        })
+        builder.addCase(sendVerificationCodeThunk.rejected, () => {
+
+        })
+        builder.addCase(sendVerificationCodeThunk.fulfilled, () => {
+
+        })
+
+        builder.addCase(checkVerificationCodeThunk.pending, () => {
+
+        })
+        builder.addCase(checkVerificationCodeThunk.rejected, () => {
+
+        })
+        builder.addCase(checkVerificationCodeThunk.fulfilled, () => {
+
+        })
+
+        builder.addCase(recoverPasswordThunk.pending, () => {
+
+        })
+        builder.addCase(recoverPasswordThunk.rejected, () => {
+
+        })
+        builder.addCase(recoverPasswordThunk.fulfilled, () => {
+
+        })
     }
 })
 
