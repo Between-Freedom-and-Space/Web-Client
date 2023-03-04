@@ -9,12 +9,12 @@ import config from "./assets/config.json"
 
 import styles from "./sign-in.module.scss"
 import {useNavigate} from "react-router-dom";
-import {signInThunk} from "../../redux/reducer";
+import {signInThunk} from "../../redux/auth-reducers";
 import {InputController} from "../../../../common/components/ui-kit/inputs/types";
 import {RootState, useAppDispatch, useAppSelector} from "../../../../config/redux.config";
 import {AuthState} from "../../redux/types";
 import CommonLoader from "../../../../common/components/ui-kit/loaders/common-loader";
-import {signInActions} from "../../redux/slice";
+import {signInActions} from "../../redux/slices";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 
 function SignIn() {
