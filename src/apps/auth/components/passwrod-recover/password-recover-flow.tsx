@@ -11,6 +11,13 @@ import {PasswordRecoverFlowState} from "../../redux/types";
 import {EnterEmailController} from "./enter-email/types";
 import {EnterRecoverCodeController} from "./enter-code/types";
 import {PasswordRecoverChangeController} from "./password-change/types";
+import {recoverPasswordActions} from "../../redux/slices";
+import {notificationActions} from "../../../../common/services/notifications/redux/slice";
+import {
+    checkVerificationCodeThunk,
+    recoverPasswordThunk,
+    sendVerificationCodeThunk
+} from "../../redux/recover-password-reducers";
 
 function PasswordRecoverFlow() {
     const navigate = useNavigate()
@@ -19,36 +26,58 @@ function PasswordRecoverFlow() {
 
     const enterEmailController: EnterEmailController = {
         onEmailChanged(newEmail: string) {
+            dispatch(recoverPasswordActions.emailChanged(newEmail))
         },
         onEnterPressed() {
+            dispatch(sendVerificationCodeThunk())
         },
         onSendButtonPressed() {
+            dispatch(sendVerificationCodeThunk())
         },
         onTryToLogInPressed() {
+            navigate('/authenticate')
         },
     }
     const enterCodeController: EnterRecoverCodeController = {
         onCodeInputChanged(newInput: string) {
+            dispatch(recoverPasswordActions.verificationCodeChanged(newInput))
         },
         onEnterPressed() {
+            dispatch(checkVerificationCodeThunk())
         },
         onCheckCodeClicked() {
+            dispatch(checkVerificationCodeThunk())
         },
         onSendAgainClicked() {
+            dispatch(sendVerificationCodeThunk())
         },
     }
     const changePasswordController: PasswordRecoverChangeController = {
         onPasswordInputChanged(newInput: string) {
+            dispatch(recoverPasswordActions.newPasswordChanged(newInput))
         },
         onRepeatPasswordInputChanged(newInput: string) {
+            dispatch(recoverPasswordActions.repeatedNewPasswordChanged(newInput))
         },
         onEnterPressed() {
+            dispatch(recoverPasswordThunk())
         },
         onRecoverButtonClicked() {
+            dispatch(recoverPasswordThunk())
         },
     }
     const backButtonClickHandler = () => {
         navigate(-1)
+    }
+
+    if (passwordRecoverState.errorMessage) {
+        dispatch(notificationActions.addNotification({
+            id: "1",
+            title: 'Error',
+            message: passwordRecoverState.errorMessage,
+            type: 'danger',
+        }))
+        dispatch(recoverPasswordActions.errorShown())
     }
 
     let content: ReactNode = null
