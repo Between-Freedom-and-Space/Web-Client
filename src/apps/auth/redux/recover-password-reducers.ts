@@ -76,60 +76,60 @@ export const sendVerifiedCodeThunk = createAsyncThunk<
     void,
     {rejectValue: string, state: RootState}
     >(
-    'recover-password/send-verification-code',
-    async (_, {rejectWithValue, getState}) => {
-        const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
-        const state = getState().recoverPassword
+        'recover-password/send-verification-code',
+        async (_, {rejectWithValue, getState}) => {
+            const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
+            const state = getState().recoverPassword
 
-        const result = await useCase.sendVerificationCode(state.email)
+            const result = await useCase.sendVerificationCode(state.email)
 
-        if (result.type === 'failure') {
-            return rejectWithValue(result.message!)
-        } else {
-            console.log(result)
-            return result
+            if (result.type === 'failure') {
+                return rejectWithValue(result.message!)
+            } else {
+                console.log(result)
+                return result
+            }
         }
-    }
-)
+    )
 
 export const checkVerifiedCodeThunk = createAsyncThunk<
     CheckVerificationCodeResult,
     void,
     {rejectValue: string, state: RootState}
     >(
-    'recover-password/check-verification-code',
-    async (_, {rejectWithValue, getState}) => {
-        const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
-        const state = getState().recoverPassword
+        'recover-password/check-verification-code',
+        async (_, {rejectWithValue, getState}) => {
+            const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
+            const state = getState().recoverPassword
 
-        const result = await useCase.checkVerificationCode(state.email, state.recoverCode)
-        if (result.type === 'rejected') {
-            return rejectWithValue(result.message!)
-        } else {
-            return result
+            const result = await useCase.checkVerificationCode(state.email, state.recoverCode)
+            if (result.type === 'rejected') {
+                return rejectWithValue(result.message!)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )
 
 export const recoverPasswordThunk = createAsyncThunk<
     RecoverPasswordResult,
     void,
     {rejectValue: string, state: RootState}
     >(
-    'recover-password/set-new-password',
-    async (_, {rejectWithValue, getState}) => {
-        const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
-        const state = getState().recoverPassword
+        'recover-password/set-new-password',
+        async (_, {rejectWithValue, getState}) => {
+            const useCase = container.get<RecoverPasswordUseCase>(RecoverPasswordUseCase)
+            const state = getState().recoverPassword
 
-        const result = await useCase.recoverPassword({
-            ...state,
-            verificationCode: state.recoverCode,
-            repeatedNewPassword: state.newPasswordRepeated
-        })
-        if (result.type === 'failure') {
-            return rejectWithValue((result as RecoverPasswordFailure).message)
-        } else {
-            return result
+            const result = await useCase.recoverPassword({
+                ...state,
+                verificationCode: state.recoverCode,
+                repeatedNewPassword: state.newPasswordRepeated
+            })
+            if (result.type === 'failure') {
+                return rejectWithValue((result as RecoverPasswordFailure).message)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )
