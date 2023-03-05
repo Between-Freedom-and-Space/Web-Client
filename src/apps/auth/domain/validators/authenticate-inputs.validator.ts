@@ -22,6 +22,9 @@ export class AuthenticateInputsValidator {
 
     private static readonly MAX_DESCRIPTION_LENGTH = 600
 
+    private static readonly VERIFICATION_CODE_LENGTH = 36
+    private static readonly VERIFIED_CODE_LENGTH = 36
+
     public validateNickname(nickname: string): ValidationResult {
         for (let i = 0; i < nickname.length; i++) {
             if (AuthenticateInputsValidator.FORBIDDEN_SYMBOLS.includes(nickname[i])) {
@@ -118,6 +121,20 @@ export class AuthenticateInputsValidator {
     public validateVerificationCode(code: string): ValidationResult {
         if (code.trim().length === 0) {
             return this.failureResult('Verification code not set')
+        }
+        if (code.trim().length !== AuthenticateInputsValidator.VERIFICATION_CODE_LENGTH) {
+            return this.failureResult('Invalid verification code')
+        } else {
+            return this.successResult()
+        }
+    }
+
+    public validateVerifiedCode(code: string): ValidationResult {
+        if (code.trim().length === 0) {
+            return this.failureResult('Verified code not set')
+        }
+        if (code.trim().length !== AuthenticateInputsValidator.VERIFIED_CODE_LENGTH) {
+            return this.failureResult('Invalid verified code')
         } else {
             return this.successResult()
         }
