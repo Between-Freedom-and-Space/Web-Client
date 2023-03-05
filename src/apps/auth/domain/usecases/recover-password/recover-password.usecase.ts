@@ -6,9 +6,13 @@ import {TokenRepository} from "../../../repository/token.repository";
 import {PasswordEncryptor} from "../../../../../common/helpers/security/password-encryptor";
 import {RecoverPasswordApi} from "../../../api/recover-password-api";
 import {
-    CheckVerificationCodeResult, RecoverPasswordData, RecoverPasswordFailure, RecoverPasswordResult,
+    CheckVerificationCodeResult,
+    RecoverPasswordData,
+    RecoverPasswordFailure,
+    RecoverPasswordResult,
     SendVerificationCodeResult
 } from "./recover-password-usecase.types";
+import {ValidationResultType} from "../../validators/types";
 
 @injectable()
 export class RecoverPasswordUseCase {
@@ -42,9 +46,32 @@ export class RecoverPasswordUseCase {
     public async sendVerificationCode(
         email: string,
     ): Promise<SendVerificationCodeResult> {
+        const emailValidation = this.validator!.validateEmail(email)
+
+        if (emailValidation.type === ValidationResultType.FAILURE) {
+            return {
+                type: 'failure',
+                message: emailValidation.message
+            }
+        }
+
+        const {content, error} = await this.recoverPasswordApi!.sendVerifiedCode(email)
+
+        if (!content) {
+            return {
+                type: 'failure',
+                message: error?.message || 'Something went wrong'
+            }
+        }
+        if (content.result === 'failure') {
+            return {
+                type: 'failure',
+                message: content.message || 'Something went wrong'
+            }
+        }
+
         return {
-            type: 'failure',
-            message: 'Not implemented yet'
+            type: 'success'
         }
     }
 
@@ -52,16 +79,86 @@ export class RecoverPasswordUseCase {
         email: string,
         code: string
     ): Promise<CheckVerificationCodeResult> {
+        const emailValidation = this.validator!.validateEmail(email)
+        const codeValidation = this.validator!.validateVerifiedCode(code)
+
+        if (emailValidation.type === ValidationResultType.FAILURE) {
+            return {
+                type: 'rejected',
+                message: emailValidation.message
+            }
+        }
+        if (codeValidation.type === ValidationResultType.FAILURE) {
+            return {
+                type: 'rejected',
+                message: codeValidation.message,
+            }
+        }
+
+        const {content, error} = await this.recoverPasswordApi!.checkVerifiedCode(email, code)
+
+        if (!content) {
+            return {
+                type: 'rejected',
+                message: error?.message || 'Something went wrong'
+            }
+        }
+        if (content.checkResult === 'invalid') {
+            return {
+                type: 'rejected',
+                message: content.message || 'Something went wrong'
+            }
+        }
+
         return {
-            type: 'rejected',
-            message: 'Not implemented yet'
+            type: 'verified'
         }
     }
 
-    public async recoverPassword(data: RecoverPasswordData): Promise<RecoverPasswordResult> {
+    public async recoverPassword({
+        email,
+        verificationCode,
+        newPassword,
+        repeatedNewPassword,
+    }: RecoverPasswordData): Promise<RecoverPasswordResult> {
+        const emailValidation = this.validator!.validateEmail(email)
+        const codeValidation = this.validator!.validateVerifiedCode(verificationCode)
+        const passwordValidation = this.validator!.validatePassword(newPassword)
+        const repeatedPasswordValidation = this.validator!.validatePasswordMatches(newPassword, repeatedNewPassword)
+
+        if (emailValidation.type === ValidationResultType.FAILURE) {
+            return this.failRecover(emailValidation.message)
+        }
+        if (codeValidation.type === ValidationResultType.FAILURE) {
+            return this.failRecover(codeValidation.message)
+        }
+        if (passwordValidation.type === ValidationResultType.FAILURE) {
+            return this.failRecover(passwordValidation.message)
+        }
+        if (repeatedPasswordValidation.type === ValidationResultType.FAILURE) {
+            return this.failRecover(repeatedPasswordValidation.message)
+        }
+
+        const {content, error} = await this.recoverPasswordApi!.recoverPassword({
+            email: email,
+            code: verificationCode,
+            newPassword: newPassword,
+        })
+
+        if (!content) {
+            return this.failRecover(error?.message)
+        }
+        if (content.result === 'failure') {
+            return this.failRecover(content.message)
+        }
+
+        return { type: 'success'}
+    }
+
+    private failRecover(message?: string): RecoverPasswordFailure {
         return {
             type: 'failure',
-            message: 'Not implemented yet'
-        } as RecoverPasswordFailure
+            message: message || 'Something went wrong'
+        }
     }
 }
