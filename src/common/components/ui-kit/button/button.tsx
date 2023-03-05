@@ -1,10 +1,12 @@
 import React, {ReactNode} from 'react'
-import {ButtonType, SizeType} from './types'
+import {ButtonState, ButtonType, SizeType} from './types'
 
 import styles from './button.module.scss'
+import ButtonLoader from "./loader/button-loader";
 
 interface Props {
     type: ButtonType
+    state?: ButtonState
     widthType?: SizeType
     heightType?: SizeType
     children?: ReactNode
@@ -12,17 +14,44 @@ interface Props {
     onDoubleClick?: () => void
 }
 
-function Button (props: Props) {
+function Button ({
+    type,
+    state = ButtonState.ACTIVE,
+    widthType = SizeType.DEFAULT,
+    heightType = SizeType.DEFAULT,
+    children,
+    onClick,
+    onDoubleClick,
+}: Props) {
+    const onClickHandler = () => {
+        if (state !== ButtonState.ACTIVE) {
+            return
+        }
+        onClick?.call(onClick)
+    }
+    const onDoubleClickHandler = () => {
+        if (state !== ButtonState.ACTIVE) {
+            return
+        }
+        onDoubleClick?.call(onDoubleClick)
+    }
+
     return (
         <button
             className={styles.button}
-            onClick={props.onClick}
-            onDoubleClick={props.onDoubleClick}
-            data-type={props.type}
-            data-width-type={props.widthType || SizeType.DEFAULT}
-            data-height-type={props.heightType || SizeType.DEFAULT}
+            onClick={onClickHandler}
+            onDoubleClick={onDoubleClickHandler}
+
+            data-button-type={type}
+            data-button-state={state}
+            data-width-type={widthType}
+            data-height-type={heightType}
         >
-            {props.children}
+            {
+                state === ButtonState.LOADING
+                    ? <ButtonLoader type={type}/>
+                    : children
+            }
         </button>
     )
 }
