@@ -1,12 +1,12 @@
 import React from 'react'
 import Page from '../../apps/page/page'
 import Button from '../../common/components/ui-kit/button/button'
-import { ButtonType } from '../../common/components/ui-kit/button/types'
+import {ButtonState, ButtonType} from '../../common/components/ui-kit/button/types'
 
 import styles from './home-page.module.scss'
 import PlainInput from "../../common/components/ui-kit/inputs/plain/plain-input";
 import PasswordInput from '../../common/components/ui-kit/inputs/password/password-input'
-import { PasswordInputState } from '../../common/components/ui-kit/inputs/password/types'
+import {PasswordInputState} from '../../common/components/ui-kit/inputs/password/types'
 import SearchInput from '../../common/components/ui-kit/inputs/search/search-input'
 
 function HomePage () {
@@ -25,6 +25,36 @@ function HomePage () {
                 </div>
                 <div className={styles.buttonWrapper}>
                     <Button type={ButtonType.DANGER}>
+                        Danger Button
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.PRIMARY} state={ButtonState.DISABLED}>
+                        Primary Button
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.SECONDARY} state={ButtonState.DISABLED}>
+                        Secondary Button
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.DANGER} state={ButtonState.DISABLED}>
+                        Danger Button
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.PRIMARY} state={ButtonState.LOADING}>
+                        Primary Button
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.SECONDARY} state={ButtonState.LOADING}>
+                        Secondary Button
+                    </Button>
+                </div>
+                <div className={styles.buttonWrapper}>
+                    <Button type={ButtonType.DANGER} state={ButtonState.LOADING}>
                         Danger Button
                     </Button>
                 </div>
