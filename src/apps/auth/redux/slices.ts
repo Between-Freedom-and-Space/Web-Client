@@ -123,7 +123,7 @@ export const recoverPasswordSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(sendVerifiedCodeThunk.pending, (state) => {
-             // TODO() Add loaders: BFS-39
+            // TODO() Add loaders: BFS-39
         })
         builder.addCase(sendVerifiedCodeThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
@@ -133,7 +133,7 @@ export const recoverPasswordSlice = createSlice({
         })
 
         builder.addCase(checkVerifiedCodeThunk.pending, () => {
-             // TODO() Add loaders: BFS-39
+            // TODO() Add loaders: BFS-39
         })
         builder.addCase(checkVerifiedCodeThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
@@ -143,7 +143,7 @@ export const recoverPasswordSlice = createSlice({
         })
 
         builder.addCase(recoverPasswordThunk.pending, () => {
-             // TODO() Add loaders: BFS-39
+            // TODO() Add loaders: BFS-39
         })
         builder.addCase(recoverPasswordThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
