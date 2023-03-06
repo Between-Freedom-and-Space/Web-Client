@@ -2,7 +2,6 @@ import React, {ReactNode} from 'react'
 import {ButtonState, ButtonType, SizeType} from './types'
 
 import styles from './button.module.scss'
-import ButtonLoader from "./loader/button-loader";
 
 interface Props {
     type: ButtonType
@@ -46,13 +45,7 @@ function Button ({
             data-button-state={state}
             data-width-type={widthType}
             data-height-type={heightType}
-        >
-            {
-                state === ButtonState.LOADING
-                    ? <ButtonLoader type={type}/>
-                    : children
-            }
-        </button>
+        >{children}</button>
     )
 }
 
