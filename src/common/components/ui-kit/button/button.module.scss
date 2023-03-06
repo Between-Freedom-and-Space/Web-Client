@@ -36,8 +36,23 @@
   }
   &[data-button-state='loading'] {
     cursor: wait;
+
     transform: none;
-    padding: 2 15px;
+
+    background: silver;
+    box-shadow: 0 -5px 10px -15px rgba(0, 0, 0, 0.1) inset,
+    0 -10px 10px -15px rgba(0, 0, 0, 0.3) inset,
+    0 -15px 10px -15px rgba(0, 0, 0, 0.5) inset;
+    animation: LOADING 2s infinite alternate;
+  }
+
+  @-webkit-keyframes LOADING {
+    50% {
+      background: grey;
+      box-shadow: 0 -5px 10px -15px rgba(0, 0, 0, 0.5) inset,
+      0 -10px 10px -15px rgba(0, 0, 0, 0.3) inset,
+      0 -15px 10px -15px rgba(0, 0, 0, 0.1) inset;
+    }
   }
 }
 
