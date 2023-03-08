@@ -2,21 +2,25 @@ import React from "react";
 import styles from './password-recover-enter-email.module.scss'
 
 import config from './assets/config.json';
-import {EnterEmailController} from "./types";
+import {EnterEmailController, EnterEmailStatus} from "./types";
 import PlainInput from "../../../../../common/components/ui-kit/inputs/plain/plain-input";
 import Button from "../../../../../common/components/ui-kit/button/button";
 import {ButtonType, SizeType} from "../../../../../common/components/ui-kit/button/types";
 import {InputController} from "../../../../../common/components/ui-kit/inputs/types";
+import {getSendButtonState} from "./helpers";
 
 interface Props {
     email?: string,
+    status?: EnterEmailStatus
     controller?: EnterEmailController
 }
 
 function PasswordRecoverEnterEmail({
     email,
+    status = EnterEmailStatus.ENTERING_EMAIL,
     controller,
 }: Props) {
+    const buttonState = getSendButtonState(status)
 
     const logInClickHandler = () => {
         controller?.onTryToLogInPressed()
@@ -44,6 +48,7 @@ function PasswordRecoverEnterEmail({
             <div className={styles.sendButtonWrapper}>
                 <Button
                     type={ButtonType.PRIMARY}
+                    state={buttonState}
                     onClick={sendButtonClickHandler}
                     widthType={SizeType.MAX_PERCENT}
                     heightType={SizeType.MAX_PERCENT}

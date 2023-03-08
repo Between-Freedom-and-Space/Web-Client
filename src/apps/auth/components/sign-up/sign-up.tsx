@@ -12,10 +12,10 @@ import {useAppDispatch, useAppSelector} from "../../../../config/redux.config";
 import {useNavigate} from "react-router-dom";
 import {InputController} from "../../../../common/components/ui-kit/inputs/types";
 import {AuthState} from "../../redux/types";
-import CommonLoader from "../../../../common/components/ui-kit/loaders/common-loader";
 import {signUpActions} from "../../redux/slices";
 import {sendVerificationCodeThunk, signUpThunk} from "../../redux/auth-reducers";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
+import {getSendCodeButtonState, getSignUpButtonState} from "./helpers";
 
 function SignUp() {
     const dispatch = useAppDispatch()
@@ -87,13 +87,6 @@ function SignUp() {
         }
     }
 
-    if (signUpState.state === AuthState.LOADING) {
-        return (
-            <div className={styles.formContainer}>
-                <CommonLoader visibility={true} />
-            </div>
-        )
-    }
     if (signUpState.state === AuthState.AUTHENTICATED) {
         navigate('/profile')
     }
@@ -201,6 +194,7 @@ function SignUp() {
             <div className={styles.sendVerificationCodeButtonWrapper}>
                 <Button
                     type={ButtonType.SECONDARY}
+                    state={getSendCodeButtonState(signUpState)}
                     widthType={SizeType.MAX_PERCENT}
                     heightType={SizeType.MAX_PERCENT}
                     onClick={() => dispatch(sendVerificationCodeThunk(signUpState))}
@@ -212,6 +206,7 @@ function SignUp() {
             <div className={styles.signUpButtonWrapper}>
                 <Button
                     type={ButtonType.PRIMARY}
+                    state={getSignUpButtonState(signUpState)}
                     widthType={SizeType.MAX_PERCENT}
                     heightType={SizeType.MAX_PERCENT}
                     onClick={() => dispatch(signUpThunk(signUpState))}

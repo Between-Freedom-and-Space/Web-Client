@@ -2,17 +2,18 @@ import React from "react";
 import styles from './password-recover-change.module.scss'
 
 import config from './assets/config.json'
-import {PasswordRecoverChangeController, PasswordRecoverChangeState} from "./types";
+import {PasswordRecoverChangeController, PasswordRecoverChangeState, PasswordRecoverStatus} from "./types";
 import PasswordInput from "../../../../../common/components/ui-kit/inputs/password/password-input";
 import Button from "../../../../../common/components/ui-kit/button/button";
 import {ButtonType, SizeType} from "../../../../../common/components/ui-kit/button/types";
-import {mapPasswordRecoverState} from "./helpers";
+import {getPasswordRecoverButtonState, mapPasswordRecoverState} from "./helpers";
 import {InputController} from "../../../../../common/components/ui-kit/inputs/types";
 
 interface Props {
     newPassword?: string
     newPasswordRepeated?: string
     state?: PasswordRecoverChangeState
+    status?: PasswordRecoverStatus
     controller?: PasswordRecoverChangeController
 }
 
@@ -20,9 +21,11 @@ function PasswordRecoverChange({
     newPassword,
     newPasswordRepeated,
     state = PasswordRecoverChangeState.IN_PROGRESS,
+    status = PasswordRecoverStatus.NOT_RECOVERING,
     controller,
 }: Props) {
     const passwordInputState = mapPasswordRecoverState(state)
+    const recoverButtonState = getPasswordRecoverButtonState(status)
 
     const recoverButtonClickHandler = () => {
         controller?.onRecoverButtonClicked()
@@ -71,6 +74,7 @@ function PasswordRecoverChange({
             <div className={styles.recoverButtonWrapper}>
                 <Button
                     type={ButtonType.PRIMARY}
+                    state={recoverButtonState}
                     onClick={recoverButtonClickHandler}
                     widthType={SizeType.MAX_PERCENT}
                     heightType={SizeType.MAX_PERCENT}

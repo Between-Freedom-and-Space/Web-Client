@@ -31,6 +31,10 @@ export interface RecoverPasswordState {
     readonly timeRemainedSeconds: number
     readonly errorMessage?: string
     readonly flowState: PasswordRecoverFlowState
+
+    readonly isVerifiedCodeSending: boolean
+    readonly isVerifiedCodeChecking: boolean
+    readonly isPasswordRecovering: boolean
 }
 
 export interface OnSignUpFieldValueChanged {
