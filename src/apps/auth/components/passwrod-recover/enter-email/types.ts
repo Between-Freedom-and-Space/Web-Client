@@ -8,3 +8,9 @@ export interface EnterEmailController {
 
     onTryToLogInPressed(): void
 }
+
+export enum EnterEmailStatus {
+    SENDING_CODE,
+    ENTERING_EMAIL,
+
+}

@@ -14,3 +14,8 @@ export enum PasswordRecoverChangeState {
     PASSWORDS_MATCH,
     PASSWORDS_NOT_MATCH
 }
+
+export enum PasswordRecoverStatus {
+    IN_PROGRESS,
+    NOT_RECOVERING,
+}
