@@ -18,6 +18,7 @@ import {
     recoverPasswordThunk,
     sendVerifiedCodeThunk
 } from "../../redux/recover-password-reducers";
+import {getCheckCodeStatus, getEnterEmailStatus, getPasswordRecoverStatus, getSendCodeAgainStatus} from "./helpers";
 
 function PasswordRecoverFlow() {
     const navigate = useNavigate()
@@ -86,6 +87,7 @@ function PasswordRecoverFlow() {
         content = (
             <PasswordRecoverEnterEmail
                 email={passwordRecoverState.email}
+                status={getEnterEmailStatus(passwordRecoverState)}
                 controller={enterEmailController}
             />
         )
@@ -96,6 +98,8 @@ function PasswordRecoverFlow() {
             <PasswordRecoverEnterCode
                 code={passwordRecoverState.recoverCode}
                 timeRemainedSeconds={passwordRecoverState.timeRemainedSeconds}
+                checkCodeStatus={getCheckCodeStatus(passwordRecoverState)}
+                sendAgainStatus={getSendCodeAgainStatus(passwordRecoverState)}
                 controller={enterCodeController}
             />
         )
@@ -107,6 +111,7 @@ function PasswordRecoverFlow() {
                 newPassword={passwordRecoverState.newPassword}
                 newPasswordRepeated={passwordRecoverState.newPasswordRepeated}
                 state={passwordRecoverState.passwordChangeState}
+                status={getPasswordRecoverStatus(passwordRecoverState)}
                 controller={changePasswordController}
             />
         )

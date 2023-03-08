@@ -54,6 +54,9 @@ const initialRecoverPasswordState: RecoverPasswordState = {
     timeRemainedSeconds: 0,
     errorMessage: undefined,
     flowState: PasswordRecoverFlowState.ENTERING_EMAIL,
+    isVerifiedCodeSending: false,
+    isVerifiedCodeChecking: false,
+    isPasswordRecovering: false
 }
 
 export const authSignInSlice = createSlice({
@@ -123,33 +126,39 @@ export const recoverPasswordSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(sendVerifiedCodeThunk.pending, (state) => {
-            // TODO() Add loaders: BFS-39
+            state.isVerifiedCodeSending = true
         })
         builder.addCase(sendVerifiedCodeThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
+            state.isVerifiedCodeSending = false
         })
         builder.addCase(sendVerifiedCodeThunk.fulfilled, (state) => {
             state.flowState = PasswordRecoverFlowState.ENTERING_VERIFICATION_CODE
+            state.isVerifiedCodeSending = false
         })
 
-        builder.addCase(checkVerifiedCodeThunk.pending, () => {
-            // TODO() Add loaders: BFS-39
+        builder.addCase(checkVerifiedCodeThunk.pending, (state) => {
+            state.isVerifiedCodeChecking = true
         })
         builder.addCase(checkVerifiedCodeThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
+            state.isVerifiedCodeChecking = false
         })
         builder.addCase(checkVerifiedCodeThunk.fulfilled, (state) => {
             state.flowState = PasswordRecoverFlowState.INPUT_NEW_PASSWORD
+            state.isVerifiedCodeChecking = false
         })
 
-        builder.addCase(recoverPasswordThunk.pending, () => {
-            // TODO() Add loaders: BFS-39
+        builder.addCase(recoverPasswordThunk.pending, (state) => {
+            state.isPasswordRecovering = true
         })
         builder.addCase(recoverPasswordThunk.rejected, (state, action) => {
             state.errorMessage = action.payload
+            state.isPasswordRecovering = false
         })
         builder.addCase(recoverPasswordThunk.fulfilled, (state) => {
             state.flowState = PasswordRecoverFlowState.RECOVER_FINISHED
+            state.isPasswordRecovering = false
         })
     }
 })

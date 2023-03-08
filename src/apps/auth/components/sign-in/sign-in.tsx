@@ -13,9 +13,9 @@ import {signInThunk} from "../../redux/auth-reducers";
 import {InputController} from "../../../../common/components/ui-kit/inputs/types";
 import {RootState, useAppDispatch, useAppSelector} from "../../../../config/redux.config";
 import {AuthState} from "../../redux/types";
-import CommonLoader from "../../../../common/components/ui-kit/loaders/common-loader";
 import {signInActions} from "../../redux/slices";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
+import {getSignInButtonState} from "./helpers";
 
 function SignIn() {
     const signInState = useAppSelector((state: RootState) => state.authSignIn)
@@ -39,13 +39,6 @@ function SignIn() {
         }
     }
 
-    if (signInState.state === AuthState.LOADING) {
-        return (
-            <div className={styles.formContainer}>
-                <CommonLoader visibility={true}/>
-            </div>
-        )
-    }
     if (signInState.state === AuthState.AUTHENTICATED) {
         navigate('/profile')
     }
@@ -93,6 +86,7 @@ function SignIn() {
                 <div className={styles.buttonWrapper} data-button-pos='second'>
                     <Button
                         type={ButtonType.PRIMARY}
+                        state={getSignInButtonState(signInState)}
                         widthType={SizeType.MAX_PERCENT}
                         heightType={SizeType.MAX_PERCENT}
                         onClick={() => dispatch(signInThunk(signInState))}
