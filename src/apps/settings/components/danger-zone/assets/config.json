@@ -1,0 +1,15 @@
+{
+  "title": "Danger Zone",
+  "settings": {
+    "delete_account": {
+      "title": "Delete account",
+      "description": "Once you delete an account, there is no going back. Please be certain.",
+      "button_label": "Delete this account"
+    },
+    "change_account_visibility": {
+      "title": "Change account visibility",
+      "description": "This account is currently %s.",
+      "button_label": "Change visibility"
+    }
+  }
+}

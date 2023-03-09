@@ -1,0 +1,17 @@
+{
+  "title": "Commons",
+  "settings": {
+    "change_account_nickname": {
+      "title": "Change your nickname",
+      "description": "You can change your nickname at any time.",
+      "button_label": "Change nickname",
+      "input_hint": "Some new nickname..."
+    },
+    "change_account_email": {
+      "title": "Change your email",
+      "description": "You can change your email. We will send a code to verify new mail.",
+      "button_label": "Change email",
+      "input_hint": "example@example.com"
+    }
+  }
+}
