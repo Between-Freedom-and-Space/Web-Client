@@ -11,33 +11,9 @@ import AuthenticatePage from '../pages/authenticate/authenticate.page'
 import CommentPage from "../pages/comment/comment.page";
 import FeedPage from "../pages/feed/feed.page";
 import RecoverPasswordPage from "../pages/recover-password/recover-password.page";
+import SettingsPage from "../pages/settings/settings.page";
 
 function Entry () {
-    useEffect(() => {
-        if (window.location.host === 'localhost:3000') {
-            window.localStorage.setItem('MODE', 'development')
-        }
-    }, [])
-
-    if (window.localStorage.getItem('MODE') === 'development') {
-        return (
-            <BrowserRouter>
-                <Routes>
-                    <Route index path='/' element={<AboutPage/>}/>
-                    <Route path='/home' element={<HomePage/>}/>
-                    <Route path='/profile' element={<ProfilePage/>}/>
-                    <Route path='/editor' element={<EditorPage/>}/>
-                    <Route path='/error' element={<ErrorPage/>}/>
-                    <Route path='/authenticate' element={<AuthenticatePage/>}/>
-                    <Route path='/password-recover' element={<RecoverPasswordPage/>}/>
-                    <Route path='/comment' element={<CommentPage/>}/>
-                    <Route path='/feed' element={<FeedPage/>}/>
-                    <Route path='*' element={<Navigate to='/'/>}/>
-                </Routes>
-            </BrowserRouter>
-        )
-    }
-
     return (
         <BrowserRouter>
             <Routes>
@@ -50,6 +26,7 @@ function Entry () {
                 <Route path='/password-recover' element={<RecoverPasswordPage/>}/>
                 <Route path='/comment' element={<CommentPage/>}/>
                 <Route path='/feed' element={<FeedPage/>}/>
+                <Route path='/settings' element={<SettingsPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
