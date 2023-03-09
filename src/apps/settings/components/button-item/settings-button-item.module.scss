@@ -1,0 +1,38 @@
+.topContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.informationContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemTitle {
+  margin-top: 10px;
+  margin-left: 10px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 120%;
+
+  color: #5A6069;
+}
+
+.itemDescription {
+  margin-left: 10px;
+  margin-top: 5px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+
+  color: rgba(137, 140, 149, 0.7);
+}
+
+.buttonWrapper {
+  margin-right: 10px;
+}
