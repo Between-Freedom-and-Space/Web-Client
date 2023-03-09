@@ -1,3 +1,8 @@
 .topContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
+  margin-left: 20%;
+  margin-right: 20%;
 }
