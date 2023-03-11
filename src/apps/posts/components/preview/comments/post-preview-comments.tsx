@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './post-preview-comments.module.scss'
 import {PostPreviewComment} from "../types";
-import Comment from "../../../../comments/components/comment";
-import {CommentReactionState} from "../../../../comments/components/types";
+import Comment from "../../../../../common/components/comments/comment";
+import {CommentReactionState} from "../../../../../common/components/comments/types";
 
 interface Props {
     comments?: Array<PostPreviewComment>

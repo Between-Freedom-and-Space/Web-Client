@@ -1,4 +1,4 @@
-import {Response} from "../../../common/api/types";
+import {Response} from "../types";
 import {
     CommentReaction,
     CreateCommentReactionRequest,

@@ -1,4 +1,4 @@
-import {CommentController} from "../../../comments/components/types";
+import {CommentController} from "../../../../common/components/comments/types";
 
 export interface PostPreviewComment {
     readonly id: number
