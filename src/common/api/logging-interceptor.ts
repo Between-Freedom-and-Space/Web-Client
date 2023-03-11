@@ -1,6 +1,8 @@
 import {PromisableRequestConfig, PromisableResponse, RequestInterceptor, ResponseInterceptor} from "./interceptor";
 import {AxiosRequestConfig, AxiosResponse} from "axios";
+import {injectable} from "inversify";
 
+@injectable()
 export class LoggingRequestInterceptor implements RequestInterceptor<any> {
 
     beforeRequest(config: AxiosRequestConfig): PromisableRequestConfig<any> {
@@ -13,6 +15,7 @@ export class LoggingRequestInterceptor implements RequestInterceptor<any> {
     }
 }
 
+@injectable()
 export class LoggingResponseInterceptor implements ResponseInterceptor<any> {
 
     onFail(response: any): any {
