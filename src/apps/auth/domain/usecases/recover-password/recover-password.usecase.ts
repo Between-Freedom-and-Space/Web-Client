@@ -1,6 +1,6 @@
 import {inject, injectable} from "inversify";
 import {PasswordRecoverChangeState} from "../../../components/passwrod-recover/password-change/types";
-import {AuthenticateInputsValidator} from "../../validators/authenticate-inputs.validator";
+import {InputsValidator} from "../../../../../common/services/validators/inputs.validator";
 import TYPES from "../../../di/types";
 import {TokenRepository} from "../../../repository/token.repository";
 import {PasswordEncryptor} from "../../../../../common/helpers/security/password-encryptor";
@@ -12,13 +12,13 @@ import {
     RecoverPasswordResult,
     SendVerificationCodeResult
 } from "./recover-password-usecase.types";
-import {ValidationResultType} from "../../validators/types";
+import {ValidationResultType} from "../../../../../common/services/validators/types";
 
 @injectable()
 export class RecoverPasswordUseCase {
 
-    @inject(AuthenticateInputsValidator)
-    private validator: AuthenticateInputsValidator | undefined
+    @inject(InputsValidator)
+    private validator: InputsValidator | undefined
 
     @inject(TYPES.TokenRepository)
     private repository: TokenRepository | undefined

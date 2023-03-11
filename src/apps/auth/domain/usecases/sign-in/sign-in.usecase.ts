@@ -1,17 +1,17 @@
 import {inject, injectable} from "inversify";
 import {PerformSignInData, SignInResult, SignInResultFailure, SignInResultSuccess} from "./sign-in-usecase.types";
-import {AuthenticateInputsValidator} from "../../validators/authenticate-inputs.validator";
+import {InputsValidator} from "../../../../../common/services/validators/inputs.validator";
 import {AuthenticateApi} from "../../../api/auth-api";
 import TYPES from "../../../di/types";
 import {TokenRepository} from "../../../repository/token.repository";
-import {ValidationResultType} from "../../validators/types";
+import {ValidationResultType} from "../../../../../common/services/validators/types";
 import {PasswordEncryptor} from "../../../../../common/helpers/security/password-encryptor";
 
 @injectable()
 export class SignInUseCase {
 
-    @inject(AuthenticateInputsValidator)
-    private validator: AuthenticateInputsValidator | undefined
+    @inject(InputsValidator)
+    private validator: InputsValidator | undefined
 
     @inject(TYPES.AuthenticateApi)
     private authApi: AuthenticateApi | undefined

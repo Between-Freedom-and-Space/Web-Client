@@ -2,7 +2,7 @@ import {injectable} from "inversify";
 import {ValidationResult, ValidationResultType} from "./types";
 
 @injectable()
-export class AuthenticateInputsValidator {
+export class InputsValidator {
 
     private static readonly FORBIDDEN_SYMBOLS: Array<string> = [
         ' ', ',', '.', ';', '/'
@@ -27,15 +27,15 @@ export class AuthenticateInputsValidator {
 
     public validateNickname(nickname: string): ValidationResult {
         for (let i = 0; i < nickname.length; i++) {
-            if (AuthenticateInputsValidator.FORBIDDEN_SYMBOLS.includes(nickname[i])) {
+            if (InputsValidator.FORBIDDEN_SYMBOLS.includes(nickname[i])) {
                 return this.failureResult("Nickname can't contains forbidden symbols")
             }
         }
-        if (nickname.length < AuthenticateInputsValidator.MIN_NICKNAME_LENGTH) {
-            return this.failureResult(`Nickname can't be less than ${AuthenticateInputsValidator.MIN_NICKNAME_LENGTH}`)
+        if (nickname.length < InputsValidator.MIN_NICKNAME_LENGTH) {
+            return this.failureResult(`Nickname can't be less than ${InputsValidator.MIN_NICKNAME_LENGTH}`)
         }
-        if (nickname.length > AuthenticateInputsValidator.MAX_NICKNAME_LENGTH) {
-            return this.failureResult(`Nickname can't be more than ${AuthenticateInputsValidator.MAX_NICKNAME_LENGTH}`)
+        if (nickname.length > InputsValidator.MAX_NICKNAME_LENGTH) {
+            return this.failureResult(`Nickname can't be more than ${InputsValidator.MAX_NICKNAME_LENGTH}`)
         }
 
         return this.successResult()
@@ -43,15 +43,15 @@ export class AuthenticateInputsValidator {
     
     public validateName(name: string): ValidationResult {
         for (let i = 0; i < name.length; i++) {
-            if (AuthenticateInputsValidator.FORBIDDEN_SYMBOLS.includes(name[i])) {
+            if (InputsValidator.FORBIDDEN_SYMBOLS.includes(name[i])) {
                 return this.failureResult("Name can't contains forbidden symbols")
             }
         }
-        if (name.length < AuthenticateInputsValidator.MIN_NAME_LENGTH) {
-            return this.failureResult(`Name length can't be less than ${AuthenticateInputsValidator.MIN_NAME_LENGTH}`)
+        if (name.length < InputsValidator.MIN_NAME_LENGTH) {
+            return this.failureResult(`Name length can't be less than ${InputsValidator.MIN_NAME_LENGTH}`)
         }
-        if (name.length > AuthenticateInputsValidator.MAX_NAME_LENGTH) {
-            return this.failureResult(`Name length can't be more than ${AuthenticateInputsValidator.MAX_NAME_LENGTH}`)
+        if (name.length > InputsValidator.MAX_NAME_LENGTH) {
+            return this.failureResult(`Name length can't be more than ${InputsValidator.MAX_NAME_LENGTH}`)
         }
 
         return this.successResult()
@@ -61,9 +61,9 @@ export class AuthenticateInputsValidator {
         if (description.trim().length === 0) {
             return this.failureResult("Description can't be blank")
         }
-        if (description.length > AuthenticateInputsValidator.MAX_DESCRIPTION_LENGTH) {
+        if (description.length > InputsValidator.MAX_DESCRIPTION_LENGTH) {
             return this.failureResult(
-                `Description length can't be more than ${AuthenticateInputsValidator.MAX_DESCRIPTION_LENGTH}`
+                `Description length can't be more than ${InputsValidator.MAX_DESCRIPTION_LENGTH}`
             )
         }
 
@@ -74,9 +74,9 @@ export class AuthenticateInputsValidator {
         if (location.trim().length === 0) {
             return this.failureResult("Location can't be blank")
         }
-        if (location.length > AuthenticateInputsValidator.MAX_LOCATION_LENGTH) {
+        if (location.length > InputsValidator.MAX_LOCATION_LENGTH) {
             return this.failureResult(
-                `Location length can't be more than ${AuthenticateInputsValidator.MAX_LOCATION_LENGTH}`
+                `Location length can't be more than ${InputsValidator.MAX_LOCATION_LENGTH}`
             )
         }
 
@@ -84,7 +84,7 @@ export class AuthenticateInputsValidator {
     }
     
     public validateEmail(email: string): ValidationResult {
-        if (!AuthenticateInputsValidator.EMAIL_REGEXP.test(email)) {
+        if (!InputsValidator.EMAIL_REGEXP.test(email)) {
             return this.failureResult('Invalid email')
         }
         return this.successResult()
@@ -92,12 +92,12 @@ export class AuthenticateInputsValidator {
     
     public validatePassword(password: string): ValidationResult {
         for (let i = 0; i < password.length; i++) {
-            if (AuthenticateInputsValidator.FORBIDDEN_SYMBOLS.includes(password[i])) {
+            if (InputsValidator.FORBIDDEN_SYMBOLS.includes(password[i])) {
                 return this.failureResult('Password contains forbidden symbols')
             }
         }
-        if (password.length < AuthenticateInputsValidator.MIN_PASSWORD_LENGTH) {
-            return this.failureResult(`Password can't be less than ${AuthenticateInputsValidator.MIN_PASSWORD_LENGTH}`)
+        if (password.length < InputsValidator.MIN_PASSWORD_LENGTH) {
+            return this.failureResult(`Password can't be less than ${InputsValidator.MIN_PASSWORD_LENGTH}`)
         }
 
         return this.successResult()
@@ -122,7 +122,7 @@ export class AuthenticateInputsValidator {
         if (code.trim().length === 0) {
             return this.failureResult('Verification code not set')
         }
-        if (code.trim().length !== AuthenticateInputsValidator.VERIFICATION_CODE_LENGTH) {
+        if (code.trim().length !== InputsValidator.VERIFICATION_CODE_LENGTH) {
             return this.failureResult('Invalid verification code')
         } else {
             return this.successResult()
@@ -133,7 +133,7 @@ export class AuthenticateInputsValidator {
         if (code.trim().length === 0) {
             return this.failureResult('Verified code not set')
         }
-        if (code.trim().length !== AuthenticateInputsValidator.VERIFIED_CODE_LENGTH) {
+        if (code.trim().length !== InputsValidator.VERIFIED_CODE_LENGTH) {
             return this.failureResult('Invalid verified code')
         } else {
             return this.successResult()
