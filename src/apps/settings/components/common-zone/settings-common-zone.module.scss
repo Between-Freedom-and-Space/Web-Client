@@ -1,11 +1,21 @@
 .topContainer {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .zoneTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 120%;
 
+  color: #5A6069;
 }
 
 .controlsContainer {
-  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 10px;
 }

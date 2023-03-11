@@ -10,6 +10,10 @@ interface Props {
     onButtonClick: () => void
     buttonType?: ButtonType
     buttonState?: ButtonState
+    includeBottomBorder?: boolean
+    includeTopBorder?: boolean
+    includeVerticalBorder?: boolean
+    backgroundColorWhite?: boolean
 }
 
 function SettingsButtonItem({
@@ -18,10 +22,21 @@ function SettingsButtonItem({
     buttonLabel,
     onButtonClick,
     buttonType = ButtonType.PRIMARY,
-    buttonState = ButtonState.ACTIVE
+    buttonState = ButtonState.ACTIVE,
+    includeBottomBorder = false,
+    includeTopBorder = false,
+    includeVerticalBorder = false,
+    backgroundColorWhite = false,
 }: Props) {
     return (
-        <div className={styles.topContainer}>
+        <div
+            className={styles.topContainer}
+
+            data-include-bottom-border={includeBottomBorder}
+            data-include-top-border={includeTopBorder}
+            data-include-vertical-border={includeVerticalBorder}
+            data-background-color-white={backgroundColorWhite}
+        >
 
             <div className={styles.informationContainer}>
                 <div className={styles.itemTitle}>{title}</div>

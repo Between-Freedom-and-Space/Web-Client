@@ -30,7 +30,10 @@ function Settings() {
 
     return (
         <div className={styles.topContainer}>
-            <SettingsCommonZone />
+            <SettingsCommonZone
+                isEmailChanging={settingsState.isEmailChanging}
+                isNicknameChanging={settingsState.isNicknameChanging}
+            />
             <SettingsDangerZone
                 isAccountDeleting={settingsState.isAccountDeleting}
                 isAccountVisibilityChanging={settingsState.isAccountVisibilityChanging}
