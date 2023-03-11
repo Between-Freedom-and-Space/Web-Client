@@ -37,14 +37,17 @@ function SettingsDangerZone({
                     buttonLabel={config.settings.change_account_visibility.button_label}
                     buttonType={ButtonType.DANGER}
                     buttonState={getDangerZoneButtonState(isAccountVisibilityChanging)}
-                    onButtonClick={changeVisibilityClickHandler}/>
+                    onButtonClick={changeVisibilityClickHandler}
+                />
                 <SettingsButtonItem
                     title={config.settings.delete_account.title}
                     description={config.settings.delete_account.description}
                     buttonLabel={config.settings.delete_account.button_label}
                     buttonType={ButtonType.DANGER}
                     buttonState={getDangerZoneButtonState(isAccountDeleting)}
-                    onButtonClick={deleteAccountClickHandler}/>
+                    onButtonClick={deleteAccountClickHandler}
+                    includeTopBorder={true}
+                />
             </div>
         </div>
     )
