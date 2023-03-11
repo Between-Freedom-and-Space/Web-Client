@@ -24,6 +24,7 @@ import {LoggingRequestInterceptor, LoggingResponseInterceptor} from "../../../co
 import {RecoverPasswordApi} from "../api/recover-password-api";
 import {RecoverPasswordApiImpl} from "../api/impl/recover-password-api-impl";
 import {RecoverPasswordUseCase} from "../domain/usecases/recover-password/recover-password.usecase";
+import {configureAxios} from "./settings/axios.settings";
 
 const authDependenciesContainer = new Container({
     defaultScope: 'Singleton'
@@ -81,5 +82,7 @@ authDependenciesContainer
 authDependenciesContainer
     .bind<RecoverPasswordUseCase>(RecoverPasswordUseCase)
     .toSelf()
+
+configureAxios(authDependenciesContainer)
 
 export default authDependenciesContainer
