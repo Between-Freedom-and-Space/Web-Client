@@ -6,7 +6,7 @@ import "reflect-metadata";
 import { AuthenticateApiImpl } from "../api/impl/auth-api-impl";
 import { SignInUseCase } from "../domain/usecases/sign-in/sign-in.usecase";
 import { SignUpUseCase } from "../domain/usecases/sign-up/sign-up.usecase";
-import { AuthenticateInputsValidator } from "../domain/validators/authenticate-inputs.validator";
+import { InputsValidator } from "../../../common/services/validators/inputs.validator";
 import TYPES from "./types";
 import {TokenRepository} from "../repository/token.repository";
 import {LocalStorageTokenRepository} from "../repository/impl/local-storage.token.repository";
@@ -65,7 +65,7 @@ authDependenciesContainer
     .to(LoggingResponseInterceptor)
 
 authDependenciesContainer
-    .bind<AuthenticateInputsValidator>(AuthenticateInputsValidator)
+    .bind<InputsValidator>(InputsValidator)
     .toSelf()
 
 authDependenciesContainer

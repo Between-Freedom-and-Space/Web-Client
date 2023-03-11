@@ -11,8 +11,8 @@ import {AuthenticateApi} from "../../../api/auth-api";
 import TYPES from "../../../di/types";
 import {PasswordEncryptor} from "../../../../../common/helpers/security/password-encryptor";
 import {TokenRepository} from "../../../repository/token.repository";
-import {AuthenticateInputsValidator} from "../../validators/authenticate-inputs.validator";
-import {ValidationResultType} from "../../validators/types";
+import {InputsValidator} from "../../../../../common/services/validators/inputs.validator";
+import {ValidationResultType} from "../../../../../common/services/validators/types";
 import {MailingApi} from "../../../api/mailing-api";
 import {SecurityVariableRepository} from "../../../repository/security-variable.repository";
 import {SecurityVariableGenerator} from "../../services/security-variable.generator";
@@ -35,8 +35,8 @@ export class SignUpUseCase {
     @inject(TYPES.SecurityVariableRepository)
     private securityVariableRepository: SecurityVariableRepository | undefined
 
-    @inject(AuthenticateInputsValidator)
-    private validator: AuthenticateInputsValidator | undefined
+    @inject(InputsValidator)
+    private validator: InputsValidator | undefined
 
     public async sendEmailVerificationCode(
         {email}: SendEmailVerificationCodeData
