@@ -4,7 +4,7 @@ import {
     changeAccountEmailThunk, changeAccountNicknameThunk,
     deleteAccountThunk,
     getAccountSettingsThunk,
-    makeAccountPrivateThunk, onErrorMessageShown, onNewEmailChanged, onNewNicknameChanged
+    changeAccountVisibilityThunk, onErrorMessageShown, onNewEmailChanged, onNewNicknameChanged
 } from "./reducers";
 
 const settingsInitialState: SettingsState = {
@@ -49,13 +49,13 @@ export const settingsSlice = createSlice({
             state.isEmailChanging = false
         })
 
-        builder.addCase(makeAccountPrivateThunk.pending, (state) => {
+        builder.addCase(changeAccountVisibilityThunk.pending, (state) => {
             state.isAccountVisibilityChanging = true
         })
-        builder.addCase(makeAccountPrivateThunk.rejected, (state) => {
+        builder.addCase(changeAccountVisibilityThunk.rejected, (state) => {
             state.isAccountVisibilityChanging = false
         })
-        builder.addCase(makeAccountPrivateThunk.fulfilled, (state) => {
+        builder.addCase(changeAccountVisibilityThunk.fulfilled, (state) => {
             state.isAccountVisibilityChanging = false
         })
 
