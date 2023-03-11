@@ -39,95 +39,95 @@ export const getAccountSettingsThunk = createAsyncThunk<
     void,
     {rejectValue: string}
     >(
-    'settings/get-account-settings',
-    async (_, {rejectWithValue}) => {
-        const useCase = container.get<SettingsUseCase>(SettingsUseCase)
+        'settings/get-account-settings',
+        async (_, {rejectWithValue}) => {
+            const useCase = container.get<SettingsUseCase>(SettingsUseCase)
 
-        const result = await useCase.getAccountSettings()
+            const result = await useCase.getAccountSettings()
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as GetAccountSettingsFailure).message)
-        } else {
-            return result
+            if (result.type === 'failure') {
+                return rejectWithValue((result as GetAccountSettingsFailure).message)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )
 
 export const changeAccountVisibilityThunk = createAsyncThunk<
     ChangeAccountVisibilityResult,
     void,
     {rejectValue: string, state: RootState}
     >(
-    'settings/change-account-visibility',
-    async (_, {rejectWithValue, getState}) => {
-        const useCase = container.get<SettingsUseCase>(SettingsUseCase)
-        const state = getState().settings
+        'settings/change-account-visibility',
+        async (_, {rejectWithValue, getState}) => {
+            const useCase = container.get<SettingsUseCase>(SettingsUseCase)
+            const state = getState().settings
 
-        const result = await useCase.changeAccountVisibility(!state.isAccountPrivate)
+            const result = await useCase.changeAccountVisibility(!state.isAccountPrivate)
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as ChangeAccountVisibilityFailure).message)
-        } else {
-            return result
+            if (result.type === 'failure') {
+                return rejectWithValue((result as ChangeAccountVisibilityFailure).message)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )
 
 export const changeAccountEmailThunk = createAsyncThunk<
     ChangeAccountEmailResult,
     void,
     {rejectValue: string, state: RootState}
     >(
-    'settings/change-account-email',
-    async (_, {rejectWithValue, getState}) => {
-        const useCase = container.get<SettingsUseCase>(SettingsUseCase)
-        const state = getState().settings
+        'settings/change-account-email',
+        async (_, {rejectWithValue, getState}) => {
+            const useCase = container.get<SettingsUseCase>(SettingsUseCase)
+            const state = getState().settings
 
-        const result = await useCase.changeAccountEmail(state.newAccountEmail)
+            const result = await useCase.changeAccountEmail(state.newAccountEmail)
 
-        if (result.type === 'failure') {
-            return rejectWithValue(result.message!)
-        } else {
-            return result
+            if (result.type === 'failure') {
+                return rejectWithValue(result.message!)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )
 
 export const changeAccountNicknameThunk = createAsyncThunk<
     ChangeAccountNicknameResult,
     void,
     {rejectValue: string, state: RootState}
     >(
-    'settings/change-account-nickname',
-    async (_, {rejectWithValue, getState}) => {
-        const useCase = container.get<SettingsUseCase>(SettingsUseCase)
-        const state = getState().settings
+        'settings/change-account-nickname',
+        async (_, {rejectWithValue, getState}) => {
+            const useCase = container.get<SettingsUseCase>(SettingsUseCase)
+            const state = getState().settings
 
-        const result = await useCase.changeAccountNickname(state.newAccountNickname)
+            const result = await useCase.changeAccountNickname(state.newAccountNickname)
 
-        if (result.type === 'failure') {
-            return rejectWithValue(result.message!)
-        } else {
-            return result
+            if (result.type === 'failure') {
+                return rejectWithValue(result.message!)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )
 
 export const deleteAccountThunk = createAsyncThunk<
     DeleteAccountResult,
     void,
     {rejectValue: string}
     >(
-    'settings/delete-account',
-    async (_, {rejectWithValue}) => {
-        const useCase = container.get<SettingsUseCase>(SettingsUseCase)
+        'settings/delete-account',
+        async (_, {rejectWithValue}) => {
+            const useCase = container.get<SettingsUseCase>(SettingsUseCase)
 
-        const result = await useCase.deleteAccount()
+            const result = await useCase.deleteAccount()
 
-        if (result.type === 'failure') {
-            return rejectWithValue(result.message!)
-        } else {
-            return result
+            if (result.type === 'failure') {
+                return rejectWithValue(result.message!)
+            } else {
+                return result
+            }
         }
-    }
-)
+    )
