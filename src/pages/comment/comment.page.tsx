@@ -4,8 +4,8 @@ import styles from './comment.module.scss'
 import Page from "../../apps/page/page";
 import {HeaderMode} from "../../common/components/header/types";
 import {ContentDisplayMode} from "../../common/components/general-content-holder/types";
-import Comment from "../../apps/comments/components/comment";
-import {CommentReactionState} from "../../apps/comments/components/types";
+import Comment from "../../common/components/comments/comment";
+import {CommentReactionState} from "../../common/components/comments/types";
 
 // Just example of comment
 function CommentPage() {

@@ -84,7 +84,7 @@
 
   margin-right: 5px;
 
-  background-image: url("../../../common/components/ui-kit/assets/like_icon.svg");
+  background-image: url("../ui-kit/assets/like_icon.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -92,13 +92,13 @@
   cursor: pointer;
 
   &:hover {
-    background-image: url("../../../common/components/ui-kit/assets/like_active_icon.svg");
+    background-image: url("../ui-kit/assets/like_active_icon.svg");
   }
   &:active {
     transform: scale(0.96);
   }
   &[data-reaction-state='reacted'] {
-    background-image: url("../../../common/components/ui-kit/assets/like_active_icon.svg");
+    background-image: url("../ui-kit/assets/like_active_icon.svg");
   }
   &[data-reaction-visibility='hidden'] {
     visibility: hidden;
@@ -111,7 +111,7 @@
 
   margin-right: 5px;
 
-  background-image: url("../../../common/components/ui-kit/assets/dislike_icon.svg");
+  background-image: url("../ui-kit/assets/dislike_icon.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -119,13 +119,13 @@
   cursor: pointer;
 
   &:hover {
-    background-image: url("../../../common/components/ui-kit/assets/dislike_active_icon.svg");
+    background-image: url("../ui-kit/assets/dislike_active_icon.svg");
   }
   &:active {
     transform: scale(0.96);
   }
   &[data-reaction-state='reacted'] {
-    background-image: url("../../../common/components/ui-kit/assets/dislike_active_icon.svg");
+    background-image: url("../ui-kit/assets/dislike_active_icon.svg");
   }
   &[data-reaction-visibility='hidden'] {
     visibility: hidden;
