@@ -37,6 +37,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-webpack": "webpack serve",
     "start-dev": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
     "build": "CI=FALSE react-scripts build",
     "lint": "react-scripts lint && npx eslint src/*",
@@ -45,8 +46,7 @@
     "env": "cp .env.test .env",
     "webpack-build": "webpack --config webpack.config.js",
     "webpack-watch": "webpack --watch",
-    "webpack-dev": "webpack serve --mode=development",
-    "webpack-prod": "webpack serve"
+    "webpack-dev": "webpack serve --mode=development"
   },
   "browserslist": {
     "production": [
