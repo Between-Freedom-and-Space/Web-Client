@@ -1,1 +1,3 @@
-export interface
+export interface LastPostedApi {
+
+}
