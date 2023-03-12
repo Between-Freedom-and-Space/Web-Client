@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:16
+FROM node:18
 
 # speed up npm install a little on docker
 RUN npm config set registry http://registry.npmjs.org/
@@ -25,4 +25,4 @@ ENV PORT=3000
 # Expose port
 EXPOSE 3000
 # Start the app
-CMD [ "npm", "run webpack-prod" ]
+CMD [ "npm", "start" ]
