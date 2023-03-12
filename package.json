@@ -45,7 +45,8 @@
     "env": "cp .env.test .env",
     "webpack-build": "webpack --config webpack.config.js",
     "webpack-watch": "webpack --watch",
-    "webpack-dev": "webpack serve --mode=development"
+    "webpack-dev": "webpack serve --mode=development",
+    "webpack-prod": "webpack serve"
   },
   "browserslist": {
     "production": [
