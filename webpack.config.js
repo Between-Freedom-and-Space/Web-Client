@@ -32,7 +32,7 @@ module.exports = {
                 loader: "source-map-loader",
             },
             {
-                test: /\.(s*)css$/,
+                test: /\.(css|scss)$/,
                 use: [
                     miniCss.loader,
                     'css-loader',
@@ -42,12 +42,17 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
                 type: "asset/resource"
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf)$/,
+                loader: 'url-loader'
             }
         ],
     },
     output: {
         filename: 'app.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: "/"
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -60,5 +65,9 @@ module.exports = {
         new webpack.DefinePlugin({
             "process.env": JSON.stringify(process.env),
         }),
-    ]
+    ],
+    devServer: {
+        port: 3000,
+        historyApiFallback: true,
+    }
 }
