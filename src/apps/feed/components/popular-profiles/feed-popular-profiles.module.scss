@@ -1,3 +1,21 @@
 .topContainer {
+  display: flex;
+  flex-direction: column;
 
+  gap: 30px;
+}
+
+.groupTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 120%;
+
+  color: #000000;
+}
+
+.popularProfilesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
