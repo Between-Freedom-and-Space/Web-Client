@@ -5,9 +5,9 @@ import {SettingsUseCase} from "../domain/usecases/settings.usecase";
 import {
     ChangeAccountEmailResult, ChangeAccountNicknameResult,
     ChangeAccountVisibilityFailure,
-    ChangeAccountVisibilityResult, DeleteAccountResult,
+    ChangeAccountVisibilityResult, ChangeAccountVisibilitySuccess, DeleteAccountResult,
     GetAccountSettingsFailure,
-    GetAccountSettingsResult
+    GetAccountSettingsResult, GetAccountSettingsSuccess
 } from "../domain/usecases/settings-usecase.types";
 import {RootState} from "../../../config/redux.config";
 
@@ -35,7 +35,7 @@ export function onNewEmailChanged(state: SettingsState, action: PayloadAction<st
 }
 
 export const getAccountSettingsThunk = createAsyncThunk<
-    GetAccountSettingsResult,
+    GetAccountSettingsSuccess,
     void,
     {rejectValue: string}
     >(
@@ -48,13 +48,13 @@ export const getAccountSettingsThunk = createAsyncThunk<
             if (result.type === 'failure') {
                 return rejectWithValue((result as GetAccountSettingsFailure).message)
             } else {
-                return result
+                return result as GetAccountSettingsSuccess
             }
         }
     )
 
 export const changeAccountVisibilityThunk = createAsyncThunk<
-    ChangeAccountVisibilityResult,
+    ChangeAccountVisibilitySuccess,
     void,
     {rejectValue: string, state: RootState}
     >(
@@ -68,7 +68,7 @@ export const changeAccountVisibilityThunk = createAsyncThunk<
             if (result.type === 'failure') {
                 return rejectWithValue((result as ChangeAccountVisibilityFailure).message)
             } else {
-                return result
+                return result as ChangeAccountVisibilitySuccess
             }
         }
     )
