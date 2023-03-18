@@ -1,34 +1,49 @@
 import {injectable} from "inversify";
-import {FeedPost, PopularPost, PopularProfile} from "../../redux/types";
 import {
-    FollowProfileResult,
-    GetPopularPostsResult,
-    GetPopularProfilesResult,
+    FollowProfileFailure,
+    FollowProfileResult, GetPopularPostsFailure,
+    GetPopularPostsResult, GetPopularProfilesFailure,
+    GetPopularProfilesResult, GetSubscriptionPostsFailure,
     GetSubscriptionPostsResult,
-    Reaction,
+    Reaction, ReactPostFailure,
     ReactPostResult
 } from "./feed-usecase.types";
 
 @injectable()
 export class FeedUseCase {
 
-    public async getPopularPosts(): GetPopularPostsResult {
-
+    public async getPopularPosts(): Promise<GetPopularPostsResult> {
+        return {
+            type: 'failure',
+            message: 'Not implemented yet'
+        } as GetPopularPostsFailure
     }
 
-    public async getPopularProfiles(): GetPopularProfilesResult {
-
+    public async getPopularProfiles(): Promise<GetPopularProfilesResult> {
+        return {
+            type: 'failure',
+            message: 'Not implemented yet'
+        } as GetPopularProfilesFailure
     }
 
-    public async getSubscriptionPosts(): GetSubscriptionPostsResult {
-
+    public async getSubscriptionPosts(): Promise<GetSubscriptionPostsResult> {
+        return {
+            type: 'failure',
+            message: 'Not implemented yet'
+        } as GetSubscriptionPostsFailure
     }
 
-    public async reactPost(postId: number, reaction: Reaction): ReactPostResult {
-
+    public async reactPost(postId: number, reaction: Reaction): Promise<ReactPostResult> {
+        return {
+            type: 'failure',
+            message: 'Not implemented yet'
+        } as ReactPostFailure
     }
 
-    public async followProfile(profileId: number): FollowProfileResult {
-
+    public async followProfile(profileId: number): Promise<FollowProfileResult> {
+        return {
+            type: 'failure',
+            message: 'Not implemented yet'
+        } as FollowProfileFailure
     }
 }
