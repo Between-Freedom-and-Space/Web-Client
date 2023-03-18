@@ -1,12 +1,10 @@
 import React from "react";
-import styles from './profile.module.scss'
+import styles from './posts-controls.module.scss'
 
-function Profile() {
+function PostsControls() {
     return (
         <div className={styles.topContainer}>
 
         </div>
     )
 }
-
-export default Profile
