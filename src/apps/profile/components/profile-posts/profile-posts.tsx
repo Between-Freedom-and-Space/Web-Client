@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './profile.module.scss'
+import styles from './profile-posts.module.scss'
 
-function Profile() {
+function ProfilePosts() {
     return (
         <div className={styles.topContainer}>
 
@@ -9,4 +9,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default ProfilePosts
