@@ -5,4 +5,6 @@ export interface FeedPopularProfilesController {
     onProfileNicknameClicked(profileId: number): void
 
     onProfileFollowButtonClicked(profileId: number): void
+
+    onProfilePostsCountClicked(profileId: number): void
 }
