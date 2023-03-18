@@ -41,7 +41,7 @@ export const settingsSlice = createSlice({
         })
         builder.addCase(getAccountSettingsThunk.fulfilled, (state, action) => {
             state.isAccountSettingsLoading = false
-            state.isAccountPrivate = (action.payload as GetAccountSettingsSuccess).isAccountPrivate
+            state.isAccountPrivate = action.payload.isAccountPrivate
         })
 
         builder.addCase(changeAccountEmailThunk.pending, (state) => {
@@ -65,7 +65,7 @@ export const settingsSlice = createSlice({
         })
         builder.addCase(changeAccountVisibilityThunk.fulfilled, (state, action) => {
             state.isAccountVisibilityChanging = false
-            state.isAccountPrivate = (action.payload as ChangeAccountVisibilitySuccess).isAccountPrivate
+            state.isAccountPrivate = action.payload.isAccountPrivate
         })
 
         builder.addCase(changeAccountNicknameThunk.pending, (state) => {
