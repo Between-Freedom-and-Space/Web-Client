@@ -2,9 +2,9 @@ export interface FeedSubscriptionsController {
 
     onPostFollowButtonClicked(postId: number): void
 
-    onPostAuthorIconClicked(postId: number): void
+    onPostAuthorIconClicked(authorId: number): void
 
-    onPostAuthorNicknameClicked(postId: number): void
+    onPostAuthorNicknameClicked(authorId: number): void
 
     onPostTextClicked(postId: number): void
 
@@ -14,9 +14,9 @@ export interface FeedSubscriptionsController {
 
     onCommentIconClicked(postId: number): void
 
-    onCommentAuthorIconClicked(commentId: number): void
+    onCommentAuthorIconClicked(authorId: number): void
 
-    onCommentAuthorNicknameClicked(commentId: number): void
+    onCommentAuthorNicknameClicked(authorId: number): void
 
     onCommentTextClicked(commentId: number): void
 }

@@ -18,6 +18,7 @@ export interface PopularProfile {
     postsCount: number
     followersCount: number
     isUserFollowing: boolean
+    isFollowingLoading: boolean
 }
 
 export interface PopularPost {
@@ -50,8 +51,16 @@ export enum FeedPostReactionState {
 }
 
 export interface FeedPostComment {
+    id: number
     profileIconUrl?: string
     nickname: string
     commentText: string
     createdAt: Date
 }
+
+export interface ReactPostActionData {
+    postId: number
+    targetReaction: 'like' | 'dislike'
+}
+
+export type ProfileId = number
