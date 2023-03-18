@@ -33,6 +33,7 @@ function FeedSubscriptionsPosts({
             <div className={styles.postsContainer}>
                 {feedPosts.map((post) => (
                     <PostPreview
+                        key={post.postId}
                         id={post.postId}
                         authorNickname={post.nickname}
                         postText={post.postText}
