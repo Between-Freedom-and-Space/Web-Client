@@ -8,14 +8,19 @@ export function providePopularProfilesController(
 ): ProfileSmallController {
     return {
         onProfileIconClicked() {
+            controller?.onProfileIconClicked(targetProfile.profileId)
         },
         onFollowButtonClicked() {
+            controller?.onProfileFollowButtonClicked(targetProfile.profileId)
         },
         onNameClicked() {
+            controller?.onProfileNicknameClicked(targetProfile.profileId)
         },
         onNicknameClicked() {
+            controller?.onProfileNicknameClicked(targetProfile.profileId)
         },
         onPostsCountClicked() {
+            controller?.onProfilePostsCountClicked(targetProfile.postsCount)
         }
     }
 }

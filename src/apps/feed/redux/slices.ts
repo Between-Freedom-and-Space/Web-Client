@@ -59,25 +59,25 @@ export const feedSlice = createSlice({
             state.popularProfilesLoading = false
         })
 
-        builder.addCase(reactPostThunk.pending, (state) => {
-
-        })
-        builder.addCase(reactPostThunk.rejected, (state, action) => {
-
-        })
-        builder.addCase(reactPostThunk.fulfilled, (state, action) => {
-
-        })
-
-        builder.addCase(followProfileThunk.pending, (state) => {
-
-        })
-        builder.addCase(followProfileThunk.rejected, (state, action) => {
-
-        })
-        builder.addCase(followProfileThunk.fulfilled, (state, action) => {
-
-        })
+        // builder.addCase(reactPostThunk.pending, (state) => {
+        //
+        // })
+        // builder.addCase(reactPostThunk.rejected, (state, action) => {
+        //
+        // })
+        // builder.addCase(reactPostThunk.fulfilled, (state, action) => {
+        //
+        // })
+        //
+        // builder.addCase(followProfileThunk.pending, (state) => {
+        //
+        // })
+        // builder.addCase(followProfileThunk.rejected, (state, action) => {
+        //
+        // })
+        // builder.addCase(followProfileThunk.fulfilled, (state, action) => {
+        //
+        // })
     }
 })
 

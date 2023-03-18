@@ -37,8 +37,12 @@ export function mapCommentsToPostPreviewComments(
                 onNicknameClicked() {
                     controller?.onCommentAuthorNicknameClicked(comment.id)
                 },
-                onDislikeClicked() {},
-                onLikeClicked() {},
+                onDislikeClicked() {
+                    console.log(`Comment(${comment.id}) dislike clicked`)
+                },
+                onLikeClicked() {
+                    console.log(`Comment(${comment.id}) like clicked`)
+                },
             }
         }
     ))

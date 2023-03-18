@@ -24,6 +24,7 @@ function FeedPopularProfiles({
             <div className={styles.popularProfilesContainer}>
                 {popularProfiles.map((profile) => (
                     <ProfileSmall
+                        key={profile.profileId}
                         nickname={profile.nickname}
                         name={profile.name}
                         postsCount={profile.postsCount}

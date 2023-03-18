@@ -64,8 +64,12 @@ function Feed() {
         onCommentAuthorIconClicked(authorId: number) {
             navigate(`/profile/${authorId}`)
         },
-        onPostFollowButtonClicked(postId: number) {},
-        onCommentTextClicked(commentId: number) {},
+        onPostFollowButtonClicked(postId: number) {
+            console.log(`Post(${postId}) follow button clicked`)
+        },
+        onCommentTextClicked(commentId: number) {
+            console.log(`Comment(${commentId}) text clicked`)
+        },
     }
     const feedPopularProfilesController: FeedPopularProfilesController = {
         onProfileFollowButtonClicked(profileId: number) {
@@ -75,6 +79,9 @@ function Feed() {
             navigate(`/profile/${profileId}`)
         },
         onProfileNicknameClicked(profileId: number) {
+            navigate(`/profile/${profileId}`)
+        },
+        onProfilePostsCountClicked(profileId: number) {
             navigate(`/profile/${profileId}`)
         }
     }

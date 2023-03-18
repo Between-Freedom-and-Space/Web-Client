@@ -24,6 +24,7 @@ function FeedPopularPosts({
             <div className={styles.postsContainer}>
                 {popularPosts.map((post) => (
                     <PostSmall
+                        key={post.postId}
                         profileIconUrl={post.profileIconUrl}
                         nickname={post.nickname}
                         name={post.name}
