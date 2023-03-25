@@ -39,6 +39,13 @@ function ProfileInformation({
 }: Props) {
     const [editState, setEditState] = useState(EditControlsState.NOT_EDITING)
 
+    const followersCountClickHandler = () => {
+        controller?.onFollowersCountClicked()
+    }
+    const followingCountClickHandler = () => {
+        controller?.onFollowingCountClicked()
+    }
+
     const editControlsController: EditControlsController = {
         onEditButtonClicked() {
             setEditState(EditControlsState.EDITING)
@@ -97,7 +104,22 @@ function ProfileInformation({
             </div>
 
             <div className={styles.profileStatisticsContainer}>
-
+                <div
+                    className={styles.profileStatisticTitle}
+                    onClick={followersCountClickHandler}
+                >{config.followers.title}</div>
+                <div
+                    className={styles.profileStatisticNumber}
+                    onClick={followersCountClickHandler}
+                >{followersCount}</div>
+                <div
+                    className={styles.profileStatisticTitle}
+                    onClick={followingCountClickHandler}
+                >{config.following.title}</div>
+                <div
+                    className={styles.profileStatisticNumber}
+                    onClick={followingCountClickHandler}
+                >{followingCount}</div>
             </div>
         </div>
     )
