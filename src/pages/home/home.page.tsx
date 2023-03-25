@@ -12,7 +12,7 @@ import SearchInput from '../../common/components/ui-kit/inputs/search/search-inp
 import SortControl from "../../common/components/ui-kit/sort-control/sort-control";
 import {ControlState} from "../../common/components/ui-kit/sort-control/types";
 import {BackgroundColor} from "../../common/components/general-content-holder/types";
-import PostsControls from "../../apps/profile/components/profile-posts/posts-controls/posts-controls";
+import ProfilePostsControls from "../../apps/profile/components/profile-posts/posts-controls/posts-controls";
 
 function HomePage () {
     return (
@@ -97,7 +97,7 @@ function HomePage () {
                     <SearchInput hintText={"Search or jump to..."}/>
                 </div>
                 <div className={styles.sortControlWrapper}>
-                    <PostsControls
+                    <ProfilePostsControls
                         isUserProfile={true}
                     />
                 </div>
