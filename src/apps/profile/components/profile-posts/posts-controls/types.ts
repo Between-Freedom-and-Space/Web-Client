@@ -9,7 +9,9 @@ export enum SortField {
     VIEWS
 }
 
-export interface PostsSortController {
+export interface PostsControlsController {
 
     onSortPostsClicked(type: SortType, field: SortField): void
+
+    onNewPostButtonClicked(): void
 }
