@@ -70,18 +70,18 @@ function ProfileInformation({
     switch (type) {
     case ProfileInformationType.MY_PROFILE: {
         controls = <ProfileInformationEditControls
-                state={editState}
-                isSaveLoading={isSaveLoading}
-                controller={editControlsController}
-            />
+            state={editState}
+            isSaveLoading={isSaveLoading}
+            controller={editControlsController}
+        />
         break
     }
     case ProfileInformationType.STRANGER_PROFILE: {
         controls = <ProfileInformationFollowControls
-                state={getFollowingControlsState(isUserFollowingProfile)}
-                isFollowLoading={isFollowLoading}
-                controller={followControlsController}
-            />
+            state={getFollowingControlsState(isUserFollowingProfile)}
+            isFollowLoading={isFollowLoading}
+            controller={followControlsController}
+        />
     }
     }
 

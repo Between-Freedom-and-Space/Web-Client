@@ -18,7 +18,7 @@ function ProfileInformationFollowControls({
     controller,
 }: Props) {
     const buttonTitle = state === FollowControlsState.USER_IS_NOT_FOLLOWING
-                ? config.follow.title : config.unfollow.title
+        ? config.follow.title : config.unfollow.title
 
     const followButtonClickHandler = () => {
         controller?.onFollowButtonClicked()
