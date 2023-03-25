@@ -1,6 +1,7 @@
 import {SortField, SortType} from "../components/profile-posts/posts-controls/types";
 
 export interface ProfileState {
+    readonly profileId: number
     readonly profileIconUrl?: string
     readonly profileName: string
     readonly profileNickname: string
@@ -9,6 +10,7 @@ export interface ProfileState {
     readonly followersCount: number
     readonly followingCount: number
 
+    readonly isUserProfile: boolean
     readonly userIsFollowingProfile: boolean
 
     readonly isProfileDataLoading: boolean
@@ -53,4 +55,13 @@ export enum ProfilePostReactionState {
     NOT_REACTED,
     LIKED,
     DISLIKED
+}
+
+export interface ReactPostData {
+    postId: number
+    reactionState: ProfilePostReactionState
+}
+
+export interface FollowProfileData {
+    profileId: number
 }

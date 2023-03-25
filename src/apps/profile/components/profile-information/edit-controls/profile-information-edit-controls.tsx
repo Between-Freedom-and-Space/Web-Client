@@ -31,7 +31,7 @@ function ProfileInformationEditControls({
         controller?.onSettingsIconClicked()
     }
 
-    let buttons: Array<ReactNode> = new Array(0)
+    const buttons: Array<ReactNode> = new Array(0)
     switch (state) {
     case EditControlsState.EDITING: {
         buttons.push(
