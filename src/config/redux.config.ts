@@ -4,6 +4,7 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {notificationsSlice} from "../common/services/notifications/redux/slice";
 import {settingsSlice} from "../apps/settings/redux/slices";
 import {feedSlice} from "../apps/feed/redux/slices";
+import {profileSlice} from "../apps/profile/redux/slices";
 
 export const store = configureStore({
     reducer: combineReducers({
@@ -12,6 +13,7 @@ export const store = configureStore({
         recoverPassword: recoverPasswordSlice.reducer,
         settings: settingsSlice.reducer,
         feed: feedSlice.reducer,
+        profile: profileSlice.reducer,
         notifications: notificationsSlice.reducer,
     })
 })
