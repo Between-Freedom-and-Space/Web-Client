@@ -1,17 +1,56 @@
+import {SortField, SortType} from "../components/profile-posts/posts-controls/types";
+
 export interface ProfileState {
-    profileIconUrl?: string
-    profileName: string
-    profileNickname: string
-    profileDescription: string
-    profileLocation: string
-    followersCount: number
-    followingCount: number
+    readonly profileIconUrl?: string
+    readonly profileName: string
+    readonly profileNickname: string
+    readonly profileDescription: string
+    readonly profileLocation: string
+    readonly followersCount: number
+    readonly followingCount: number
 
-    userIsFollowingProfile: boolean
+    readonly userIsFollowingProfile: boolean
 
-    isProfileDataLoading: boolean
-    isFollowLoading: boolean
-    isSaveLoading: boolean
+    readonly isProfileDataLoading: boolean
+    readonly isFollowLoading: boolean
+    readonly isSaveLoading: boolean
 
-    errorMessage?: string
+    readonly errorMessage?: string
+
+    readonly posts: Array<ProfilePost>
+    readonly selectedSortField: SortField
+    readonly selectedSortType: SortType
+}
+
+export interface ProfilePost {
+    readonly postId: number
+    readonly profileIconUrl?: string
+    readonly nickname: string
+    readonly postTitle: string
+    readonly postText: string
+    readonly likesCount: number
+    readonly dislikesCount: number
+    readonly commentsCount: number
+    readonly reactionState: ProfilePostReactionState,
+    readonly createdAt: Date
+    readonly comments: Array<ProfilePostComment>
+}
+
+export interface ProfilePostComment {
+    readonly id: number
+    readonly profileIconUrl?: string
+    readonly nickname: string
+    readonly commentText: string
+    readonly createdAt: Date
+}
+
+export interface SortPostsData {
+    readonly field: SortField
+    readonly type: SortType
+}
+
+export enum ProfilePostReactionState {
+    NOT_REACTED,
+    LIKED,
+    DISLIKED
 }

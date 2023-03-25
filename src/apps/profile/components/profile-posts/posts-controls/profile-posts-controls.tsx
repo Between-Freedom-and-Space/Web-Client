@@ -20,7 +20,7 @@ interface Props {
     controller?: PostsControlsController
 }
 
-function PostsControls({
+function ProfilePostsControls({
     selectedSortField,
     selectedSortType,
     isUserProfile,
@@ -90,4 +90,4 @@ function PostsControls({
     )
 }
 
-export default PostsControls
+export default ProfilePostsControls
