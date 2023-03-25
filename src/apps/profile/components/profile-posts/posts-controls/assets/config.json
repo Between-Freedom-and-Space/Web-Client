@@ -9,6 +9,9 @@
     "title": "Likes"
   },
   "sort_by_views": {
-    "title": "views"
+    "title": "Views"
+  },
+  "new_post": {
+    "title": "New post"
   }
 }
