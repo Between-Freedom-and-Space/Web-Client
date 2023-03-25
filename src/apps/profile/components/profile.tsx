@@ -12,7 +12,17 @@ function Profile() {
 
     return (
         <div className={styles.topContainer}>
-            <ProfileInformation/>
+            {/*<ProfileInformation */}
+            {/*    type={} */}
+            {/*    nickname={} */}
+            {/*    name={} */}
+            {/*    profileDescription={} */}
+            {/*    followersCount={} */}
+            {/*    followingCount={} */}
+            {/*    isUserFollowingProfile={} */}
+            {/*    isSaveLoading={} */}
+            {/*    isFollowLoading={}*/}
+            {/*/>*/}
             <ProfilePosts/>
         </div>
     )

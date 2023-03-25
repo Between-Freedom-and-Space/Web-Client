@@ -18,4 +18,8 @@ export class ProfileUseCase {
     public async changeProfileInformation() {
 
     }
+
+    public sortUserPosts() {
+
+    }
 }
