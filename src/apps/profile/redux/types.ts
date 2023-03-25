@@ -12,4 +12,6 @@ export interface ProfileState {
     isProfileDataLoading: boolean
     isFollowLoading: boolean
     isSaveLoading: boolean
+
+    errorMessage?: string
 }

@@ -1,47 +1,97 @@
 .topContainer {
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .profileIconContainer {
-
+  display: flex;
 }
 
 .profileIcon {
+  height: 150px;
+  width: 150px;
 
+  background-color: #D1D8DD;
+  border-radius: 50%;
+
+  display: inline-block;
 }
 
 .profileInformationContainer {
-
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .profileName {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 120%;
 
+  color: #000000;
 }
 
 .profileNickname {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 120%;
 
+  color: #000000;
 }
 
 .profileDescription {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 118%;
 
+  color: #707780;
 }
 
 .profileLocation {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 118%;
 
+  color: #707780;
 }
 
 .profileControlsContainer {
-
+  display: flex;
 }
 
 .profileStatisticsContainer {
-
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .profileStatisticTitle {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 118%;
 
+  text-transform: lowercase;
+
+  color: #707780;
+
+  cursor: pointer;
 }
 
 .profileStatisticNumber {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 118%;
 
+  text-transform: lowercase;
+
+  color: black;
+
+  cursor: pointer;
 }
