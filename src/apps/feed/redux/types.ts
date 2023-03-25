@@ -1,47 +1,47 @@
 export interface FeedState {
-    subscriptionsPostsLoading: boolean
-    popularPostsLoading: boolean
-    popularProfilesLoading: boolean
+    readonly subscriptionsPostsLoading: boolean
+    readonly popularPostsLoading: boolean
+    readonly popularProfilesLoading: boolean
 
-    subscriptionsPosts: Array<FeedPost>
-    popularProfiles: Array<PopularProfile>
-    popularPosts: Array<PopularPost>
+    readonly subscriptionsPosts: Array<FeedPost>
+    readonly popularProfiles: Array<PopularProfile>
+    readonly popularPosts: Array<PopularPost>
 
-    errorMessage?: string
+    readonly errorMessage?: string
 }
 
 export interface PopularProfile {
-    profileId: number,
-    profileIconUrl?: string
-    nickname: string
-    name: string
-    postsCount: number
-    followersCount: number
-    isUserFollowing: boolean
-    isFollowingLoading: boolean
+    readonly profileId: number,
+    readonly profileIconUrl?: string
+    readonly nickname: string
+    readonly name: string
+    readonly postsCount: number
+    readonly followersCount: number
+    readonly isUserFollowing: boolean
+    readonly isFollowingLoading: boolean
 }
 
 export interface PopularPost {
-    postId: number
-    profileIconUrl?: string
-    nickname: string
-    name: string
-    postTitle: string
-    postText: string
+    readonly postId: number
+    readonly profileIconUrl?: string
+    readonly nickname: string
+    readonly name: string
+    readonly postTitle: string
+    readonly postText: string
 }
 
 export interface FeedPost {
-    postId: number
-    profileIconUrl?: string
-    nickname: string
-    postTitle: string
-    postText: string
-    likesCount: number
-    dislikesCount: number
-    commentsCount: number
-    reactionState: FeedPostReactionState,
-    createdAt: Date
-    comments: Array<FeedPostComment>
+    readonly postId: number
+    readonly profileIconUrl?: string
+    readonly nickname: string
+    readonly postTitle: string
+    readonly postText: string
+    readonly likesCount: number
+    readonly dislikesCount: number
+    readonly commentsCount: number
+    readonly reactionState: FeedPostReactionState,
+    readonly createdAt: Date
+    readonly comments: Array<FeedPostComment>
 }
 
 export enum FeedPostReactionState {
@@ -51,11 +51,11 @@ export enum FeedPostReactionState {
 }
 
 export interface FeedPostComment {
-    id: number
-    profileIconUrl?: string
-    nickname: string
-    commentText: string
-    createdAt: Date
+    readonly id: number
+    readonly profileIconUrl?: string
+    readonly nickname: string
+    readonly commentText: string
+    readonly createdAt: Date
 }
 
 export interface ReactPostActionData {

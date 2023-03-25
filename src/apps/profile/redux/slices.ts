@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {ProfileState} from "./types";
+import {onErrorShown, onSortPostsClicked} from "./reducers";
 
 const profileInitialState: ProfileState = {
     profileIconUrl: "",
@@ -13,14 +14,16 @@ const profileInitialState: ProfileState = {
     isProfileDataLoading: false,
     isFollowLoading: false,
     isSaveLoading: false,
-    errorMessage: undefined
+    errorMessage: undefined,
+    posts: Array.of(),
 }
 
 export const profileSlice = createSlice({
     name: 'profile',
     initialState: profileInitialState,
     reducers: {
-
+        sortPosts: onSortPostsClicked,
+        errorShown: onErrorShown,
     },
     extraReducers: (builder => {
 
