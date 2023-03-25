@@ -13,6 +13,7 @@ const profileInitialState: ProfileState = {
     isProfileDataLoading: false,
     isFollowLoading: false,
     isSaveLoading: false,
+    errorMessage: undefined
 }
 
 export const profileSlice = createSlice({
