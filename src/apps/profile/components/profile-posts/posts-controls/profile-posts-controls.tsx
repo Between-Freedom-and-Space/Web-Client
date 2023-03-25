@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import styles from './posts-controls.module.scss'
+import styles from './profile-posts-controls.module.scss'
 import dateIcon from '../../../../../common/components/ui-kit/assets/calendar_icon.svg'
 import likeIcon from '../../../../../common/components/ui-kit/assets/like_icon.svg'
 import eyeIcon from '../../../../../common/components/ui-kit/assets/eye_icon.svg'
