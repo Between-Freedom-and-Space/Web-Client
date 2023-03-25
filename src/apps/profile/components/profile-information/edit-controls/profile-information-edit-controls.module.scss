@@ -1,0 +1,15 @@
+.topContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.settingsIcon {
+  border-radius: 5px;
+  border: 1px solid #D1D8DD;
+}
