@@ -1,0 +1,27 @@
+.topContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  cursor: pointer;
+  background-color: #D6D7DB;
+
+  &[data-tab-is-active='true'] {
+    background-color: white;
+  }
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 120%;
+
+  color: #717171;
+}

@@ -1,0 +1,10 @@
+{
+  "tabs": {
+    "followers": {
+      "title": "Followers"
+    },
+    "following": {
+      "title": "Following"
+    }
+  }
+}
