@@ -16,12 +16,16 @@ export interface ProfileState {
     readonly isProfileDataLoading: boolean
     readonly isFollowLoading: boolean
     readonly isSaveLoading: boolean
+    readonly isProfileFollowingLoading: boolean
 
     readonly errorMessage?: string
 
     readonly posts: Array<ProfilePost>
     readonly selectedSortField: SortField
     readonly selectedSortType: SortType
+
+    readonly profileFollowers: Array<ProfileBaseInformation>
+    readonly profileFollowing: Array<ProfileBaseInformation>
 }
 
 export interface ProfilePost {
@@ -58,10 +62,22 @@ export enum ProfilePostReactionState {
 }
 
 export interface ReactPostData {
-    postId: number
-    reactionState: ProfilePostReactionState
+    readonly postId: number
+    readonly reactionState: ProfilePostReactionState
 }
 
 export interface FollowProfileData {
-    profileId: number
+    readonly profileId: number
+}
+
+export interface GetProfileFollowersData {
+    readonly profileId: number
+}
+
+export interface ProfileBaseInformation {
+    readonly id: number
+    readonly iconUrl?: string
+    readonly nickname: string
+    readonly name: string
+    readonly description: string
 }
