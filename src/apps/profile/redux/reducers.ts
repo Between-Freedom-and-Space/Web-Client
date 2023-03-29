@@ -1,4 +1,11 @@
-import {FollowProfileData, ProfilePostReactionState, ProfileState, ReactPostData, SortPostsData} from "./types";
+import {
+    FollowProfileData,
+    GetProfileFollowersData,
+    ProfilePostReactionState,
+    ProfileState,
+    ReactPostData,
+    SortPostsData
+} from "./types";
 import {createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import profileContainer from "../di/inversify.config";
 import {ProfileUseCase} from "../domain/usecases/profile.usecase";
@@ -10,6 +17,11 @@ import {
 } from "../domain/usecases/profile-usecase.types";
 import {ProfileSortUseCase} from "../domain/usecases/profile-sort.usecase";
 import {PostReactionState} from "../../posts/components/common/types";
+import {
+    GetProfileFollowersFailure,
+    GetProfileFollowersSuccess, GetProfileFollowingFailure, GetProfileFollowingSuccess
+} from "../domain/usecases/profile-followers-usecase.types";
+import {ProfileFollowersUseCase} from "../domain/usecases/profile-followers.usecase";
 
 const container = profileContainer
 
@@ -97,3 +109,41 @@ export const getProfileInformationThunk = createAsyncThunk<
             }
         }
     )
+
+export const getProfileFollowersThunk = createAsyncThunk<
+    GetProfileFollowersSuccess,
+    GetProfileFollowersData,
+    {rejectValue: string}
+    >(
+    'profile/followers',
+    async (actionData, {rejectWithValue}) => {
+        const useCase = container.get<ProfileFollowersUseCase>(ProfileFollowersUseCase)
+
+        const result = await useCase.getProfileFollowers(actionData.profileId)
+
+        if (result.type === 'failure') {
+            return rejectWithValue((result as GetProfileFollowersFailure).message)
+        } else {
+            return result as GetProfileFollowersSuccess
+        }
+    }
+)
+
+export const getProfileFollowingThunk = createAsyncThunk<
+    GetProfileFollowingSuccess,
+    GetProfileFollowersData,
+    {rejectValue: string}
+    >(
+    'profile/following',
+    async (actionData, {rejectWithValue}) => {
+        const useCase = container.get<ProfileFollowersUseCase>(ProfileFollowersUseCase)
+
+        const result = await useCase.getProfileFollowing(actionData.profileId)
+
+        if (result.type === 'failure') {
+            return rejectWithValue((result as GetProfileFollowingFailure).message)
+        } else {
+            return result as GetProfileFollowingSuccess
+        }
+    }
+)
