@@ -7,5 +7,3 @@ export function getFollowingIsActive(state: ProfileState): boolean {
 export function getFollowersIsActive(state: ProfileState): boolean {
     return state.profileFollowersState === ProfileFollowersState.SHOW_FOLLOWERS
 }
-
-export function
