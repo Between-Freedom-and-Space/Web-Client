@@ -1,6 +1,6 @@
 import {
     FollowProfileData,
-    GetProfileFollowersData,
+    GetProfileFollowersData, ProfileFollowersState,
     ProfilePostReactionState,
     ProfileState,
     ReactPostData,
@@ -48,6 +48,15 @@ export function onErrorShown(
     return {
         ...state,
         errorMessage: undefined,
+    }
+}
+
+export function onFollowersStateChanged(
+    state: ProfileState, action: PayloadAction<ProfileFollowersState>
+): ProfileState {
+    return {
+        ...state,
+        profileFollowersState: action.payload
     }
 }
 
