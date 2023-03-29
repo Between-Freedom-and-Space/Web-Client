@@ -1,0 +1,35 @@
+.topContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+.icon {
+  height: 80px;
+  width: 80px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 120%;
+  text-align: center;
+
+  color: #5A6069;
+}
+
+.description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+
+  text-align: center;
+
+  color: #ACAFB5;
+}

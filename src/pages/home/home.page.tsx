@@ -13,6 +13,7 @@ import SortControl from "../../common/components/ui-kit/sort-control/sort-contro
 import {ControlState} from "../../common/components/ui-kit/sort-control/types";
 import {BackgroundColor} from "../../common/components/general-content-holder/types";
 import ProfilePostsControls from '../../apps/profile/components/profile-posts/posts-controls/profile-posts-controls'
+import ProfileFollowersEmpty from "../../apps/profile/components/profile-followers/empty/profile-followers-empty";
 
 function HomePage () {
     return (
@@ -100,6 +101,9 @@ function HomePage () {
                     <ProfilePostsControls
                         isUserProfile={true}
                     />
+                </div>
+                <div className={styles.sortControlWrapper}>
+                    <ProfileFollowersEmpty state='followers'/>
                 </div>
             </div>
         </Page>

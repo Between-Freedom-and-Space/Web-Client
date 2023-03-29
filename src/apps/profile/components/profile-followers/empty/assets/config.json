@@ -1,0 +1,10 @@
+{
+  "following": {
+    "title": "People that profile have subscribed to for updates",
+    "description": "All people that profile have subscribed will be displayed here"
+  },
+  "followers": {
+    "title": "People who are subscribed to profile for updated",
+    "description": "The people who are subscribed to profile will be displayed here"
+  }
+}
