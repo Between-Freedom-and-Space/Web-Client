@@ -3,7 +3,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {ProfileState} from "./types";
 import {
-    followProfileThunk,
+    followProfileThunk, getProfileFollowersThunk, getProfileFollowingThunk,
     getProfileInformationThunk,
     onErrorShown,
     onSortPostsClicked,
@@ -25,8 +25,11 @@ const profileInitialState: ProfileState = {
     isProfileDataLoading: false,
     isFollowLoading: false,
     isSaveLoading: false,
+    isProfileFollowingLoading: false,
     errorMessage: undefined,
     posts: Array.of(),
+    profileFollowers: Array.of(),
+    profileFollowing: Array.of(),
     selectedSortField: SortField.DATE,
     selectedSortType: SortType.ASC
 }
@@ -79,6 +82,30 @@ export const profileSlice = createSlice({
         })
         builder.addCase(getProfileInformationThunk.fulfilled, (state, action) => {
             state.isProfileDataLoading = false
+        })
+
+        builder.addCase(getProfileFollowersThunk.pending, (state) => {
+            state.isProfileFollowingLoading = true
+        })
+        builder.addCase(getProfileFollowersThunk.rejected, (state, action) => {
+            state.isProfileFollowingLoading = false
+            state.errorMessage = action.payload
+        })
+        builder.addCase(getProfileFollowersThunk.fulfilled, (state, action) => {
+            state.isProfileFollowingLoading = false
+            state.profileFollowers = action.payload.followers
+        })
+
+        builder.addCase(getProfileFollowingThunk.pending, (state) => {
+            state.isProfileFollowingLoading = true
+        })
+        builder.addCase(getProfileFollowingThunk.rejected, (state, action) => {
+            state.isProfileFollowingLoading = false
+            state.errorMessage = action.payload
+        })
+        builder.addCase(getProfileFollowingThunk.fulfilled, (state, action) => {
+            state.isProfileFollowingLoading = false
+            state.profileFollowing = action.payload.following
         })
     })
 })
