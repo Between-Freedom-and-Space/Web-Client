@@ -1,11 +1,13 @@
 // noinspection DuplicatedCode
 
 import {createSlice} from "@reduxjs/toolkit";
-import {ProfileState} from "./types";
+import {ProfileFollowersState, ProfileState} from "./types";
 import {
-    followProfileThunk, getProfileFollowersThunk, getProfileFollowingThunk,
+    followProfileThunk,
+    getProfileFollowersThunk,
+    getProfileFollowingThunk,
     getProfileInformationThunk,
-    onErrorShown,
+    onErrorShown, onFollowersStateChanged,
     onSortPostsClicked,
     reactPostThunk
 } from "./reducers";
@@ -30,6 +32,7 @@ const profileInitialState: ProfileState = {
     posts: Array.of(),
     profileFollowers: Array.of(),
     profileFollowing: Array.of(),
+    profileFollowersState: ProfileFollowersState.SHOW_FOLLOWERS,
     selectedSortField: SortField.DATE,
     selectedSortType: SortType.ASC
 }
@@ -40,6 +43,7 @@ export const profileSlice = createSlice({
     reducers: {
         sortPosts: onSortPostsClicked,
         errorShown: onErrorShown,
+        followersStateChange: onFollowersStateChanged,
     },
     extraReducers: (builder => {
         builder.addCase(reactPostThunk.pending, (state) => {

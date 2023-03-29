@@ -24,6 +24,7 @@ export interface ProfileState {
     readonly selectedSortField: SortField
     readonly selectedSortType: SortType
 
+    readonly profileFollowersState: ProfileFollowersState
     readonly profileFollowers: Array<ProfileBaseInformation>
     readonly profileFollowing: Array<ProfileBaseInformation>
 }
@@ -59,6 +60,11 @@ export enum ProfilePostReactionState {
     NOT_REACTED,
     LIKED,
     DISLIKED
+}
+
+export enum ProfileFollowersState {
+    SHOW_FOLLOWERS,
+    SHOW_FOLLOWING
 }
 
 export interface ReactPostData {
