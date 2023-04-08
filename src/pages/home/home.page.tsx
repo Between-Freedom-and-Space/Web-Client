@@ -14,6 +14,8 @@ import {ControlState} from "../../common/components/ui-kit/sort-control/types";
 import {BackgroundColor} from "../../common/components/general-content-holder/types";
 import ProfilePostsControls from '../../apps/profile/components/profile-posts/posts-controls/profile-posts-controls'
 import ProfileFollowersEmpty from "../../apps/profile/components/profile-followers/empty/profile-followers-empty";
+import SearchSelector from "../../apps/search/components/selector/search-selector";
+import {ShowingState} from "../../apps/search/redux/types";
 
 function HomePage () {
     return (
@@ -104,6 +106,9 @@ function HomePage () {
                 </div>
                 <div className={styles.sortControlWrapper}>
                     <ProfileFollowersEmpty state='followers'/>
+                </div>
+                <div className={styles.sortControlWrapper}>
+                    <SearchSelector postsCount={21} profilesCount={31} state={ShowingState.SHOWING_POSTS}/>
                 </div>
             </div>
         </Page>

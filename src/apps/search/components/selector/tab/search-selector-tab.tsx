@@ -6,15 +6,20 @@ interface Props {
     title: string
     count: number
     includeBottomBorder: boolean
+    isActive: boolean
 }
 
 function SearchSelectorTab({
     title,
     count,
     includeBottomBorder,
+    isActive,
 }: Props) {
     return (
-        <div className={styles.topContainer} data-include-bottom-border={includeBottomBorder}>
+        <div
+            className={styles.topContainer}
+            data-include-bottom-border={includeBottomBorder}
+        >
             <div className={styles.title}>{title}</div>
             <Badge text={count.toString()}/>
         </div>
