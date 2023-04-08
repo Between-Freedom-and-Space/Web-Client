@@ -1,7 +1,23 @@
 .topContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
 
+  padding: 10px;
+
+  &[data-include-bottom-border='true'] {
+    border-bottom: 1px solid #D6D7DB;
+  }
 }
 
 .title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 120%;
 
+  color: #5A6069;
 }
