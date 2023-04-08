@@ -8,6 +8,8 @@
 
   padding: 10px;
 
+  cursor: pointer;
+
   &[data-include-bottom-border='true'] {
     border-bottom: 1px solid #D6D7DB;
   }

@@ -16,6 +16,7 @@ import ProfilePostsControls from '../../apps/profile/components/profile-posts/po
 import ProfileFollowersEmpty from "../../apps/profile/components/profile-followers/empty/profile-followers-empty";
 import SearchSelector from "../../apps/search/components/selector/search-selector";
 import {ShowingState} from "../../apps/search/redux/types";
+import SearchTopBar from "../../apps/search/components/top-bar/search-top-bar";
 
 function HomePage () {
     return (
@@ -109,6 +110,9 @@ function HomePage () {
                 </div>
                 <div className={styles.sortControlWrapper}>
                     <SearchSelector postsCount={21} profilesCount={31} state={ShowingState.SHOWING_POSTS}/>
+                </div>
+                <div className={styles.sortControlWrapper}>
+                    <SearchTopBar searchText={""} searchResultCount={213} isSearching={false}/>
                 </div>
             </div>
         </Page>
