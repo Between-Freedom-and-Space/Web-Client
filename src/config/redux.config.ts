@@ -5,6 +5,7 @@ import {notificationsSlice} from "../common/services/notifications/redux/slice";
 import {settingsSlice} from "../apps/settings/redux/slices";
 import {feedSlice} from "../apps/feed/redux/slices";
 import {profileSlice} from "../apps/profile/redux/slices";
+import {searchSlice} from "../apps/search/redux/slices";
 
 export const store = configureStore({
     reducer: combineReducers({
@@ -14,6 +15,7 @@ export const store = configureStore({
         settings: settingsSlice.reducer,
         feed: feedSlice.reducer,
         profile: profileSlice.reducer,
+        search: searchSlice.reducer,
         notifications: notificationsSlice.reducer,
     })
 })

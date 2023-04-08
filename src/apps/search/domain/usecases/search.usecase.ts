@@ -4,7 +4,7 @@ import {SearchResult, SearchResultFailure} from "./search-usecase.types";
 @injectable()
 export class SearchUseCase {
 
-    public async search(): Promise<SearchResult> {
+    public async search(text: string): Promise<SearchResult> {
         return {
             type: 'failure',
             message: 'Not implemented yet'
