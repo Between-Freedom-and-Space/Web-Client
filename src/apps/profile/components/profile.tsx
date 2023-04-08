@@ -9,7 +9,7 @@ import {ProfilePostsController} from "./profile-posts/types";
 import {SortField, SortType} from "./profile-posts/posts-controls/types";
 import {
     getCreateNewPostRouting,
-    getPostRouting,
+    getPostRouting, getProfileFollowingRouting,
     getProfileRouting,
     getSettingsRouting
 } from "../../../config/routings.config";
@@ -35,20 +35,10 @@ function Profile() {
             }))
         },
         onFollowersCountClicked() {
-            dispatch(notificationActions.addNotification({
-                id: "1",
-                type: "info",
-                title: "Not supported",
-                message: "Sorry, this functionality is not supported yet"
-            }))
+            navigate(getProfileFollowingRouting(profileState.profileId))
         },
         onFollowingCountClicked() {
-            dispatch(notificationActions.addNotification({
-                id: "2",
-                type: "info",
-                title: "Not supported",
-                message: "Sorry, this functionality is not supported yet"
-            }))
+            navigate(getProfileFollowingRouting(profileState.profileId))
         },
         onSaveEditButtonClicked() {
             dispatch(notificationActions.addNotification({
