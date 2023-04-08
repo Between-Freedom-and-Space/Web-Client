@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './search-selector-tab.module.scss'
+import Badge from "../../../../../common/components/ui-kit/badge/badge";
 
 interface Props {
     title: string
@@ -13,9 +14,9 @@ function SearchSelectorTab({
     includeBottomBorder,
 }: Props) {
     return (
-        <div className={styles.topContainer}>
+        <div className={styles.topContainer} data-include-bottom-border={includeBottomBorder}>
             <div className={styles.title}>{title}</div>
-
+            <Badge text={count.toString()}/>
         </div>
     )
 }
