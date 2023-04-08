@@ -2,21 +2,24 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  align-content: center;
+  align-content: space-between;
   justify-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   padding: 10px;
 
   &[data-include-bottom-border='true'] {
     border-bottom: 1px solid #D6D7DB;
   }
+  &[data-tab-is-active='true'] {
+    background-color: #F6F8FA;
+  }
 }
 
 .title {
   font-style: normal;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 120%;
 
   color: #5A6069;
