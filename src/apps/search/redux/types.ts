@@ -1,5 +1,6 @@
 export interface SearchState {
     readonly searchText: string
+    readonly showingState: ShowingState
     readonly isLoading: boolean
     readonly errorMessage?: string
     readonly foundPosts: Array<PostBaseInformation>
@@ -22,4 +23,9 @@ export interface ProfileBaseInformation {
     readonly name: string
     readonly isUserFollowing: boolean
     readonly isFollowLoading: boolean
+}
+
+export enum ShowingState {
+    SHOWING_POSTS,
+    SHOWING_PROFILES
 }

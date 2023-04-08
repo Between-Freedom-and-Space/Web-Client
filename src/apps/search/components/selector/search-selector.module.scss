@@ -1,3 +1,9 @@
 .topContainer {
+  display: flex;
+  flex-direction: column;
 
+  min-width: 150px;
+
+  border-radius: 5px;
+  border: 1px solid #D6D7DB;
 }
