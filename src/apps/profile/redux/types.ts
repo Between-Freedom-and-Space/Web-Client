@@ -86,4 +86,7 @@ export interface ProfileBaseInformation {
     readonly nickname: string
     readonly name: string
     readonly description: string
+    readonly postsCount: number
+    readonly followersCount: number
+    readonly isFollowing: boolean
 }

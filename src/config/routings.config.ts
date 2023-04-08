@@ -2,6 +2,10 @@ export function getProfileRouting(profileId: number): string {
     return `/profile/${profileId}`
 }
 
+export function getProfileFollowingRouting(profileId: number): string {
+    return `/profile/${profileId}/following`
+}
+
 export function getPostRouting(postId: number): string {
     return `/post/${postId}`
 }
