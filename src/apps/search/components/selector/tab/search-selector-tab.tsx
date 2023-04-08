@@ -7,6 +7,7 @@ interface Props {
     count: number
     includeBottomBorder: boolean
     isActive: boolean
+    onClick?: () => void
 }
 
 function SearchSelectorTab({
@@ -14,11 +15,14 @@ function SearchSelectorTab({
     count,
     includeBottomBorder,
     isActive,
+    onClick,
 }: Props) {
     return (
         <div
             className={styles.topContainer}
             data-include-bottom-border={includeBottomBorder}
+            data-tab-is-active={isActive}
+            onClick={onClick}
         >
             <div className={styles.title}>{title}</div>
             <Badge text={count.toString()}/>

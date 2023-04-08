@@ -1,1 +1,25 @@
-.topContainer
+.topContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.resultsCountContainer {
+  display: flex;
+
+  margin-top: 20px;
+}
+
+.resultsCount {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+
+  color: #5A6069;
+}
