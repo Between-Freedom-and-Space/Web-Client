@@ -12,6 +12,7 @@ import CommentPage from "../pages/comment/comment.page";
 import FeedPage from "../pages/feed/feed.page";
 import RecoverPasswordPage from "../pages/recover-password/recover-password.page";
 import SettingsPage from "../pages/settings/settings.page";
+import SearchPage from "../pages/search/search.page";
 
 function Entry () {
     return (
@@ -27,6 +28,7 @@ function Entry () {
                 <Route path='/comment' element={<CommentPage/>}/>
                 <Route path='/feed' element={<FeedPage/>}/>
                 <Route path='/settings' element={<SettingsPage/>}/>
+                <Route path='/search' element={<SearchPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>
