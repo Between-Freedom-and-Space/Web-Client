@@ -124,35 +124,35 @@ export const getProfileFollowersThunk = createAsyncThunk<
     GetProfileFollowersData,
     {rejectValue: string}
     >(
-    'profile/followers',
-    async (actionData, {rejectWithValue}) => {
-        const useCase = container.get<ProfileFollowersUseCase>(ProfileFollowersUseCase)
+        'profile/followers',
+        async (actionData, {rejectWithValue}) => {
+            const useCase = container.get<ProfileFollowersUseCase>(ProfileFollowersUseCase)
 
-        const result = await useCase.getProfileFollowers(actionData.profileId)
+            const result = await useCase.getProfileFollowers(actionData.profileId)
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as GetProfileFollowersFailure).message)
-        } else {
-            return result as GetProfileFollowersSuccess
+            if (result.type === 'failure') {
+                return rejectWithValue((result as GetProfileFollowersFailure).message)
+            } else {
+                return result as GetProfileFollowersSuccess
+            }
         }
-    }
-)
+    )
 
 export const getProfileFollowingThunk = createAsyncThunk<
     GetProfileFollowingSuccess,
     GetProfileFollowersData,
     {rejectValue: string}
     >(
-    'profile/following',
-    async (actionData, {rejectWithValue}) => {
-        const useCase = container.get<ProfileFollowersUseCase>(ProfileFollowersUseCase)
+        'profile/following',
+        async (actionData, {rejectWithValue}) => {
+            const useCase = container.get<ProfileFollowersUseCase>(ProfileFollowersUseCase)
 
-        const result = await useCase.getProfileFollowing(actionData.profileId)
+            const result = await useCase.getProfileFollowing(actionData.profileId)
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as GetProfileFollowingFailure).message)
-        } else {
-            return result as GetProfileFollowingSuccess
+            if (result.type === 'failure') {
+                return rejectWithValue((result as GetProfileFollowingFailure).message)
+            } else {
+                return result as GetProfileFollowingSuccess
+            }
         }
-    }
-)
+    )
