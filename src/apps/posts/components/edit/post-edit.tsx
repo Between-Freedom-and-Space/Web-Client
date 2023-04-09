@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './post-complete.module.scss'
+import styles from './post-edit.module.scss'
 
-function PostComplete() {
+function PostEdit() {
     return (
         <div className={styles.topContainer}>
 
@@ -9,4 +9,4 @@ function PostComplete() {
     )
 }
 
-export default PostComplete
+export default PostEdit
