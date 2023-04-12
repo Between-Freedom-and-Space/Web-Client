@@ -1,4 +1,5 @@
 import {SortField, SortType} from "../components/profile-posts/posts-controls/types";
+import {PostReactionState} from "../../posts/components/common/types";
 
 export interface ProfileState {
     readonly profileId: number
@@ -69,7 +70,7 @@ export enum ProfileFollowersState {
 
 export interface ReactPostData {
     readonly postId: number
-    readonly reactionState: ProfilePostReactionState
+    readonly reactionState: PostReactionState
 }
 
 export interface FollowProfileData {
