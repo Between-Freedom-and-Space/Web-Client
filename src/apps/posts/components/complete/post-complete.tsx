@@ -24,7 +24,7 @@ function PostComplete() {
     const { postId } = useParams()
 
     useEffect(() => {
-        const postIdNumber = Number.parseInt(postId!!)
+        const postIdNumber = Number.parseInt(postId!)
         dispatch(postCompleteActions.changePostId(postIdNumber))
         dispatch(getPostThunk({postId: postIdNumber}))
     }, [])

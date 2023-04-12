@@ -70,7 +70,7 @@ export enum ProfileFollowersState {
 
 export interface ReactPostData {
     readonly postId: number
-    readonly reactionState: PostReactionState
+    readonly reactionState: ProfilePostReactionState
 }
 
 export interface FollowProfileData {
