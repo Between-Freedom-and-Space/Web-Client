@@ -1,20 +1,20 @@
 import React, {useState} from "react";
-import styles from './post-preview-reaction-controls.module.scss'
+import styles from './post-reaction-controls.module.scss'
 
 import config from './assets/config.json'
-import {PostReactionState} from "../../common/types";
-import {PostPreviewController} from "../types";
+import {PostReactionState} from "../types";
 import {getDislikeState, getLikeState} from "./helpers";
+import {PostReactionControlsController} from "./types";
 
 interface Props {
     likesCount: number
     dislikesCount: number
     commentsCount: number
     reactionState?: PostReactionState
-    controller?: PostPreviewController
+    controller?: PostReactionControlsController
 }
 
-function PostPreviewReactionControls({
+function PostReactionControls({
     likesCount,
     dislikesCount,
     commentsCount,
@@ -114,4 +114,4 @@ function PostPreviewReactionControls({
     )
 }
 
-export default PostPreviewReactionControls
+export default PostReactionControls

@@ -4,7 +4,7 @@ import styles from './post-preview.module.scss'
 import {PostFollowingState, PostReactionState} from "../common/types";
 import {PostPreviewComment, PostPreviewController} from "./types";
 import PostPreviewData from "./post-data/post-preview-data";
-import PostPreviewReactionControls from "./reaction-controls/post-preview-reaction-controls";
+import PostReactionControls from "../common/reaction-controls/post-reaction-controls";
 import PostPreviewComments from "./comments/post-preview-comments";
 
 interface Props {
@@ -32,7 +32,7 @@ function PostPreview(props: Props) {
                 postText={props.postText}
                 followingState={props.followingState}
             />
-            <PostPreviewReactionControls
+            <PostReactionControls
                 likesCount={props.likesCount}
                 dislikesCount={props.dislikesCount}
                 commentsCount={props.commentsCount}
