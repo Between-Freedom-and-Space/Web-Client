@@ -21,11 +21,11 @@ export interface PostCompleteState {
 export interface PostCompleteComment {
     readonly authorId: number
     readonly authorNickname: string
-    readonly authorName: string
     readonly authorProfileIconUrl?: string // TODO()
 
     readonly commentId: number
     readonly commentText: string
+    readonly lastModifiedDate: Date
     readonly likesCount: number
     readonly dislikesCount: number
 
