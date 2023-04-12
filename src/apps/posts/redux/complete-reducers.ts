@@ -33,24 +33,24 @@ export const getPostThunk = createAsyncThunk<
     GetPostData,
     {rejectValue: string}
     >(
-    "post/get",
-    async (data, {rejectWithValue}) => {
-        const useCase = container.get<PostsUseCase>(PostsUseCase)
+        "post/get",
+        async (data, {rejectWithValue}) => {
+            const useCase = container.get<PostsUseCase>(PostsUseCase)
 
-        const result = await useCase.getPost(data.postId)
+            const result = await useCase.getPost(data.postId)
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as GetPostFailure).message)
-        } else {
-            return result as GetPostSuccess
+            if (result.type === 'failure') {
+                return rejectWithValue((result as GetPostFailure).message)
+            } else {
+                return result as GetPostSuccess
+            }
         }
-    }
-)
+    )
 
 export const followProfileThunk = createAsyncThunk(
     "post/follow-profile",
     async () => {
-
+        console.log("follow profile thunk")
     }
 )
 
@@ -78,16 +78,16 @@ export const reactCommentThunk = createAsyncThunk<
     ReactPostCommentData,
     {rejectValue: string}
     >(
-    "post/react-comment",
-    async (data, {rejectWithValue}) => {
-        const useCase = container.get<PostsUseCase>(PostsUseCase)
+        "post/react-comment",
+        async (data, {rejectWithValue}) => {
+            const useCase = container.get<PostsUseCase>(PostsUseCase)
 
-        const result = await useCase.reactPostComment(data.postId, data.commentId, data.reactionState)
+            const result = await useCase.reactPostComment(data.postId, data.commentId, data.reactionState)
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as ReactPostCommentFailure).message)
-        } else {
-            return result as ReactPostCommentSuccess
+            if (result.type === 'failure') {
+                return rejectWithValue((result as ReactPostCommentFailure).message)
+            } else {
+                return result as ReactPostCommentSuccess
+            }
         }
-    }
-)
+    )
