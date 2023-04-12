@@ -18,6 +18,7 @@ function PostCompleteComments({
             {comments.map(comment => {
                 return (
                     <Comment
+                        key={comment.commentId}
                         id={comment.commentId}
                         nickname={comment.authorNickname}
                         commentText={comment.commentText}
