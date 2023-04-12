@@ -1,3 +1,72 @@
 .topContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
 
+  padding: 10px;
+  border-bottom: 2px solid #D1D8DD;
+}
+
+.authorInformationContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 15px;
+}
+
+.authorIconContainer {
+  display: flex;
+}
+
+.authorProfileIcon {
+  height: 40px;
+  width: 40px;
+
+  background-color: #D1D8DD;
+  border-radius: 50%;
+
+  cursor: pointer;
+  display: inline-block;
+}
+
+.authorNameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.authorName {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 120%;
+
+  color: black;
+
+  cursor: pointer;
+}
+
+.authorNickname {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 120%;
+
+  color: #D1D8DD;
+
+  cursor: pointer;
+}
+
+.followButtonContainer {
+  display: flex;
 }
