@@ -15,6 +15,7 @@ const postCompleteInitialState: PostCompleteState = {
     isUserFollowing: false,
     isLoading: false,
     errorMessage: undefined,
+    comments: Array.of()
 }
 
 export const postCompleteSlice = createSlice({
