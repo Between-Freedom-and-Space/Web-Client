@@ -24,6 +24,7 @@ function PostCompleteComments({
                         likesCount={comment.likesCount}
                         dislikesCount={comment.dislikesCount}
                         lastModifiedDate={comment.lastModifiedDate}
+                        reactionState={comment.commentReactionState}
                         controller={{
                             onCommentTextClicked() {
                                 console.log("Comment text clicked")

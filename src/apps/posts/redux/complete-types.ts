@@ -1,3 +1,6 @@
+import {PostReactionState} from "../components/common/types";
+import {CommentReactionState} from "../../../common/components/comments/types";
+
 export interface PostCompleteState {
     readonly authorId: number
     readonly authorName: string
@@ -10,8 +13,10 @@ export interface PostCompleteState {
     readonly postLikesCount: number
     readonly postDislikesCount: number
     readonly postCommentsCount: number
+    readonly postReactionState: PostReactionState
 
     readonly isUserFollowing: boolean
+    readonly isFollowLoading: boolean
     readonly isLoading: boolean
     readonly errorMessage?: string
 
@@ -28,6 +33,22 @@ export interface PostCompleteComment {
     readonly lastModifiedDate: Date
     readonly likesCount: number
     readonly dislikesCount: number
+    readonly commentReactionState: CommentReactionState
 
     readonly isReactLoading: boolean
+}
+
+export interface GetPostData {
+    readonly postId: number
+}
+
+export interface ReactPostData {
+    readonly postId: number
+    readonly reactionState: PostReactionState
+}
+
+export interface ReactPostCommentData {
+    readonly postId: number
+    readonly commentId: number
+    readonly reactionState: CommentReactionState
 }
