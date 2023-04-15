@@ -1,5 +1,5 @@
-import {CreatePostData, PostEditState, UpdatePostData} from "./edit-types";
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import {CreatePostData, PostEditState, PostEditType, UpdatePostData} from "./edit-types";
+import {createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import {
     CreatePostFailure,
     CreatePostSuccess,
@@ -11,9 +11,39 @@ import {PostsUseCase} from "../domain/usecases/posts.usecase";
 
 const container = postsContainer
 
-export function onErrorShown(state: PostEditState): PostEditState {
+export function onErrorMessageShown(state: PostEditState): PostEditState {
     return {
         ...state,
+    }
+}
+
+export function onEditTypeChanged(
+    state: PostEditState,
+    action: PayloadAction<PostEditType>
+): PostEditState {
+    return {
+        ...state,
+        type: action.payload
+    }
+}
+
+export function onPostTitleChanged(
+    state: PostEditState,
+    action: PayloadAction<string>
+): PostEditState {
+    return {
+        ...state,
+        postTitle: action.payload
+    }
+}
+
+export function onPostTextChanged(
+    state: PostEditState,
+    action: PayloadAction<string>
+): PostEditState {
+    return {
+        ...state,
+        postText: action.payload,
     }
 }
 
