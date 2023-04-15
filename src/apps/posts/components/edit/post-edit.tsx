@@ -21,12 +21,12 @@ function PostEdit() {
     const dispatch = useAppDispatch()
     const editState = useAppSelector(root => root.postEdit)
 
+    const { postId } = useParams()
     if (location.pathname.includes('new')) {
         dispatch(postEditActions.changeType(PostEditType.NEW_POST))
     } else {
         dispatch(postEditActions.changeType(PostEditType.EDITING))
-        const { postId } = useParams()
-        dispatch(getPostThunk({postId: Number.parseInt(postId!!)}))
+        dispatch(getPostThunk({postId: Number.parseInt(postId!)}))
     }
 
     const cancelButtonClickHandler = () => {
