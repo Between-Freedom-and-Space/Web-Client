@@ -1,10 +1,12 @@
 import {injectable} from "inversify";
 import {
+    CreatePostFailure,
+    CreatePostResult,
     GetPostFailure,
     GetPostResult, ReactPostCommentFailure,
     ReactPostCommentResult,
     ReactPostFailure,
-    ReactPostResult
+    ReactPostResult, UpdatePostFailure, UpdatePostResult
 } from "./posts-usecase.types";
 import {PostReactionState} from "../../components/common/types";
 import {CommentReactionState} from "../../../../common/components/comments/types";
@@ -37,5 +39,25 @@ export class PostsUseCase {
             type: 'failure',
             message: 'Not implemented yet'
         } as ReactPostCommentFailure
+    }
+
+    public async updatePost(
+        newTitle?: string,
+        newText?: string
+    ): Promise<UpdatePostResult> {
+        return {
+            type: 'failure',
+            message: 'Not implemented yet'
+        } as UpdatePostFailure
+    }
+
+    public async createPost(
+        title: string,
+        text: string
+    ): Promise<CreatePostResult> {
+        return {
+            type: 'failure',
+            message: 'Not implemented yet'
+        } as CreatePostFailure
     }
 }

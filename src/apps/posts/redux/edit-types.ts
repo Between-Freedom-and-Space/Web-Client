@@ -13,3 +13,13 @@ export enum PostEditType {
     NEW_POST,
     EDITING
 }
+
+export interface UpdatePostData {
+    readonly newTitle?: string
+    readonly newText?: string
+}
+
+export interface CreatePostData {
+    readonly title: string
+    readonly text: string
+}
