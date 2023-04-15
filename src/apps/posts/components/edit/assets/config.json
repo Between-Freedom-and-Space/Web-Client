@@ -1,0 +1,19 @@
+{
+  "cancel": {
+    "label": "Cancel"
+  },
+  "update": {
+    "label": "Update"
+  },
+  "create": {
+    "label": "Create"
+  },
+  "title": {
+    "label": "Title",
+    "hint": "Type the title of new post..."
+  },
+  "text": {
+    "label": "Text",
+    "hint": "Type the title text. Markdown supported."
+  }
+}
