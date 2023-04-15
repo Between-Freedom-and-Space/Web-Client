@@ -46,6 +46,34 @@ export interface ReactPostCommentSuccess {
     currentReaction: CommentReactionState
 }
 
+export interface UpdatePostResult {
+    type: 'success' | 'failure'
+}
+
+export interface UpdatePostFailure extends UpdatePostResult {
+    type: 'failure'
+    message: string
+}
+
+export interface UpdatePostSuccess extends UpdatePostResult {
+    type: 'success'
+    postData: Post
+}
+
+export interface CreatePostResult {
+    type: 'success' | 'failure'
+}
+
+export interface CreatePostFailure extends CreatePostResult {
+    type: 'failure'
+    message: string
+}
+
+export interface CreatePostSuccess extends CreatePostResult {
+    type: 'success'
+    postData: Post
+}
+
 export interface Post {
     id: number
 }
