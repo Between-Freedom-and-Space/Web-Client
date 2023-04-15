@@ -1,15 +1,72 @@
 .topContainer {
+  display: flex;
+  flex-direction: column;
 
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  gap: 30px;
+
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .postTitleContainer {
+  display: flex;
+  flex-direction: column;
 
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.postTitleLabel {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 120%;
+
+  text-align: center;
+
+  color: #5A6069;
 }
 
 .postTextContainer {
+  display: flex;
+  flex-direction: column;
 
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.postTextLabel {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 120%;
+
+  text-align: center;
+
+  color: #5A6069;
 }
 
 .postEditControlsContainer {
+  display: flex;
+  flex-direction: row;
 
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  gap: 10px;
 }
