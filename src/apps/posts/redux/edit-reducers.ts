@@ -52,35 +52,35 @@ export const updatePostThunk = createAsyncThunk<
     UpdatePostData,
     {rejectValue: string}
     >(
-    'post/update',
-    async (data, {rejectWithValue}) => {
-        const useCase = container.get<PostsUseCase>(PostsUseCase)
+        'post/update',
+        async (data, {rejectWithValue}) => {
+            const useCase = container.get<PostsUseCase>(PostsUseCase)
 
-        const result = await useCase.updatePost(data.newTitle, data.newText)
+            const result = await useCase.updatePost(data.newTitle, data.newText)
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as UpdatePostFailure).message)
-        } else {
-            return result as UpdatePostSuccess
+            if (result.type === 'failure') {
+                return rejectWithValue((result as UpdatePostFailure).message)
+            } else {
+                return result as UpdatePostSuccess
+            }
         }
-    }
-)
+    )
 
 export const createPostThunk = createAsyncThunk<
     CreatePostSuccess,
     CreatePostData,
     {rejectValue: string}
     >(
-    'post/create',
-    async (data, {rejectWithValue}) => {
-        const useCase = container.get<PostsUseCase>(PostsUseCase)
+        'post/create',
+        async (data, {rejectWithValue}) => {
+            const useCase = container.get<PostsUseCase>(PostsUseCase)
 
-        const result = await useCase.createPost(data.title, data.text)
+            const result = await useCase.createPost(data.title, data.text)
 
-        if (result.type === 'failure') {
-            return rejectWithValue((result as CreatePostFailure).message)
-        } else {
-            return result as CreatePostSuccess
+            if (result.type === 'failure') {
+                return rejectWithValue((result as CreatePostFailure).message)
+            } else {
+                return result as CreatePostSuccess
+            }
         }
-    }
-)
+    )
