@@ -7,6 +7,7 @@ import {feedSlice} from "../apps/feed/redux/slices";
 import {profileSlice} from "../apps/profile/redux/slices";
 import {searchSlice} from "../apps/search/redux/slices";
 import {postCompleteSlice} from "../apps/posts/redux/complete-slice";
+import {postEditSlice} from "../apps/posts/redux/edit-slice";
 
 export const store = configureStore({
     reducer: combineReducers({
@@ -18,6 +19,7 @@ export const store = configureStore({
         profile: profileSlice.reducer,
         search: searchSlice.reducer,
         postComplete: postCompleteSlice.reducer,
+        postEdit: postEditSlice.reducer,
         notifications: notificationsSlice.reducer,
     })
 })
