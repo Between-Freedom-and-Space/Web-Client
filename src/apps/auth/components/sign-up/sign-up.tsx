@@ -16,6 +16,7 @@ import {signUpActions} from "../../redux/slices";
 import {sendVerificationCodeThunk, signUpThunk} from "../../redux/auth-reducers";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 import {getSendCodeButtonState, getSignUpButtonState} from "./helpers";
+import {getProfileRouting} from "../../../../config/routings.config";
 
 function SignUp() {
     const dispatch = useAppDispatch()
@@ -88,7 +89,7 @@ function SignUp() {
     }
 
     if (signUpState.state === AuthState.AUTHENTICATED) {
-        navigate('/profile')
+        navigate(getProfileRouting(signUpState.profileId))
     }
 
     if (signUpState.errorMessage) {

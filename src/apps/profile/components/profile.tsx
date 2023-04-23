@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import styles from './profile.module.scss'
 import ProfileInformation from "./profile-information/profile-information";
 import ProfilePosts from "./profile-posts/profile-posts";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../config/redux.config";
 import {ProfileInformationController} from "./profile-information/types";
 import {ProfilePostsController} from "./profile-posts/types";
@@ -23,8 +23,10 @@ function Profile() {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const profileState = useAppSelector(rootState => rootState.profile)
+    const { profileId } = useParams()
 
     useEffect(() => {
+        dispatch(profileActions.setProfileId(Number.parseInt(profileId!)))
         dispatch(getProfileInformationThunk())
     }, [])
 

@@ -129,10 +129,12 @@ export class SignUpUseCase {
             return this.failWith(signUpResult.error.message)
         }
 
-        const { accessToken, refreshToken } = signUpResult.content!
+        const { accessToken, refreshToken, profileId } = signUpResult.content!
         this.tokenRepository!.saveTokens({accessToken, refreshToken})
 
-        return this.successWith()
+        return {
+            profileId: profileId
+        } as SignUpSuccess
     }
 
     // noinspection JSMethodCanBeStatic
@@ -140,10 +142,5 @@ export class SignUpUseCase {
         return {
             message: message || 'Something went wrong, please try later',
         }
-    }
-
-    // noinspection JSMethodCanBeStatic
-    private successWith(): SignUpSuccess {
-        return { }
     }
 }

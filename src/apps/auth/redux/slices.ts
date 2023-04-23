@@ -26,6 +26,7 @@ import {
     onRepeatedNewPasswordChanged,
     onVerificationCodeChanged, recoverPasswordThunk
 } from "./recover-password-reducers";
+import {SignUpSuccess} from "../domain/usecases/sign-up/sign-up-usecase.types";
 
 const initialSignInState: SignInState = {
     nickname: '',
@@ -33,6 +34,7 @@ const initialSignInState: SignInState = {
     state: AuthState.NOT_AUTHENTICATED
 }
 const initialSignUpState: SignUpState = {
+    profileId: 0,
     nickname: '',
     name: '',
     email: '',
@@ -97,8 +99,9 @@ export const authSignUpSlice = createSlice({
             state.state = AuthState.NOT_AUTHENTICATED
             state.errorMessage = action.payload
         })
-        builder.addCase(signUpThunk.fulfilled, (state) => {
+        builder.addCase(signUpThunk.fulfilled, (state, action) => {
             state.state = AuthState.AUTHENTICATED
+            state.profileId = (action.payload as SignUpSuccess).profileId
         })
 
         builder.addCase(sendVerificationCodeThunk.pending, (state) => {

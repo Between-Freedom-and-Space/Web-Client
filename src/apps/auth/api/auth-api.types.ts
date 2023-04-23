@@ -9,6 +9,7 @@ export interface RegisterUserRequest {
 }
 
 export interface RegisterUserResponse {
+    readonly profileId: number
     readonly accessToken: string
     readonly refreshToken: string
 }

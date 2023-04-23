@@ -23,7 +23,7 @@ export interface PerformSignUpData {
 export type SignUpResult = SignUpSuccess | SignUpFailure
 
 export interface SignUpSuccess {
-    data?: any
+    profileId: number
 }
 
 export interface SignUpFailure  {

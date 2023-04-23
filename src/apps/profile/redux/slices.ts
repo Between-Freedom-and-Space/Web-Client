@@ -7,7 +7,7 @@ import {
     getProfileFollowersThunk,
     getProfileFollowingThunk,
     getProfileInformationThunk,
-    onErrorShown, onFollowersStateChanged,
+    onErrorShown, onFollowersStateChanged, onProfileIdChanged,
     onSortPostsClicked,
     reactPostThunk
 } from "./reducers";
@@ -44,6 +44,7 @@ export const profileSlice = createSlice({
         sortPosts: onSortPostsClicked,
         errorShown: onErrorShown,
         followersStateChange: onFollowersStateChanged,
+        setProfileId: onProfileIdChanged,
     },
     extraReducers: (builder => {
         builder.addCase(reactPostThunk.pending, (state) => {
