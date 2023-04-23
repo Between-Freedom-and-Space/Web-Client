@@ -20,7 +20,7 @@ function Entry () {
             <Routes>
                 <Route index path='/' element={<AboutPage/>}/>
                 <Route path='/home' element={<HomePage/>}/>
-                <Route path='/profile' element={<ProfilePage/>}/>
+                <Route path='/profile/:profileId' element={<ProfilePage/>}/>
                 <Route path='/editor' element={<EditorPage/>}/>
                 <Route path='/error' element={<ErrorPage/>}/>
                 <Route path='/authenticate' element={<AuthenticatePage/>}/>

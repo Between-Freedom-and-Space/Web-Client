@@ -8,6 +8,7 @@ export interface SignInState {
 }
 
 export interface SignUpState {
+    readonly profileId: number
     readonly nickname: string
     readonly name: string
     readonly email: string

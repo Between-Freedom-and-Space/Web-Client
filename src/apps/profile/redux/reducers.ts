@@ -42,6 +42,15 @@ export function onSortPostsClicked(
     }
 }
 
+export function onProfileIdChanged(
+    state: ProfileState, action: PayloadAction<number>
+): ProfileState {
+    return {
+        ...state,
+        profileId: action.payload
+    }
+}
+
 export function onErrorShown(
     state: ProfileState
 ): ProfileState {
