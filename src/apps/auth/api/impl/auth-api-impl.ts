@@ -25,7 +25,6 @@ export class AuthenticateApiImpl implements AuthenticateApi {
             name_alias: data.nameAlias,
             profile_description: data.description,
             location: data.location,
-            security_variable: data.securityVariable
         })
 
         return parseResponse(response.data, (content: any) => {

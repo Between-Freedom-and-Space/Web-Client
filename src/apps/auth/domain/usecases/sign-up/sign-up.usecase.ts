@@ -99,22 +99,22 @@ export class SignUpUseCase {
             return this.failWith(verificationCodeValidation.message)
         }
 
-        const securityVariable = this.securityVariableRepository!.get() || this.securityVariableGenerator!.generate()
-        const emailCodeVerification = await this.mailingApi!.verifyEmailVerificationCode({
-            verificationCode: data.verificationCode,
-            targetEmail: data.email,
-            securityVariable,
-        })
+        // const securityVariable = this.securityVariableRepository!.get() || this.securityVariableGenerator!.generate()
+        // const emailCodeVerification = await this.mailingApi!.verifyEmailVerificationCode({
+        //     verificationCode: data.verificationCode,
+        //     targetEmail: data.email,
+        //     securityVariable,
+        // })
 
-        if (emailCodeVerification.error !== undefined) {
-            return this.failWith(emailCodeVerification.error.message)
-        }
-        if (emailCodeVerification.content === undefined) {
-            return this.failWith()
-        }
-        if (emailCodeVerification.content.result !== "Validated") {
-            return this.failWith('Invalid email verification code')
-        }
+        // if (emailCodeVerification.error !== undefined) {
+        //     return this.failWith(emailCodeVerification.error.message)
+        // }
+        // if (emailCodeVerification.content === undefined) {
+        //     return this.failWith()
+        // }
+        // if (emailCodeVerification.content.result !== "Validated") {
+        //     return this.failWith('Invalid email verification code')
+        // }
 
         const signUpResult = await this.authApi!.registerUser({
             mail: data.email,
@@ -123,7 +123,6 @@ export class SignUpUseCase {
             nameAlias: data.name,
             description: data.description,
             location: data.location,
-            securityVariable: securityVariable
         })
 
         if (signUpResult.error !== undefined) {

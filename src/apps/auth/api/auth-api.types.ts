@@ -6,7 +6,6 @@ export interface RegisterUserRequest {
     readonly nameAlias: string
     readonly description: string
     readonly location: string
-    readonly securityVariable: string
 }
 
 export interface RegisterUserResponse {

@@ -119,14 +119,15 @@ export class InputsValidator {
     }
 
     public validateVerificationCode(code: string): ValidationResult {
-        if (code.trim().length === 0) {
-            return this.failureResult('Verification code not set')
-        }
-        if (code.trim().length !== InputsValidator.VERIFICATION_CODE_LENGTH) {
-            return this.failureResult('Invalid verification code')
-        } else {
-            return this.successResult()
-        }
+        return this.successResult()
+        // if (code.trim().length === 0) {
+        //     return this.failureResult('Verification code not set')
+        // }
+        // if (code.trim().length !== InputsValidator.VERIFICATION_CODE_LENGTH) {
+        //     return this.failureResult('Invalid verification code')
+        // } else {
+        //     return this.successResult()
+        // }
     }
 
     public validateVerifiedCode(code: string): ValidationResult {
