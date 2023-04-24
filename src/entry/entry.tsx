@@ -13,6 +13,7 @@ import FeedPage from "../pages/feed/feed.page";
 import RecoverPasswordPage from "../pages/recover-password/recover-password.page";
 import SettingsPage from "../pages/settings/settings.page";
 import SearchPage from "../pages/search/search.page";
+import PostEdit from "../apps/posts/components/edit/post-edit";
 
 function Entry () {
     return (
@@ -20,6 +21,7 @@ function Entry () {
             <Routes>
                 <Route index path='/' element={<AboutPage/>}/>
                 <Route path='/home' element={<HomePage/>}/>
+                <Route path='/profile/new-post' element={<PostEdit />}/>
                 <Route path='/profile/:profileId' element={<ProfilePage/>}/>
                 <Route path='/editor' element={<EditorPage/>}/>
                 <Route path='/error' element={<ErrorPage/>}/>
@@ -28,7 +30,7 @@ function Entry () {
                 <Route path='/comment' element={<CommentPage/>}/>
                 <Route path='/feed' element={<FeedPage/>}/>
                 <Route path='/settings' element={<SettingsPage/>}/>
-                <Route path='/search' element={<SearchPage/>}/>
+                <Route path='/search/:searchText' element={<SearchPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </BrowserRouter>

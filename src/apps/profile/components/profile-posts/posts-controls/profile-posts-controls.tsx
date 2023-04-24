@@ -11,7 +11,7 @@ import SortControl from "../../../../../common/components/ui-kit/sort-control/so
 import {getNewSortType, getSortByDateState, getSortByLikesState, getSortByViewsState} from "./helpers";
 import {ControlState} from "../../../../../common/components/ui-kit/sort-control/types";
 import Button from "../../../../../common/components/ui-kit/button/button";
-import {ButtonState, ButtonType} from "../../../../../common/components/ui-kit/button/types";
+import {ButtonState, ButtonType, SizeType} from "../../../../../common/components/ui-kit/button/types";
 
 interface Props {
     selectedSortField?: SortField

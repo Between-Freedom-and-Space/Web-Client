@@ -25,6 +25,7 @@ export class ProfileUseCase {
             } as GetProfileDataFailure
         }
 
+        console.log(content.isUserProfile)
         return {
             type: 'success',
             data: content

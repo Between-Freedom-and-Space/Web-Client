@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
 
-  min-width: 100px;
+  min-width: 200px;
 
   border-radius: 5px;
   border: 1px solid white;
@@ -31,9 +31,9 @@
   justify-items: center;
   align-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 
-  margin: 5px;
+  margin: 10px;
 }
 
 .iconWrapper {
@@ -47,7 +47,7 @@
 .label {
   font-style: normal;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 15px;
   line-height: 115%;
 
   color: #898C95;

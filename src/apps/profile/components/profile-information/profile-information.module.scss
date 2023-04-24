@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  background-color: white;
+  padding: 60px;
 }
 
 .profileIconContainer {
@@ -9,8 +12,8 @@
 }
 
 .profileIcon {
-  height: 150px;
-  width: 150px;
+  height: 250px;
+  width: 250px;
 
   background-color: #D1D8DD;
   border-radius: 50%;
@@ -21,13 +24,13 @@
 .profileInformationContainer {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 
 .profileName {
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 25px;
   line-height: 120%;
 
   color: #000000;
@@ -36,7 +39,7 @@
 .profileNickname {
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 120%;
 
   color: #000000;
@@ -45,7 +48,7 @@
 .profileDescription {
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 118%;
 
   color: #707780;
@@ -54,7 +57,7 @@
 .profileLocation {
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 118%;
 
   color: #707780;
@@ -67,13 +70,15 @@
 .profileStatisticsContainer {
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 10px;
+
+  margin-top: 10px;
 }
 
 .profileStatisticTitle {
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 118%;
 
   text-transform: lowercase;
@@ -86,7 +91,7 @@
 .profileStatisticNumber {
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 118%;
 
   text-transform: lowercase;

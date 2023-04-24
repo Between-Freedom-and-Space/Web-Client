@@ -5,6 +5,7 @@ import config from './assets/config.json'
 import Button from "../../../../../common/components/ui-kit/button/button";
 import {FollowControlsController, FollowControlsState} from "./types";
 import {getFollowButtonState, getFollowButtonType} from "./helpers";
+import {SizeType} from "../../../../../common/components/ui-kit/button/types";
 
 interface Props {
     state: FollowControlsState
@@ -29,6 +30,7 @@ function ProfileInformationFollowControls({
             <Button
                 type={getFollowButtonType(state)}
                 state={getFollowButtonState(isFollowLoading)}
+                widthType={SizeType.MAX_PERCENT}
                 onClick={followButtonClickHandler}
             >{buttonTitle}</Button>
         </div>

@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react'
+import React, {ReactNode, useState} from 'react'
 import { useNavigate } from "react-router-dom";
 
 import {HeaderMode} from './types'
@@ -9,7 +9,10 @@ import {ButtonType, SizeType} from '../ui-kit/button/types'
 import HeaderProfileControls from './profile-controls/header-profile-controls'
 
 import styles from './header.module.scss'
+import config from './assets/config.json'
 import SearchInput from '../ui-kit/inputs/search/search-input'
+import {InputController} from "../ui-kit/inputs/types";
+import {getAuthenticateRouting, getSearchRouting} from "../../../config/routings.config";
 
 interface Props {
   mode: HeaderMode
@@ -26,15 +29,30 @@ function Header ({ mode }: Props) {
 
 function buildHeaderContent (mode: HeaderMode): ReactNode {
     const navigate = useNavigate()
+    const [searchText, setSearchText] = useState("")
+
     const signInClickListener = () => {
-        navigate("/authenticate")
+        navigate(getAuthenticateRouting())
     }
+    const searchController: InputController = {
+        onEnterPressed(currentInput: string) {
+            navigate(getSearchRouting(searchText))
+        },
+        onInputChanged(newInput: string) {
+            setSearchText(newInput)
+        },
+    }
+
 
     switch (mode) {
     case HeaderMode.AUTHORIZED:
         return (
             <div className={styles.authorizedElementsContainer}>
-                <SearchInput/>
+                <SearchInput
+                    hintText={config.search.hint}
+                    text={searchText}
+                    controller={searchController}
+                />
                 <HeaderProfileControls/>
             </div>
         )

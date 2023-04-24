@@ -2,6 +2,10 @@ export function getProfileRouting(profileId: number): string {
     return `/profile/${profileId}`
 }
 
+export function getAuthenticateRouting(): string {
+    return "/authenticate"
+}
+
 export function getProfileFollowingRouting(profileId: number): string {
     return `/profile/${profileId}/following`
 }
@@ -16,4 +20,8 @@ export function getCreateNewPostRouting(): string {
 
 export function getSettingsRouting(): string {
     return `/profile/settings`
+}
+
+export function getSearchRouting(searchText: string): string {
+    return `/search/${searchText}`
 }
