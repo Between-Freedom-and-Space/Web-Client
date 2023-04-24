@@ -29,6 +29,7 @@ import {
 import {SignUpSuccess} from "../domain/usecases/sign-up/sign-up-usecase.types";
 
 const initialSignInState: SignInState = {
+    profileId: 0,
     nickname: '',
     password: '',
     state: AuthState.NOT_AUTHENTICATED
