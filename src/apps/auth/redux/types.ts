@@ -1,6 +1,7 @@
 import {PasswordRecoverChangeState} from "../components/passwrod-recover/password-change/types";
 
 export interface SignInState {
+    readonly profileId: number
     readonly nickname: string
     readonly password: string
     readonly state: AuthState
