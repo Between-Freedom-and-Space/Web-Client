@@ -1,7 +1,7 @@
 // noinspection DuplicatedCode
 
 import {createSlice} from "@reduxjs/toolkit";
-import {ProfileFollowersState, ProfileState} from "./types";
+import {ProfileFollowersState, ProfilePostReactionState, ProfileState} from "./types";
 import {
     followProfileThunk,
     getProfileFollowersThunk,
@@ -86,7 +86,31 @@ export const profileSlice = createSlice({
             state.errorMessage = action.payload
         })
         builder.addCase(getProfileInformationThunk.fulfilled, (state, action) => {
+            const data = action.payload.data
             state.isProfileDataLoading = false
+            state.profileId = data.profileId
+            state.profileName = data.name
+            state.profileNickname = data.nickname
+            state.profileDescription = data.description || ''
+            state.profileLocation = data.location || ''
+            state.followersCount = data.followersCount
+            state.followingCount = data.followingCount
+            state.isUserProfile = data.isUserProfile
+            state.userIsFollowingProfile = data.isUserFollowingProfile
+            state.posts = data.posts.map(post => {
+                return {
+                    postId: post.id,
+                    nickname: data.nickname,
+                    postTitle: post.title,
+                    postText: post.text,
+                    likesCount: 0,
+                    dislikesCount: 0,
+                    commentsCount: 0,
+                    reactionState: ProfilePostReactionState.NOT_REACTED,
+                    createdAt: post.createdAt,
+                    comments: Array.of()
+                }
+            })
         })
 
         builder.addCase(getProfileFollowersThunk.pending, (state) => {

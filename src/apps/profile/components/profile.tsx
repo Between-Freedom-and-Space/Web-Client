@@ -26,8 +26,9 @@ function Profile() {
     const { profileId } = useParams()
 
     useEffect(() => {
-        dispatch(profileActions.setProfileId(Number.parseInt(profileId!)))
-        dispatch(getProfileInformationThunk())
+        const parsedProfileId = Number.parseInt(profileId!)
+        dispatch(profileActions.setProfileId(parsedProfileId))
+        dispatch(getProfileInformationThunk({profileId: parsedProfileId}))
     }, [])
 
     const profileInformationController: ProfileInformationController = {
