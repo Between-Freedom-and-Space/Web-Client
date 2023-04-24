@@ -7,6 +7,8 @@ import {ProfileSortUseCase} from "../domain/usecases/profile-sort.usecase";
 import {ProfileFollowersUseCase} from "../domain/usecases/profile-followers.usecase";
 import {AxiosInstance} from "axios";
 import profileAxios from "../api/axios/config";
+import {TokenRepository} from "../../auth/repository/token.repository";
+import {LocalStorageTokenRepository} from "../../auth/repository/impl/local-storage.token.repository";
 
 const profileContainer = new Container({
     defaultScope: "Singleton"
@@ -15,6 +17,10 @@ const profileContainer = new Container({
 profileContainer
     .bind<AxiosInstance>(TYPES.ProfileAxiosInstance)
     .toConstantValue(profileAxios)
+
+profileContainer
+    .bind<TokenRepository>(TYPES.TokenRepository)
+    .to(LocalStorageTokenRepository)
 
 profileContainer
     .bind<ProfileApi>(TYPES.ProfileApi)

@@ -1,7 +1,11 @@
 .topContainer {
   display: flex;
   flex-direction: column;
+  align-content: start;
+  align-items: start;
   gap: 30px;
+
+  width: 100%;
 
   padding: 30px;
 }
@@ -13,5 +17,8 @@
   justify-items: center;
   align-content: center;
   align-items: center;
+
   gap: 20px;
+
+  width: 100%;
 }

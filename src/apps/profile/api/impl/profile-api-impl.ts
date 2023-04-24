@@ -5,6 +5,8 @@ import {GetProfileByIdResponse, ProfilePost} from "../profile-api.types";
 import {TYPES} from "../../di/types";
 import {AxiosInstance} from "axios";
 import {parseResponse} from "../../../../common/helpers/api-helper";
+import {TokenRepository} from "../../../auth/repository/token.repository";
+import {TOKEN_HEADER_NAME} from "../../../../common/constants/headers";
 
 @injectable()
 export class ProfileApiImpl implements ProfileApi {
@@ -12,8 +14,15 @@ export class ProfileApiImpl implements ProfileApi {
     @inject(TYPES.ProfileAxiosInstance)
     private axios: AxiosInstance | undefined
 
+    @inject(TYPES.TokenRepository)
+    private tokenRepository: TokenRepository | undefined
+
     public async getProfileById(id: number): Promise<Response<GetProfileByIdResponse>> {
-        const response = await this.axios!.get(`/by-id/${id}`)
+        const response = await this.axios!.get(`/by-id/${id}`, {
+            headers: {
+                'X-Authenticate-Token': this.tokenRepository!.getTokens()?.accessToken
+            }
+        })
         return parseResponse(response.data, (content: any) => {
             return {
                 profileId: content['profile_id'],
@@ -37,7 +46,7 @@ export class ProfileApiImpl implements ProfileApi {
                     } as ProfilePost
                 }),
                 isUserFollowingProfile: false,
-                isUserProfile: true,
+                isUserProfile: content['is_user_profile'],
             }
         })
     }
