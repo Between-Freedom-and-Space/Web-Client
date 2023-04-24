@@ -16,6 +16,7 @@ import {AuthState} from "../../redux/types";
 import {signInActions} from "../../redux/slices";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 import {getSignInButtonState} from "./helpers";
+import {getProfileRouting} from "../../../../config/routings.config";
 
 function SignIn() {
     const signInState = useAppSelector((state: RootState) => state.authSignIn)
@@ -40,7 +41,7 @@ function SignIn() {
     }
 
     if (signInState.state === AuthState.AUTHENTICATED) {
-        navigate('/profile')
+        navigate(getProfileRouting(signInState.profileId))
     }
 
     if (signInState.errorMessage) {

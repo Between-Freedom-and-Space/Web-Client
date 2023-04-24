@@ -20,6 +20,7 @@ export interface AuthenticateUserRequest {
 }
 
 export interface AuthenticateUserResponse {
+    readonly profileId: number
     readonly accessToken: string
     readonly refreshToken: string
 }

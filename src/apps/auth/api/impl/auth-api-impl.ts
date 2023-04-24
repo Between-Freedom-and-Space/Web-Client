@@ -44,6 +44,7 @@ export class AuthenticateApiImpl implements AuthenticateApi {
 
         return parseResponse(response.data, (content: any) => {
             return {
+                profileId: content['profile_id'] as number,
                 accessToken: content['access_token'] as string,
                 refreshToken: content['refresh_token'] as string
             }

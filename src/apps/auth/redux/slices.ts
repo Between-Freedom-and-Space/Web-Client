@@ -27,6 +27,7 @@ import {
     onVerificationCodeChanged, recoverPasswordThunk
 } from "./recover-password-reducers";
 import {SignUpSuccess} from "../domain/usecases/sign-up/sign-up-usecase.types";
+import {SignInResultSuccess} from "../domain/usecases/sign-in/sign-in-usecase.types";
 
 const initialSignInState: SignInState = {
     profileId: 0,
@@ -75,8 +76,9 @@ export const authSignInSlice = createSlice({
             .addCase(signInThunk.pending, (state) => {
                 state.state = AuthState.LOADING
             })
-            .addCase(signInThunk.fulfilled, (state) => {
+            .addCase(signInThunk.fulfilled, (state, action) => {
                 state.state = AuthState.AUTHENTICATED
+                state.profileId = (action.payload as SignInResultSuccess).profileId
             })
             .addCase(signInThunk.rejected, (state, action) => {
                 state.state = AuthState.NOT_AUTHENTICATED
