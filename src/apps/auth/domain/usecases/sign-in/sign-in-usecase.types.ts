@@ -6,6 +6,7 @@ export interface PerformSignInData {
 export type SignInResult = SignInResultFailure | SignInResultSuccess
 
 export interface SignInResultSuccess {
+    readonly profileId: number
     readonly accessToken: string
     readonly refreshToken: string
 }

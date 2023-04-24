@@ -45,7 +45,11 @@ export class SignInUseCase {
             refreshToken: content.refreshToken
         })
 
-        return this.successWith(content.accessToken, content.refreshToken)
+        return {
+            profileId: content.profileId,
+            accessToken: content.accessToken,
+            refreshToken: content.refreshToken,
+        } as SignInResultSuccess
     }
 
     // noinspection JSMethodCanBeStatic
@@ -53,13 +57,6 @@ export class SignInUseCase {
         return {
             reason: message || 'Something went wrong, please try later',
             code
-        }
-    }
-
-    // noinspection JSMethodCanBeStatic
-    private successWith(accessToken: string, refreshToken: string): SignInResultSuccess {
-        return {
-            accessToken, refreshToken
         }
     }
 }
