@@ -1,4 +1,7 @@
+import {Response} from "../../../common/api/types";
+import {GetProfileByIdResponse} from "./profile-api.types";
+
 export interface ProfileApi {
 
-    stub(): void
+    getProfileById(id: number): Promise<Response<GetProfileByIdResponse>>
 }

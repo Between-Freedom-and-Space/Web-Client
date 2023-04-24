@@ -68,6 +68,10 @@ export enum ProfileFollowersState {
     SHOW_FOLLOWING
 }
 
+export interface GetProfileData {
+    readonly profileId: number
+}
+
 export interface ReactPostData {
     readonly postId: number
     readonly reactionState: ProfilePostReactionState

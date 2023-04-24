@@ -1,5 +1,5 @@
 import {
-    FollowProfileData,
+    FollowProfileData, GetProfileData,
     GetProfileFollowersData, ProfileFollowersState,
     ProfilePostReactionState,
     ProfileState,
@@ -111,19 +111,19 @@ export const followProfileThunk = createAsyncThunk<
 
 export const getProfileInformationThunk = createAsyncThunk<
     GetProfileDataSuccess,
-    void,
+    GetProfileData,
     {rejectValue: string}
     >(
         'profile/get',
-        async (_, {rejectWithValue}) => {
+        async (data, {rejectWithValue}) => {
             const useCase = container.get<ProfileUseCase>(ProfileUseCase)
 
-            const result = await useCase.getProfileData()
+            const result = await useCase.getProfileData(data.profileId)
 
             if (result.type === 'failure') {
                 return rejectWithValue((result as GetProfileDataFailure).message)
             } else {
-                return result
+                return result as GetProfileDataSuccess
             }
         }
     )
