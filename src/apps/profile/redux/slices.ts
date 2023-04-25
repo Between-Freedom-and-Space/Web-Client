@@ -12,6 +12,7 @@ import {
     reactPostThunk
 } from "./reducers";
 import {SortField, SortType} from "../components/profile-posts/posts-controls/types";
+import {generateRandomNumber} from "../../../common/helpers/math/random";
 
 const profileInitialState: ProfileState = {
     profileId: 0,
@@ -103,9 +104,9 @@ export const profileSlice = createSlice({
                     nickname: data.nickname,
                     postTitle: post.title,
                     postText: post.text,
-                    likesCount: 0,
-                    dislikesCount: 0,
-                    commentsCount: 0,
+                    likesCount: generateRandomNumber(0, 10),
+                    dislikesCount: generateRandomNumber(0, 5),
+                    commentsCount: generateRandomNumber(0, 10),
                     reactionState: ProfilePostReactionState.NOT_REACTED,
                     createdAt: post.createdAt,
                     comments: Array.of()
