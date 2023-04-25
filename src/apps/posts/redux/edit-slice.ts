@@ -57,6 +57,7 @@ export const postEditSlice = createSlice({
         })
         builder.addCase(createPostThunk.fulfilled, (state, action) => {
             state.isLoading = false
+            state.postId = action.payload.postId
         })
     }
 })

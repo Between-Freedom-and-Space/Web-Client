@@ -1,6 +1,7 @@
 import {PostReactionState} from "../../components/common/types";
 import exp from "constants";
 import {CommentReactionState} from "../../../../common/components/comments/types";
+import {GetPostFullInformationResponse} from "../../api/posts-api.types";
 
 export interface GetPostResult {
     type: 'success' | 'failure'
@@ -13,7 +14,7 @@ export interface GetPostFailure extends GetPostResult {
 
 export interface GetPostSuccess extends GetPostResult {
     type: 'success'
-    post: Post
+    post: GetPostFullInformationResponse
 }
 
 export interface ReactPostResult {
@@ -71,7 +72,7 @@ export interface CreatePostFailure extends CreatePostResult {
 
 export interface CreatePostSuccess extends CreatePostResult {
     type: 'success'
-    postData: Post
+    postId: number
 }
 
 export interface Post {

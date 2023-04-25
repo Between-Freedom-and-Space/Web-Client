@@ -15,7 +15,7 @@ export function getPostRouting(postId: number): string {
 }
 
 export function getCreateNewPostRouting(): string {
-    return `/profile/new-post`
+    return `/post/create-new`
 }
 
 export function getSettingsRouting(): string {
