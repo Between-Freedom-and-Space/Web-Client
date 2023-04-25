@@ -23,7 +23,6 @@ function ProfilePosts({
     posts,
     controller,
 }: Props) {
-
     const postsControlsController: PostsControlsController = {
         onSortPostsClicked(type: SortType, field: SortField) {
             controller?.onSortPostsClicked(field, type)

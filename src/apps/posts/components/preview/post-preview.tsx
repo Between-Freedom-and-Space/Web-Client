@@ -6,6 +6,7 @@ import {PostPreviewComment, PostPreviewController} from "./types";
 import PostPreviewData from "./post-data/post-preview-data";
 import PostReactionControls from "../common/reaction-controls/post-reaction-controls";
 import PostPreviewComments from "./comments/post-preview-comments";
+import {PostReactionControlsController} from "../common/reaction-controls/types";
 
 interface Props {
     id: number
@@ -21,25 +22,50 @@ interface Props {
     comments?: Array<PostPreviewComment>,
 }
 
-function PostPreview(props: Props) {
+function PostPreview({
+    id,
+    authorNickname,
+    postText,
+    likesCount,
+    dislikesCount,
+    commentsCount,
+    reactionState,
+    followingState,
+    comments,
+    controller,
+}: Props) {
+    const postReactionController: PostReactionControlsController = {
+        onCommentClicked() {
+            controller?.onCommentClicked()
+        },
+        onLikeClicked() {
+            controller?.onLikeClicked()
+        },
+        onDislikeClicked() {
+            controller?.onDislikeClicked()
+        },
+    }
+
     return (
         <div
             className={styles.topContainer}
-            data-post-id={props.id}
+            data-post-id={id}
         >
             <PostPreviewData
-                nickname={props.authorNickname}
-                postText={props.postText}
-                followingState={props.followingState}
+                nickname={authorNickname}
+                postText={postText}
+                followingState={followingState}
+                controller={controller}
             />
             <PostReactionControls
-                likesCount={props.likesCount}
-                dislikesCount={props.dislikesCount}
-                commentsCount={props.commentsCount}
-                reactionState={props.reactionState}
+                likesCount={likesCount}
+                dislikesCount={dislikesCount}
+                commentsCount={commentsCount}
+                reactionState={reactionState}
+                controller={postReactionController}
             />
             <PostPreviewComments
-                comments={props.comments}
+                comments={comments}
             />
         </div>
     )
