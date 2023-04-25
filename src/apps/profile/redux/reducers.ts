@@ -1,6 +1,8 @@
 import {
-    FollowProfileData, GetProfileData,
-    GetProfileFollowersData, ProfileFollowersState,
+    FollowProfileData,
+    GetProfileData,
+    GetProfileFollowersData,
+    ProfileFollowersState,
     ProfilePostReactionState,
     ProfileState,
     ReactPostData,
@@ -11,7 +13,9 @@ import profileContainer from "../di/inversify.config";
 import {ProfileUseCase} from "../domain/usecases/profile.usecase";
 import {
     FollowProfileFailure,
-    FollowProfileSuccess, GetProfileDataFailure, GetProfileDataSuccess,
+    FollowProfileSuccess,
+    GetProfileDataFailure,
+    GetProfileDataSuccess,
     ReactPostFailure,
     ReactPostSuccess
 } from "../domain/usecases/profile-usecase.types";
@@ -19,9 +23,12 @@ import {ProfileSortUseCase} from "../domain/usecases/profile-sort.usecase";
 import {PostReactionState} from "../../posts/components/common/types";
 import {
     GetProfileFollowersFailure,
-    GetProfileFollowersSuccess, GetProfileFollowingFailure, GetProfileFollowingSuccess
+    GetProfileFollowersSuccess,
+    GetProfileFollowingFailure,
+    GetProfileFollowingSuccess
 } from "../domain/usecases/profile-followers-usecase.types";
 import {ProfileFollowersUseCase} from "../domain/usecases/profile-followers.usecase";
+import {SortType} from "../components/profile-posts/posts-controls/types";
 
 const container = profileContainer
 
@@ -31,7 +38,7 @@ export function onSortPostsClicked(
     const useCase = container.get<ProfileSortUseCase>(ProfileSortUseCase)
 
     const sortedPosts = useCase.sortUserPosts(
-        state.posts,
+        [...state.posts],
         action.payload.field,
         action.payload.type
     )
@@ -39,6 +46,9 @@ export function onSortPostsClicked(
     return {
         ...state,
         posts: sortedPosts,
+        selectedSortField: action.payload.field,
+        selectedSortType: action.payload.type === SortType.ASC
+            ? SortType.DESC : SortType.ASC,
     }
 }
 
