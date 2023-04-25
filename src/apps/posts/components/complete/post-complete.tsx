@@ -103,13 +103,15 @@ function PostComplete() {
                 title={postCompleteState.postTitle}
                 text={postCompleteState.postText}
             />
-            <PostReactionControls
-                likesCount={postCompleteState.postLikesCount}
-                dislikesCount={postCompleteState.postDislikesCount}
-                commentsCount={postCompleteState.postCommentsCount}
-                reactionState={postCompleteState.postReactionState}
-                controller={reactionsController}
-            />
+            <div className={styles.postControlsWrapper}>
+                <PostReactionControls
+                    likesCount={postCompleteState.postLikesCount}
+                    dislikesCount={postCompleteState.postDislikesCount}
+                    commentsCount={postCompleteState.postCommentsCount}
+                    reactionState={postCompleteState.postReactionState}
+                    controller={reactionsController}
+                />
+            </div>
             <PostCompleteComments
                 comments={postCompleteState.comments}
                 controller={commentsController}

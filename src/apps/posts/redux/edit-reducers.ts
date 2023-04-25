@@ -75,6 +75,7 @@ export const createPostThunk = createAsyncThunk<
         async (data, {rejectWithValue}) => {
             const useCase = container.get<PostsUseCase>(PostsUseCase)
 
+            console.log('123')
             const result = await useCase.createPost(data.title, data.text)
 
             if (result.type === 'failure') {
