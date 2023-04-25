@@ -1,24 +1,36 @@
-import {injectable} from "inversify";
+import {inject, injectable} from "inversify";
 import {
     CreatePostFailure,
-    CreatePostResult,
+    CreatePostResult, CreatePostSuccess,
     GetPostFailure,
-    GetPostResult, ReactPostCommentFailure,
+    GetPostResult, GetPostSuccess, ReactPostCommentFailure,
     ReactPostCommentResult,
     ReactPostFailure,
     ReactPostResult, UpdatePostFailure, UpdatePostResult
 } from "./posts-usecase.types";
 import {PostReactionState} from "../../components/common/types";
 import {CommentReactionState} from "../../../../common/components/comments/types";
+import {PostsApi} from "../../api/posts-api";
+import {TYPES} from "../../di/types";
 
 @injectable()
 export class PostsUseCase {
 
+    @inject(TYPES.PostsApi)
+    private postsApi: PostsApi | undefined
+
     public async getPost(postId: number): Promise<GetPostResult> {
+        const {content, error} = await this.postsApi!.getFullPostInformation(postId)
+        if (!content) {
+            return {
+                type: 'failure',
+                message: error?.message || 'Something went wrong'
+            } as GetPostFailure
+        }
         return {
-            type: 'failure',
-            message: 'Not implemented yet'
-        } as GetPostFailure
+            type: 'success',
+            post: content
+        } as GetPostSuccess
     }
 
     public async reactPost(
@@ -55,9 +67,18 @@ export class PostsUseCase {
         title: string,
         text: string
     ): Promise<CreatePostResult> {
+        const {content, error} = await this.postsApi!.createPost({
+            postTitle: title, postText: text, isVisible: true
+        })
+        if (!content) {
+            return {
+                type: 'failure',
+                message: error?.message || 'Something went wrong'
+            } as CreatePostFailure
+        }
         return {
-            type: 'failure',
-            message: 'Not implemented yet'
-        } as CreatePostFailure
+            type: 'success',
+            postId: content.postId
+        } as CreatePostSuccess
     }
 }

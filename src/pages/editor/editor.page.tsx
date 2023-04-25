@@ -1,15 +1,16 @@
 import React from 'react'
-import MarkDownEditor from '../../apps/mark-down/editor/mark-down.editor'
 import Page from '../../apps/page/page'
-
-import styles from "./editor-page.module.scss"
+import PostEdit from "../../apps/posts/components/edit/post-edit";
+import {HeaderMode} from "../../common/components/header/types";
+import {ContentDisplayMode} from "../../common/components/general-content-holder/types";
 
 function EditorPage () {
     return (
-        <Page>
-            <div className={styles.container}>
-                <MarkDownEditor />
-            </div>
+        <Page
+            headerMode={HeaderMode.AUTHORIZED}
+            contentDisplayMode={ContentDisplayMode.FIT_CONTENT}
+        >
+            <PostEdit />
         </Page>
     )
 }
