@@ -13,6 +13,7 @@ import FeedPage from "../pages/feed/feed.page";
 import RecoverPasswordPage from "../pages/recover-password/recover-password.page";
 import SettingsPage from "../pages/settings/settings.page";
 import SearchPage from "../pages/search/search.page";
+import PostPage from "../pages/post/post.page";
 
 function Entry () {
     return (
@@ -28,6 +29,7 @@ function Entry () {
                 <Route path='/feed' element={<FeedPage/>}/>
                 <Route path='/settings' element={<SettingsPage/>}/>
                 <Route path='/post/create-new' element={<EditorPage />}/>
+                <Route path='/post/:postId' element={<PostPage />}/>
                 <Route path='/search/:searchText' element={<SearchPage/>}/>
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>

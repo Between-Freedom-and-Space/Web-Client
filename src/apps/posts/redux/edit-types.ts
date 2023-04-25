@@ -3,6 +3,7 @@ export interface PostEditState {
     readonly postTitle: string
     readonly postText: string
     readonly type: PostEditType
+    readonly postUpdated: boolean
 
     readonly isLoading: boolean
     readonly isSaveLoading: boolean

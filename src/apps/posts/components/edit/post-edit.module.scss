@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
 
-  justify-items: center;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  align-items: start;
 
+  width: 100%;
+  height: 80vh;
   gap: 30px;
 
-  margin-top: 40px;
+  margin-left: 50px;
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 
@@ -17,10 +17,12 @@
   display: flex;
   flex-direction: column;
 
+  width: 60%;
+
   justify-items: center;
   justify-content: center;
   align-content: center;
-  align-items: center;
+  align-items: start;
 
   gap: 15px;
 }
@@ -28,7 +30,7 @@
 .postTitleLabel {
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 120%;
 
   text-align: center;
@@ -40,10 +42,12 @@
   display: flex;
   flex-direction: column;
 
+  width: 60%;
+
   justify-items: center;
   justify-content: center;
   align-content: center;
-  align-items: center;
+  align-items: start;
 
   gap: 15px;
 }
@@ -51,7 +55,7 @@
 .postTextLabel {
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 120%;
 
   text-align: center;
@@ -62,10 +66,11 @@
 .postEditControlsContainer {
   display: flex;
   flex-direction: row;
+  width: 60%;
 
   justify-items: center;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
+  align-content: space-between;
   align-items: center;
 
   gap: 10px;

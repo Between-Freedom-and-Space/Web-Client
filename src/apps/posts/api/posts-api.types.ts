@@ -18,7 +18,14 @@ export interface GetPostFullInformationResponse {
     readonly likesCount: number
     readonly dislikesCount: number
     readonly commentsCount: number
+    readonly author: PostFullInformationAuthor
     readonly comments: Array<PostFullInformationComment>
+}
+
+export interface PostFullInformationAuthor {
+    readonly profileId: number
+    readonly nickname: string
+    readonly name: string
 }
 
 export interface PostFullInformationComment {

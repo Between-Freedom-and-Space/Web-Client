@@ -24,7 +24,7 @@ export class PostsApiImpl implements PostsApi {
     public async createPost(request: CreatePostRequest): Promise<Response<CreatePostResponse>> {
         const response = await this.axios!.patch('/post/create', {
             post_name: request.postTitle,
-            post_text: request.postTitle,
+            post_text: request.postText,
             is_visible: request.isVisible,
             tags_aliases: [],
         }, {
@@ -33,7 +33,7 @@ export class PostsApiImpl implements PostsApi {
             }
         })
 
-        return parseResponse(response, (content: any) => {
+        return parseResponse(response.data, (content: any) => {
             return {
                 postId: content['post_id'],
                 title: content['name'],
@@ -50,7 +50,7 @@ export class PostsApiImpl implements PostsApi {
             }
         })
 
-        return parseResponse(response, (content: any) => {
+        return parseResponse(response.data, (content: any) => {
             return {
                 postId: content['post_id'],
                 title: content['name'],
@@ -58,6 +58,11 @@ export class PostsApiImpl implements PostsApi {
                 likesCount: content['likes_count'],
                 dislikesCount: content['dislikes_count'],
                 commentsCount: content['comments_count'],
+                author: {
+                    profileId: content['author']['profile_id'],
+                    nickname: content['author']['nickname'],
+                    name: content['author']['name_alias']
+                },
                 comments: content['comments'].map((commentContent: any) => {
                     return {
                         commentId: commentContent['comment_id'],

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from './post-edit.module.scss'
 import config from './assets/config.json'
 
@@ -14,6 +14,7 @@ import {createPostThunk, updatePostThunk} from "../../redux/edit-reducers";
 import {notificationActions} from "../../../../common/services/notifications/redux/slice";
 import PlainInput from "../../../../common/components/ui-kit/inputs/plain/plain-input";
 import {InputController} from "../../../../common/components/ui-kit/inputs/types";
+import {getPostRouting} from "../../../../config/routings.config";
 
 function PostEdit() {
     const navigate = useNavigate()
@@ -21,19 +22,33 @@ function PostEdit() {
     const dispatch = useAppDispatch()
     const editState = useAppSelector(root => root.postEdit)
 
-    const { postId } = useParams()
-    if (location.pathname.includes('new')) {
-        dispatch(postEditActions.changeType(PostEditType.NEW_POST))
-    } else {
-        dispatch(postEditActions.changeType(PostEditType.EDITING))
-        dispatch(getPostThunk({postId: Number.parseInt(postId!)}))
+    // const { postId } = useParams()
+    // useEffect(() => {
+    //     dispatch(getPostThunk({postId: Number.parseInt(postId!)}))
+    // }, [postId])
+    // if (location.pathname.includes('new')) {
+    //     // dispatch(postEditActions.changeType(PostEditType.NEW_POST))
+    // } else {
+    //     // dispatch(postEditActions.changeType(PostEditType.EDITING))
+    //     dispatch(getPostThunk({postId: Number.parseInt(postId!)}))
+    // }
+
+    if (editState.type === PostEditType.NEW_POST) {
+        if (editState.postId) {
+            navigate(getPostRouting(editState.postId))
+        }
     }
+    // useEffect(() => {
+    //     if (editState.postUpdated) {
+    //         navigate(getPostRouting(editState.postId!))
+    //     }
+    // }, [editState.postUpdated])
 
     const cancelButtonClickHandler = () => {
         navigate(-1)
     }
     const saveButtonClickHandler = () => {
-        if (editState.type == PostEditType.NEW_POST) {
+        if (editState.type === PostEditType.NEW_POST) {
             dispatch(createPostThunk({
                 title: editState.postTitle,
                 text: editState.postText,
