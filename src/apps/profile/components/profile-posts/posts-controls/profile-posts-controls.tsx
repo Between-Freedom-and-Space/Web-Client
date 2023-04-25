@@ -47,6 +47,8 @@ function ProfilePostsControls({
     const sortByLikesIcon = (<img src={likeIcon} alt='Like icon'/>)
     const sortByViewsIcon = (<img src={eyeIcon} alt='Eye icon'/>)
 
+    console.log(selectedSortField)
+
     let newPostButton: ReactNode = null
     if (isUserProfile) {
         newPostButton = (
