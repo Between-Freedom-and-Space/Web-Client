@@ -1,3 +1,7 @@
+@import "src/common/components/ui-kit/core/colors.module";
+@import "src/common/components/ui-kit/core/fonts.module";
+@import "src/common/components/ui-kit/core/dimensions.module";
+
 .topContainer {
   display: flex;
   flex-direction: row;
@@ -13,14 +17,14 @@
   cursor: pointer;
 
   &:hover {
-    border-radius: 10px;
+    border-radius: $bigBorderRadius;
     border: 1px solid #D1D8DD;
   }
   &:active {
     transform: scale(0.98);
   }
   &[data-control-state='selected'] {
-    border: 1px solid #6831FF;
+    border: 1px solid $lightPrimaryColor;
   }
 }
 
@@ -31,7 +35,7 @@
   justify-items: center;
   align-content: center;
   align-items: center;
-  gap: 10px;
+  gap: $defaultGap;
 
   margin: 10px;
 }
@@ -46,11 +50,11 @@
 
 .label {
   font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: $fontWeightMedium;
+  font-size: $fontSizeMedium;
   line-height: 115%;
 
-  color: #898C95;
+  color: $secondaryLightFontColor;
 }
 
 .sortTypeContainer {

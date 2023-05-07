@@ -1,3 +1,6 @@
+@import "src/common/components/ui-kit/core/colors.module";
+@import "src/common/components/ui-kit/core/fonts.module";
+
 .container {
   display: flex;
   justify-content: flex-start;
@@ -26,13 +29,13 @@
 
   color: #C8CACC;
   font-style: normal;
-  font-weight: 700;
+  font-weight: $fontWeightBig;
 
   &:hover,
   &:focus,
   &:active {
     outline: none;
-    border: 1px solid #6831FF;
+    border: 1px solid $lightPrimaryColor;
     border-radius: 7px;
   }
 }

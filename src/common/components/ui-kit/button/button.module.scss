@@ -1,12 +1,15 @@
+@import "src/common/components/ui-kit/core/colors.module";
+@import "src/common/components/ui-kit/core/fonts.module";
+
 .button[data-button-type='primary'] {
   padding: 5px 15px;
 
   color: #FFFFFF;
   font-style: normal;
   text-align: center;
-  font-weight: 700;
+  font-weight: $fontWeightBig;
 
-  background: #6831FF;
+  background: $lightPrimaryColor;
   border: 1px solid #3F22A8;
   border-radius: 6px;
 
@@ -49,12 +52,12 @@
 .button[data-button-type='secondary'] {
   padding: 5px;
 
-  color: #5A6069;
+  color: $secondaryDarkFontColor;
   font-style: normal;
   text-align: center;
-  font-weight: 700;
+  font-weight: $fontWeightMedium;
 
-  background: #F6F9FA;
+  background: $lightSecondaryColor;
   border: 1px solid #D1D8DD;
   border-radius: 6px;
 
@@ -100,9 +103,9 @@
   color: white;
   font-style: normal;
   text-align: center;
-  font-weight: 500;
+  font-weight: $fontWeightMedium;
 
-  background: #AB2424;
+  background: $lightDangerColor;
   border: 2px solid #790404;
   border-radius: 6px;
 
