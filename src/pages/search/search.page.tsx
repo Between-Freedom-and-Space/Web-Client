@@ -5,9 +5,7 @@ import Search from "../../apps/search/components/search";
 
 function SearchPage() {
     return (
-        <Page headerMode={HeaderMode.ONLY_LOGO}>
-            <Search />
-        </Page>
+        <Search />
     )
 }
 

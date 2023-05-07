@@ -2,9 +2,8 @@ import React from 'react'
 import * as styles from './index.css'
 import ReactDOM from 'react-dom/client'
 import App from './entry/entry'
-import { Provider } from 'react-redux'
-import { store } from './config/redux.config'
 import { Buffer } from "buffer";
+import {BrowserRouter} from "react-router-dom";
 
 window.Buffer = window.Buffer || Buffer
 
@@ -20,8 +19,8 @@ window.Buffer = window.Buffer || Buffer
 
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
+        <BrowserRouter>
             <App />
-        </Provider>
+        </BrowserRouter>
     </React.StrictMode>
 )
