@@ -8,7 +8,7 @@ import {
 } from "./settings-usecase.types";
 import {InputsValidator} from "../../../../common/services/validators/inputs.validator";
 import TYPES from "../../di/types";
-import {SettingsApi} from "../../api/settings-api";
+import {SettingsApi} from "../../api/endpoints/settings/settings-api";
 import {ValidationResultType} from "../../../../common/services/validators/types";
 
 @injectable()

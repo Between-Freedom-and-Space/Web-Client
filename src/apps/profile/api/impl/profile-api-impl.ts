@@ -1,7 +1,7 @@
-import {ProfileApi} from "../profile-api";
+import {ProfileApi} from "../endpoints/profile/profile-api";
 import {inject, injectable} from "inversify";
 import {Response} from "../../../../common/api/types";
-import {GetProfileByIdResponse, ProfilePost} from "../profile-api.types";
+import {GetProfileByIdResponse, ProfilePost} from "../endpoints/profile/profile-api.types";
 import {TYPES} from "../../di/types";
 import {AxiosInstance} from "axios";
 import {parseResponse} from "../../../../common/helpers/api-helper";

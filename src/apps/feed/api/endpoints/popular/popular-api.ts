@@ -1,4 +1,4 @@
-import {Response} from "../../../common/api/types";
+import {Response} from "../../../../../common/api/types";
 import {PopularPostsResponse, PopularProfilesResponse} from "./popular-api.types";
 
 export interface PopularApi {

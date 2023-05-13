@@ -10,7 +10,7 @@ import {
 } from "./posts-usecase.types";
 import {PostReactionState} from "../../components/common/types";
 import {CommentReactionState} from "../../../../common/components/comments/types";
-import {PostsApi} from "../../api/posts-api";
+import {PostsApi} from "../../api/endpoints/posts/posts-api";
 import {TYPES} from "../../di/types";
 
 @injectable()

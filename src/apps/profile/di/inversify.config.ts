@@ -1,6 +1,6 @@
 import {Container} from "inversify";
 import {ProfileUseCase} from "../domain/usecases/profile.usecase";
-import {ProfileApi} from "../api/profile-api";
+import {ProfileApi} from "../api/endpoints/profile/profile-api";
 import {TYPES} from "./types";
 import {ProfileApiImpl} from "../api/impl/profile-api-impl";
 import {ProfileSortUseCase} from "../domain/usecases/profile-sort.usecase";

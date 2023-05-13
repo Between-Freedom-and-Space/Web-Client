@@ -1,7 +1,7 @@
 import {inject, injectable} from "inversify";
 import {PerformSignInData, SignInResult, SignInResultFailure, SignInResultSuccess} from "./sign-in-usecase.types";
 import {InputsValidator} from "../../../../../common/services/validators/inputs.validator";
-import {AuthenticateApi} from "../../../api/auth-api";
+import {AuthenticateApi} from "../../../api/endpoints/auth/auth-api";
 import TYPES from "../../../di/types";
 import {TokenRepository} from "../../../repository/token.repository";
 import {ValidationResultType} from "../../../../../common/services/validators/types";

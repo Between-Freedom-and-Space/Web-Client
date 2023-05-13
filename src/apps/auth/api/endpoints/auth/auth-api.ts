@@ -4,7 +4,7 @@ import {
     RefreshAccessTokenResponse, RegisterUserRequest, 
     RegisterUserResponse
 } from "./auth-api.types";
-import {Response} from "../../../common/api/types";
+import {Response} from "../../../../../common/api/types";
 
 export interface AuthenticateApi {
 

@@ -1,4 +1,4 @@
-import {Response} from "../../../common/api/types";
+import {Response} from "../../../../../common/api/types";
 import {GetProfileByIdResponse} from "./profile-api.types";
 
 export interface ProfileApi {

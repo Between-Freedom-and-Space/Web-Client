@@ -1,7 +1,7 @@
 import {PostReactionState} from "../../components/common/types";
 import exp from "constants";
 import {CommentReactionState} from "../../../../common/components/comments/types";
-import {GetPostFullInformationResponse} from "../../api/posts-api.types";
+import {GetPostFullInformationResponse} from "../../api/endpoints/posts/posts-api.types";
 
 export interface GetPostResult {
     type: 'success' | 'failure'

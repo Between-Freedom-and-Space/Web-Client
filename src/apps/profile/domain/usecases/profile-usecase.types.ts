@@ -1,5 +1,5 @@
 import {ProfilePostReactionState} from "../../redux/types";
-import {GetProfileByIdResponse} from "../../api/profile-api.types";
+import {GetProfileByIdResponse} from "../../api/endpoints/profile/profile-api.types";
 
 export interface ReactPostResult {
     type: 'success' | 'failure'

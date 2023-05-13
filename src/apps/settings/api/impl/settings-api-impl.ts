@@ -1,11 +1,11 @@
-import {SettingsApi} from "../settings-api";
+import {SettingsApi} from "../endpoints/settings/settings-api";
 import {inject, injectable} from "inversify";
 import {
     ChangeAccountVisibilityResponse,
     ChangeEmailResponse,
     ChangeNicknameResponse,
     DeleteAccountResponse, GetAccountSettingsResponse
-} from "../settings-api.types";
+} from "../endpoints/settings/settings-api.types";
 import {Response} from "../../../../common/api/types";
 import TYPES from "../../di/types";
 import {parseResponse} from "../../../../common/helpers/api-helper";

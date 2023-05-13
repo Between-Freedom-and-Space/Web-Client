@@ -1,9 +1,9 @@
-import {MailingApi} from "../mailing-api";
+import {MailingApi} from "../endpoints/mailing/mailing-api";
 import {
     SendEmailVerificationCodeRequest,
     VerifyCodeResponse,
     VerifyEmailVerificationCodeRequest
-} from "../mailing-api.types";
+} from "../endpoints/mailing/mailing-api.types";
 import {inject, injectable} from "inversify";
 import {AxiosInstance} from "axios";
 import TYPES from "../../di/types";
