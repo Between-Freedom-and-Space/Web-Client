@@ -1,4 +1,5 @@
 import React, {ReactNode} from 'react'
+import {Outlet} from "react-router-dom";
 
 import Header from '../../common/components/header/header'
 import Footer from '../../common/components/footer/footer'
@@ -11,14 +12,12 @@ import {ReactNotifications} from "react-notifications-component";
 import 'react-notifications-component/dist/theme.css'
 
 interface Props {
-    children?: ReactNode
     headerMode?: HeaderMode
     contentDisplayMode?: ContentDisplayMode
     backgroundColor?: BackgroundColor
 }
 
 function Page ({
-    children,
     headerMode = HeaderMode.ONLY_LOGO,
     contentDisplayMode,
     backgroundColor = BackgroundColor.WHITE,
@@ -31,7 +30,7 @@ function Page ({
             <ReactNotifications />
             <Header mode={headerMode}/>
             <GeneralContentHolder displayMode={contentDisplayMode}>
-                {children}
+                <Outlet />
             </GeneralContentHolder>
             <Footer/>
         </div>
