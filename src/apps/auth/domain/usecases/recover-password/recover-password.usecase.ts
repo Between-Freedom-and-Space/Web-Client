@@ -4,7 +4,7 @@ import {InputsValidator} from "../../../../../common/services/validators/inputs.
 import TYPES from "../../../di/types";
 import {TokenRepository} from "../../../repository/token.repository";
 import {PasswordEncryptor} from "../../../../../common/helpers/security/password-encryptor";
-import {RecoverPasswordApi} from "../../../api/recover-password-api";
+import {RecoverPasswordApi} from "../../../api/endpoints/recover-password/recover-password-api";
 import {
     CheckVerificationCodeResult,
     RecoverPasswordData,

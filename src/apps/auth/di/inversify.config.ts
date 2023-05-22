@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
 import { Container } from "inversify";
-import { AuthenticateApi } from "../api/auth-api"
+import { AuthenticateApi } from "../api/endpoints/auth/auth-api"
 import authAxios from "../api/axios/config";
 import "reflect-metadata";
 import { AuthenticateApiImpl } from "../api/impl/auth-api-impl";
@@ -18,10 +18,10 @@ import {SecurityVariableRepository} from "../repository/security-variable.reposi
 import {LocalStorageSecurityVariableRepository} from "../repository/impl/local-storage.security-variable.repository";
 import {SecurityVariableGenerator} from "../domain/services/security-variable.generator";
 import {UuidSecurityVariableGenerator} from "../domain/services/impl/uuid.security-variable.generator";
-import {MailingApi} from "../api/mailing-api";
+import {MailingApi} from "../api/endpoints/mailing/mailing-api";
 import {MailingApiImpl} from "../api/impl/mailing-api-impl";
 import {LoggingRequestInterceptor, LoggingResponseInterceptor} from "../../../common/api/logging-interceptor";
-import {RecoverPasswordApi} from "../api/recover-password-api";
+import {RecoverPasswordApi} from "../api/endpoints/recover-password/recover-password-api";
 import {RecoverPasswordApiImpl} from "../api/impl/recover-password-api-impl";
 import {RecoverPasswordUseCase} from "../domain/usecases/recover-password/recover-password.usecase";
 import {configureAxios} from "./settings/axios.settings";

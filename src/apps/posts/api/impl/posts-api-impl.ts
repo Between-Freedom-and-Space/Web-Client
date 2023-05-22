@@ -1,11 +1,11 @@
-import {PostsApi} from "../posts-api";
+import {PostsApi} from "../endpoints/posts/posts-api";
 import {Response} from "../../../../common/api/types";
 import {
     CreatePostRequest,
     CreatePostResponse,
     GetPostFullInformationResponse,
     PostFullInformationComment
-} from "../posts-api.types";
+} from "../endpoints/posts/posts-api.types";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../../di/types";
 import {TokenRepository} from "../../../auth/repository/token.repository";

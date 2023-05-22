@@ -1,5 +1,5 @@
 import {Container} from "inversify";
-import {SearchApi} from "../api/search-api";
+import {SearchApi} from "../api/endpoints/search/search-api";
 import {TYPES} from "./types";
 import {SearchApiImpl} from "../api/impl/search-api-impl";
 import {SearchUseCase} from "../domain/usecases/search.usecase";

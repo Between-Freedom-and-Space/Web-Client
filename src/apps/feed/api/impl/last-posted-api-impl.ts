@@ -1,6 +1,6 @@
-import {LastPostedApi} from "../last-posted-api";
+import {LastPostedApi} from "../endpoints/last-posted/last-posted-api";
 import {injectable} from "inversify";
-import {SubscriptionsPostsResponse} from "../last-posted-api.types";
+import {SubscriptionsPostsResponse} from "../endpoints/last-posted/last-posted-api.types";
 import {Response} from "../../../../common/api/types";
 import {parseResponse} from "../../../../common/helpers/api-helper";
 

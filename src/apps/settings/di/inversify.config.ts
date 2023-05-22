@@ -1,5 +1,5 @@
 import {Container} from "inversify";
-import {SettingsApi} from "../api/settings-api";
+import {SettingsApi} from "../api/endpoints/settings/settings-api";
 import {SettingsApiImpl} from "../api/impl/settings-api-impl";
 import TYPES from "./types";
 import {SettingsUseCase} from "../domain/usecases/settings.usecase";

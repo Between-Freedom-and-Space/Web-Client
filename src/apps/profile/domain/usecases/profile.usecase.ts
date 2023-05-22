@@ -7,7 +7,7 @@ import {
     ReactPostFailure,
     ReactPostResult
 } from "./profile-usecase.types";
-import {ProfileApi} from "../../api/profile-api";
+import {ProfileApi} from "../../api/endpoints/profile/profile-api";
 import {TYPES} from "../../di/types";
 
 @injectable()

@@ -1,11 +1,11 @@
 import {inject, injectable} from "inversify";
-import { AuthenticateApi } from "../auth-api";
+import { AuthenticateApi } from "../endpoints/auth/auth-api";
 import {
     RegisterUserRequest, RegisterUserResponse,
     AuthenticateUserRequest, AuthenticateUserResponse,
     DeleteUserRequest, RefreshAccessTokenRequest,
     RefreshAccessTokenResponse
-} from "../auth-api.types";
+} from "../endpoints/auth/auth-api.types";
 import {AxiosInstance} from "axios";
 import TYPES from "../../di/types";
 import {Response} from "../../../../common/api/types";

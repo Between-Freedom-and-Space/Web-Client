@@ -1,4 +1,4 @@
-import {RecoverPasswordApi} from "../recover-password-api";
+import {RecoverPasswordApi} from "../endpoints/recover-password/recover-password-api";
 import {inject, injectable} from "inversify";
 import TYPES from "../../di/types";
 import {AxiosInstance} from "axios";
@@ -6,7 +6,7 @@ import {
     CheckVerifiedCodeResponse, RecoverPasswordRequest,
     RecoverPasswordResponse,
     SendVerifiedCodeResponse
-} from "../recover-password-api.types";
+} from "../endpoints/recover-password/recover-password-api.types";
 import {Response} from "../../../../common/api/types";
 import {parseResponse} from "../../../../common/helpers/api-helper";
 

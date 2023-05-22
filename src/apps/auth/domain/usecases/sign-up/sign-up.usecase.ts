@@ -7,13 +7,13 @@ import {
     SignUpResult,
     SignUpSuccess
 } from "./sign-up-usecase.types";
-import {AuthenticateApi} from "../../../api/auth-api";
+import {AuthenticateApi} from "../../../api/endpoints/auth/auth-api";
 import TYPES from "../../../di/types";
 import {PasswordEncryptor} from "../../../../../common/helpers/security/password-encryptor";
 import {TokenRepository} from "../../../repository/token.repository";
 import {InputsValidator} from "../../../../../common/services/validators/inputs.validator";
 import {ValidationResultType} from "../../../../../common/services/validators/types";
-import {MailingApi} from "../../../api/mailing-api";
+import {MailingApi} from "../../../api/endpoints/mailing/mailing-api";
 import {SecurityVariableRepository} from "../../../repository/security-variable.repository";
 import {SecurityVariableGenerator} from "../../services/security-variable.generator";
 

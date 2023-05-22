@@ -1,5 +1,5 @@
 import {Container} from "inversify";
-import {PostsApi} from "../api/posts-api";
+import {PostsApi} from "../api/endpoints/posts/posts-api";
 import {TYPES} from "./types";
 import {PostsApiImpl} from "../api/impl/posts-api-impl";
 import {PostsUseCase} from "../domain/usecases/posts.usecase";

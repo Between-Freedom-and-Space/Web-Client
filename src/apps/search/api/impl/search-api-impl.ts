@@ -1,4 +1,4 @@
-import {SearchApi} from "../search-api";
+import {SearchApi} from "../endpoints/search/search-api";
 import {injectable} from "inversify";
 import {parseResponse} from "../../../../common/helpers/api-helper";
 import {Response} from "../../../../common/api/types";
